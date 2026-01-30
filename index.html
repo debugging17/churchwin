@@ -270,44 +270,44 @@
 
         <!-- 01. INTRO -->
         <!-- Slide 1: The Hook (Cover) -->
-        <section class="slide" id="slide-1" style="align-items: flex-end; justify-content: center; position: relative;">
+        <section class="slide" id="slide-1"
+            style="align-items: center; justify-content: center; position: relative; overflow: hidden;">
 
-            <!-- Brand Logo (Top Left) -->
-            <div style="position: absolute; top: 3rem; left: 3rem; z-index: 10;">
-                <img src="churchwin logo.png" style="width: 200px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));"
+            <!-- Brand Logo (Centered Top) -->
+            <div style="position: absolute; top: 5vh; left: 50%; transform: translateX(-50%); z-index: 10;">
+                <img src="churchwin logo.png" style="width: 180px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));"
                     alt="Churchwin Logo">
             </div>
 
-            <!-- Massive Background Typography -->
+            <!-- Massive Background Typography (Subtle Depth) -->
             <div class="hero-text-container"
-                style="position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); width: 100%; z-index: 1; text-align: center; pointer-events: none;">
+                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 100%; z-index: 1; text-align: center; pointer-events: none; opacity: 0.3;">
                 <h1 class="hero-title"
-                    style="font-family: 'Syne'; font-weight: 800; font-size: 13vw; line-height: 0.8; color: var(--text-main); text-transform: uppercase; white-space: nowrap;">
+                    style="font-family: 'Syne'; font-weight: 800; font-size: 15vw; line-height: 0.8; color: var(--text-main); text-transform: uppercase; white-space: nowrap;">
                     STRATEGIC<br>
-                    <span style="color: var(--accent);">WEB</span> DEVELOPER
+                    <span style="color: var(--accent);">WEB</span> DEV
                 </h1>
             </div>
 
-            <!-- Candidate Image (Rising Architectural Cutout) -->
-            <div class="candidate-cutout"
-                style="position: relative; z-index: 2; height: 90vh; bottom: -5vh; display: flex; align-items: flex-end;">
-                <img src="headshot.png" class="hero-img" alt="Cephas Kudalor"
-                    style="height: 100%; width: auto; object-fit: contain; filter: drop-shadow(0 10px 50px rgba(0,0,0,0.6));">
-            </div>
+            <!-- Apple-Style Product Cluster -->
+            <div class="apple-product-cluster"
+                style="position: relative; z-index: 5; width: 100vw; height: 60vh; display: flex; align-items: center; justify-content: center; transform-style: preserve-3d;">
 
-            <!-- Product Collage (Visual Hierarchy) -->
-            <div class="collage-container"
-                style="position: absolute; bottom: 5vh; right: 5vw; z-index: 5; display: flex; align-items: flex-end;">
-                <!-- Cocoa Butter (New) -->
-                <img src="Cocoa-Butter-Photoroom-1.png" class="collage-item"
-                    style="width: 160px; transform: rotate(-10deg) translateX(30px); z-index: 1;" alt="Cocoa Butter">
-                <!-- Shea Butter -->
-                <img src="Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp" class="collage-item"
-                    style="width: 180px; z-index: 2; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));"
+                <!-- Centerpiece: Shea Butter (Large) -->
+                <img src="Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp"
+                    class="product-hero-item main"
+                    style="width: 350px; z-index: 3; filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5)); transform: translateZ(50px);"
                     alt="Shea Butter">
-                <!-- Neem Oil -->
-                <img src="Churchwin_B08ZNQ6WGJ-Neem-Oil-8-Photoroom-2.webp" class="collage-item"
-                    style="width: 110px; transform: rotate(15deg) translateX(-20px); z-index: 3;" alt="Neem Oil">
+
+                <!-- Floating Left: Cocoa Butter -->
+                <img src="Cocoa-Butter-Photoroom-1.png" class="product-hero-item left"
+                    style="position: absolute; width: 280px; left: 15%; top: 10%; z-index: 2; transform: rotate(-15deg) translateZ(20px); filter: blur(0px) drop-shadow(0 15px 30px rgba(0,0,0,0.4));"
+                    alt="Cocoa Butter">
+
+                <!-- Floating Right: Neem Oil -->
+                <img src="Churchwin_B08ZNQ6WGJ-Neem-Oil-8-Photoroom-2.webp" class="product-hero-item right"
+                    style="position: absolute; width: 220px; right: 20%; bottom: 0%; z-index: 4; transform: rotate(15deg) translateZ(80px); filter: drop-shadow(0 25px 40px rgba(0,0,0,0.6));"
+                    alt="Neem Oil">
             </div>
 
         </section>
@@ -588,8 +588,17 @@
         function animateSlideContent(index, direction) {
             const slide = sections[index];
 
-            // Special Case: Slide 1 (Cover)
+            // Special Case: Slide 1 (Cover) - ENTRANCE
             if (index === 0) {
+                // Reset if coming back
+                gsap.set('.product-hero-item', { clearProps: "all" });
+                gsap.set('.hero-title', { opacity: 0.3, scale: 0.9 });
+
+                // Float Animation (Apple Breath)
+                gsap.fromTo('.product-hero-item.main', { y: 20 }, { y: -20, duration: 4, repeat: -1, yoyo: true, ease: "sine.inOut" });
+                gsap.fromTo('.product-hero-item.left', { y: -15 }, { y: 15, duration: 5, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 0.5 });
+                gsap.fromTo('.product-hero-item.right', { y: 30 }, { y: -30, duration: 6, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 1 });
+
                 // Text Scales Down (from larger status)
                 const heroTitle = slide.querySelector('.hero-title');
                 if (heroTitle) {
@@ -619,6 +628,33 @@
 
                 return; // Exit standard animation for this slide
             }
+
+            // EXIT animation for Slide 1 (when moving from index 0 to 1)
+            if (currentIndex === 0 && index === 1 && direction === 'next') {
+                const products = sections[0].querySelectorAll('.collage-item');
+                if (products.length > 0) {
+                    gsap.to(products, {
+                        scale: 2,
+                        opacity: 0,
+                        x: (i) => (i % 2 === 0 ? -200 : 200), // Disperse left/right
+                        y: (i) => (i % 2 === 0 ? -100 : 100), // Disperse up/down
+                        rotation: (i) => (i % 2 === 0 ? -45 : 45),
+                        duration: 1.5,
+                        ease: "power2.in",
+                        stagger: 0.05,
+                        onComplete: () => {
+                            // Optionally reset properties after animation if needed for re-entry
+                            gsap.set(products, { clearProps: "all" });
+                        }
+                    });
+                }
+                // Also animate out the hero title
+                const heroTitle = sections[0].querySelector('.hero-title');
+                if (heroTitle) {
+                    gsap.to(heroTitle, { opacity: 0, scale: 0.8, duration: 1, ease: "power2.in" });
+                }
+            }
+
 
             // Standard Animation for other slides
             // Text Stagger: Pitch.com style "Spring" Reveal
@@ -660,8 +696,29 @@
             isAnimating = true;
 
             const direction = index > currentIndex ? 'next' : 'prev';
-            currentIndex = index;
 
+            // Special Exit Animation for Slide 1 (Apple Scroll Effect)
+            if (currentIndex === 0 && direction === 'next') {
+                const tlExit = gsap.timeline({
+                    onComplete: () => {
+                        performSlideTransition(index, direction);
+                    }
+                });
+
+                // Products Explore Outwards
+                tlExit.to('.product-hero-item.main', { scale: 1.5, z: 200, opacity: 0, duration: 0.8, ease: "power2.in" }, 0);
+                tlExit.to('.product-hero-item.left', { x: "-50vw", rotation: -45, opacity: 0, duration: 0.8, ease: "power2.in" }, 0.1);
+                tlExit.to('.product-hero-item.right', { x: "50vw", rotation: 45, opacity: 0, duration: 0.8, ease: "power2.in" }, 0.1);
+                tlExit.to('.hero-title', { scale: 0.5, opacity: 0, duration: 0.5 }, 0);
+
+                return; // Wait for exit to complete
+            }
+
+            performSlideTransition(index, direction);
+        }
+
+        function performSlideTransition(index, direction) {
+            currentIndex = index;
             updateUI(currentIndex);
 
             const tl = gsap.timeline({
