@@ -73,7 +73,7 @@
         /* Layout */
         .deck-container {
             display: flex;
-            width: 600vw;
+            width: 1100vw;
             height: 100vh;
             will-change: transform;
         }
@@ -232,23 +232,43 @@
         .current-page {
             color: var(--text-main);
         }
+
+        /* Light Mode Variant */
+        .slide-light {
+            background-color: var(--text-main);
+            color: var(--bg-dark);
+        }
+
+        .slide-light .label {
+            color: var(--bg-dark);
+            opacity: 0.6;
+        }
+
+        .slide-light .highlight {
+            color: var(--accent);
+        }
+
+        .slide-light .outline-text {
+            -webkit-text-stroke: 1px rgba(8, 41, 88, 0.2);
+            /* Navy outline */
+            color: transparent;
+        }
+
+        /* Update Bg Text for light mode */
+        .slide-light~.bg-text {
+            color: rgba(8, 41, 88, 0.03);
+        }
     </style>
 </head>
 
 <body>
-
-    <!-- Fixed Header -->
-    <div style="position: fixed; top: 3rem; left: 3rem; z-index: 100; mix-blend-mode: difference;">
-        <div style="font-family: 'Syne'; font-weight: 800; font-size: 1.5rem; letter-spacing: -1px;">
-            CEPHAS<span style="color: var(--accent);">.</span>DEV
-        </div>
-    </div>
 
     <!-- Background Watermark -->
     <div class="bg-text">IMPACT</div>
 
     <div class="deck-container">
 
+        <!-- 01. INTRO -->
         <!-- Slide 1: The Identity (Cover) -->
         <section class="slide" id="slide-1">
             <div class="narrative-pane">
@@ -261,98 +281,82 @@
                 </p>
             </div>
             <div class="visual-pane">
-                <div class="headshot-frame">
-                    <!-- Placeholder Headshot -->
-                    <img src="headshot.png" alt="Cephas Kudalor" class="headshot-img">
+                <!-- Product Collage -->
+                <div class="collage-container" style="position: relative; width: 500px; height: 600px;">
+                    <img src="churchwin logo.png" class="collage-item"
+                        style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 250px; z-index: 3; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));"
+                        alt="Logo">
+                    <img src="Churchwin_B08ZNQ6WGJ-Neem-Oil-8-Photoroom-2.webp" class="collage-item"
+                        style="position: absolute; bottom: 50px; left: 0; width: 280px; z-index: 2; transform: rotate(-10deg);"
+                        alt="Neem Oil">
+                    <img src="Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp"
+                        class="collage-item"
+                        style="position: absolute; bottom: 0; right: 0; width: 280px; z-index: 1; transform: rotate(10deg);"
+                        alt="Shea Butter">
                 </div>
             </div>
         </section>
 
-        <!-- Slide 2: About Me (Strategic Fit) -->
+        <!-- Slide 2: About Me (Tailored CV) -->
         <section class="slide" id="slide-2">
             <div class="narrative-pane" style="padding-right: 2rem;">
                 <span class="label">The Specialist</span>
                 <h1 class="headline-xl">About <br><span class="highlight">Cephas</span></h1>
                 <p class="body-xl">
-                    I am a <strong>Strategic Web Developer</strong> with a background in <strong>Engineering
-                        Logic</strong> and <strong>Global Business Operations</strong>.
+                    I am a <strong>Strategic Web Developer</strong> combining <strong>Engineering Logic</strong> with
+                    <strong>Global Business Operations</strong>.
                     <br><br>
-                    At <strong>Thermo Fisher Scientific</strong>, I mastered the art of remote reliability across global
-                    teams. At <strong>Bezeleel Alliance</strong>, I didn't just code—I implemented Agile workflows that
-                    boosted productivity by <strong>30%</strong>.
+                    At <strong>Thermo Fisher Scientific</strong>, I mastered remote reliability. At <strong>Bezeleel
+                        Alliance</strong>, I boosted productivity by <strong>30%</strong>.
                     <br><br>
-                    I tailor this multidisciplinary expertise to <strong>WordPress</strong>. For Churchwin, I don't just
-                    maintain plugins; I engineer a <strong>secure, high-speed digital ecosystem</strong> designed to
-                    scale your organic skincare brand globally.
-                </p>
-            </div>
-            <div class="visual-pane" style="overflow: hidden;">
-                <!-- Full Height Image for 'About' feel -->
-                <img src="headshot.png"
-                    style="height: 90%; width: auto; object-fit: cover; border-radius: 20px; border: 2px solid var(--accent); opacity: 0.9;"
-                    alt="Cephas Kudalor">
-            </div>
-        </section>
-
-        <!-- Slide 3: The Architect (Experience) -->
-        <section class="slide" id="slide-3">
-            <div class="narrative-pane">
-                <span class="label">The Architect</span>
-                <h1 class="headline-xl">Proven <br><span class="highlight">Logic</span></h1>
-                <p class="body-xl">
-                    My background is built on complex challenges.<br><br>
-                    At <strong>Bezeleel Alliance</strong>, I led projects from concept to cash-flow.<br>
-                    At <strong>Offshore Partners</strong>, I engineered business logic that powered operations.
+                    I bridge the gap between <strong>Technical Code</strong> and <strong>Business Goals</strong>.
                 </p>
             </div>
             <div class="visual-pane">
-                <div style="display: flex; flex-direction: column; gap: 2rem;">
-                    <div class="kpi-modern" style="width: 400px;">
-                        <span style="font-size: 2rem;">📂</span>
-                        <div>
-                            <div style="font-family:'Syne'; font-weight:700;">Project Management</div>
-                            <div style="color: #666; font-size: 0.9rem;">End-to-End Execution</div>
-                        </div>
+                <!-- Interactive Profile Frame -->
+                <div class="profile-frame"
+                    style="width: 400px; height: 500px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden; position: relative; backdrop-filter: blur(10px);">
+                    <!-- Header Bar of Frame -->
+                    <div
+                        style="height: 40px; background: rgba(0,0,0,0.2); display: flex; align-items: center; padding: 0 1rem; gap: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <div style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f56;"></div>
+                        <div style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></div>
+                        <div style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></div>
+                        <div style="margin-left: auto; font-family: 'Inter'; font-size: 0.7rem; color: #666;">
+                            cephas_profile.json</div>
                     </div>
-                    <div class="kpi-modern" style="width: 400px; transform: translateX(30px);">
-                        <span style="font-size: 2rem;">⚙️</span>
-                        <div>
-                            <div style="font-family:'Syne'; font-weight:700;">Business Logic</div>
-                            <div style="color: #666; font-size: 0.9rem;">Clean, Maintainable Code</div>
-                        </div>
+                    <!-- Image -->
+                    <img src="headshot.png" style="width: 100%; height: calc(100% - 40px); object-fit: cover;"
+                        alt="Cephas Profile">
+
+                    <!-- Floating Badge -->
+                    <div
+                        style="position: absolute; bottom: 20px; right: 20px; background: var(--accent); color: white; padding: 5px 15px; border-radius: 20px; font-family: 'Syne'; font-weight: 700; font-size: 0.8rem; box-shadow: 0 5px 15px rgba(222, 74, 29, 0.4);">
+                        STATUS: READY
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 4: The Experience (Product) -->
-        <section class="slide" id="slide-4">
-            <div class="visual-pane">
-                <!-- Using Scale Animation on Scroll -->
-                <img src="https://churchwin.com/wp-content/uploads/Original-scaled.png" class="product-hero"
-                    alt="Product">
-            </div>
-            <div class="narrative-pane">
-                <span class="label">The Experience</span>
-                <h1 class="headline-xl">Design for <br><span class="outline-text">Desire</span></h1>
-                <p class="body-xl">
-                    We don't just sell soap. We sell a feeling.
-                    <br><br>
-                    My design approach uses <strong>Cinematic Visuals</strong> and <strong>Frictionless UX</strong> to
-                    turn visitors into believers. Every pixel serves the conversion.
-                </p>
+        <!-- 02. PROCESS -->
+        <!-- Slide 3: Section Header (Light) -->
+        <section class="slide slide-light" id="slide-3">
+            <div class="narrative-pane" style="width: 100%; align-items: center; text-align: center;">
+                <span class="label">02. Methodology</span>
+                <h1 class="headline-xl" style="font-size: 8vw;">The <span class="highlight">Process</span></h1>
             </div>
         </section>
 
-        <!-- Slide 5: The Engine (Tech) -->
-        <section class="slide" id="slide-5">
+        <!-- Slide 4: Engineering (The Engine) -->
+        <section class="slide" id="slide-4">
             <div class="narrative-pane">
                 <span class="label">The Engine</span>
                 <h1 class="headline-xl">Performance <br><span class="highlight">First</span></h1>
                 <p class="body-xl">
                     A beautiful site is useless if it's slow.
                     <br><br>
-                    I build engines, not just shells. <br>
+                    I build engines, not just shells.
+                    <br>
                     • <strong>Nginx Caching</strong> for millisecond loads.<br>
                     • <strong>WebP Assets</strong> for instant mobile rendering.<br>
                     • <strong>Security Hardening</strong> to protect the brand.
@@ -362,15 +366,103 @@
                 <div style="text-align: left;">
                     <div class="kpi-big">99<span style="font-size:1.5rem">%</span></div>
                     <div style="color:#666; margin-bottom: 2rem; font-family:'Syne';">LIGHTHOUSE PERFORMANCE</div>
-
                     <div class="kpi-big">0.2<span style="font-size:1.5rem">s</span></div>
                     <div style="color:#666; font-family:'Syne';">TTFB (TIME TO FIRST BYTE)</div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 6: The Roadmap -->
+        <!-- 03. EXPERIENCE -->
+        <!-- Slide 5: Section Header (Light) -->
+        <section class="slide slide-light" id="slide-5">
+            <div class="narrative-pane" style="width: 100%; align-items: center; text-align: center;">
+                <span class="label">03. Track Record</span>
+                <h1 class="headline-xl" style="font-size: 8vw;">Proven <span class="highlight">Results</span></h1>
+            </div>
+        </section>
+
+        <!-- Slide 6: Case Studies -->
         <section class="slide" id="slide-6">
+            <div class="narrative-pane">
+                <span class="label">The Architect</span>
+                <h1 class="headline-xl">Complex <br><span class="highlight">Systems</span></h1>
+                <p class="body-xl">
+                    I don't just "install themes." I build business logic.
+                    <br><br>
+                    <strong>Bezeleel Alliance</strong>: Managed end-to-end project lifecycles.<br>
+                    <strong>Offshore Partners</strong>: Optimized operational workflows using web tools.
+                </p>
+            </div>
+            <div class="visual-pane">
+                <div class="kpi-modern" style="width: 400px;">
+                    <span style="font-size: 2rem;">📂</span>
+                    <div>
+                        <div style="font-family:'Syne'; font-weight:700;">Project Management</div>
+                        <div style="color: #666; font-size: 0.9rem;">From Concept to Cash Flow</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04. ANALYSIS -->
+        <!-- Slide 7: Section Header (Light) -->
+        <section class="slide slide-light" id="slide-7">
+            <div class="narrative-pane" style="width: 100%; align-items: center; text-align: center;">
+                <span class="label">04. Audit</span>
+                <h1 class="headline-xl" style="font-size: 8vw;">Current <span class="highlight">State</span></h1>
+            </div>
+        </section>
+
+        <!-- Slide 8: Churchwin Analysis -->
+        <section class="slide" id="slide-8">
+            <div class="narrative-pane">
+                <span class="label">Passive Analysis</span>
+                <h1 class="headline-xl">Churchwin <br><span class="outline-text">.com</span></h1>
+                <p class="body-xl">
+                    A solid foundation, but opportunities for <strong>Conversion Optimization</strong> exist.
+                    <br><br>
+                    <strong>1. Header Congestion</strong>: Too many competing elements (Payment logos vs Brand).<br>
+                    <strong>2. Visual Hierarchy</strong>: CTA buttons are floating; user eye-flow is fragmented.
+                    <strong>3. Typography</strong>: Generic fonts dilute the "Premium Organic" feel.
+                </p>
+            </div>
+            <div class="visual-pane">
+                <!-- Using the captured analysis image if available, else logo -->
+                <img src="churchwin_logo.png" style="width: 250px; opacity: 0.4; filter: contrast(1.2);" alt="Network">
+            </div>
+        </section>
+
+        <!-- 05. RECOMMENDATIONS -->
+        <!-- Slide 9: Section Header (Light) -->
+        <section class="slide slide-light" id="slide-9">
+            <div class="narrative-pane" style="width: 100%; align-items: center; text-align: center;">
+                <span class="label">05. Strategy</span>
+                <h1 class="headline-xl" style="font-size: 8vw;">The <span class="highlight">Roadmap</span></h1>
+            </div>
+        </section>
+
+        <!-- Slide 10: Solutions -->
+        <section class="slide" id="slide-10">
+            <div class="visual-pane">
+                <img src="churchwin_logo.png" style="width: 300px; height: auto;" alt="Churchwin Logo"
+                    class="product-hero">
+            </div>
+            <div class="narrative-pane">
+                <span class="label">The Solution</span>
+                <h1 class="headline-xl">Premium <br><span class="highlight">Evolution</span></h1>
+                <p class="body-xl">
+                    <strong>Strategic Updates for Week 1:</strong>
+                    <br><br>
+                    1. <strong>Streamline Navigation</strong>: Move trust signals to footer; let the Brand breathe.<br>
+                    2. <strong>Unified Typography</strong>: Implement 'Syne' + 'Inter' for consistent authority.<br>
+                    3. <strong>Frictionless Checkout</strong>: Remove floating UI distractions.
+                </p>
+            </div>
+        </section>
+
+        <!-- 06. CONCLUSION -->
+        <!-- Slide 11: CTA -->
+        <section class="slide" id="slide-11">
             <div class="visual-pane">
                 <div
                     style="width: 100%; height: 100%; background: var(--accent); display: flex; align-items: center; justify-content: center; color: var(--bg-dark);">
@@ -389,14 +481,13 @@
                 </p>
             </div>
         </section>
-
     </div>
 
     <!-- UI Elements -->
     <div class="progress-bar">
         <div class="progress-fill"></div>
     </div>
-    <div class="page-indicator"><span class="current-page">01</span> / 06</div>
+    <div class="page-indicator"><span class="current-page">01</span> / 11</div>
 
     <script>
         gsap.registerPlugin(Observer);
@@ -453,16 +544,30 @@
         }
 
         function updateUI(index) {
-            // Update Number
-            pageNum.innerText = `0${index + 1}`;
+            // Update Number (Pad with 0 if single digit)
+            const current = index + 1;
+            pageNum.innerText = current.toString().padStart(2, '0');
+
             // Update Bar
             const percent = ((index + 1) / sections.length) * 100;
             gsap.to(progressFill, { width: `${percent}%`, duration: 0.5 });
 
             // Update BG Text base on section
-            const texts = ["IMPACT", "VISION", "LOGIC", "DESIRE", "SPEED", "BUILD"];
-            bgText.innerText = texts[index];
+            const texts = ["IMPACT", "SPECIALIST", "METHOD", "ENGINE", "RESULTS", "LOGIC", "AUDIT", "ANALYSIS", "STRATEGY", "SOLUTION", "BUILD"];
+            bgText.innerText = texts[index] || "CHURCHWIN"; // Fallback
             gsap.fromTo(bgText, { opacity: 0, scale: 0.8 }, { opacity: 0.05, scale: 1, duration: 1 });
+
+            // Handle Light Mode specifics for Nav
+            const currentSlide = sections[index];
+            if (currentSlide.classList.contains('slide-light')) {
+                gsap.to('.progress-bar', { background: 'rgba(8, 41, 88, 0.1)', duration: 0.5 });
+                gsap.to('.page-indicator', { color: 'rgba(8, 41, 88, 0.6)', duration: 0.5 });
+                gsap.to('.current-page', { color: '#082958', duration: 0.5 });
+            } else {
+                gsap.to('.progress-bar', { background: 'rgba(255, 255, 255, 0.1)', duration: 0.5 });
+                gsap.to('.page-indicator', { color: '#aab8c5', duration: 0.5 });
+                gsap.to('.current-page', { color: '#F1EEE2', duration: 0.5 });
+            }
         }
 
         function animateSlideContent(index, direction) {
