@@ -269,32 +269,47 @@
     <div class="deck-container">
 
         <!-- 01. INTRO -->
-        <!-- Slide 1: The Identity (Cover) -->
-        <section class="slide" id="slide-1">
-            <div class="narrative-pane">
-                <span class="label">The Candidate</span>
-                <h1 class="headline-xl">Strategic <br><span class="highlight">Architect</span></h1>
-                <p class="body-xl">
-                    I am <strong style="color:white">Cephas Kudalor</strong>.
-                    <br>
-                    I don't just build websites. I engineer digital ecosystems that define brands and drive revenue.
-                </p>
+        <!-- Slide 1: The Hook (Cover) -->
+        <section class="slide" id="slide-1" style="align-items: flex-end; justify-content: center; position: relative;">
+
+            <!-- Brand Logo (Top Left) -->
+            <div style="position: absolute; top: 3rem; left: 3rem; z-index: 10;">
+                <img src="churchwin logo.png" style="width: 200px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));"
+                    alt="Churchwin Logo">
             </div>
-            <div class="visual-pane">
-                <!-- Product Collage -->
-                <div class="collage-container" style="position: relative; width: 500px; height: 600px;">
-                    <img src="churchwin logo.png" class="collage-item"
-                        style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 250px; z-index: 3; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));"
-                        alt="Logo">
-                    <img src="Churchwin_B08ZNQ6WGJ-Neem-Oil-8-Photoroom-2.webp" class="collage-item"
-                        style="position: absolute; bottom: 50px; left: 0; width: 280px; z-index: 2; transform: rotate(-10deg);"
-                        alt="Neem Oil">
-                    <img src="Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp"
-                        class="collage-item"
-                        style="position: absolute; bottom: 0; right: 0; width: 280px; z-index: 1; transform: rotate(10deg);"
-                        alt="Shea Butter">
-                </div>
+
+            <!-- Massive Background Typography -->
+            <div class="hero-text-container"
+                style="position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); width: 100%; z-index: 1; text-align: center; pointer-events: none;">
+                <h1 class="hero-title"
+                    style="font-family: 'Syne'; font-weight: 800; font-size: 13vw; line-height: 0.8; color: var(--text-main); text-transform: uppercase; white-space: nowrap;">
+                    STRATEGIC<br>
+                    <span style="color: var(--accent);">WEB</span> DEVELOPER
+                </h1>
             </div>
+
+            <!-- Candidate Image (Rising Architectural Cutout) -->
+            <div class="candidate-cutout"
+                style="position: relative; z-index: 2; height: 90vh; bottom: -5vh; display: flex; align-items: flex-end;">
+                <img src="headshot.png" class="hero-img" alt="Cephas Kudalor"
+                    style="height: 100%; width: auto; object-fit: contain; filter: drop-shadow(0 10px 50px rgba(0,0,0,0.6));">
+            </div>
+
+            <!-- Product Collage (Visual Hierarchy) -->
+            <div class="collage-container"
+                style="position: absolute; bottom: 5vh; right: 5vw; z-index: 5; display: flex; align-items: flex-end;">
+                <!-- Cocoa Butter (New) -->
+                <img src="Cocoa-Butter-Photoroom-1.png" class="collage-item"
+                    style="width: 160px; transform: rotate(-10deg) translateX(30px); z-index: 1;" alt="Cocoa Butter">
+                <!-- Shea Butter -->
+                <img src="Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp" class="collage-item"
+                    style="width: 180px; z-index: 2; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));"
+                    alt="Shea Butter">
+                <!-- Neem Oil -->
+                <img src="Churchwin_B08ZNQ6WGJ-Neem-Oil-8-Photoroom-2.webp" class="collage-item"
+                    style="width: 110px; transform: rotate(15deg) translateX(-20px); z-index: 3;" alt="Neem Oil">
+            </div>
+
         </section>
 
         <!-- Slide 2: About Me (Tailored CV) -->
@@ -573,6 +588,39 @@
         function animateSlideContent(index, direction) {
             const slide = sections[index];
 
+            // Special Case: Slide 1 (Cover)
+            if (index === 0) {
+                // Text Scales Down (from larger status)
+                const heroTitle = slide.querySelector('.hero-title');
+                if (heroTitle) {
+                    gsap.fromTo(heroTitle,
+                        { scale: 1.5, opacity: 0 },
+                        { scale: 1, opacity: 1, duration: 2, ease: "power3.out" }
+                    );
+                }
+
+                // Image Rises from Bottom
+                const heroImg = slide.querySelector('.hero-img');
+                if (heroImg) {
+                    gsap.fromTo(heroImg,
+                        { y: "100%", opacity: 0 },
+                        { y: "0%", opacity: 1, duration: 1.5, ease: "power2.out", delay: 0.3 }
+                    );
+                }
+
+                // Products Fade In
+                const products = slide.querySelectorAll('.collage-item');
+                if (products.length > 0) {
+                    gsap.fromTo(products,
+                        { y: 50, opacity: 0 },
+                        { y: 0, opacity: 1, duration: 1, stagger: 0.1, delay: 1 }
+                    );
+                }
+
+                return; // Exit standard animation for this slide
+            }
+
+            // Standard Animation for other slides
             // Text Stagger: Pitch.com style "Spring" Reveal
             const texts = slide.querySelectorAll('h1, p, .label');
             gsap.fromTo(texts,
