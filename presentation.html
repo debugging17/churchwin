@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cephas Kudalor | Strategic Developer</title>
+
+    <!-- Fonts: Syne (Graphic Headlines) & Inter (Clean Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syne:wght@400;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Observer.min.js"></script>
+
+    <style>
+        :root {
+            /* Brand Aligned Design System (Churchwin) */
+            --bg-dark: #082958;
+            /* Churchwin Navy */
+            --bg-card: #051f42;
+            /* Darker Navy */
+            --text-main: #F1EEE2;
+            /* Organic Beige */
+            --text-mute: #aab8c5;
+            /* Muted Blue-Grey */
+            --accent: #de4a1d;
+            /* Updated Brand Color */
+            /* Alternates: Vibrant Blue #006EDF - can use if needed */
+
+            --spacing-container: 6vw;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            line-height: 0.9;
+            text-transform: uppercase;
+        }
+
+        .highlight {
+            color: var(--accent);
+        }
+
+        .outline-text {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+            color: transparent;
+        }
+
+        /* Layout */
+        .deck-container {
+            display: flex;
+            width: 600vw;
+            height: 100vh;
+            will-change: transform;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Split Architecture */
+        .visual-pane {
+            width: 45%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .narrative-pane {
+            width: 55%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 var(--spacing-container);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Slide 1: Cover Page specific */
+        .headshot-frame {
+            width: 400px;
+            height: 550px;
+            border: 2px solid var(--accent);
+            border-radius: 200px 200px 0 0;
+            /* Arch shape */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .headshot-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* filter: grayscale(100%) contrast(1.2); Removed for full color */
+            transition: transform 0.5s;
+        }
+
+        .headshot-frame:hover .headshot-img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        /* Product Image Styling */
+        .product-hero {
+            width: 80%;
+            max-width: 500px;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+            transform-origin: center;
+        }
+
+        /* KPI Card Styling */
+        .kpi-modern {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .kpi-modern:hover {
+            transform: translateX(10px);
+            border-color: var(--accent);
+        }
+
+        .kpi-big {
+            font-family: 'Syne';
+            font-size: 3rem;
+            color: var(--accent);
+        }
+
+        /* Narratives */
+        .label {
+            font-family: 'Inter';
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .headline-xl {
+            font-size: 5vw;
+            margin-bottom: 2rem;
+        }
+
+        .body-xl {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: #ccc;
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        /* Decorative Background Elements */
+        .bg-text {
+            position: absolute;
+            font-family: 'Syne';
+            font-weight: 800;
+            font-size: 20rem;
+            color: rgba(255, 255, 255, 0.02);
+            z-index: 0;
+            white-space: nowrap;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        /* Navigation Progress */
+        .progress-bar {
+            position: fixed;
+            bottom: 3rem;
+            left: 3rem;
+            width: 200px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 100;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .page-indicator {
+            position: fixed;
+            bottom: 3rem;
+            left: 250px;
+            font-family: 'Syne';
+            color: var(--text-mute);
+            font-size: 0.9rem;
+        }
+
+        .current-page {
+            color: var(--text-main);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Fixed Header -->
+    <div style="position: fixed; top: 3rem; left: 3rem; z-index: 100; mix-blend-mode: difference;">
+        <div style="font-family: 'Syne'; font-weight: 800; font-size: 1.5rem; letter-spacing: -1px;">
+            CEPHAS<span style="color: var(--accent);">.</span>DEV
+        </div>
+    </div>
+
+    <!-- Background Watermark -->
+    <div class="bg-text">IMPACT</div>
+
+    <div class="deck-container">
+
+        <!-- Slide 1: The Identity (Cover) -->
+        <section class="slide" id="slide-1">
+            <div class="narrative-pane">
+                <span class="label">The Candidate</span>
+                <h1 class="headline-xl">Strategic <br><span class="highlight">Architect</span></h1>
+                <p class="body-xl">
+                    I am <strong style="color:white">Cephas Kudalor</strong>.
+                    <br>
+                    I don't just build websites. I engineer digital ecosystems that define brands and drive revenue.
+                </p>
+            </div>
+            <div class="visual-pane">
+                <div class="headshot-frame">
+                    <!-- Placeholder Headshot -->
+                    <img src="headshot.png" alt="Cephas Kudalor" class="headshot-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: The Vision -->
+        <section class="slide" id="slide-2">
+            <div class="visual-pane">
+                <!-- Abstract visual representation of scale/growth -->
+                <div
+                    style="width: 300px; height: 300px; border: 1px solid rgba(255,255,255,0.1); transform: rotate(45deg); display: flex; align-items: center; justify-content: center;">
+                    <div style="width: 200px; height: 200px; background: var(--accent); transform: rotate(-45deg);">
+                    </div>
+                </div>
+            </div>
+            <div class="narrative-pane">
+                <span class="label">The Vision</span>
+                <h1 class="headline-xl">Boldly <br><span class="outline-text">Global</span></h1>
+                <p class="body-xl">
+                    Churchwin isn't just a local shop. It is a premium African brand ready for the global stage.
+                    <br><br>
+                    My vision is to take your digital presence from "Functional Store" to <strong>"World-Class
+                        Experience."</strong> Bold, fast, and unignorable.
+                </p>
+            </div>
+        </section>
+
+        <!-- Slide 3: The Architect (Experience) -->
+        <section class="slide" id="slide-3">
+            <div class="narrative-pane">
+                <span class="label">The Architect</span>
+                <h1 class="headline-xl">Proven <br><span class="highlight">Logic</span></h1>
+                <p class="body-xl">
+                    My background is built on complex challenges.<br><br>
+                    At <strong>Bezeleel Alliance</strong>, I led projects from concept to cash-flow.<br>
+                    At <strong>Offshore Partners</strong>, I engineered business logic that powered operations.
+                </p>
+            </div>
+            <div class="visual-pane">
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <div class="kpi-modern" style="width: 400px;">
+                        <span style="font-size: 2rem;">📂</span>
+                        <div>
+                            <div style="font-family:'Syne'; font-weight:700;">Project Management</div>
+                            <div style="color: #666; font-size: 0.9rem;">End-to-End Execution</div>
+                        </div>
+                    </div>
+                    <div class="kpi-modern" style="width: 400px; transform: translateX(30px);">
+                        <span style="font-size: 2rem;">⚙️</span>
+                        <div>
+                            <div style="font-family:'Syne'; font-weight:700;">Business Logic</div>
+                            <div style="color: #666; font-size: 0.9rem;">Clean, Maintainable Code</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: The Experience (Product) -->
+        <section class="slide" id="slide-4">
+            <div class="visual-pane">
+                <!-- Using Scale Animation on Scroll -->
+                <img src="https://churchwin.com/wp-content/uploads/Original-scaled.png" class="product-hero"
+                    alt="Product">
+            </div>
+            <div class="narrative-pane">
+                <span class="label">The Experience</span>
+                <h1 class="headline-xl">Design for <br><span class="outline-text">Desire</span></h1>
+                <p class="body-xl">
+                    We don't just sell soap. We sell a feeling.
+                    <br><br>
+                    My design approach uses <strong>Cinematic Visuals</strong> and <strong>Frictionless UX</strong> to
+                    turn visitors into believers. Every pixel serves the conversion.
+                </p>
+            </div>
+        </section>
+
+        <!-- Slide 5: The Engine (Tech) -->
+        <section class="slide" id="slide-5">
+            <div class="narrative-pane">
+                <span class="label">The Engine</span>
+                <h1 class="headline-xl">Performance <br><span class="highlight">First</span></h1>
+                <p class="body-xl">
+                    A beautiful site is useless if it's slow.
+                    <br><br>
+                    I build engines, not just shells. <br>
+                    • <strong>Nginx Caching</strong> for millisecond loads.<br>
+                    • <strong>WebP Assets</strong> for instant mobile rendering.<br>
+                    • <strong>Security Hardening</strong> to protect the brand.
+                </p>
+            </div>
+            <div class="visual-pane">
+                <div style="text-align: left;">
+                    <div class="kpi-big">99<span style="font-size:1.5rem">%</span></div>
+                    <div style="color:#666; margin-bottom: 2rem; font-family:'Syne';">LIGHTHOUSE PERFORMANCE</div>
+
+                    <div class="kpi-big">0.2<span style="font-size:1.5rem">s</span></div>
+                    <div style="color:#666; font-family:'Syne';">TTFB (TIME TO FIRST BYTE)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: The Roadmap -->
+        <section class="slide" id="slide-6">
+            <div class="visual-pane">
+                <div
+                    style="width: 100%; height: 100%; background: var(--accent); display: flex; align-items: center; justify-content: center; color: var(--bg-dark);">
+                    <div style="font-family: 'Syne'; font-size: 8rem; font-weight: 800; line-height: 0.8;">
+                        LET'S<br>BUILD.
+                    </div>
+                </div>
+            </div>
+            <div class="narrative-pane">
+                <span class="label">Next Steps</span>
+                <h1 class="headline-xl">Ready to <br><span class="highlight">Deploy</span></h1>
+                <p class="body-xl">
+                    I am ready to bring this vision to life starting <strong>Monday</strong>.
+                    <br><br>
+                    Let's stop planning and start building the future of Churchwin.
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- UI Elements -->
+    <div class="progress-bar">
+        <div class="progress-fill"></div>
+    </div>
+    <div class="page-indicator"><span class="current-page">01</span> / 06</div>
+
+    <script>
+        gsap.registerPlugin(Observer);
+
+        const sections = document.querySelectorAll('.slide');
+        const container = document.querySelector('.deck-container');
+        const progressFill = document.querySelector('.progress-fill');
+        const pageNum = document.querySelector('.current-page');
+        const bgText = document.querySelector('.bg-text');
+
+        let currentIndex = 0;
+        let isAnimating = false;
+
+        // Pitch.com Style: Mouse Tilt Effect
+        function initTiltEffect() {
+            const visualPanes = document.querySelectorAll('.visual-pane');
+
+            visualPanes.forEach(pane => {
+                pane.addEventListener('mousemove', (e) => {
+                    const rect = pane.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const rotateX = ((y - centerY) / centerY) * -5; // Max 5deg tilt
+                    const rotateY = ((x - centerX) / centerX) * 5;
+
+                    const element = pane.querySelector('.headshot-frame, .product-hero, .kpi-modern');
+                    if (element) {
+                        gsap.to(element, {
+                            rotateX: rotateX,
+                            rotateY: rotateY,
+                            transformPerspective: 1000,
+                            duration: 0.5,
+                            ease: "power2.out"
+                        });
+                    }
+                });
+
+                pane.addEventListener('mouseleave', () => {
+                    const element = pane.querySelector('.headshot-frame, .product-hero, .kpi-modern');
+                    if (element) {
+                        gsap.to(element, {
+                            rotateX: 0,
+                            rotateY: 0,
+                            duration: 1,
+                            ease: "elastic.out(1, 0.5)"
+                        });
+                    }
+                });
+            });
+        }
+
+        function updateUI(index) {
+            // Update Number
+            pageNum.innerText = `0${index + 1}`;
+            // Update Bar
+            const percent = ((index + 1) / sections.length) * 100;
+            gsap.to(progressFill, { width: `${percent}%`, duration: 0.5 });
+
+            // Update BG Text base on section
+            const texts = ["IMPACT", "VISION", "LOGIC", "DESIRE", "SPEED", "BUILD"];
+            bgText.innerText = texts[index];
+            gsap.fromTo(bgText, { opacity: 0, scale: 0.8 }, { opacity: 0.05, scale: 1, duration: 1 });
+        }
+
+        function animateSlideContent(index, direction) {
+            const slide = sections[index];
+
+            // Text Stagger: Pitch.com style "Spring" Reveal
+            const texts = slide.querySelectorAll('h1, p, .label');
+            gsap.fromTo(texts,
+                { y: 60, opacity: 0, rotationX: 20 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    rotationX: 0,
+                    duration: 1.2,
+                    stagger: 0.1,
+                    ease: "elastic.out(1, 0.75)", // Bouncy entry 
+                    delay: 0.3
+                }
+            );
+
+            // Visual Pane Animations (Parallax/Scale)
+            const visual = slide.querySelector('.visual-pane > *');
+            if (visual) {
+                // Initial Entry
+                gsap.fromTo(visual,
+                    { scale: 0.8, x: direction === 'next' ? 100 : -100, opacity: 0, rotateY: direction === 'next' ? 15 : -15 },
+                    {
+                        scale: 1,
+                        x: 0,
+                        opacity: 1,
+                        rotateY: 0,
+                        duration: 1.5,
+                        ease: "elastic.out(1, 0.8)",
+                        delay: 0.2
+                    }
+                );
+            }
+        }
+
+        function gotoSlide(index) {
+            if (isAnimating || index < 0 || index >= sections.length) return;
+            isAnimating = true;
+
+            const direction = index > currentIndex ? 'next' : 'prev';
+            currentIndex = index;
+
+            updateUI(currentIndex);
+
+            const tl = gsap.timeline({
+                onComplete: () => { isAnimating = false; }
+            });
+
+            // Slide Transition
+            tl.to(container, {
+                xPercent: -100 * index / sections.length,
+                duration: 1.2,
+                ease: "power4.inOut"
+            });
+
+            animateSlideContent(index, direction);
+        }
+
+        // Init
+        updateUI(0);
+        animateSlideContent(0, 'next');
+        initTiltEffect();
+
+        // Observer
+        Observer.create({
+            target: window,
+            type: "wheel,touch,pointer",
+            onUp: () => gotoSlide(currentIndex - 1),
+            onDown: () => gotoSlide(currentIndex + 1),
+            wheelSpeed: -1,
+            tolerance: 10,
+            preventDefault: true
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') gotoSlide(currentIndex + 1);
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') gotoSlide(currentIndex - 1);
+        });
+
+    </script>
+</body>
+
+</html>
