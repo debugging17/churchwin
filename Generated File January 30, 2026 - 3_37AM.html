@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cephas Kudalor | Interview Deck</title>
+    <style>
+        /* --- RESET & VARIABLES --- */
+        :root {
+            --bg-color: #f4f4f0; /* Muted warmth */
+            --text-main: #111111;
+            --text-muted: #555555;
+            --accent-primary: #2b4c7e; /* Professional Navy */
+            --accent-secondary: #d45d35; /* Terracotta Orange */
+            --font-serif: 'Georgia', 'Times New Roman', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* --- HORIZONTAL SCROLL CONTAINER --- */
+        .scroll-container {
+            display: flex;
+            flex-direction: row;
+            width: 600vw; /* 6 Slides */
+            height: 100vh;
+            transform: translateX(0);
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        /* --- SLIDE ARCHITECTURE --- */
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        /* --- SPLIT LAYOUT --- */
+        .visual-side {
+            width: 45%;
+            height: 100%;
+            background-color: #e3e3df;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-side {
+            width: 55%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 120px; /* High-end editorial whitespace */
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1 {
+            font-family: var(--font-sans);
+            font-weight: 300;
+            font-size: 3.8rem;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+        
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 3.2rem;
+            margin-bottom: 30px;
+            color: var(--text-main);
+            line-height: 1.1;
+        }
+
+        .section-label {
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: 20px;
+            display: block;
+            border-left: 3px solid var(--accent-secondary);
+            padding-left: 15px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 25px;
+        }
+
+        strong { color: var(--text-main); font-weight: 600; }
+
+        /* --- GRAPHICS --- */
+        .circle {
+            border-radius: 50%;
+            position: absolute;
+        }
+        .block {
+            position: absolute;
+        }
+
+        /* --- COMPONENTS --- */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .stat-item h4 { font-size: 2.5rem; font-family: var(--font-serif); margin-bottom: 5px; color: var(--accent-primary); }
+        .stat-item span { font-size: 0.9rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; }
+
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .check {
+            color: var(--accent-secondary);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-top: -2px;
+        }
+
+        /* --- NAV --- */
+        .nav-bar {
+            position: fixed;
+            bottom: 40px;
+            right: 60px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+        .nav-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            background: transparent;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .nav-dot.active { background: var(--accent-primary); border-color: var(--accent-primary); }
+
+        .branding {
+            position: fixed;
+            top: 40px;
+            left: 50px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            z-index: 100;
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="branding">CEPHAS KUDALOR // CHURCHWIN</div>
+
+<div class="scroll-container" id="container">
+
+    <!-- SLIDE 1: INTRO -->
+    <div class="slide">
+        <div class="visual-side" style="background-color: #1a1a1a;">
+            <div class="circle" style="width: 300px; height: 300px; background: var(--accent-secondary); top: 30%; left: 20%; opacity: 0.9;"></div>
+            <div class="block" style="width: 200px; height: 400px; background: rgba(255,255,255,0.1); bottom: 0; right: 20%; backdrop-filter: blur(10px);"></div>
+            <h1 style="position: absolute; color: white; font-size: 10rem; opacity: 0.05; top: 10%; right: -50px;">WEB</h1>
+        </div>
+        <div class="content-side">
+            <span class="section-label">The Candidate</span>
+            <h1>Business-First<br>Web Development.</h1>
+            <p>
+                I combine <strong>5+ years of engineering experience</strong> with a strategic business background. I don't just build websites; I build resilient, high-converting platforms.
+            </p>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <h4>5+</h4>
+                    <span>Years Exp</span>
+                </div>
+                <div class="stat-item">
+                    <h4>Full Stack</h4>
+                    <span>PHP / React / AWS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: EXPERIENCE & PROJECTS -->
+    <div class="slide">
+        <div class="content-side">
+            <span class="section-label">01 // Experience & Projects</span>
+            <h2>Proven Track Record.</h2>
+            <p>My experience spans complex project management and full-stack development. I bridge the gap between "Code" and "Company Goals."</p>
+            
+            <div style="margin-top: 30px;">
+                <div class="list-item">
+                    <div class="check">✦</div>
+                    <div>
+                        <strong>Portfolio (craftedbycss.com)</strong><br>
+                        <span style="font-size: 0.95rem; color: #666;">Demonstrating high-performance custom themes and interactive UI.</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="check">✦</div>
+                    <div>
+                        <strong>Project Leadership (Bezeleel Alliance)</strong><br>
+                        <span style="font-size: 0.95rem; color: #666;">Managed technical projects leading to a 30% productivity increase.</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="check">✦</div>
+                    <div>
+                        <strong>E-Commerce Logic</strong><br>
+                        <span style="font-size: 0.95rem; color: #666;">Experience integrating dynamic pricing and B2B/B2C workflows.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="visual-side" style="background-color: #f0f0f0;">
+             <!-- Abstract representation of code/structure -->
+             <div class="block" style="width: 60%; height: 10px; background: var(--accent-primary); top: 40%; left: 20%;"></div>
+             <div class="block" style="width: 40%; height: 10px; background: var(--accent-primary); top: 45%; left: 20%; opacity: 0.6;"></div>
+             <div class="block" style="width: 50%; height: 10px; background: var(--accent-primary); top: 50%; left: 20%; opacity: 0.3;"></div>
+             <div class="circle" style="width: 150px; height: 150px; border: 2px solid var(--accent-secondary); bottom: 20%; right: 20%;"></div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: APPROACH TO DESIGN -->
+    <div class="slide">
+        <div class="visual-side" style="background-color: #dbe4ee;">
+            <div class="block" style="width: 200px; height: 350px; background: white; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: monospace; color: #ccc;">MOBILE<br>VIEW</span>
+            </div>
+        </div>
+        <div class="content-side">
+            <span class="section-label">02 // Approach to Web Design</span>
+            <h2>Mobile-First &<br>Conversion-Centric.</h2>
+            <p>
+                My design philosophy is simple: <strong>Eliminate Friction.</strong>
+            </p>
+            <p>
+                For Churchwin, serving both Ghana and the US, the design must handle <strong>Mobile Money overlays</strong> (small screens) just as gracefully as desktop credit card flows.
+            </p>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <span style="display: block; margin-bottom: 5px; color: var(--accent-primary); font-weight: bold;">UI Tooling</span>
+                    <span style="font-size: 0.8rem; text-transform: none; color: #666;">Figma & Adobe XD for rapid prototyping.</span>
+                </div>
+                <div class="stat-item">
+                    <span style="display: block; margin-bottom: 5px; color: var(--accent-primary); font-weight: bold;">Accessibility</span>
+                    <span style="font-size: 0.8rem; text-transform: none; color: #666;">Ensuring WCAG compliance for all users.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: APPROACH TO FUNCTIONALITY -->
+    <div class="slide">
+        <div class="content-side">
+            <span class="section-label">03 // Approach to Functionality</span>
+            <h2>Lean Code over<br>Heavy Plugins.</h2>
+            <p>
+                Functionality should not compromise speed. My approach uses <strong>Custom PHP Hooks</strong> instead of bloating the site with plugins.
+            </p>
+            <div style="margin-top: 20px; border-left: 3px solid var(--accent-primary); padding-left: 20px;">
+                <p style="font-family: monospace; font-size: 0.95rem; color: #333;">
+                    <strong>Scenario:</strong> Wholesale Pricing<br>
+                    <strong>My Approach:</strong> Use <code>woocommerce_get_price</code> filter.<br>
+                    <strong>Result:</strong> 0.2s faster load time vs. Membership Plugins.
+                </p>
+            </div>
+            <p style="margin-top: 20px;">
+                I also leverage <strong>Nginx Server-Level Caching</strong> (FastCGI) to serve static HTML, bypassing PHP for regular visitors while keeping the Checkout dynamic.
+            </p>
+        </div>
+        <div class="visual-side" style="background-color: #2b4c7e;">
+            <h1 style="color: white; font-family: monospace; font-size: 5rem; line-height: 1;">&lt; / &gt;</h1>
+            <div class="circle" style="width: 20px; height: 20px; background: var(--accent-secondary); top: 45%; left: 55%;"></div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: APPROACH TO MAINTENANCE -->
+    <div class="slide">
+        <div class="visual-side" style="background-color: #d45d35;">
+             <div class="block" style="width: 300px; height: 300px; border: 2px solid rgba(255,255,255,0.3); transform: rotate(45deg);"></div>
+             <div class="block" style="width: 300px; height: 300px; border: 2px solid rgba(255,255,255,0.3); transform: rotate(20deg);"></div>
+             <h2 style="position: absolute; color: white;">SECURE</h2>
+        </div>
+        <div class="content-side">
+            <span class="section-label">04 // Approach to Maintenance</span>
+            <h2>Proactive Security.<br>Reactive is too late.</h2>
+            <p>
+                My maintenance strategy is built on <strong>Prevention</strong>. I have already performed a passive audit of <code>churchwin.com</code>.
+            </p>
+            <div class="list-item">
+                <div class="check" style="color: #d45d35;">⚠</div>
+                <div>
+                    <strong>Immediate Fixes Identified:</strong><br>
+                    Missing <code>X-Frame-Options</code> (Clickjacking Risk) and <code>HSTS</code> headers. I can patch this in Week 1.
+                </div>
+            </div>
+            <div class="list-item">
+                <div class="check" style="color: var(--accent-primary);">✓</div>
+                <div>
+                    <strong>Daily Smoke Tests:</strong><br>
+                    Automated checks of the "Pay Now" button to ensure revenue flow is never interrupted by plugin updates.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: CLOSE -->
+    <div class="slide">
+        <div class="content-side" style="width: 100%; align-items: center; text-align: center;">
+            <div class="circle" style="position: relative; margin-bottom: 30px; width: 80px; height: 80px; background: var(--accent-primary);"></div>
+            <h1>Ready to Deploy.</h1>
+            <p>I bring the <strong>Technical Skills</strong> to build, and the <strong>Business Mindset</strong> to grow.</p>
+            <div style="margin-top: 40px; padding: 20px 40px; border: 1px solid #ccc; display: inline-block;">
+                <strong>Cephas Kudalor</strong><br>
+                <span style="color: #666; font-size: 0.9rem;">cephaskudalor05@gmail.com</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="nav-bar">
+    <div class="nav-dot active"></div>
+    <div class="nav-dot"></div>
+    <div class="nav-dot"></div>
+    <div class="nav-dot"></div>
+    <div class="nav-dot"></div>
+    <div class="nav-dot"></div>
+</div>
+
+<script>
+    const container = document.getElementById('container');
+    const dots = document.querySelectorAll('.nav-dot');
+    let currentSlide = 0;
+    const totalSlides = 6;
+
+    // SCROLL HANDLER
+    window.addEventListener('wheel', (e) => {
+        if (e.deltaY > 0) nextSlide();
+        else prevSlide();
+    });
+
+    // KEYBOARD HANDLER
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextSlide();
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prevSlide();
+    });
+
+    function nextSlide() {
+        if (currentSlide < totalSlides - 1) {
+            currentSlide++;
+            updateScroll();
+        }
+    }
+
+    function prevSlide() {
+        if (currentSlide > 0) {
+            currentSlide--;
+            updateScroll();
+        }
+    }
+
+    function updateScroll() {
+        container.style.transform = `translateX(-${currentSlide * 100}vw)`;
+        updateDots();
+    }
+
+    function updateDots() {
+        dots.forEach((dot, index) => {
+            if (index === currentSlide) dot.classList.add('active');
+            else dot.classList.remove('active');
+        });
+    }
+</script>
+
+</body>
+</html>
