@@ -232,24 +232,24 @@
         }
 
         .product-hero-item.main {
-            width: 35vmin;
-            max-width: 350px;
+            width: 45vmin;
+            max-width: 450px;
             z-index: 10;
             position: relative;
         }
 
         .product-hero-item.left {
-            width: 25vmin;
-            max-width: 280px;
+            width: 30vmin;
+            max-width: 320px;
             z-index: 5;
-            transform: translateX(-60%) rotate(-15deg) translateZ(-50px);
+            transform: translateX(-50%) rotate(-15deg) translateZ(-50px);
         }
 
         .product-hero-item.right {
-            width: 22vmin;
-            max-width: 250px;
+            width: 28vmin;
+            max-width: 300px;
             z-index: 8;
-            transform: translateX(60%) rotate(15deg) translateZ(20px);
+            transform: translateX(50%) rotate(15deg) translateZ(20px);
         }
 
         /* Responsive Adjustments */
@@ -425,7 +425,7 @@
             <div class="hero-text-container"
                 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 100%; z-index: 1; text-align: center; pointer-events: none; opacity: 0.15;">
                 <h1 class="hero-title"
-                    style="font-family: 'Syne'; font-weight: 800; font-size: clamp(3rem, 13vw, 14rem); line-height: 0.8; color: var(--text-main); text-transform: uppercase; white-space: nowrap;">
+                    style="font-family: 'Syne'; font-weight: 800; font-size: clamp(2rem, 9vw, 10rem); line-height: 0.85; color: var(--text-main); text-transform: uppercase; white-space: nowrap;">
                     STRATEGIC<br>
                     <span style="color: var(--accent);">WEB</span> DEV
                 </h1>
@@ -762,7 +762,7 @@
             if (index === 0) {
                 // Reset if coming back
                 gsap.set('.product-hero-item', { clearProps: "all" });
-                gsap.set('.hero-title', { opacity: 0.3, scale: 0.9 });
+                gsap.set('.hero-title', { opacity: 0.15, scale: 0.9, clearProps: "transform" });
 
                 // Float Animation (Apple Breath)
                 // Float Animation (Apple Breath) - Adjusted for CSS Grid
