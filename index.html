@@ -61,6 +61,18 @@
             text-transform: uppercase;
         }
 
+        /* Responsive Typography */
+        @media (max-width: 768px) {
+            .headline-xl {
+                font-size: 3rem !important;
+                /* Override inline styles */
+            }
+
+            .body-xl {
+                font-size: 1rem;
+            }
+        }
+
         .highlight {
             color: var(--accent);
         }
@@ -132,6 +144,63 @@
             transform: scale(1.05);
         }
 
+        /* Profile Frame (Slide 2) */
+        .profile-frame {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 4/5;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            backdrop-filter: blur(10px);
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .profile-frame:hover {
+            box-shadow: 0 0 30px rgba(222, 74, 29, 0.2);
+            border-color: var(--accent);
+        }
+
+        /* Responsive Layout for Sections */
+        @media (max-width: 768px) {
+            .slide {
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 5rem;
+                overflow-y: auto;
+                /* Allow scrolling content on small screens if needed */
+            }
+
+            .visual-pane,
+            .narrative-pane {
+                width: 100%;
+                height: auto;
+                padding: 1rem;
+            }
+
+            .visual-pane {
+                order: 2;
+                /* Visual below text on mobile for Slide 2? Or stick to current flow */
+                margin-top: 1rem;
+            }
+
+            .narrative-pane {
+                order: 1;
+                padding-right: 1rem !important;
+                /* Reset inline style */
+                padding-left: 1rem !important;
+                text-align: center;
+            }
+
+            /* Specific fix for Slide 1 which has its own layout logic */
+            #slide-1 {
+                overflow: hidden;
+                /* Keep slide 1 locked */
+            }
+        }
+
         /* Product Image Styling */
         .product-hero {
             width: 80%;
@@ -141,32 +210,76 @@
         }
 
         /* Responsive Product Cluster (Slide 1) */
-        .product-hero-item.main {
-            width: 22vmin;
-            max-width: 280px;
+        .apple-product-cluster {
+            display: grid;
+            grid-template-areas: "overlay";
+            place-items: center;
+            width: 100%;
+            height: 60vh;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 5;
+            perspective: 1000px;
+        }
+
+        .product-hero-item {
+            grid-area: overlay;
             max-height: 40vh;
-            z-index: 3;
-            /* Initial transform handled by GSAP or inline if needed, but size must be here */
+            width: auto;
+            object-fit: contain;
+            transition: all 0.5s ease-out;
+        }
+
+        .product-hero-item.main {
+            width: 35vmin;
+            max-width: 350px;
+            z-index: 10;
+            position: relative;
         }
 
         .product-hero-item.left {
-            position: absolute;
-            width: 18vmin;
-            max-width: 220px;
-            max-height: 35vh;
-            left: 25%;
-            top: 15%;
-            z-index: 2;
+            width: 25vmin;
+            max-width: 280px;
+            z-index: 5;
+            transform: translateX(-60%) rotate(-15deg) translateZ(-50px);
         }
 
         .product-hero-item.right {
-            position: absolute;
-            width: 15vmin;
-            max-width: 180px;
-            max-height: 30vh;
-            right: 28%;
-            bottom: 5%;
-            z-index: 4;
+            width: 22vmin;
+            max-width: 250px;
+            z-index: 8;
+            transform: translateX(60%) rotate(15deg) translateZ(20px);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .apple-product-cluster {
+                height: 50vh;
+                margin-top: 5vh;
+            }
+
+            .product-hero-item.main {
+                width: 50vmin;
+            }
+
+            .product-hero-item.left {
+                width: 35vmin;
+                transform: translateX(-40%) translateY(20%) rotate(-10deg);
+                z-index: 9;
+                /* Bring slightly forward on mobile */
+            }
+
+            .product-hero-item.right {
+                width: 30vmin;
+                transform: translateX(40%) translateY(-20%) rotate(10deg);
+            }
+
+            .hero-title {
+                font-size: 18vw !important;
+                /* Force larger on mobile background */
+                opacity: 0.15 !important;
+            }
         }
 
         /* KPI Card Styling */
@@ -312,31 +425,27 @@
             <div class="hero-text-container"
                 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 100%; z-index: 1; text-align: center; pointer-events: none; opacity: 0.3;">
                 <h1 class="hero-title"
-                    style="font-family: 'Syne'; font-weight: 800; font-size: 15vw; line-height: 0.8; color: var(--text-main); text-transform: uppercase; white-space: nowrap;">
+                    style="font-family: 'Syne'; font-weight: 800; font-size: clamp(4rem, 15vw, 16rem); line-height: 0.8; color: var(--text-main); text-transform: uppercase; white-space: nowrap;">
                     STRATEGIC<br>
                     <span style="color: var(--accent);">WEB</span> DEV
                 </h1>
             </div>
 
             <!-- Apple-Style Product Cluster -->
-            <div class="apple-product-cluster"
-                style="position: relative; z-index: 5; width: 100vw; height: 60vh; display: flex; align-items: center; justify-content: center; transform-style: preserve-3d; perspective: 1000px; max-width: 1200px; margin: 0 auto;">
+            <div class="apple-product-cluster">
 
                 <!-- Centerpiece: Shea Butter (Large) -->
                 <img src="Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp"
-                    class="product-hero-item main"
-                    style="filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5)); transform: translateZ(50px);"
+                    class="product-hero-item main" style="filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5));"
                     alt="Shea Butter">
 
                 <!-- Floating Left: Cocoa Butter -->
                 <img src="Cocoa-Butter-Photoroom-1.png" class="product-hero-item left"
-                    style="transform: rotate(-15deg) translateZ(20px); filter: blur(0px) drop-shadow(0 15px 30px rgba(0,0,0,0.4));"
-                    alt="Cocoa Butter">
+                    style="filter: blur(0px) drop-shadow(0 15px 30px rgba(0,0,0,0.4));" alt="Cocoa Butter">
 
                 <!-- Floating Right: Neem Oil -->
                 <img src="Churchwin_B08ZNQ6WGJ-Neem-Oil-8-Photoroom-2.webp" class="product-hero-item right"
-                    style="transform: rotate(15deg) translateZ(80px); filter: drop-shadow(0 25px 40px rgba(0,0,0,0.6));"
-                    alt="Neem Oil">
+                    style="filter: drop-shadow(0 25px 40px rgba(0,0,0,0.6));" alt="Neem Oil">
             </div>
 
         </section>
@@ -358,8 +467,7 @@
             </div>
             <div class="visual-pane">
                 <!-- Interactive Profile Frame -->
-                <div class="profile-frame"
-                    style="width: 400px; height: 500px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden; position: relative; backdrop-filter: blur(10px);">
+                <div class="profile-frame">
                     <!-- Header Bar of Frame -->
                     <div
                         style="height: 40px; background: rgba(0,0,0,0.2); display: flex; align-items: center; padding: 0 1rem; gap: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
@@ -587,6 +695,37 @@
                     }
                 });
             });
+
+            // Explicitly target Slide 2 Profile Frame if not caught above
+            const profileFrame = document.querySelector('.profile-frame');
+            if (profileFrame) {
+                profileFrame.addEventListener('mousemove', (e) => {
+                    const rect = profileFrame.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -5;
+                    const rotateY = ((x - centerX) / centerX) * 5;
+
+                    gsap.to(profileFrame, {
+                        rotateX: rotateX,
+                        rotateY: rotateY,
+                        transformPerspective: 1000,
+                        duration: 0.5,
+                        ease: "power2.out"
+                    });
+                });
+
+                profileFrame.addEventListener('mouseleave', () => {
+                    gsap.to(profileFrame, {
+                        rotateX: 0,
+                        rotateY: 0,
+                        duration: 1,
+                        ease: "elastic.out(1, 0.5)"
+                    });
+                });
+            }
         }
 
         function updateUI(index) {
@@ -626,9 +765,24 @@
                 gsap.set('.hero-title', { opacity: 0.3, scale: 0.9 });
 
                 // Float Animation (Apple Breath)
-                gsap.fromTo('.product-hero-item.main', { y: 20 }, { y: -20, duration: 4, repeat: -1, yoyo: true, ease: "sine.inOut" });
-                gsap.fromTo('.product-hero-item.left', { y: -15 }, { y: 15, duration: 5, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 0.5 });
-                gsap.fromTo('.product-hero-item.right', { y: 30 }, { y: -30, duration: 6, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 1 });
+                // Float Animation (Apple Breath) - Adjusted for CSS Grid
+                // We use yPercent to maintain relative positioning
+                gsap.fromTo('.product-hero-item.main',
+                    { yPercent: 5 },
+                    { yPercent: -5, duration: 4, repeat: -1, yoyo: true, ease: "sine.inOut" }
+                );
+
+                // Left floats differently
+                gsap.fromTo('.product-hero-item.left',
+                    { yPercent: -10, rotation: -18 },
+                    { yPercent: 10, rotation: -12, duration: 5, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 0.5 }
+                );
+
+                // Right floats differently
+                gsap.fromTo('.product-hero-item.right',
+                    { yPercent: 10, rotation: 12 },
+                    { yPercent: -10, rotation: 18, duration: 6, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 1 }
+                );
 
                 // Text Scales Down (from larger status)
                 const heroTitle = slide.querySelector('.hero-title');
@@ -686,6 +840,45 @@
                 }
             }
 
+
+            // Slide 2: The Specialist - ENTRANCE
+            if (index === 1) {
+                const label = slide.querySelector('.label');
+                const headline = slide.querySelector('.headline-xl');
+                const body = slide.querySelector('.body-xl');
+                const profileFrame = slide.querySelector('.profile-frame');
+
+                // Reset
+                gsap.set([label, headline, body, profileFrame], { clearProps: "all" });
+
+                // 1. Label Fade In
+                gsap.fromTo(label,
+                    { opacity: 0, x: -20 },
+                    { opacity: 1, x: 0, duration: 0.8, delay: 0.2 }
+                );
+
+                // 2. Headline Slide Up
+                gsap.fromTo(headline,
+                    { y: 50, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.3 }
+                );
+
+                // 3. Body Text Fade
+                gsap.fromTo(body,
+                    { opacity: 0, y: 20 },
+                    { opacity: 1, y: 0, duration: 1, ease: "power2.out", delay: 0.5 }
+                );
+
+                // 4. Profile Card Scale (Pop)
+                if (profileFrame) {
+                    gsap.fromTo(profileFrame,
+                        { scale: 0.8, opacity: 0, rotationY: -15 },
+                        { scale: 1, opacity: 1, rotationY: 0, duration: 1.2, ease: "back.out(1.7)", delay: 0.4 }
+                    );
+                }
+
+                return;
+            }
 
             // Standard Animation for other slides
             // Text Stagger: Pitch.com style "Spring" Reveal
