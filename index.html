@@ -106,7 +106,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            z-index: 1;
+            z-index: 10;
         }
 
         .narrative-pane {
@@ -236,6 +236,7 @@
             max-width: 600px;
             z-index: 10;
             position: relative;
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.6)) drop-shadow(0 50px 80px rgba(0, 0, 0, 0.4));
         }
 
         .product-hero-item.left {
@@ -243,6 +244,7 @@
             max-width: 420px;
             z-index: 5;
             transform: translateX(-35%) rotate(-15deg) translateZ(-50px);
+            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5)) drop-shadow(0 30px 50px rgba(0, 0, 0, 0.3));
         }
 
         .product-hero-item.right {
@@ -250,6 +252,7 @@
             max-width: 400px;
             z-index: 8;
             transform: translateX(35%) rotate(15deg) translateZ(20px);
+            filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.5)) drop-shadow(0 40px 60px rgba(0, 0, 0, 0.3));
         }
 
         /* Responsive Adjustments */
@@ -409,6 +412,9 @@
             position: relative;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease;
+            z-index: 5;
+            background: #fff;
+            /* Ensure opaque background */
         }
 
         .browser-header {
@@ -455,6 +461,9 @@
 </head>
 
 <body>
+    <!-- Floating Particles Container -->
+    <div id="particles-container"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2;"></div>
 
     <!-- Background Watermark -->
     <div class="bg-text">IMPACT</div>
@@ -464,7 +473,7 @@
         <!-- 01. INTRO -->
         <!-- Slide 1: The Hook (Cover) -->
         <section class="slide" id="slide-1"
-            style="align-items: center; justify-content: center; position: relative; overflow: hidden;">
+            style="align-items: center; justify-content: center; position: relative; overflow: hidden; background: radial-gradient(circle at 50% 50%, #103a75 0%, #082958 60%, #02122b 100%);">
 
             <!-- Brand Logo (Centered Top) -->
             <div style="position: absolute; top: 5vh; left: 50%; transform: translateX(-50%); z-index: 10;">
@@ -474,7 +483,7 @@
 
             <!-- Massive Background Typography (Subtle Depth) -->
             <div class="hero-text-container"
-                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 100%; z-index: 1; text-align: center; pointer-events: none; opacity: 0.15;">
+                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 100%; z-index: 1; text-align: center; pointer-events: none; opacity: 0.1; filter: blur(3px);">
                 <h1 class="hero-title"
                     style="font-family: 'Syne'; font-weight: 800; font-size: clamp(2rem, 9vw, 10rem); line-height: 0.85; color: var(--text-main); text-transform: uppercase; white-space: nowrap;">
                     STRATEGIC<br>
@@ -487,16 +496,14 @@
 
                 <!-- Centerpiece: Shea Butter (Large) -->
                 <img src="Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp"
-                    class="product-hero-item main" style="filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5));"
-                    alt="Shea Butter">
+                    class="product-hero-item main" alt="Shea Butter">
 
                 <!-- Floating Left: Cocoa Butter -->
-                <img src="Cocoa-Butter-Photoroom-1.png" class="product-hero-item left"
-                    style="filter: blur(0px) drop-shadow(0 15px 30px rgba(0,0,0,0.4));" alt="Cocoa Butter">
+                <img src="Cocoa-Butter-Photoroom-1.png" class="product-hero-item left" alt="Cocoa Butter">
 
                 <!-- Floating Right: Neem Oil -->
                 <img src="Churchwin_B08ZNQ6WGJ-Neem-Oil-8-Photoroom-2.webp" class="product-hero-item right"
-                    style="filter: drop-shadow(0 25px 40px rgba(0,0,0,0.6));" alt="Neem Oil">
+                    alt="Neem Oil">
             </div>
 
         </section>
@@ -639,7 +646,7 @@
                         <div class="browser-address">churchwin.com</div>
                     </div>
                     <img src="analysis_screenshot.webp"
-                        style="width: 100%; height: calc(100% - 36px); object-fit: cover; object-position: top;"
+                        style="width: 100%; height: auto; min-height: calc(100% - 36px); object-fit: cover; object-position: top;"
                         alt="Site Analysis">
                 </div>
             </div>
@@ -730,13 +737,19 @@
                     const rotateX = ((y - centerY) / centerY) * -5; // Max 5deg tilt
                     const rotateY = ((x - centerX) / centerX) * 5;
 
-                    const element = pane.querySelector('.headshot-frame, .product-hero, .kpi-modern');
                     if (element) {
+                        // Dynamic depth based on element type
+                        let depth = 20; // Default
+                        if (element.classList.contains('product-hero-item')) depth = 50;
+                        if (element.classList.contains('main')) depth = 80;
+
                         gsap.to(element, {
                             rotateX: rotateX,
                             rotateY: rotateY,
+                            x: (x - centerX) / centerX * depth,
+                            y: (y - centerY) / centerY * depth,
                             transformPerspective: 1000,
-                            duration: 0.5,
+                            duration: 0.8,
                             ease: "power2.out"
                         });
                     }
@@ -873,31 +886,7 @@
                 return; // Exit standard animation for this slide
             }
 
-            // EXIT animation for Slide 1 (when moving from index 0 to 1)
-            if (currentIndex === 0 && index === 1 && direction === 'next') {
-                const products = sections[0].querySelectorAll('.collage-item');
-                if (products.length > 0) {
-                    gsap.to(products, {
-                        scale: 2,
-                        opacity: 0,
-                        x: (i) => (i % 2 === 0 ? -200 : 200), // Disperse left/right
-                        y: (i) => (i % 2 === 0 ? -100 : 100), // Disperse up/down
-                        rotation: (i) => (i % 2 === 0 ? -45 : 45),
-                        duration: 1.5,
-                        ease: "power2.in",
-                        stagger: 0.05,
-                        onComplete: () => {
-                            // Optionally reset properties after animation if needed for re-entry
-                            gsap.set(products, { clearProps: "all" });
-                        }
-                    });
-                }
-                // Also animate out the hero title
-                const heroTitle = sections[0].querySelector('.hero-title');
-                if (heroTitle) {
-                    gsap.to(heroTitle, { opacity: 0, scale: 0.8, duration: 1, ease: "power2.in" });
-                }
-            }
+
 
 
             // Slide 2: The Specialist - ENTRANCE
@@ -1018,10 +1007,42 @@
             animateSlideContent(index, direction);
         }
 
+        // Generate Organic Particles
+        function generateParticles() {
+            const container = document.getElementById('particles-container');
+            const particleCount = 20;
+
+            for (let i = 0; i < particleCount; i++) {
+                const p = document.createElement('div');
+                const size = Math.random() * 4 + 1;
+                p.style.width = `${size}px`;
+                p.style.height = `${size}px`;
+                p.style.background = 'rgba(255, 255, 255, 0.3)';
+                p.style.position = 'absolute';
+                p.style.borderRadius = '50%';
+                p.style.left = `${Math.random() * 100}%`;
+                p.style.top = `${Math.random() * 100}%`;
+                p.style.filter = `blur(${Math.random() * 2}px)`;
+                container.appendChild(p);
+
+                // Float Animation
+                gsap.to(p, {
+                    y: `-=${Math.random() * 100 + 50}`,
+                    x: `+=${Math.random() * 50 - 25}`,
+                    opacity: 0,
+                    duration: Math.random() * 5 + 5,
+                    repeat: -1,
+                    ease: "none",
+                    delay: Math.random() * 5
+                });
+            }
+        }
+
         // Init
         updateUI(0);
         animateSlideContent(0, 'next');
         initTiltEffect();
+        generateParticles();
 
         // Observer
         Observer.create({
