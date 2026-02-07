@@ -28,8 +28,8 @@
             /* Organic Beige */
             --text-mute: #aab8c5;
             /* Muted Blue-Grey */
-            --accent: #de4a1d;
-            /* Updated Brand Color */
+            --accent: #ff7043;
+            /* WCAG AA Compliant Orange (was #de4a1d) */
             /* Alternates: Vibrant Blue #006EDF - can use if needed */
 
             --spacing-container: 6vw;
@@ -232,24 +232,24 @@
         }
 
         .product-hero-item.main {
-            width: 45vmin;
-            max-width: 450px;
+            width: 60vmin;
+            max-width: 600px;
             z-index: 10;
             position: relative;
         }
 
         .product-hero-item.left {
-            width: 30vmin;
-            max-width: 320px;
+            width: 40vmin;
+            max-width: 420px;
             z-index: 5;
-            transform: translateX(-50%) rotate(-15deg) translateZ(-50px);
+            transform: translateX(-35%) rotate(-15deg) translateZ(-50px);
         }
 
         .product-hero-item.right {
-            width: 28vmin;
-            max-width: 300px;
+            width: 38vmin;
+            max-width: 400px;
             z-index: 8;
-            transform: translateX(50%) rotate(15deg) translateZ(20px);
+            transform: translateX(35%) rotate(15deg) translateZ(20px);
         }
 
         /* Responsive Adjustments */
@@ -383,17 +383,68 @@
 
         .slide-light .label {
             color: var(--bg-dark);
-            opacity: 0.6;
+            opacity: 0.8;
+            /* Increased opacity for better contrast */
         }
 
         .slide-light .highlight {
-            color: var(--accent);
+            color: #de4a1d;
+            /* Darker orange for better contrast on light bg */
         }
 
         .slide-light .outline-text {
-            -webkit-text-stroke: 1px rgba(8, 41, 88, 0.2);
             /* Navy outline */
             color: transparent;
+        }
+
+        /* Browser Mockup Frame (Slide 8) */
+        .browser-frame {
+            width: 90vw;
+            max-width: 900px;
+            aspect-ratio: 16/9;
+            background: #1a1a1a;
+            border-radius: 12px;
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .browser-header {
+            height: 36px;
+            background: rgba(40, 44, 52, 1);
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .browser-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .browser-address {
+            flex: 1;
+            margin-left: 1rem;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            color: #ccc;
+            /* Improved Contrast from #666 */
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .browser-frame:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 40px 80px -12px rgba(0, 0, 0, 0.7);
         }
 
         /* Update Bg Text for light mode */
@@ -474,7 +525,7 @@
                         <div style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f56;"></div>
                         <div style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></div>
                         <div style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></div>
-                        <div style="margin-left: auto; font-family: 'Inter'; font-size: 0.7rem; color: #666;">
+                        <div style="margin-left: auto; font-family: 'Inter'; font-size: 0.7rem; color: #ccc;">
                             cephas_profile.json</div>
                     </div>
                     <!-- Image -->
@@ -574,15 +625,23 @@
                     A solid foundation, but opportunities for <strong>Conversion Optimization</strong> exist.
                     <br><br>
                     <strong>1. Header Congestion</strong>: Too many competing elements (Payment logos vs Brand).<br>
-                    <strong>2. Visual Hierarchy</strong>: CTA buttons are floating; user eye-flow is fragmented.
+                    <strong>2. Visual Hierarchy</strong>: CTA buttons are floating; user eye-flow is fragmented.<br>
                     <strong>3. Typography</strong>: Generic fonts dilute the "Premium Organic" feel.
                 </p>
             </div>
             <div class="visual-pane">
-                <!-- Using the captured analysis image if available, else logo -->
-                <img src="analysis_screenshot.webp"
-                    style="width: 600px; border-radius: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);"
-                    alt="Site Analysis">
+                <!-- Browser Mockup -->
+                <div class="browser-frame">
+                    <div class="browser-header">
+                        <div class="browser-dot" style="background: #ff5f56;"></div>
+                        <div class="browser-dot" style="background: #ffbd2e;"></div>
+                        <div class="browser-dot" style="background: #27c93f;"></div>
+                        <div class="browser-address">churchwin.com</div>
+                    </div>
+                    <img src="analysis_screenshot.webp"
+                        style="width: 100%; height: calc(100% - 36px); object-fit: cover; object-position: top;"
+                        alt="Site Analysis">
+                </div>
             </div>
         </section>
 
@@ -684,7 +743,7 @@
                 });
 
                 pane.addEventListener('mouseleave', () => {
-                    const element = pane.querySelector('.headshot-frame, .product-hero, .kpi-modern');
+                    const element = pane.querySelector('.headshot-frame, .product-hero, .kpi-modern, .browser-frame');
                     if (element) {
                         gsap.to(element, {
                             rotateX: 0,
