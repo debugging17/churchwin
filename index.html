@@ -232,24 +232,24 @@
         }
 
         .product-hero-item.main {
-            width: 60vmin;
-            max-width: 600px;
+            width: 75vmin;
+            max-width: 800px;
             z-index: 10;
             position: relative;
             filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.6)) drop-shadow(0 50px 80px rgba(0, 0, 0, 0.4));
         }
 
         .product-hero-item.left {
-            width: 40vmin;
-            max-width: 420px;
+            width: 50vmin;
+            max-width: 550px;
             z-index: 5;
             transform: translateX(-35%) rotate(-15deg) translateZ(-50px);
             filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5)) drop-shadow(0 30px 50px rgba(0, 0, 0, 0.3));
         }
 
         .product-hero-item.right {
-            width: 38vmin;
-            max-width: 400px;
+            width: 48vmin;
+            max-width: 520px;
             z-index: 8;
             transform: translateX(35%) rotate(15deg) translateZ(20px);
             filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.5)) drop-shadow(0 40px 60px rgba(0, 0, 0, 0.3));
@@ -463,15 +463,19 @@
             grid-template-columns: 1fr;
             gap: 1.5rem;
             width: 100%;
-            max-width: 500px;
-            transform: perspective(1000px) rotateY(-10deg);
+            max-width: 550px;
+            transform: perspective(1000px) rotateY(-5deg);
+            /* Reduced rotation */
         }
 
         .kpi-modern {
-            background: rgba(13, 17, 23, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 12px;
+            background: rgba(13, 17, 23, 0.95);
+            /* Higher opacity for contrast */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            /* Slightly brighter border */
+            padding: 2rem;
+            /* Larger padding */
+            border-radius: 16px;
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -504,9 +508,9 @@
             style="align-items: center; justify-content: center; position: relative; overflow: hidden; background: radial-gradient(circle at 50% 50%, #103a75 0%, #082958 60%, #02122b 100%);">
 
             <!-- Brand Logo (Centered Top) -->
-            <div style="position: absolute; top: 5vh; left: 50%; transform: translateX(-50%); z-index: 10;">
-                <img src="churchwin_logo.png" style="width: 180px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));"
-                    alt="Churchwin Logo">
+            <div
+                style="position: absolute; top: 4vh; left: 50%; transform: translateX(-50%); z-index: 20; background: rgba(255, 255, 255, 0.95); padding: 1rem 2.5rem; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                <img src="churchwin_logo.png" style="width: 200px; display: block;" alt="Churchwin Logo">
             </div>
 
             <!-- Massive Background Typography (Subtle Depth) -->
@@ -635,46 +639,47 @@
                 <div class="service-grid">
                     <!-- 1. Project Management -->
                     <div class="kpi-modern" style="margin-left: 0;">
-                        <span style="font-size: 2rem;">📂</span>
+                        <span style="font-size: 2.5rem;">📂</span>
                         <div>
-                            <div style="font-family:'Syne'; font-weight:700;">Project Management</div>
-                            <div style="color: #666; font-size: 0.9rem;">From Concept to Cash Flow</div>
+                            <div style="font-family:'Syne'; font-weight:700; font-size: 1.2rem;">Project Management
+                            </div>
+                            <div style="color: #ddd; font-size: 1rem;">From Concept to Cash Flow</div>
                         </div>
                     </div>
 
                     <!-- 2. Brand Identity -->
                     <div class="kpi-modern" style="margin-left: 2rem;">
-                        <span style="font-size: 2rem;">🎨</span>
+                        <span style="font-size: 2.5rem;">🎨</span>
                         <div>
-                            <div style="font-family:'Syne'; font-weight:700;">Brand Identity</div>
-                            <div style="color: #666; font-size: 0.9rem;">Crafting a Digital Legacy</div>
+                            <div style="font-family:'Syne'; font-weight:700; font-size: 1.2rem;">Brand Identity</div>
+                            <div style="color: #ddd; font-size: 1rem;">Crafting a Digital Legacy</div>
                         </div>
                     </div>
 
                     <!-- 3. Cybersecurity -->
                     <div class="kpi-modern" style="margin-left: 1rem;">
-                        <span style="font-size: 2rem;">🔒</span>
+                        <span style="font-size: 2.5rem;">🔒</span>
                         <div>
-                            <div style="font-family:'Syne'; font-weight:700;">Cybersecurity</div>
-                            <div style="color: #666; font-size: 0.9rem;">Fortifying Business Assets</div>
+                            <div style="font-family:'Syne'; font-weight:700; font-size: 1.2rem;">Cybersecurity</div>
+                            <div style="color: #ddd; font-size: 1rem;">Fortifying Business Assets</div>
                         </div>
                     </div>
 
                     <!-- 4. WordPress Dev -->
                     <div class="kpi-modern" style="margin-left: 3rem;">
-                        <span style="font-size: 2rem;">🖥️</span>
+                        <span style="font-size: 2.5rem;">🖥️</span>
                         <div>
-                            <div style="font-family:'Syne'; font-weight:700;">WordPress Dev</div>
-                            <div style="color: #666; font-size: 0.9rem;">Scalable Custom Engines</div>
+                            <div style="font-family:'Syne'; font-weight:700; font-size: 1.2rem;">WordPress Dev</div>
+                            <div style="color: #ddd; font-size: 1rem;">Scalable Custom Engines</div>
                         </div>
                     </div>
 
                     <!-- 5. Digital Marketing -->
                     <div class="kpi-modern" style="margin-left: 0.5rem;">
-                        <span style="font-size: 2rem;">📈</span>
+                        <span style="font-size: 2.5rem;">📈</span>
                         <div>
-                            <div style="font-family:'Syne'; font-weight:700;">Digital Marketing</div>
-                            <div style="color: #666; font-size: 0.9rem;">Performance Growth</div>
+                            <div style="font-family:'Syne'; font-weight:700; font-size: 1.2rem;">Digital Marketing</div>
+                            <div style="color: #ddd; font-size: 1rem;">Performance Growth</div>
                         </div>
                     </div>
                 </div>
