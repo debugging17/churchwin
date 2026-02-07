@@ -457,6 +457,34 @@
         .slide-light~.bg-text {
             color: rgba(8, 41, 88, 0.03);
         }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 500px;
+            transform: perspective(1000px) rotateY(-10deg);
+        }
+
+        .kpi-modern {
+            background: rgba(13, 17, 23, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .kpi-modern:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent);
+        }
     </style>
 </head>
 
@@ -604,11 +632,50 @@
                 </p>
             </div>
             <div class="visual-pane">
-                <div class="kpi-modern" style="width: 400px;">
-                    <span style="font-size: 2rem;">📂</span>
-                    <div>
-                        <div style="font-family:'Syne'; font-weight:700;">Project Management</div>
-                        <div style="color: #666; font-size: 0.9rem;">From Concept to Cash Flow</div>
+                <div class="service-grid">
+                    <!-- 1. Project Management -->
+                    <div class="kpi-modern" style="margin-left: 0;">
+                        <span style="font-size: 2rem;">📂</span>
+                        <div>
+                            <div style="font-family:'Syne'; font-weight:700;">Project Management</div>
+                            <div style="color: #666; font-size: 0.9rem;">From Concept to Cash Flow</div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Brand Identity -->
+                    <div class="kpi-modern" style="margin-left: 2rem;">
+                        <span style="font-size: 2rem;">🎨</span>
+                        <div>
+                            <div style="font-family:'Syne'; font-weight:700;">Brand Identity</div>
+                            <div style="color: #666; font-size: 0.9rem;">Crafting a Digital Legacy</div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Cybersecurity -->
+                    <div class="kpi-modern" style="margin-left: 1rem;">
+                        <span style="font-size: 2rem;">🔒</span>
+                        <div>
+                            <div style="font-family:'Syne'; font-weight:700;">Cybersecurity</div>
+                            <div style="color: #666; font-size: 0.9rem;">Fortifying Business Assets</div>
+                        </div>
+                    </div>
+
+                    <!-- 4. WordPress Dev -->
+                    <div class="kpi-modern" style="margin-left: 3rem;">
+                        <span style="font-size: 2rem;">🖥️</span>
+                        <div>
+                            <div style="font-family:'Syne'; font-weight:700;">WordPress Dev</div>
+                            <div style="color: #666; font-size: 0.9rem;">Scalable Custom Engines</div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Digital Marketing -->
+                    <div class="kpi-modern" style="margin-left: 0.5rem;">
+                        <span style="font-size: 2rem;">📈</span>
+                        <div>
+                            <div style="font-family:'Syne'; font-weight:700;">Digital Marketing</div>
+                            <div style="color: #666; font-size: 0.9rem;">Performance Growth</div>
+                        </div>
                     </div>
                 </div>
             </div>
