@@ -19,16 +19,16 @@
     <style>
         :root {
             /* Churchwin Strategic Proposal Theme */
-            --bg-dark: #003366;
+            --bg-dark: #012787;
             /* Deep Corporate Navy */
-            --bg-card: #002244;
+            --bg-card: #001a57;
             /* Darker Navy */
             --text-main: #FFFFFF;
             /* Clean White */
-            --text-mute: #B0C4DE;
+            --text-mute: #dcebff;
             /* Light Steel Blue */
-            --accent: #FFB300;
-            /* Warm Gold/Amber - Shea Butter Tone */
+            --accent: #ff6a00;
+            /* Vibrant Orange */
             --spacing-container: 6vw;
         }
 
@@ -198,6 +198,12 @@
                 overflow: hidden;
                 /* Keep slide 1 locked */
             }
+
+            /* Ensure scrolling works generally */
+            .slide {
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
         }
 
         /* Product Image Styling */
@@ -344,6 +350,12 @@
             left: 50%;
             transform: translate(-50%, -50%);
             pointer-events: none;
+            /* Prevent overflow causing scrollbars */
+            max-width: 100vw;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         /* Navigation Progress */
@@ -386,17 +398,28 @@
         .slide-light .label {
             color: var(--bg-dark);
             opacity: 0.8;
-            /* Increased opacity for better contrast */
+            font-weight: 600;
         }
 
         .slide-light .highlight {
-            color: #de4a1d;
-            /* Darker orange for better contrast on light bg */
+            color: var(--accent);
+        }
+
+        .slide-light .body-xl {
+            color: #444;
+            /* Darker gray for readability on white */
         }
 
         .slide-light .outline-text {
             /* Navy outline */
             color: transparent;
+            -webkit-text-stroke: 1px var(--bg-dark);
+        }
+
+        /* Adjustment for Light Mode Slide 5 Funnel */
+        #slide-5.slide-light .visual-pane div:first-child>div:nth-child(1) {
+            border: 1px solid #ccc;
+            background: #fdfdfd !important;
         }
 
         /* Browser Mockup Frame (Slide 8) */
@@ -641,7 +664,11 @@
             /* Slide 7 (Conclusion) */
             #slide-7 .visual-pane {
                 display: none;
-                /* Hide big logo visual on mobile to focus on text? Or make smaller */
+            }
+
+            /* Adjust huge text on mobile */
+            .bg-text {
+                font-size: 15vw !important;
             }
 
             #slide-7 .narrative-pane {
@@ -678,7 +705,7 @@
         <!-- Slide 1: The Hook (Cover) -->
         <!-- Slide 1: Cover Page -->
         <section class="slide" id="slide-1"
-            style="align-items: center; justify-content: center; position: relative; overflow: hidden; background: radial-gradient(circle at 50% 50%, #003366 0%, #001a33 100%);">
+            style="align-items: center; justify-content: center; position: relative; overflow: hidden; background: radial-gradient(circle at 50% 50%, #023e8a 0%, #012787 100%);">
 
             <!-- Partial Overlay Map (Visual Prompt) -->
             <div
@@ -781,7 +808,7 @@
 
         <!-- 02. PROCESS -->
         <!-- Slide 3: Why We Are Losing (The Brand Gap) -->
-        <section class="slide" id="slide-3">
+        <section class="slide slide-light" id="slide-3">
             <div class="narrative-pane">
                 <span class="label">The Brand Gap</span>
                 <h1 class="headline-xl">Great Product, <br><span class="highlight">Outdated Presence</span></h1>
@@ -800,15 +827,16 @@
             </div>
             <div class="visual-pane">
                 <!-- Split Screen Comparison -->
-                <div style="display: flex; gap: 1rem; width: 100%; height: 60%; max-width: 800px;">
-                    <!-- Left: Current (Boring) -->
+                <div class="split-comparison"
+                    style="display: flex; gap: 1rem; width: 100%; height: auto; min-height: 400px; max-width: 800px; padding: 1rem 0;">
+                    <!-- Left: Current (Boring) - Adjusted for Light Mode -->
                     <div
-                        style="flex: 1; background: #fff; border-radius: 8px; position: relative; opacity: 0.5; transform: scale(0.9);">
+                        style="flex: 1; background: #e0e7ff; border: 1px dashed #999; border-radius: 8px; position: relative; opacity: 0.8; transform: scale(0.9);">
                         <div style="padding: 1rem; color: #333;">
-                            <div style="height: 10px; width: 40%; background: #ccc; margin-bottom: 1rem;"></div>
-                            <div style="height: 2px; width: 80%; background: #eee; margin-bottom: 0.5rem;"></div>
-                            <div style="height: 2px; width: 80%; background: #eee; margin-bottom: 0.5rem;"></div>
-                            <div style="height: 2px; width: 80%; background: #eee; margin-bottom: 0.5rem;"></div>
+                            <div style="height: 10px; width: 40%; background: #bdc3c7; margin-bottom: 1rem;"></div>
+                            <div style="height: 2px; width: 80%; background: #d1d5db; margin-bottom: 0.5rem;"></div>
+                            <div style="height: 2px; width: 80%; background: #d1d5db; margin-bottom: 0.5rem;"></div>
+                            <div style="height: 2px; width: 80%; background: #d1d5db; margin-bottom: 0.5rem;"></div>
                             <div
                                 style="margin-top: 2rem; text-align: center; font-family: 'Montserrat'; font-weight: 700; color: #999;">
                                 STATIC CATALOG</div>
@@ -817,7 +845,7 @@
 
                     <!-- Right: Future (Dynamic) -->
                     <div
-                        style="flex: 1; background: #fff; border-radius: 8px; position: relative; box-shadow: 0 20px 50px rgba(255,179,0,0.3); border: 2px solid var(--accent); overflow: hidden;">
+                        style="flex: 1; background: #fff; border-radius: 8px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 2px solid var(--accent); overflow: hidden;">
                         <img src="Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp"
                             style="position: absolute; width: 120%; top: -10%; left: -10%; opacity: 0.2;">
                         <div
@@ -920,7 +948,7 @@
 
         <!-- 03. EXPERIENCE -->
         <!-- Slide 5: Enhancement 1 (Sales Engine) -->
-        <section class="slide" id="slide-5">
+        <section class="slide slide-light" id="slide-5">
             <div class="narrative-pane">
                 <span class="label">Enhancement 01: Sales</span>
                 <h1 class="headline-xl">Stop Waiting. <br><span class="highlight">Go Get Them.</span></h1>
@@ -940,19 +968,19 @@
                     style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 1rem;">
 
                     <div
-                        style="width: 250px; padding: 1rem; background: #fff; color: #000; text-align: center; border-radius: 4px; font-weight: 700; clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);">
+                        style="width: 250px; padding: 1rem; background: #fff; border: 1px solid #ddd; color: #000; text-align: center; border-radius: 4px; font-weight: 700; clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);">
                         Apollo.io Database<br><span style="font-size: 0.8rem; font-weight: 400;">30,000+ Verified
                             Contacts</span>
                     </div>
 
-                    <div style="width: 2px; height: 20px; background: rgba(255,255,255,0.2);"></div>
+                    <div style="width: 2px; height: 20px; background: rgba(0,0,0,0.2);"></div>
 
                     <div
-                        style="width: 200px; padding: 1rem; background: rgba(255,255,255,0.9); color: #000; text-align: center; border-radius: 4px; font-weight: 700; clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 15% 100%);">
+                        style="width: 200px; padding: 1rem; background: rgba(255,255,255,0.9); border: 1px solid #ddd; color: #000; text-align: center; border-radius: 4px; font-weight: 700; clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 15% 100%);">
                         Filter: Formulators
                     </div>
 
-                    <div style="width: 2px; height: 20px; background: rgba(255,255,255,0.2);"></div>
+                    <div style="width: 2px; height: 20px; background: rgba(0,0,0,0.2);"></div>
 
                     <div
                         style="width: 150px; padding: 1rem; background: var(--accent); color: #000; text-align: center; border-radius: 4px; font-weight: 700; box-shadow: 0 0 20px rgba(255,179,0,0.5);">
@@ -989,10 +1017,10 @@
             <div class="visual-pane">
                 <!-- Visual: QR Code / Origin Visual -->
                 <div
-                    style="width: 100%; height: 60%; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                    style="width: 100%; height: 60%; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
                     <!-- Placeholder Img -->
                     <img src="Churchwin_B08ZNQ6WGJ-Neem-Oil-8-Photoroom-2.webp"
-                        style="position: absolute; width: 60%; opacity: 0.1; top: -100px; right: -50px;">
+                        style="position: absolute; width: 60%; opacity: 0.1; top: -50px; right: -20px;">
 
                     <div style="text-align: center; color: #333; z-index: 2;">
                         <div
@@ -1012,8 +1040,8 @@
             <div class="visual-pane">
                 <div
                     style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative;">
-                    <div
-                        style="font-size: 15rem; color: rgba(255,255,255,0.02); font-weight: 800; position: absolute; pointer-events: none;">
+                    <div class="growth-text"
+                        style="font-size: 15rem; color: rgba(255,255,255,0.05); font-weight: 800; position: absolute; pointer-events: none; z-index: 1;">
                         GROWTH</div>
                     <img src="churchwin_logo.png" style="width: 300px; display: block; position: relative; z-index: 2;"
                         alt="Churchwin Logo">
