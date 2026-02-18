@@ -762,169 +762,119 @@
                 height: 4px;
             }
         }
-    </style>
-</head>
-
-<body>
-    <!-- Floating Particles Container -->
-    <div id="particles-container"
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2;"></div>
-
-    <div class="noise-overlay"></div>
-
-    <!-- Background Watermark -->
-    <div class="bg-text">IMPACT</div>
-
-    <main class="deck-container">
-
-        <!-- 01. INTRO -->
-        <!-- Slide 1: The Hook (Cover) -->
-        <!-- Slide 1: Cover Page -->
-        <section class="slide" id="slide-1"
-            style="align-items: center; justify-content: center; position: relative; overflow: hidden; background: radial-gradient(circle at 50% 50%, #023e8a 0%, #012787 100%);">
-
-            <!-- Partial Overlay Map (Visual Prompt) -->
-            <div
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg'); background-size: cover; pointer-events: none;">
-            </div>
-
-            <!-- Brand Logo -->
-            <div
-                style="position: absolute; top: 5vh; left: 50%; transform: translateX(-50%); z-index: 20; background: rgba(255, 255, 255, 0.95); padding: 1rem 3rem; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-                <img src="churchwin_logo_new.png" style="width: 220px; display: block;" alt="Churchwin Trading Co.">
-            </div>
-
-            <!-- Main Content -->
-            <div class="narrative-pane"
-                style="width: 100%; text-align: center; align-items: center; padding: 0 10vw; z-index: 10;">
-                <h1 class="headline-xl" style="font-size: 3.5rem; margin-bottom: 2rem;">
-                    Revitalizing Churchwin:<br>
-                    <span style="color: var(--accent); font-weight: 300;">A Strategic Roadmap to Global B2B
-                        Dominance</span>
-                </h1>
-
-                <div style="height: 2px; width: 100px; background: var(--accent); margin-bottom: 2rem;"></div>
-
-                <p class="body-xl" style="font-size: 1.5rem; color: var(--text-mute);">
-                    Turning "Hidden Gem" Quality into <br>Market-Leading Revenue (Q1-Q2 2026)
-                </p>
-
-                <div
-                    style="margin-top: 4rem; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5);">
-                    Strategic Digital Marketing & Brand Revamp Proposal
-                </div>
-            </div>
-
-        </section>
 
         /* Bento Grid Layout for Slide 2 */
         .bento-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        gap: 1rem;
-        width: 100%;
-        height: 100%;
-        max-height: 500px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1rem;
+            width: 100%;
+            height: 100%;
+            max-height: 500px;
         }
 
         .bento-card {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 16px;
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        overflow: hidden;
-        position: relative;
-        transition: transform 0.3s ease, border-color 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
         .bento-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(255, 255, 255, 0.3);
-        background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .bento-card h4 {
-        font-size: 0.9rem;
-        color: var(--text-mute);
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-        opacity: 0.8;
-        letter-spacing: 1px;
-        text-transform: uppercase;
+            font-size: 0.9rem;
+            color: var(--text-mute);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            opacity: 0.8;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .bento-big-num {
-        font-family: 'Syne', sans-serif;
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #fff;
-        line-height: 1;
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
         }
 
         .bento-sub {
-        font-size: 0.8rem;
-        margin-top: 0.5rem;
-        opacity: 0.6;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            opacity: 0.6;
         }
 
         /* Specific Cards */
         .card-leader {
-        grid-column: span 2;
-        grid-row: span 2;
-        background: linear-gradient(135deg, rgba(39, 201, 63, 0.1), rgba(39, 201, 63, 0.05));
-        border-color: rgba(39, 201, 63, 0.3);
+            grid-column: span 2;
+            grid-row: span 2;
+            background: linear-gradient(135deg, rgba(39, 201, 63, 0.1), rgba(39, 201, 63, 0.05));
+            border-color: rgba(39, 201, 63, 0.3);
         }
 
         .card-client {
-        grid-column: span 1;
-        grid-row: span 1;
-        background: linear-gradient(135deg, rgba(255, 68, 0, 0.1), rgba(255, 68, 0, 0.05));
-        border-color: rgba(255, 68, 0, 0.3);
+            grid-column: span 1;
+            grid-row: span 1;
+            background: linear-gradient(135deg, rgba(255, 68, 0, 0.1), rgba(255, 68, 0, 0.05));
+            border-color: rgba(255, 68, 0, 0.3);
         }
 
         .card-competitor {
-        grid-column: span 1;
-        background: rgba(255,255,255,0.03);
+            grid-column: span 1;
+            background: rgba(255, 255, 255, 0.03);
         }
 
         .card-legacy {
-        grid-column: span 1;
-        opacity: 0.5;
-        border-style: dashed;
+            grid-column: span 1;
+            opacity: 0.5;
+            border-style: dashed;
         }
 
         /* Progress Bar within Card */
         .stat-bar {
-        width: 100%;
-        height: 6px;
-        background: rgba(255,255,255,0.1);
-        border-radius: 3px;
-        margin-top: 1rem;
-        overflow: hidden;
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-top: 1rem;
+            overflow: hidden;
         }
 
         .stat-fill {
-        height: 100%;
-        border-radius: 3px;
+            height: 100%;
+            border-radius: 3px;
         }
 
         @media (max-width: 768px) {
-        .bento-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        max-height: none;
+            .bento-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                max-height: none;
+            }
+
+            .card-leader,
+            .card-client,
+            .card-competitor,
+            .card-legacy {
+                grid-column: span 1;
+                grid-row: auto;
+            }
         }
-        .card-leader, .card-client, .card-competitor, .card-legacy {
-        grid-column: span 1;
-        grid-row: auto;
-        }
-        }
-        </style>
-        </head>
+    </style>
+</head>
 
         <body>
             <!-- Floating Particles Container -->
