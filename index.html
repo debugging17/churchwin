@@ -91,10 +91,14 @@
 
         .slide {
             width: 100vw;
+            min-width: 100vw;
+            /* Ensure it never shrinks below viewport */
             height: 100vh;
             display: flex;
             overflow: hidden;
             position: relative;
+            flex-shrink: 0;
+            /* Prevent slides from squishing */
         }
 
         /* Split Architecture */
