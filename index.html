@@ -84,7 +84,7 @@
         /* Layout */
         .deck-container {
             display: flex;
-            width: 1100vw;
+            width: max-content;
             height: 100vh;
             will-change: transform;
         }
@@ -1367,7 +1367,7 @@
 
             // Slide Transition
             tl.to(container, {
-                xPercent: -100 * index / sections.length,
+                x: (-100 * index) + "vw",
                 duration: 1.2,
                 ease: "power4.inOut"
             });
