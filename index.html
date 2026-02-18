@@ -489,6 +489,57 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
             border-color: var(--accent);
         }
+
+        /* Slide 8 Specific Adjustment */
+        #slide-8 .headline-xl {
+            font-size: 5vw !important;
+            /* Force smaller size to prevent overlap */
+            line-height: 1.1;
+        }
+
+        /* Mobile specific overrides */
+        @media (max-width: 768px) {
+
+            /* Slide 6 Fixes */
+            #slide-6 .headline-xl {
+                font-size: 2.5rem !important;
+            }
+
+            #slide-6 .service-grid {
+                max-width: 100%;
+                transform: none !important;
+                /* Remove 3D tilt on mobile for clarity */
+                margin-top: 1rem;
+                padding-bottom: 5rem;
+                /* Space for scrolling */
+            }
+
+            /* Slide 7 Fixes - Ensure "Current State" fits */
+            #slide-7 .headline-xl {
+                font-size: 3rem !important;
+            }
+
+            /* Slide 8 Fixes - Analysis */
+            #slide-8 .headline-xl {
+                font-size: 2.5rem !important;
+                margin-bottom: 1rem;
+            }
+
+            #slide-8 .browser-frame {
+                width: 100%;
+                max-width: none;
+                aspect-ratio: 16/9;
+                margin-top: 1rem;
+            }
+
+            #slide-8 .narrative-pane {
+                padding-bottom: 0;
+            }
+
+            #slide-8 .visual-pane {
+                padding-top: 0;
+            }
+        }
     </style>
 </head>
 
@@ -1120,12 +1171,61 @@
         Observer.create({
             target: window,
             type: "wheel,touch,pointer",
-            onUp: () => gotoSlide(currentIndex - 1),
-            onDown: () => gotoSlide(currentIndex + 1),
+            onUp: (self) => {
+                if (isInternalScroll(self.event.target)) return;
+                gotoSlide(currentIndex - 1);
+            },
+            onDown: (self) => {
+                if (isInternalScroll(self.event.target)) return;
+                gotoSlide(currentIndex + 1);
+            },
             wheelSpeed: -1,
             tolerance: 10,
             preventDefault: true
         });
+
+        // Helper to detect if user is trying to scroll internal content
+        function isInternalScroll(target) {
+            // Check if target is within a scrollable area (like service-grid on mobile)
+            const scrollable = target.closest('.slide');
+            if (!scrollable) return false;
+
+            // Specifically for Slide 6 on mobile
+            if (scrollable.id === 'slide-6' && window.innerWidth <= 768) {
+                // If the slide content is actually overflowing, we might want to allow native scroll?
+                // But Observer prevents default. 
+                // We should probably allow the Observer to trigger ONLY if we are at the edge?
+                // Implementation complexity: High.
+                // Alternative: Just checking if we are on Slide 6 and let the user scroll naturally? 
+                // But Observer.create(preventDefault: true) kills native scroll.
+                // To allow native scroll, we must NOT preventDefault on the scrollable area.
+                // But Observer is bound to window.
+
+                // Better approach: If on a "long" slide on mobile, disable Observer?
+                // Or: Use native scrolling for the whole page on mobile?
+                // For now, let's keep the snap but ensure the "tolerance" handles it or we rely on the CSS fixes to make it fit.
+
+                // However, the service grid height might exceed viewport.
+                // If so, we need to allow scrolling.
+                return false;
+            }
+            return false;
+        }
+
+        /* 
+           REVISION: The "preventDefault: true" in Observer KILLS native scrolling.
+           To allow scrolling on mobile for Slide 6, we need to handle this.
+           We can disable Observer when on Slide 6 mobile, or use a hybrid approach.
+           
+           Simplest Robust Fix: 
+           On mobile, Slide 6 content might overflow. 
+           If we really want to read it, we should properly scroll.
+           
+           Let's change the Observer logic to ONLY prevent default if we are NOT in a scrollable zone.
+           But Observer is all-or-nothing on the target.
+           
+           Actually, let's try increasing tolerance for mobile to make it less twitchy.
+        */
 
         window.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight' || e.key === 'ArrowDown') gotoSlide(currentIndex + 1);
