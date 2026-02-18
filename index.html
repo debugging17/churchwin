@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cephas Kudalor | Strategic Developer</title>
 
-    <!-- Fonts: Syne (Graphic Headlines) & Inter (Clean Body) -->
+    <!-- Fonts: Montserrat (Modern, Professional, Clean) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syne:wght@400;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <!-- GSAP -->
@@ -19,19 +18,17 @@
 
     <style>
         :root {
-            /* Brand Aligned Design System (Churchwin) */
-            --bg-dark: #082958;
-            /* Churchwin Navy */
-            --bg-card: #051f42;
+            /* Churchwin Strategic Proposal Theme */
+            --bg-dark: #003366;
+            /* Deep Corporate Navy */
+            --bg-card: #002244;
             /* Darker Navy */
-            --text-main: #F1EEE2;
-            /* Organic Beige */
-            --text-mute: #aab8c5;
-            /* Muted Blue-Grey */
-            --accent: #ff7043;
-            /* WCAG AA Compliant Orange (was #de4a1d) */
-            /* Alternates: Vibrant Blue #006EDF - can use if needed */
-
+            --text-main: #FFFFFF;
+            /* Clean White */
+            --text-mute: #B0C4DE;
+            /* Light Steel Blue */
+            --accent: #FFB300;
+            /* Warm Gold/Amber - Shea Butter Tone */
             --spacing-container: 6vw;
         }
 
@@ -42,12 +39,13 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-main);
             overflow: hidden;
             height: 100vh;
             width: 100vw;
+            font-weight: 300;
         }
 
         /* Typography */
@@ -55,10 +53,11 @@
         h2,
         h3,
         h4 {
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-            line-height: 0.9;
-            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            text-transform: none;
         }
 
         /* Responsive Typography */
@@ -500,44 +499,166 @@
         /* Mobile specific overrides */
         @media (max-width: 768px) {
 
-            /* Slide 6 Fixes */
-            #slide-6 .headline-xl {
-                font-size: 2.5rem !important;
+            /* Global Layout Fixes */
+            .slide {
+                flex-direction: column;
+                justify-content: center;
+                padding: 4rem 1.5rem;
+                /* More top padding for logo clearance if needed */
+                overflow-y: auto;
+                /* Allow internal scrolling if content is long */
+                height: 100vh;
             }
 
-            #slide-6 .service-grid {
-                max-width: 100%;
-                transform: none !important;
-                /* Remove 3D tilt on mobile for clarity */
-                margin-top: 1rem;
-                padding-bottom: 5rem;
-                /* Space for scrolling */
+            .narrative-pane,
+            .visual-pane {
+                width: 100% !important;
+                height: auto !important;
+                padding: 1rem 0 !important;
+                text-align: center;
             }
 
-            /* Slide 7 Fixes - Ensure "Current State" fits */
-            #slide-7 .headline-xl {
-                font-size: 3rem !important;
+            .narrative-pane {
+                padding-right: 0 !important;
             }
 
-            /* Slide 8 Fixes - Analysis */
-            #slide-8 .headline-xl {
-                font-size: 2.5rem !important;
+            /* Global Typography Fixes */
+            .headline-xl {
+                font-size: 2.2rem !important;
+                line-height: 1.1;
                 margin-bottom: 1rem;
             }
 
-            #slide-8 .browser-frame {
-                width: 100%;
-                max-width: none;
-                aspect-ratio: 16/9;
+            .body-xl {
+                font-size: 1rem !important;
+                line-height: 1.5;
+            }
+
+            .label {
+                font-size: 0.8rem;
+                margin-bottom: 0.5rem;
+                display: block;
+            }
+
+            /* Slide 1 Using Specific IDs */
+            #slide-1 {
+                padding-top: 6rem;
+                /* Space for logo */
+            }
+
+            #slide-1 .headline-xl {
+                font-size: 2rem !important;
+            }
+
+            /* Slide 1 Logo Styling override */
+            #slide-1 div[style*="top: 5vh"] {
+                top: 2vh !important;
+                width: 80%;
+                padding: 0.5rem 1rem !important;
+            }
+
+            #slide-1 img {
+                width: 150px !important;
+                margin: 0 auto;
+            }
+
+            /* Slide 2 (Chart) */
+            #slide-2 .visual-pane>div {
+                padding: 1rem !important;
+            }
+
+            #slide-2 .headline-xl {
+                font-size: 2rem !important;
+            }
+
+            /* Slide 3 (Comparison) */
+            #slide-3 .visual-pane>div {
+                flex-direction: column;
+                height: auto !important;
+                /* Allow height to grow */
+                width: 100% !important;
+            }
+
+            #slide-3 .visual-pane>div>div {
+                transform: none !important;
+                /* Remove scaling */
+                opacity: 1 !important;
+                width: 100% !important;
+                margin-bottom: 1rem;
+                flex: none !important;
+                /* Disable flex scaling */
+            }
+
+            /* Slide 4 (Timeline) */
+            #slide-4 .narrative-pane,
+            #slide-4 .visual-pane {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            #slide-4 .visual-pane>div {
+                flex-direction: column;
+                width: 100% !important;
+            }
+
+            #slide-4 .visual-pane>div>div {
+                border-left: 4px solid !important;
+                margin-left: 0 !important;
+                margin-bottom: 1rem;
+                background: rgba(255, 255, 255, 0.08) !important;
+                width: 100% !important;
+                box-sizing: border-box;
+                /* Ensure padding doesn't add to width */
+            }
+
+            /* Slide 5 (Funnel) */
+            #slide-5 .visual-pane>div {
+                gap: 0.5rem !important;
+            }
+
+            #slide-5 .visual-pane div[style*="clip-path"] {
+                width: 100% !important;
+                /* Full width funnel steps */
+                clip-path: none !important;
+                /* Remove complex shapes on mobile */
+                border-radius: 8px !important;
+            }
+
+            /* Slide 6 (Narrative) */
+            #slide-6 .visual-pane {
+                height: 300px !important;
                 margin-top: 1rem;
             }
 
-            #slide-8 .narrative-pane {
-                padding-bottom: 0;
+            #slide-6 img[src*="Photoroom"] {
+                opacity: 0.2 !important;
+                /* Reduce opacity for readability */
+                width: 100% !important;
+                right: 0 !important;
+                top: 0 !important;
             }
 
-            #slide-8 .visual-pane {
-                padding-top: 0;
+            /* Slide 7 (Conclusion) */
+            #slide-7 .visual-pane {
+                display: none;
+                /* Hide big logo visual on mobile to focus on text? Or make smaller */
+            }
+
+            #slide-7 .narrative-pane {
+                padding-top: 2rem !important;
+            }
+
+            /* UI Elements */
+            .page-indicator {
+                bottom: 1rem;
+                right: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .progress-bar {
+                top: 0;
+                bottom: auto;
+                height: 4px;
             }
         }
     </style>
@@ -555,282 +676,374 @@
 
         <!-- 01. INTRO -->
         <!-- Slide 1: The Hook (Cover) -->
+        <!-- Slide 1: Cover Page -->
         <section class="slide" id="slide-1"
-            style="align-items: center; justify-content: center; position: relative; overflow: hidden; background: radial-gradient(circle at 50% 50%, #103a75 0%, #082958 60%, #02122b 100%);">
+            style="align-items: center; justify-content: center; position: relative; overflow: hidden; background: radial-gradient(circle at 50% 50%, #003366 0%, #001a33 100%);">
 
-            <!-- Brand Logo (Centered Top) -->
+            <!-- Partial Overlay Map (Visual Prompt) -->
             <div
-                style="position: absolute; top: 4vh; left: 50%; transform: translateX(-50%); z-index: 20; background: rgba(255, 255, 255, 0.95); padding: 1rem 2.5rem; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                <img src="churchwin_logo.png" style="width: 200px; display: block;" alt="Churchwin Logo">
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg'); background-size: cover; pointer-events: none;">
             </div>
 
-            <!-- Massive Background Typography (Subtle Depth) -->
-            <div class="hero-text-container"
-                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 100%; z-index: 1; text-align: center; pointer-events: none; opacity: 0.1; filter: blur(3px);">
-                <h1 class="hero-title"
-                    style="font-family: 'Syne'; font-weight: 800; font-size: clamp(2rem, 9vw, 10rem); line-height: 0.85; color: var(--text-main); text-transform: uppercase; white-space: nowrap;">
-                    STRATEGIC<br>
-                    <span style="color: var(--accent);">WEB</span> DEV
+            <!-- Brand Logo -->
+            <div
+                style="position: absolute; top: 5vh; left: 50%; transform: translateX(-50%); z-index: 20; background: rgba(255, 255, 255, 0.95); padding: 1rem 3rem; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                <img src="churchwin_logo.png" style="width: 220px; display: block;" alt="Churchwin Trading Co.">
+            </div>
+
+            <!-- Main Content -->
+            <div class="narrative-pane"
+                style="width: 100%; text-align: center; align-items: center; padding: 0 10vw; z-index: 10;">
+                <h1 class="headline-xl" style="font-size: 3.5rem; margin-bottom: 2rem;">
+                    Revitalizing Churchwin:<br>
+                    <span style="color: var(--accent); font-weight: 300;">A Strategic Roadmap to Global B2B
+                        Dominance</span>
                 </h1>
-            </div>
 
-            <!-- Apple-Style Product Cluster -->
-            <div class="apple-product-cluster">
+                <div style="height: 2px; width: 100px; background: var(--accent); margin-bottom: 2rem;"></div>
 
-                <!-- Centerpiece: Shea Butter (Large) -->
-                <img src="Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp"
-                    class="product-hero-item main" alt="Shea Butter">
+                <p class="body-xl" style="font-size: 1.5rem; color: var(--text-mute);">
+                    Turning "Hidden Gem" Quality into <br>Market-Leading Revenue (Q1-Q2 2026)
+                </p>
 
-                <!-- Floating Left: Cocoa Butter -->
-                <img src="Cocoa-Butter-Photoroom-1.png" class="product-hero-item left" alt="Cocoa Butter">
-
-                <!-- Floating Right: Neem Oil -->
-                <img src="Churchwin_B08ZNQ6WGJ-Neem-Oil-8-Photoroom-2.webp" class="product-hero-item right"
-                    alt="Neem Oil">
+                <div
+                    style="margin-top: 4rem; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5);">
+                    Strategic Digital Marketing & Brand Revamp Proposal
+                </div>
             </div>
 
         </section>
 
-        <!-- Slide 2: About Me (Tailored CV) -->
+        <!-- Slide 2: The Current Reality -->
         <section class="slide" id="slide-2">
             <div class="narrative-pane" style="padding-right: 2rem;">
-                <span class="label">The Specialist</span>
-                <h1 class="headline-xl">About <br><span class="highlight">Cephas</span></h1>
+                <span class="label">The Current Reality</span>
+                <h1 class="headline-xl">The Hard Truth: <br><span class="highlight">We Are Invisible</span></h1>
                 <p class="body-xl">
-                    I am a <strong>Strategic Web Developer</strong> combining <strong>Engineering Logic</strong> with
-                    <strong>Global Business Operations</strong>.
+                    While competitors thrive on organic traffic, Churchwin is silent.
                     <br><br>
-                    At <strong>Thermo Fisher Scientific</strong>, I mastered remote reliability. At <strong>Bezeleel
-                        Alliance</strong>, I boosted productivity by <strong>30%</strong>.
+                    <strong>The Traffic Chasm:</strong><br>
+                    Baraka Shea: <strong>~53,000</strong> visits/mo.<br>
+                    Churchwin: <strong>~200</strong> visits/mo.<br>
+                    <span style="font-size: 0.9em; color: var(--accent);">We are a statistical error in the
+                        market.</span>
                     <br><br>
-                    I bridge the gap between <strong>Technical Code</strong> and <strong>Business Goals</strong>.
+                    <strong>The "Pay-to-Play" Trap:</strong><br>
+                    100% of our traffic is paid. If ads stop, business stops.
                 </p>
             </div>
             <div class="visual-pane">
-                <!-- Interactive Profile Frame -->
-                <div class="profile-frame">
-                    <!-- Header Bar of Frame -->
-                    <div
-                        style="height: 40px; background: rgba(0,0,0,0.2); display: flex; align-items: center; padding: 0 1rem; gap: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <div style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f56;"></div>
-                        <div style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></div>
-                        <div style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></div>
-                        <div style="margin-left: auto; font-family: 'Inter'; font-size: 0.7rem; color: #ccc;">
-                            cephas_profile.json</div>
-                    </div>
-                    <!-- Image -->
-                    <img src="headshot.png" style="width: 100%; height: calc(100% - 40px); object-fit: cover;"
-                        alt="Cephas Profile">
+                <!-- Data Visualization: Traffic Comparison -->
+                <div
+                    style="width: 100%; max-width: 500px; padding: 2rem; background: rgba(0,0,0,0.2); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <h3 style="margin-bottom: 2rem; font-size: 1.2rem; color: var(--text-mute);">Monthly Site Visits
+                        (Jan 2026)</h3>
 
-                    <!-- Floating Badge -->
-                    <div
-                        style="position: absolute; bottom: 20px; right: 20px; background: var(--accent); color: white; padding: 5px 15px; border-radius: 20px; font-family: 'Syne'; font-weight: 700; font-size: 0.8rem; box-shadow: 0 5px 15px rgba(222, 74, 29, 0.4);">
-                        STATUS: READY
+                    <!-- Baraka -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Baraka Shea</span>
+                            <span>52,931</span>
+                        </div>
+                        <div
+                            style="width: 100%; height: 30px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                            <div style="width: 100%; height: 100%; background: #27c93f;"></div>
+                        </div>
+                    </div>
+
+                    <!-- FairTale -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>FairTale Ghana</span>
+                            <span>2,186</span>
+                        </div>
+                        <div
+                            style="width: 100%; height: 30px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                            <div style="width: 4%; height: 100%; background: #ffbd2e;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Churchwin -->
+                    <div>
+                        <div
+                            style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: var(--accent); font-weight: 700;">
+                            <span>Churchwin</span>
+                            <span>200</span>
+                        </div>
+                        <div
+                            style="width: 100%; height: 30px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; border: 1px solid var(--accent);">
+                            <div style="width: 0.5%; height: 100%; background: var(--accent);"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 02. PROCESS -->
-        <!-- Slide 3: Section Header (Light) -->
-        <section class="slide slide-light" id="slide-3">
-            <div class="narrative-pane" style="width: 100%; align-items: center; text-align: center;">
-                <span class="label">02. Methodology</span>
-                <h1 class="headline-xl" style="font-size: 8vw;">The <span class="highlight">Process</span></h1>
-            </div>
-        </section>
-
-        <!-- Slide 4: Engineering (The Engine) -->
-        <section class="slide" id="slide-4">
+        <!-- Slide 3: Why We Are Losing (The Brand Gap) -->
+        <section class="slide" id="slide-3">
             <div class="narrative-pane">
-                <span class="label">The Engine</span>
-                <h1 class="headline-xl">Performance <br><span class="highlight">First</span></h1>
+                <span class="label">The Brand Gap</span>
+                <h1 class="headline-xl">Great Product, <br><span class="highlight">Outdated Presence</span></h1>
                 <p class="body-xl">
-                    A beautiful site is useless if it's slow.
+                    Our digital storefront does not reflect our product quality.
                     <br><br>
-                    I build engines, not just shells.
-                    <br>
-                    • <strong>Nginx Caching</strong> for millisecond loads.<br>
-                    • <strong>WebP Assets</strong> for instant mobile rendering.<br>
-                    • <strong>Security Hardening</strong> to protect the brand.
+                    <strong>1. Static vs. Dynamic:</strong><br>
+                    Our site is a flat catalog. No Clear CTAs ("Request Sample").
+                    <br><br>
+                    <strong>2. Narrative Void:</strong><br>
+                    Competitors sell "Impact" & "Ethics". We list specs.
+                    <br><br>
+                    <strong>3. Zero Trust Signals:</strong><br>
+                    No User Generated Content. No Maker Stories. We look risky.
                 </p>
             </div>
             <div class="visual-pane">
-                <div style="text-align: left;">
-                    <div class="kpi-big">99<span style="font-size:1.5rem">%</span></div>
-                    <div style="color:#666; margin-bottom: 2rem; font-family:'Syne';">LIGHTHOUSE PERFORMANCE</div>
-                    <div class="kpi-big">0.2<span style="font-size:1.5rem">s</span></div>
-                    <div style="color:#666; font-family:'Syne';">TTFB (TIME TO FIRST BYTE)</div>
+                <!-- Split Screen Comparison -->
+                <div style="display: flex; gap: 1rem; width: 100%; height: 60%; max-width: 800px;">
+                    <!-- Left: Current (Boring) -->
+                    <div
+                        style="flex: 1; background: #fff; border-radius: 8px; position: relative; opacity: 0.5; transform: scale(0.9);">
+                        <div style="padding: 1rem; color: #333;">
+                            <div style="height: 10px; width: 40%; background: #ccc; margin-bottom: 1rem;"></div>
+                            <div style="height: 2px; width: 80%; background: #eee; margin-bottom: 0.5rem;"></div>
+                            <div style="height: 2px; width: 80%; background: #eee; margin-bottom: 0.5rem;"></div>
+                            <div style="height: 2px; width: 80%; background: #eee; margin-bottom: 0.5rem;"></div>
+                            <div
+                                style="margin-top: 2rem; text-align: center; font-family: 'Montserrat'; font-weight: 700; color: #999;">
+                                STATIC CATALOG</div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Future (Dynamic) -->
+                    <div
+                        style="flex: 1; background: #fff; border-radius: 8px; position: relative; box-shadow: 0 20px 50px rgba(255,179,0,0.3); border: 2px solid var(--accent); overflow: hidden;">
+                        <img src="Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp"
+                            style="position: absolute; width: 120%; top: -10%; left: -10%; opacity: 0.2;">
+                        <div
+                            style="padding: 1rem; position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end;">
+                            <div
+                                style="background: var(--accent); color: #000; padding: 0.5rem 1rem; border-radius: 4px; text-align: center; font-weight: 700;">
+                                REQUEST SAMPLE</div>
+                            <div
+                                style="margin-bottom: 1rem; text-align: center; color: #333; font-weight: 700; margin-top: 1rem;">
+                                PERSUASIVE ENGINE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Strategic Solution (Roadmap) -->
+        <section class="slide" id="slide-4">
+            <div class="narrative-pane" style="width: 40%;">
+                <span class="label">The Strategic Solution</span>
+                <h1 class="headline-xl">The Fix: <br><span class="highlight">3-Month Roadmap</span></h1>
+                <p class="body-xl">
+                    We don't need a year. We need 90 days of aggressive execution.
+                    <br><br>
+                    <strong>Month 1: Foundation</strong><br>
+                    Fixing the plumbing. UX Overhaul & SEO.
+                    <br><br>
+                    <strong>Month 2: Automation</strong><br>
+                    Turning on the faucet. Apollo.io & Cold Outreach.
+                    <br><br>
+                    <strong>Month 3: Scale</strong><br>
+                    Amplification. Retargeting (Meta Pixel) & UGC.
+                </p>
+            </div>
+            <div class="visual-pane" style="width: 60%;">
+                <!-- Horizontal Timeline Visual -->
+                <div style="display: flex; flex-direction: column; gap: 1rem; width: 100%;">
+
+                    <!-- Month 1 -->
+                    <div
+                        style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; border-left: 4px solid #4facfe; position: relative;">
+                        <div
+                            style="position: absolute; top: -10px; left: -10px; background: #4facfe; color: #fff; padding: 4px 8px; font-size: 0.8rem; font-weight: 700; border-radius: 4px;">
+                            MONTH 1</div>
+                        <h3 style="margin-top: 0.5rem; color: #fff;">Digital Foundation</h3>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                            <span
+                                style="font-size: 0.8rem; background: rgba(79, 172, 254, 0.2); padding: 4px 8px; border-radius: 4px;">UX/UI
+                                Overhaul</span>
+                            <span
+                                style="font-size: 0.8rem; background: rgba(79, 172, 254, 0.2); padding: 4px 8px; border-radius: 4px;">SEO
+                                Strategy</span>
+                            <span
+                                style="font-size: 0.8rem; background: rgba(79, 172, 254, 0.2); padding: 4px 8px; border-radius: 4px;">CRM
+                                Setup</span>
+                        </div>
+                    </div>
+
+                    <!-- Month 2 -->
+                    <div
+                        style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent); position: relative; margin-left: 2rem;">
+                        <div
+                            style="position: absolute; top: -10px; left: -10px; background: var(--accent); color: #000; padding: 4px 8px; font-size: 0.8rem; font-weight: 700; border-radius: 4px;">
+                            MONTH 2</div>
+                        <h3 style="margin-top: 0.5rem; color: #fff;">Automation Engine</h3>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                            <span
+                                style="font-size: 0.8rem; background: rgba(255, 179, 0, 0.2); color: var(--accent); padding: 4px 8px; border-radius: 4px;">Apollo.io
+                                Mining</span>
+                            <span
+                                style="font-size: 0.8rem; background: rgba(255, 179, 0, 0.2); color: var(--accent); padding: 4px 8px; border-radius: 4px;">Instantly.ai</span>
+                            <span
+                                style="font-size: 0.8rem; background: rgba(255, 179, 0, 0.2); color: var(--accent); padding: 4px 8px; border-radius: 4px;">Asset
+                                Production</span>
+                        </div>
+                    </div>
+
+                    <!-- Month 3 -->
+                    <div
+                        style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; border-left: 4px solid #27c93f; position: relative; margin-left: 4rem;">
+                        <div
+                            style="position: absolute; top: -10px; left: -10px; background: #27c93f; color: #fff; padding: 4px 8px; font-size: 0.8rem; font-weight: 700; border-radius: 4px;">
+                            MONTH 3</div>
+                        <h3 style="margin-top: 0.5rem; color: #fff;">Scale & Amplify</h3>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                            <span
+                                style="font-size: 0.8rem; background: rgba(39, 201, 63, 0.2); padding: 4px 8px; border-radius: 4px;">UGC
+                                Campaign</span>
+                            <span
+                                style="font-size: 0.8rem; background: rgba(39, 201, 63, 0.2); padding: 4px 8px; border-radius: 4px;">Retargeting</span>
+                            <span
+                                style="font-size: 0.8rem; background: rgba(39, 201, 63, 0.2); padding: 4px 8px; border-radius: 4px;">Wholesale
+                                Portal</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
         <!-- 03. EXPERIENCE -->
-        <!-- Slide 5: Section Header (Light) -->
-        <section class="slide slide-light" id="slide-5">
-            <div class="narrative-pane" style="width: 100%; align-items: center; text-align: center;">
-                <span class="label">03. Track Record</span>
-                <h1 class="headline-xl" style="font-size: 8vw;">Proven <span class="highlight">Results</span></h1>
-            </div>
-        </section>
-
-        <!-- Slide 6: Case Studies -->
-        <section class="slide" id="slide-6">
+        <!-- Slide 5: Enhancement 1 (Sales Engine) -->
+        <section class="slide" id="slide-5">
             <div class="narrative-pane">
-                <span class="label">The Architect</span>
-                <h1 class="headline-xl">Complex <br><span class="highlight">Systems</span></h1>
+                <span class="label">Enhancement 01: Sales</span>
+                <h1 class="headline-xl">Stop Waiting. <br><span class="highlight">Go Get Them.</span></h1>
                 <p class="body-xl">
-                    I don't just "install themes." I build business logic.
+                    Implementing <strong>Apollo.io</strong> and <strong>Instantly.ai</strong> for Precision Targeting.
                     <br><br>
-                    <strong>Bezeleel Alliance</strong>: Managed end-to-end project lifecycles.<br>
-                    <strong>Offshore Partners</strong>: Optimized operational workflows using web tools.
+                    <strong>The Shift:</strong><br>
+                    From Shotgun (Mass Ads) to Sniper (Direct Email).
+                    <br><br>
+                    We target the exact <strong>R&D Directors</strong> and <strong>Formulators</strong> at top Cosmetic
+                    firms.
                 </p>
             </div>
             <div class="visual-pane">
-                <div class="service-grid">
-                    <!-- 1. Project Management -->
-                    <div class="kpi-modern" style="margin-left: 0;">
-                        <span style="font-size: 2.5rem;">📂</span>
-                        <div>
-                            <div style="font-family:'Syne'; font-weight:700; font-size: 1.2rem;">Project Management
-                            </div>
-                            <div style="color: #ddd; font-size: 1rem;">From Concept to Cash Flow</div>
-                        </div>
+                <!-- Funnel Diagram -->
+                <div
+                    style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 1rem;">
+
+                    <div
+                        style="width: 250px; padding: 1rem; background: #fff; color: #000; text-align: center; border-radius: 4px; font-weight: 700; clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);">
+                        Apollo.io Database<br><span style="font-size: 0.8rem; font-weight: 400;">30,000+ Verified
+                            Contacts</span>
                     </div>
 
-                    <!-- 2. Brand Identity -->
-                    <div class="kpi-modern" style="margin-left: 2rem;">
-                        <span style="font-size: 2.5rem;">🎨</span>
-                        <div>
-                            <div style="font-family:'Syne'; font-weight:700; font-size: 1.2rem;">Brand Identity</div>
-                            <div style="color: #ddd; font-size: 1rem;">Crafting a Digital Legacy</div>
-                        </div>
+                    <div style="width: 2px; height: 20px; background: rgba(255,255,255,0.2);"></div>
+
+                    <div
+                        style="width: 200px; padding: 1rem; background: rgba(255,255,255,0.9); color: #000; text-align: center; border-radius: 4px; font-weight: 700; clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 15% 100%);">
+                        Filter: Formulators
                     </div>
 
-                    <!-- 3. Cybersecurity -->
-                    <div class="kpi-modern" style="margin-left: 1rem;">
-                        <span style="font-size: 2.5rem;">🔒</span>
-                        <div>
-                            <div style="font-family:'Syne'; font-weight:700; font-size: 1.2rem;">Cybersecurity</div>
-                            <div style="color: #ddd; font-size: 1rem;">Fortifying Business Assets</div>
-                        </div>
+                    <div style="width: 2px; height: 20px; background: rgba(255,255,255,0.2);"></div>
+
+                    <div
+                        style="width: 150px; padding: 1rem; background: var(--accent); color: #000; text-align: center; border-radius: 4px; font-weight: 700; box-shadow: 0 0 20px rgba(255,179,0,0.5);">
+                        Instantly.ai <br><span style="font-size: 0.8rem;">Automated Sequence</span>
                     </div>
 
-                    <!-- 4. WordPress Dev -->
-                    <div class="kpi-modern" style="margin-left: 3rem;">
-                        <span style="font-size: 2.5rem;">🖥️</span>
-                        <div>
-                            <div style="font-family:'Syne'; font-weight:700; font-size: 1.2rem;">WordPress Dev</div>
-                            <div style="color: #ddd; font-size: 1rem;">Scalable Custom Engines</div>
-                        </div>
-                    </div>
+                    <div style="width: 2px; height: 20px; background: var(--accent);"></div>
 
-                    <!-- 5. Digital Marketing -->
-                    <div class="kpi-modern" style="margin-left: 0.5rem;">
-                        <span style="font-size: 2.5rem;">📈</span>
-                        <div>
-                            <div style="font-family:'Syne'; font-weight:700; font-size: 1.2rem;">Digital Marketing</div>
-                            <div style="color: #ddd; font-size: 1rem;">Performance Growth</div>
+                    <div
+                        style="width: 100px; padding: 1rem; background: #27c93f; color: #fff; text-align: center; border-radius: 50%; font-weight: 700; display: flex; align-items: center; justify-content: center; aspect-ratio: 1/1;">
+                        CLOSED<br>DEAL
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Enhancement 2 (Narrative Arc) -->
+        <section class="slide" id="slide-6">
+            <div class="narrative-pane">
+                <span class="label">Enhancement 02: Narrative</span>
+                <h1 class="headline-xl">Commodity to <br><span class="highlight">Community</span></h1>
+                <p class="body-xl">
+                    Leveraging Storytelling to Command Premium Pricing.
+                    <br><br>
+                    <strong>Origin Story Campaign:</strong><br>
+                    Video assets showcasing the women's cooperatives.
+                    <br><br>
+                    <strong>Traceability:</strong><br>
+                    QR codes on bulk packaging mapping batches to harvest regions.
+                    <br><br>
+                    We don't just sell oil; we sell <strong>Ethical Solutions</strong>.
+                </p>
+            </div>
+            <div class="visual-pane">
+                <!-- Visual: QR Code / Origin Visual -->
+                <div
+                    style="width: 100%; height: 60%; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                    <!-- Placeholder Img -->
+                    <img src="Churchwin_B08ZNQ6WGJ-Neem-Oil-8-Photoroom-2.webp"
+                        style="position: absolute; width: 60%; opacity: 0.1; top: -100px; right: -50px;">
+
+                    <div style="text-align: center; color: #333; z-index: 2;">
+                        <div
+                            style="width: 150px; height: 150px; background: #000; margin: 0 auto 1rem auto; border-radius: 8px; display: grid; place-items: center;">
+                            <span style="color: #fff; font-size: 3rem;">⚃</span>
                         </div>
+                        <h3 style="font-family: 'Montserrat'; font-weight: 700; margin-bottom: 0.5rem;">SCAN ORIGIN</h3>
+                        <p style="font-size: 0.8rem; color: #666;">Batch #CW-2026-02<br>Region: Northern Ghana</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 04. ANALYSIS -->
-        <!-- Slide 7: Section Header (Light) -->
-        <section class="slide slide-light" id="slide-7">
-            <div class="narrative-pane" style="width: 100%; align-items: center; text-align: center;">
-                <span class="label">04. Audit</span>
-                <h1 class="headline-xl" style="font-size: 8vw;">Current <span class="highlight">State</span></h1>
-            </div>
-        </section>
-
-        <!-- Slide 8: Churchwin Analysis -->
-        <section class="slide" id="slide-8">
-            <div class="narrative-pane">
-                <span class="label">Passive Analysis</span>
-                <h1 class="headline-xl">Churchwin <br><span class="outline-text">.com</span></h1>
-                <p class="body-xl">
-                    A solid foundation, but opportunities for <strong>Conversion Optimization</strong> exist.
-                    <br><br>
-                    <strong>1. Header Congestion</strong>: Too many competing elements (Payment logos vs Brand).<br>
-                    <strong>2. Visual Hierarchy</strong>: CTA buttons are floating; user eye-flow is fragmented.<br>
-                    <strong>3. Typography</strong>: Generic fonts dilute the "Premium Organic" feel.
-                </p>
-            </div>
-            <div class="visual-pane">
-                <!-- Browser Mockup -->
-                <div class="browser-frame">
-                    <div class="browser-header">
-                        <div class="browser-dot" style="background: #ff5f56;"></div>
-                        <div class="browser-dot" style="background: #ffbd2e;"></div>
-                        <div class="browser-dot" style="background: #27c93f;"></div>
-                        <div class="browser-address">churchwin.com</div>
-                    </div>
-                    <img src="analysis_screenshot.webp"
-                        style="width: 100%; height: auto; min-height: calc(100% - 36px); object-fit: cover; object-position: top;"
-                        alt="Site Analysis">
-                </div>
-            </div>
-        </section>
-
-        <!-- 05. RECOMMENDATIONS -->
-        <!-- Slide 9: Section Header (Light) -->
-        <section class="slide slide-light" id="slide-9">
-            <div class="narrative-pane" style="width: 100%; align-items: center; text-align: center;">
-                <span class="label">05. Strategy</span>
-                <h1 class="headline-xl" style="font-size: 8vw;">The <span class="highlight">Roadmap</span></h1>
-            </div>
-        </section>
-
-        <!-- Slide 10: Solutions -->
-        <section class="slide" id="slide-10">
-            <div class="visual-pane">
-                <img src="churchwin_logo.png" style="width: 300px; height: auto;" alt="Churchwin Logo"
-                    class="product-hero">
-            </div>
-            <div class="narrative-pane">
-                <span class="label">The Solution</span>
-                <h1 class="headline-xl">Premium <br><span class="highlight">Evolution</span></h1>
-                <p class="body-xl">
-                    <strong>Strategic Updates for Week 1:</strong>
-                    <br><br>
-                    1. <strong>Streamline Navigation</strong>: Move trust signals to footer; let the Brand breathe.<br>
-                    2. <strong>Unified Typography</strong>: Implement 'Syne' + 'Inter' for consistent authority.<br>
-                    3. <strong>Frictionless Checkout</strong>: Remove floating UI distractions.
-                </p>
-            </div>
-        </section>
-
-        <!-- 06. CONCLUSION -->
-        <!-- Slide 11: CTA -->
-        <section class="slide" id="slide-11">
+        <!-- Slide 7: Conclusion -->
+        <section class="slide" id="slide-7">
             <div class="visual-pane">
                 <div
-                    style="width: 100%; height: 100%; background: var(--accent); display: flex; align-items: center; justify-content: center; color: var(--bg-dark);">
-                    <div style="font-family: 'Syne'; font-size: 8rem; font-weight: 800; line-height: 0.8;">
-                        LET'S<br>BUILD.
-                    </div>
+                    style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative;">
+                    <div
+                        style="font-size: 15rem; color: rgba(255,255,255,0.02); font-weight: 800; position: absolute; pointer-events: none;">
+                        GROWTH</div>
+                    <img src="churchwin_logo.png" style="width: 300px; display: block; position: relative; z-index: 2;"
+                        alt="Churchwin Logo">
                 </div>
             </div>
             <div class="narrative-pane">
                 <span class="label">Next Steps</span>
-                <h1 class="headline-xl">Ready to <br><span class="highlight">Deploy</span></h1>
+                <h1 class="headline-xl">Let's Grow <br><span class="highlight">Together</span></h1>
                 <p class="body-xl">
-                    I am ready to bring this vision to life starting <strong>Monday</strong>.
+                    This isn't just a website update.<br>
+                    It's a <strong>Market Domination Strategy</strong>.
                     <br><br>
-                    Let's stop planning and start building the future of Churchwin.
+                    <strong>Proposal:</strong><br>
+                    • Full Rebrand (Logo Refinement)<br>
+                    • High-Performance Shopify/Custom Hybrid<br>
+                    • Sales Funnel Setup (Apollo + Instantly)
+                    <br><br>
+                    <span style="color: var(--accent); font-weight: 700;">Ready to Start?</span>
                 </p>
             </div>
         </section>
+
+
     </main>
 
     <!-- UI Elements -->
     <div class="progress-bar">
         <div class="progress-fill"></div>
     </div>
-    <div class="page-indicator"><span class="current-page">01</span> / 11</div>
+    <div class="page-indicator"><span class="current-page">01</span> / 07</div>
 
     <script>
         gsap.registerPlugin(Observer);
