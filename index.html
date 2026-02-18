@@ -15,6 +15,8 @@
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Observer.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
     <style>
         :root {
@@ -30,6 +32,19 @@
             --accent: #ff6a00;
             /* Vibrant Orange */
             --spacing-container: 6vw;
+        }
+
+        /* Noise Overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
         * {
@@ -252,6 +267,51 @@
             z-index: 10;
             position: relative;
             filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.6)) drop-shadow(0 50px 80px rgba(0, 0, 0, 0.4));
+            overflow: hidden;
+            /* Ensure glint stays inside if we wrapper it, but these are imgs. */
+            /* We can't use pseudo elements on IMG tags. We need a wrapper or just use a filter brightness trick. */
+        }
+
+        /* Glint Wrapper */
+        .glint-wrapper {
+            position: relative;
+            display: inline-block;
+            z-index: 10;
+            grid-area: overlay;
+            /* Match grid area of img */
+        }
+
+        .glint-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+            transform: skewX(-25deg);
+            z-index: 12;
+            animation: glintAnim 6s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes glintAnim {
+
+            0%,
+            40% {
+                left: -100%;
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            60%,
+            100% {
+                left: 200%;
+                opacity: 0;
+            }
         }
 
         .product-hero-item.left {
@@ -709,6 +769,8 @@
     <!-- Floating Particles Container -->
     <div id="particles-container"
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2;"></div>
+
+    <div class="noise-overlay"></div>
 
     <!-- Background Watermark -->
     <div class="bg-text">IMPACT</div>
@@ -1307,34 +1369,59 @@
             }
 
             // Standard Animation for other slides
-            // Text Stagger: Pitch.com style "Spring" Reveal
-            const texts = slide.querySelectorAll('h1, p, .label');
-            gsap.fromTo(texts,
-                { y: 60, opacity: 0, rotationX: 20 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    rotationX: 0,
-                    duration: 1.2,
-                    stagger: 0.1,
-                    ease: "elastic.out(1, 0.75)", // Bouncy entry 
-                    delay: 0.3
-                }
-            );
+
+            // 1. Text Stagger: Sophisticated Character Reveal for Headlines
+            const headline = slide.querySelector('.headline-xl');
+            if (headline && headline.querySelectorAll('.char').length > 0) {
+                gsap.fromTo(headline.querySelectorAll('.char'),
+                    { y: 100, opacity: 0, rotateZ: 5 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        rotateZ: 0,
+                        duration: 0.8,
+                        stagger: 0.02,
+                        ease: "power4.out",
+                        delay: 0.2
+                    }
+                );
+            } else {
+                // Fallback if not split
+                gsap.fromTo(slide.querySelectorAll('.headline-xl'),
+                    { y: 50, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.2 }
+                );
+            }
+
+            // 2. Body & Labels: Standard Soft Fade Up
+            const bodyTexts = slide.querySelectorAll('p, .label, .checklist-item');
+            if (bodyTexts.length > 0) {
+                gsap.fromTo(bodyTexts,
+                    { y: 30, opacity: 0 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        duration: 1,
+                        stagger: 0.1,
+                        ease: "power2.out",
+                        delay: 0.4
+                    }
+                );
+            }
 
             // Visual Pane Animations (Parallax/Scale)
             const visual = slide.querySelector('.visual-pane > *');
             if (visual) {
-                // Initial Entry
+                // Initial Entry - Cleaner Ease
                 gsap.fromTo(visual,
-                    { scale: 0.8, x: direction === 'next' ? 100 : -100, opacity: 0, rotateY: direction === 'next' ? 15 : -15 },
+                    { scale: 0.9, x: direction === 'next' ? 50 : -50, opacity: 0, rotateY: direction === 'next' ? 10 : -10 },
                     {
                         scale: 1,
                         x: 0,
                         opacity: 1,
                         rotateY: 0,
-                        duration: 1.5,
-                        ease: "elastic.out(1, 0.8)",
+                        duration: 1.2,
+                        ease: "back.out(1.2)", // More premium than elastic
                         delay: 0.2
                     }
                 );
@@ -1416,9 +1503,25 @@
             }
         }
 
+        // Initialize SplitType
+        // We defer this slightly to ensure fonts are loaded, or just run it.
+        // Note: SplitType might mess up layout if run before resize, but for this deck it's fine.
+        let splitHeadlines;
+
+        function initSplitText() {
+            splitHeadlines = new SplitType('.headline-xl', { types: 'lines, words, chars' });
+            // add a class to revert if needed, or just keep it
+        }
+
         // Init
+        setTimeout(() => {
+            initSplitText();
+            // Re-trigger animation for first slide after split
+            animateSlideContent(0, 'next');
+        }, 100);
+
         updateUI(0);
-        animateSlideContent(0, 'next');
+        // animateSlideContent(0, 'next'); // Moved to timeout to ensure split happens first
         initTiltEffect();
         generateParticles();
 
@@ -1445,24 +1548,10 @@
             const scrollable = target.closest('.slide');
             if (!scrollable) return false;
 
-            // Specifically for Slide 6 on mobile
+            // Specifically for Slide 6 on mobile - ALLOW Native Scroll
             if (scrollable.id === 'slide-6' && window.innerWidth <= 768) {
-                // If the slide content is actually overflowing, we might want to allow native scroll?
-                // But Observer prevents default. 
-                // We should probably allow the Observer to trigger ONLY if we are at the edge?
-                // Implementation complexity: High.
-                // Alternative: Just checking if we are on Slide 6 and let the user scroll naturally? 
-                // But Observer.create(preventDefault: true) kills native scroll.
-                // To allow native scroll, we must NOT preventDefault on the scrollable area.
-                // But Observer is bound to window.
-
-                // Better approach: If on a "long" slide on mobile, disable Observer?
-                // Or: Use native scrolling for the whole page on mobile?
-                // For now, let's keep the snap but ensure the "tolerance" handles it or we rely on the CSS fixes to make it fit.
-
-                // However, the service grid height might exceed viewport.
-                // If so, we need to allow scrolling.
-                return false;
+                // We need to return TRUE here so the Observer ignores it and lets native touch scroll happen
+                return true;
             }
             return false;
         }
