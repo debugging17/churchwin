@@ -68,6 +68,8 @@ h4 {
     overflow: hidden;
     position: relative;
     flex-shrink: 0;
+    /* Safe zone: prevent content from touching the fixed footer UI */
+    padding-bottom: 5rem;
 }
 
 /* Split Architecture */
@@ -79,6 +81,8 @@ h4 {
     justify-content: center;
     position: relative;
     z-index: 10;
+    overflow: hidden;
+    padding: 2rem 1rem;
 }
 
 .narrative-pane {
@@ -87,9 +91,18 @@ h4 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 var(--spacing-container);
+    padding: 3rem var(--spacing-container) 2rem;
     position: relative;
     z-index: 2;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Hide scrollbar but allow scrolling */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.narrative-pane::-webkit-scrollbar {
+    display: none;
 }
 
 /* Narratives */
@@ -98,20 +111,22 @@ h4 {
     text-transform: uppercase;
     letter-spacing: 3px;
     color: var(--accent);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     display: block;
     font-weight: 700;
     text-shadow: 0 0 10px rgba(255, 106, 0, 0.2);
+    flex-shrink: 0;
 }
 
 .headline-xl {
-    font-size: 5vw;
-    margin-bottom: 2rem;
+    font-size: clamp(2rem, 4vw, 4.5rem);
+    margin-bottom: 1.5rem;
+    flex-shrink: 0;
 }
 
 .body-xl {
-    font-size: 1.35rem;
-    line-height: 1.6;
+    font-size: clamp(0.95rem, 1.2vw, 1.25rem);
+    line-height: 1.55;
     color: var(--text-mute);
     max-width: 600px;
     font-weight: 400;
@@ -139,7 +154,7 @@ h4 {
 /* Navigation Progress */
 .progress-bar {
     position: fixed;
-    bottom: 3rem;
+    bottom: 2rem;
     left: 3rem;
     width: 200px;
     height: 2px;
@@ -156,10 +171,11 @@ h4 {
 
 .page-indicator {
     position: fixed;
-    bottom: 3rem;
+    bottom: 2rem;
     left: 250px;
     color: var(--text-mute);
     font-size: 0.9rem;
+    z-index: 100;
 }
 
 .current-page {

@@ -7,7 +7,7 @@ export default function RoadmapSlide() {
 
     return (
         <section className="slide" id="slide-4" ref={slideRef}>
-            <div className="narrative-pane" style={{ width: '40%' }}>
+            <div className="narrative-pane">
                 <span className="label">The Strategic Solution</span>
                 <h1 className="headline-xl">
                     The Fix: <br /><span className="highlight">3-Month Roadmap</span>
@@ -26,7 +26,7 @@ export default function RoadmapSlide() {
                 </p>
             </div>
 
-            <div className="visual-pane" style={{ width: '60%' }}>
+            <div className="visual-pane">
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
                     {/* Month 1 */}
                     <div style={{

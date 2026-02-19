@@ -9,7 +9,7 @@ export default function CurrentRealitySlide() {
 
     return (
         <section className="slide" id="slide-2" ref={slideRef}>
-            <div className="narrative-pane" style={{ paddingRight: '2rem', width: '40%' }}>
+            <div className="narrative-pane" style={{ paddingRight: '1rem' }}>
                 <span className="label">The Current Reality</span>
                 <h1 className="headline-xl">
                     The Hard Truth: <br /><span className="highlight">We Are Invisible</span>
@@ -26,7 +26,7 @@ export default function CurrentRealitySlide() {
                 </p>
             </div>
 
-            <div className="visual-pane" ref={tiltRef} style={{ width: '60%', padding: '2rem' }}>
+            <div className="visual-pane" ref={tiltRef} style={{ padding: '1rem' }}>
                 <div className="bento-grid">
                     {/* Market Leader: Baraka Shea */}
                     <div className="bento-card card-leader">

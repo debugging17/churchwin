@@ -1,219 +1,328 @@
-/* ========== RESPONSIVE STYLES ========== */
-
-/* Responsive Typography */
-@media (max-width: 768px) {
-    .headline-xl {
-        font-size: 3rem !important;
-    }
-
-    .body-xl {
-        font-size: 1rem;
-    }
-}
-
-/* Responsive Layout for Sections */
+/* ========== TABLET (768px and below) ========== */
 @media (max-width: 768px) {
     .slide {
         flex-direction: column;
-        justify-content: center;
-        padding: 4rem 1.5rem;
+        justify-content: flex-start;
+        padding: 1rem 1.5rem 4rem;
         overflow-y: auto;
+        overflow-x: hidden;
         height: 100vh;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .slide::-webkit-scrollbar {
+        display: none;
     }
 
     .visual-pane,
     .narrative-pane {
         width: 100% !important;
         height: auto !important;
-        padding: 1rem 0 !important;
-        text-align: center;
+        padding: 0.75rem 0 !important;
+        text-align: left;
+        overflow: visible !important;
     }
 
     .visual-pane {
         order: 2;
-        margin-top: 1rem;
+        margin-top: 0.5rem;
+        min-height: 0;
+        flex-shrink: 1;
     }
 
     .narrative-pane {
         order: 1;
-        padding-right: 1rem !important;
-        padding-left: 1rem !important;
-        text-align: center;
+        flex-shrink: 0;
     }
 
-    /* Slide 1 */
+    /* Global Typography */
+    .headline-xl {
+        font-size: 1.8rem !important;
+        line-height: 1.15;
+        margin-bottom: 0.75rem;
+    }
+
+    .body-xl {
+        font-size: 0.9rem !important;
+        line-height: 1.45;
+    }
+
+    .label {
+        font-size: 0.7rem;
+        margin-bottom: 0.5rem;
+        letter-spacing: 2px;
+    }
+
+    /* Background text */
+    .bg-text {
+        font-size: 12vw !important;
+    }
+
+    /* UI Elements */
+    .progress-bar {
+        bottom: 0.75rem;
+        left: 1rem;
+        width: 120px;
+        height: 3px;
+    }
+
+    .page-indicator {
+        bottom: 0.75rem;
+        left: 140px;
+        font-size: 0.75rem;
+    }
+
+    /* ===== SLIDE 1: COVER ===== */
     #slide-1 {
+        padding-top: 1rem;
         overflow: hidden;
-        padding-top: 6rem;
+        justify-content: center;
     }
 
     #slide-1 .headline-xl {
-        font-size: 2rem !important;
+        font-size: 1.5rem !important;
     }
 
+    /* Logo sizing */
     #slide-1 div[style*="top: 5vh"] {
-        top: 2vh !important;
-        width: 80%;
-        padding: 0.5rem 1rem !important;
+        top: 0.5rem !important;
+        padding: 0.5rem 1.5rem !important;
     }
 
-    #slide-1 img {
-        width: 150px !important;
-        margin: 0 auto;
+    #slide-1 div[style*="top: 5vh"] img {
+        width: 140px !important;
     }
 
-    /* Slide 2 */
-    #slide-2 .visual-pane>div {
-        padding: 1rem !important;
+    /* ===== SLIDE 2: BENTO GRID ===== */
+    #slide-2 {
+        padding-top: 0.5rem;
+    }
+
+    #slide-2 .narrative-pane {
+        padding-bottom: 0 !important;
     }
 
     #slide-2 .headline-xl {
-        font-size: 2rem !important;
+        font-size: 1.5rem !important;
     }
 
-    /* Slide 3 */
+    #slide-2 .body-xl {
+        font-size: 0.85rem !important;
+    }
+
+    #slide-2 .visual-pane {
+        padding: 0 !important;
+        flex: 1;
+        min-height: 0;
+    }
+
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        max-height: none;
+        height: auto !important;
+        gap: 0.5rem;
+    }
+
+    .card-leader {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .card-leader .bento-big-num {
+        font-size: 1.8rem;
+    }
+
+    .card-client,
+    .card-competitor,
+    .card-legacy {
+        grid-column: span 1;
+        grid-row: auto;
+    }
+
+    .bento-card {
+        padding: 0.75rem;
+        border-radius: 10px;
+    }
+
+    .bento-card h4 {
+        font-size: 0.6rem;
+        letter-spacing: 0.5px;
+    }
+
+    .bento-big-num {
+        font-size: 1.4rem;
+    }
+
+    .bento-sub {
+        font-size: 0.6rem;
+    }
+
+    /* Insight card */
+    .bento-grid>.bento-card:last-child {
+        grid-column: span 2;
+    }
+
+    /* ===== SLIDE 3: BRAND GAP ===== */
+    #slide-3 .visual-pane {
+        min-height: 200px;
+    }
+
+    #slide-3 .split-comparison,
     #slide-3 .visual-pane>div {
-        flex-direction: column;
+        flex-direction: row !important;
+        min-height: 200px !important;
         height: auto !important;
         width: 100% !important;
+        gap: 0.5rem !important;
     }
 
     #slide-3 .visual-pane>div>div {
         transform: none !important;
         opacity: 1 !important;
-        width: 100% !important;
-        margin-bottom: 1rem;
-        flex: none !important;
+        flex: 1 !important;
     }
 
-    /* Slide 4 */
+    /* ===== SLIDE 4: ROADMAP ===== */
     #slide-4 .narrative-pane,
     #slide-4 .visual-pane {
         width: 100% !important;
-        max-width: 100% !important;
     }
 
     #slide-4 .visual-pane>div {
-        flex-direction: column;
+        flex-direction: column !important;
         width: 100% !important;
+        gap: 0.75rem !important;
     }
 
     #slide-4 .visual-pane>div>div {
-        border-left: 4px solid !important;
         margin-left: 0 !important;
-        margin-bottom: 1rem;
-        background: rgba(255, 255, 255, 0.08) !important;
+        padding: 1rem !important;
         width: 100% !important;
-        box-sizing: border-box;
     }
 
-    /* Slide 5 */
+    /* ===== SLIDE 5: FUNNEL ===== */
     #slide-5 .visual-pane>div {
-        gap: 0.5rem !important;
+        gap: 0.4rem !important;
     }
 
     #slide-5 .visual-pane div[style*="clip-path"] {
         width: 100% !important;
         clip-path: none !important;
-        border-radius: 8px !important;
+        border-radius: 6px !important;
+        padding: 0.6rem !important;
+        font-size: 0.85rem;
     }
 
-    /* Slide 6 */
+    /* Funnel connecting lines */
+    #slide-5 .visual-pane div[style*="height: 20px"] {
+        height: 10px !important;
+    }
+
+    /* Closed deal circle */
+    #slide-5 .visual-pane div[style*="border-radius: 50%"] {
+        width: 70px !important;
+        padding: 0.5rem !important;
+        font-size: 0.75rem;
+    }
+
+    /* ===== SLIDE 6: NARRATIVE ===== */
     #slide-6 .visual-pane {
-        height: 300px !important;
-        margin-top: 1rem;
+        max-height: 250px;
     }
 
-    #slide-6 img[src*="Photoroom"] {
-        opacity: 0.2 !important;
-        width: 100% !important;
-        right: 0 !important;
-        top: 0 !important;
+    #slide-6 .visual-pane>div {
+        height: 100% !important;
     }
 
-    /* Slide 7 */
+    /* QR code block */
+    #slide-6 .visual-pane div[style*="width: 150px"] {
+        width: 80px !important;
+        height: 80px !important;
+    }
+
+    /* ===== SLIDE 7: CONCLUSION ===== */
     #slide-7 .visual-pane {
         display: none;
     }
 
     #slide-7 .narrative-pane {
-        padding-top: 2rem !important;
+        width: 100% !important;
+        padding-top: 1rem !important;
     }
 
-    /* Product Cluster */
-    .apple-product-cluster {
-        height: 50vh;
-        margin-top: 5vh;
+    #slide-7 .growth-text {
+        font-size: 8vw !important;
+    }
+}
+
+/* ========== SMALL MOBILE (480px and below) ========== */
+@media (max-width: 480px) {
+    .slide {
+        padding: 0.5rem 1rem 3.5rem;
     }
 
-    .product-hero-item.main {
-        width: 50vmin;
-    }
-
-    .product-hero-item.left {
-        width: 35vmin;
-        transform: translateX(-40%) translateY(20%) rotate(-10deg);
-        z-index: 9;
-    }
-
-    .product-hero-item.right {
-        width: 30vmin;
-        transform: translateX(40%) translateY(-20%) rotate(10deg);
-    }
-
-    .hero-title {
-        font-size: 18vw !important;
-        opacity: 0.15 !important;
-    }
-
-    /* Global Typography Mobile */
     .headline-xl {
-        font-size: 2.2rem !important;
-        line-height: 1.1;
-        margin-bottom: 1rem;
+        font-size: 1.5rem !important;
     }
 
     .body-xl {
-        font-size: 1rem !important;
-        line-height: 1.5;
+        font-size: 0.85rem !important;
     }
 
-    .label {
-        font-size: 0.8rem;
-        margin-bottom: 0.5rem;
-        display: block;
+    #slide-1 .headline-xl {
+        font-size: 1.3rem !important;
     }
 
-    /* UI Elements */
-    .page-indicator {
-        bottom: 1rem;
-        right: 1rem;
-        font-size: 0.8rem;
+    #slide-1 div[style*="top: 5vh"] img {
+        width: 110px !important;
     }
 
-    .progress-bar {
-        top: 0;
-        bottom: auto;
-        height: 4px;
-    }
-
-    /* Bg Text */
-    .bg-text {
-        font-size: 15vw !important;
-    }
-
-    /* Bento Grid */
     .bento-grid {
         grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        max-height: none;
+        gap: 0.4rem;
     }
 
     .card-leader,
     .card-client,
     .card-competitor,
     .card-legacy {
+        grid-column: span 1 !important;
+    }
+
+    .bento-grid>.bento-card:last-child {
         grid-column: span 1;
-        grid-row: auto;
+    }
+
+    #slide-3 .split-comparison,
+    #slide-3 .visual-pane>div {
+        flex-direction: column !important;
+        min-height: auto !important;
+    }
+}
+
+/* ========== LARGE DESKTOP (1440px+) ========== */
+@media (min-width: 1440px) {
+    .headline-xl {
+        font-size: 4.5rem;
+    }
+
+    .body-xl {
+        font-size: 1.3rem;
+    }
+
+    .bento-grid {
+        max-height: 600px;
+        gap: 1rem;
+    }
+
+    .bento-card {
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+
+    .bento-big-num {
+        font-size: 2.5rem;
     }
 }
