@@ -102,8 +102,14 @@ export function useDeck(totalSlides) {
         performSlideTransition(index, direction);
     }, [totalSlides, performSlideTransition]);
 
-    // Helper to detect internal scroll areas
+    // Helper to detect internal scroll areas and interactive elements
     const isInternalScroll = useCallback((target) => {
+        // If a modal is open, don't allow slide navigation
+        if (document.querySelector('[data-modal-overlay]')) return true;
+
+        // If clicking on interactive elements, don't navigate
+        if (target.closest('[data-interactive]') || target.closest('button') || target.closest('a')) return true;
+
         const scrollable = target.closest('.slide');
         if (!scrollable) return false;
         if (scrollable.id === 'slide-6' && window.innerWidth <= 768) {
@@ -131,6 +137,8 @@ export function useDeck(totalSlides) {
         });
 
         const handleKeydown = (e) => {
+            // Don't navigate deck if a modal is open
+            if (document.querySelector('[data-modal-overlay]')) return;
             if (e.key === 'ArrowRight' || e.key === 'ArrowDown') gotoSlide(currentIndexRef.current + 1);
             if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') gotoSlide(currentIndexRef.current - 1);
         };
