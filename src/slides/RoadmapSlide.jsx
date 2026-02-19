@@ -42,31 +42,20 @@ export default function RoadmapSlide() {
                 <h1 className="headline-xl">
                     The Fix: <br /><span className="highlight">3-Month Roadmap</span>
                 </h1>
-                <p className="body-xl" style={{ marginBottom: '2rem' }}>
+                <p className="body-xl" style={{ marginBottom: '1.5rem' }}>
                     We don't need a year. We need <strong style={{ color: '#fff' }}>90 days</strong> of aggressive, focused execution.
                 </p>
 
-                {/* Compact timeline on left */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                    {months.map((m, i) => (
-                        <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-                            <div style={{
-                                width: '36px', height: '36px', borderRadius: '50%',
-                                background: m.color, display: 'grid', placeItems: 'center',
-                                fontSize: '0.75rem', fontWeight: 800, color: i === 1 ? '#000' : '#fff',
-                                flexShrink: 0
-                            }}>{m.num}</div>
-                            <div>
-                                <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '2px' }}>
-                                    {m.title}
-                                </div>
-                                <div style={{ fontSize: '0.8rem', color: 'var(--text-mute)', lineHeight: 1.4 }}>
-                                    {m.subtitle}
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                <p className="body-xl" style={{ fontSize: 'clamp(0.85rem, 1.1vw, 1.1rem)' }}>
+                    <strong style={{ color: '#fff' }}>Month 1: Foundation</strong><br />
+                    Fixing the plumbing. UX Overhaul &amp; SEO.
+                    <br /><br />
+                    <strong style={{ color: '#fff' }}>Month 2: Automation</strong><br />
+                    Turning on the faucet. Apollo.io &amp; Cold Outreach.
+                    <br /><br />
+                    <strong style={{ color: '#fff' }}>Month 3: Scale</strong><br />
+                    Amplification. Retargeting (Meta Pixel) &amp; UGC.
+                </p>
             </div>
 
             <div className="visual-pane" style={{ padding: '2rem 1.5rem' }}>
