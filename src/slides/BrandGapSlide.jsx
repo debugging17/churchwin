@@ -7,19 +7,19 @@ export default function BrandGapSlide() {
 
     return (
         <section className="slide slide-light" id="slide-3" ref={slideRef}>
-            <div className="narrative-pane">
+            <div className="narrative-pane" style={{ paddingTop: '3rem' }}>
                 <span className="label">The Brand Gap</span>
                 <h1 className="headline-xl">
                     Great Product, <br /><span className="highlight">Outdated Presence</span>
                 </h1>
-                <p className="body-xl">
+                <p className="body-xl" style={{ fontSize: 'clamp(0.85rem, 1.1vw, 1.15rem)' }}>
                     Our digital storefront does not reflect our product quality.
                     <br /><br />
                     <strong>1. Static vs. Dynamic:</strong><br />
-                    Our site is a flat catalog. No Clear CTAs ("Request Sample").
+                    Our site is a flat catalog. No Clear CTAs (&quot;Request Sample&quot;).
                     <br /><br />
                     <strong>2. Narrative Void:</strong><br />
-                    Competitors sell "Impact" &amp; "Ethics". We list specs.
+                    Competitors sell &quot;Impact&quot; &amp; &quot;Ethics&quot;. We list specs.
                     <br /><br />
                     <strong>3. Zero Trust Signals:</strong><br />
                     No User Generated Content. No Maker Stories. We look risky.
