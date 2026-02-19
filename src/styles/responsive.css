@@ -1,0 +1,219 @@
+/* ========== RESPONSIVE STYLES ========== */
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    .headline-xl {
+        font-size: 3rem !important;
+    }
+
+    .body-xl {
+        font-size: 1rem;
+    }
+}
+
+/* Responsive Layout for Sections */
+@media (max-width: 768px) {
+    .slide {
+        flex-direction: column;
+        justify-content: center;
+        padding: 4rem 1.5rem;
+        overflow-y: auto;
+        height: 100vh;
+    }
+
+    .visual-pane,
+    .narrative-pane {
+        width: 100% !important;
+        height: auto !important;
+        padding: 1rem 0 !important;
+        text-align: center;
+    }
+
+    .visual-pane {
+        order: 2;
+        margin-top: 1rem;
+    }
+
+    .narrative-pane {
+        order: 1;
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
+        text-align: center;
+    }
+
+    /* Slide 1 */
+    #slide-1 {
+        overflow: hidden;
+        padding-top: 6rem;
+    }
+
+    #slide-1 .headline-xl {
+        font-size: 2rem !important;
+    }
+
+    #slide-1 div[style*="top: 5vh"] {
+        top: 2vh !important;
+        width: 80%;
+        padding: 0.5rem 1rem !important;
+    }
+
+    #slide-1 img {
+        width: 150px !important;
+        margin: 0 auto;
+    }
+
+    /* Slide 2 */
+    #slide-2 .visual-pane>div {
+        padding: 1rem !important;
+    }
+
+    #slide-2 .headline-xl {
+        font-size: 2rem !important;
+    }
+
+    /* Slide 3 */
+    #slide-3 .visual-pane>div {
+        flex-direction: column;
+        height: auto !important;
+        width: 100% !important;
+    }
+
+    #slide-3 .visual-pane>div>div {
+        transform: none !important;
+        opacity: 1 !important;
+        width: 100% !important;
+        margin-bottom: 1rem;
+        flex: none !important;
+    }
+
+    /* Slide 4 */
+    #slide-4 .narrative-pane,
+    #slide-4 .visual-pane {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    #slide-4 .visual-pane>div {
+        flex-direction: column;
+        width: 100% !important;
+    }
+
+    #slide-4 .visual-pane>div>div {
+        border-left: 4px solid !important;
+        margin-left: 0 !important;
+        margin-bottom: 1rem;
+        background: rgba(255, 255, 255, 0.08) !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* Slide 5 */
+    #slide-5 .visual-pane>div {
+        gap: 0.5rem !important;
+    }
+
+    #slide-5 .visual-pane div[style*="clip-path"] {
+        width: 100% !important;
+        clip-path: none !important;
+        border-radius: 8px !important;
+    }
+
+    /* Slide 6 */
+    #slide-6 .visual-pane {
+        height: 300px !important;
+        margin-top: 1rem;
+    }
+
+    #slide-6 img[src*="Photoroom"] {
+        opacity: 0.2 !important;
+        width: 100% !important;
+        right: 0 !important;
+        top: 0 !important;
+    }
+
+    /* Slide 7 */
+    #slide-7 .visual-pane {
+        display: none;
+    }
+
+    #slide-7 .narrative-pane {
+        padding-top: 2rem !important;
+    }
+
+    /* Product Cluster */
+    .apple-product-cluster {
+        height: 50vh;
+        margin-top: 5vh;
+    }
+
+    .product-hero-item.main {
+        width: 50vmin;
+    }
+
+    .product-hero-item.left {
+        width: 35vmin;
+        transform: translateX(-40%) translateY(20%) rotate(-10deg);
+        z-index: 9;
+    }
+
+    .product-hero-item.right {
+        width: 30vmin;
+        transform: translateX(40%) translateY(-20%) rotate(10deg);
+    }
+
+    .hero-title {
+        font-size: 18vw !important;
+        opacity: 0.15 !important;
+    }
+
+    /* Global Typography Mobile */
+    .headline-xl {
+        font-size: 2.2rem !important;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+    }
+
+    .body-xl {
+        font-size: 1rem !important;
+        line-height: 1.5;
+    }
+
+    .label {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    /* UI Elements */
+    .page-indicator {
+        bottom: 1rem;
+        right: 1rem;
+        font-size: 0.8rem;
+    }
+
+    .progress-bar {
+        top: 0;
+        bottom: auto;
+        height: 4px;
+    }
+
+    /* Bg Text */
+    .bg-text {
+        font-size: 15vw !important;
+    }
+
+    /* Bento Grid */
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        max-height: none;
+    }
+
+    .card-leader,
+    .card-client,
+    .card-competitor,
+    .card-legacy {
+        grid-column: span 1;
+        grid-row: auto;
+    }
+}

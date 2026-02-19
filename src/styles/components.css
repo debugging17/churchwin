@@ -1,0 +1,327 @@
+/* Headshot Frame (Slide 1) */
+.headshot-frame {
+    width: 400px;
+    height: 550px;
+    border: 2px solid var(--accent);
+    border-radius: 200px 200px 0 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.headshot-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.headshot-frame:hover .headshot-img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/* Profile Frame (Slide 2) */
+.profile-frame {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 4/5;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(10px);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.profile-frame:hover {
+    box-shadow: 0 0 30px rgba(222, 74, 29, 0.2);
+    border-color: var(--accent);
+}
+
+/* Product Image Styling */
+.product-hero {
+    width: 80%;
+    max-width: 500px;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+    transform-origin: center;
+}
+
+/* Product Cluster (Slide 1) */
+.apple-product-cluster {
+    display: grid;
+    grid-template-areas: "overlay";
+    place-items: center;
+    width: 100%;
+    height: 60vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+    perspective: 1000px;
+}
+
+.product-hero-item {
+    grid-area: overlay;
+    max-height: 40vh;
+    width: auto;
+    object-fit: contain;
+    transition: all 0.5s ease-out;
+}
+
+.product-hero-item.main {
+    width: 75vmin;
+    max-width: 800px;
+    z-index: 10;
+    position: relative;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.6)) drop-shadow(0 50px 80px rgba(0, 0, 0, 0.4));
+    overflow: hidden;
+}
+
+/* Glint Wrapper */
+.glint-wrapper {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+    grid-area: overlay;
+}
+
+.glint-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-25deg);
+    z-index: 12;
+    animation: glintAnim 6s infinite ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes glintAnim {
+
+    0%,
+    40% {
+        left: -100%;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    60%,
+    100% {
+        left: 200%;
+        opacity: 0;
+    }
+}
+
+.product-hero-item.left {
+    width: 50vmin;
+    max-width: 550px;
+    z-index: 5;
+    transform: translateX(-35%) rotate(-15deg) translateZ(-50px);
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5)) drop-shadow(0 30px 50px rgba(0, 0, 0, 0.3));
+}
+
+.product-hero-item.right {
+    width: 48vmin;
+    max-width: 520px;
+    z-index: 8;
+    transform: translateX(35%) rotate(15deg) translateZ(20px);
+    filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.5)) drop-shadow(0 40px 60px rgba(0, 0, 0, 0.3));
+}
+
+/* KPI Card Styling */
+.kpi-modern {
+    background: rgba(13, 17, 23, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 2rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kpi-modern:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    border-color: var(--accent);
+}
+
+.kpi-big {
+    font-size: 3rem;
+    color: var(--accent);
+}
+
+/* Service Grid */
+.service-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 550px;
+    transform: perspective(1000px) rotateY(-5deg);
+}
+
+/* Bento Grid Layout */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+}
+
+.bento-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.bento-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.bento-card h4 {
+    font-size: 0.9rem;
+    color: var(--text-mute);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.bento-big-num {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+}
+
+.bento-sub {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    opacity: 0.6;
+}
+
+/* Specific Cards */
+.card-leader {
+    grid-column: span 2;
+    grid-row: span 2;
+    background: linear-gradient(135deg, rgba(39, 201, 63, 0.1), rgba(39, 201, 63, 0.05));
+    border-color: rgba(39, 201, 63, 0.3);
+}
+
+.card-client {
+    grid-column: span 1;
+    grid-row: span 1;
+    background: linear-gradient(135deg, rgba(255, 68, 0, 0.1), rgba(255, 68, 0, 0.05));
+    border-color: rgba(255, 68, 0, 0.3);
+}
+
+.card-competitor {
+    grid-column: span 1;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.card-legacy {
+    grid-column: span 1;
+    opacity: 0.5;
+    border-style: dashed;
+}
+
+/* Progress Bar within Card */
+.stat-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    border-radius: 3px;
+}
+
+/* Browser Mockup Frame (Slide 8) */
+.browser-frame {
+    width: 90vw;
+    max-width: 900px;
+    aspect-ratio: 16/9;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+    z-index: 5;
+}
+
+.browser-header {
+    height: 36px;
+    background: rgba(40, 44, 52, 1);
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.browser-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.browser-address {
+    flex: 1;
+    margin-left: 1rem;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    font-size: 0.7rem;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-family: 'Inter', sans-serif;
+}
+
+.browser-frame:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 40px 80px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* Slide 5 Light Mode Funnel Adjustment */
+#slide-5.slide-light .visual-pane div:first-child>div:nth-child(1) {
+    border: 1px solid #ccc;
+    background: #fdfdfd !important;
+}
+
+/* Slide 8 Specific Adjustment */
+#slide-8 .headline-xl {
+    font-size: 5vw !important;
+    line-height: 1.1;
+}
