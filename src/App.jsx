@@ -6,7 +6,7 @@ import './styles/responsive.css';
 import DeckContainer from './components/DeckContainer';
 import CoverSlide from './slides/CoverSlide';
 import TableOfContentsSlide from './slides/TableOfContentsSlide';
-import Section1CoverSlide from './slides/Section1CoverSlide';
+import SectionCoverSlide from './slides/SectionCoverSlide';
 import CurrentRealitySlide from './slides/CurrentRealitySlide';
 import BrandGapSlide from './slides/BrandGapSlide';
 import RoadmapSlide from './slides/RoadmapSlide';
@@ -19,12 +19,23 @@ function App() {
         <DeckContainer>
             <CoverSlide />
             <TableOfContentsSlide />
-            <Section1CoverSlide />
+
+            <SectionCoverSlide num="01" title="The Current Reality" theme="dark" slideIndex={2} />
             <CurrentRealitySlide />
+
+            <SectionCoverSlide num="02" title="The Brand Gap" theme="light" slideIndex={4} />
             <BrandGapSlide />
+
+            <SectionCoverSlide num="03" title="90-Day Roadmap" theme="dark" slideIndex={6} />
             <RoadmapSlide />
+
+            <SectionCoverSlide num="04" title="The Sales Engine" theme="light" slideIndex={8} />
             <SalesEngineSlide />
+
+            <SectionCoverSlide num="05" title="Digital Architecture" theme="dark" slideIndex={10} />
             <NarrativeSlide />
+
+            <SectionCoverSlide num="06" title="Next Steps" theme="light" slideIndex={12} />
             <ConclusionSlide />
         </DeckContainer>
     );

@@ -1,6 +1,6 @@
 import { useDeck } from '../hooks/useDeck';
 import Particles from './Particles';
-const TOTAL_SLIDES = 9;
+const TOTAL_SLIDES = 14;
 
 export default function DeckContainer({ children }) {
     const {
