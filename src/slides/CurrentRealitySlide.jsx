@@ -15,7 +15,7 @@ export default function CurrentRealitySlide() {
                     The Hard Truth: <br /><span className="highlight">We Are Invisible</span>
                 </h1>
                 <p className="body-xl">
-                    While competitors dominate organic search, Churchwin remains a "best-kept secret."
+                    While competitors dominate organic search, Churchwin Trading remains a "best-kept secret."
                     <br /><br />
                     <strong>The Data Speaks:</strong><br />
                     We have <strong>0.3%</strong> of the market leader's traffic. Check the breakdown.
@@ -74,22 +74,25 @@ export default function CurrentRealitySlide() {
                         </div>
                     </div>
 
-                    {/* Client: Churchwin.com */}
-                    <div className="bento-card card-client">
+                    {/* Client: Churchwin Trading (the company this pitch is for) */}
+                    <div className="bento-card card-client" style={{
+                        background: 'linear-gradient(135deg, rgba(255, 106, 0, 0.15), rgba(255, 106, 0, 0.05))',
+                        border: '2px solid rgba(255, 106, 0, 0.5)'
+                    }}>
                         <div style={{
                             position: 'absolute', top: '1rem', right: '1rem',
                             background: 'var(--accent)', color: '#fff',
                             padding: '2px 8px', borderRadius: '12px',
                             fontSize: '0.7rem', fontWeight: 700
                         }}>YOU</div>
-                        <h4>Churchwin.com</h4>
-                        <div className="bento-big-num" style={{ color: 'var(--accent)' }}>200</div>
-                        <div className="bento-sub">Monthly Visits</div>
+                        <h4>Churchwin Trading</h4>
+                        <div className="bento-big-num" style={{ color: 'var(--accent)', fontSize: '2rem' }}>N/A</div>
+                        <div className="bento-sub" style={{ color: '#ffaa66', fontWeight: 600 }}>No Digital Presence</div>
                         <div style={{ marginTop: 'auto' }}>
                             <div className="stat-bar">
-                                <div className="stat-fill" style={{ width: '1%', background: 'var(--accent)' }} />
+                                <div className="stat-fill" style={{ width: '0%', background: 'var(--accent)' }} />
                             </div>
-                            <div className="bento-sub" style={{ color: '#ffaa66' }}>100% Paid Traffic (Risk)</div>
+                            <div className="bento-sub" style={{ color: '#ffaa66' }}>Invisible Online — Zero Organic Traffic</div>
                         </div>
                     </div>
 
@@ -103,27 +106,33 @@ export default function CurrentRealitySlide() {
                         </div>
                     </div>
 
-                    {/* Legacy: Churchwin Trading */}
-                    <div className="bento-card card-legacy">
-                        <h4>Churchwin Trading</h4>
-                        <div className="bento-big-num" style={{ fontSize: '1.5rem', color: '#999' }}>N/A</div>
-                        <div className="bento-sub">Insufficient Data</div>
+                    {/* Retail Arm: Churchwin.com */}
+                    <div className="bento-card card-legacy" style={{ opacity: 0.7 }}>
+                        <h4>Churchwin.com (Retail)</h4>
+                        <div className="bento-big-num" style={{ fontSize: '1.5rem', color: '#999' }}>200</div>
+                        <div className="bento-sub">Monthly Visits</div>
                         <div className="stat-bar">
-                            <div className="stat-fill" style={{ width: '0%', background: '#333' }} />
+                            <div className="stat-fill" style={{ width: '1%', background: '#666' }} />
                         </div>
+                        <div className="bento-sub" style={{ color: '#999', marginTop: '0.3rem' }}>100% Paid Traffic</div>
                     </div>
 
                     {/* Insight Card - Cost of Inaction */}
-                    <div className="bento-card" style={{ gridColumn: 'span 2', background: 'rgba(255,0,0,0.1)', border: '1px solid rgba(255,0,0,0.3)' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', gap: '1.5rem' }}>
+                    <div className="bento-card" style={{
+                        gridColumn: 'span 4',
+                        background: 'linear-gradient(135deg, rgba(255,0,0,0.15), rgba(255,68,0,0.08))',
+                        border: '1px solid rgba(255,68,68,0.4)',
+                        padding: '1.5rem'
+                    }}>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', gap: '2.5rem' }}>
                             <div style={{ textAlign: 'center' }}>
-                                <div style={{ fontSize: '2.5rem', color: '#ff4444', fontWeight: 800 }}>$150k+</div>
-                                <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff' }}>Est. Lost Monthly Revenue</div>
+                                <div style={{ fontSize: '3rem', color: '#ff4444', fontWeight: 800, lineHeight: 1 }}>$150k+</div>
+                                <div style={{ fontSize: '1rem', fontWeight: 600, color: '#fff', marginTop: '0.3rem' }}>Est. Lost Monthly Revenue</div>
                             </div>
-                            <div style={{ width: '1px', height: '50px', background: 'rgba(255,255,255,0.2)' }} />
+                            <div style={{ width: '2px', height: '60px', background: 'rgba(255,255,255,0.2)', borderRadius: '1px' }} />
                             <div style={{ textAlign: 'center' }}>
-                                <div style={{ fontSize: '1.5rem', color: '#ffaa66', fontWeight: 700 }}>The C.O.I.</div>
-                                <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)' }}>(Cost of Inaction)</div>
+                                <div style={{ fontSize: '2rem', color: '#ffaa66', fontWeight: 800, lineHeight: 1 }}>The C.O.I.</div>
+                                <div style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)', marginTop: '0.3rem' }}>(Cost of Inaction)</div>
                             </div>
                         </div>
                     </div>
