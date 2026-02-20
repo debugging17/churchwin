@@ -133,11 +133,11 @@ export default function TableOfContentsSlide() {
                     {HERO_PRODUCTS.map((product, i) => {
                         let positionStyles = {};
                         // 0: Shea (Bottom Left), 1: Neem (Top Left), 2: Cocoa (Center), 3: Baobab (Top Right), 4: Moringa (Bottom Right)
-                        if (i === 0) positionStyles = { position: 'absolute', left: '2%', bottom: '15%', zIndex: 12 };
-                        if (i === 1) positionStyles = { position: 'absolute', left: '18%', top: '15%', zIndex: 10 };
+                        if (i === 0) positionStyles = { position: 'absolute', left: '0%', bottom: '2%', zIndex: 12 };
+                        if (i === 1) positionStyles = { position: 'absolute', left: '10%', top: '2%', zIndex: 10 };
                         if (i === 2) positionStyles = { position: 'relative', zIndex: 15 }; // Centered naturally 
-                        if (i === 3) positionStyles = { position: 'absolute', right: '18%', top: '15%', zIndex: 10 };
-                        if (i === 4) positionStyles = { position: 'absolute', right: '2%', bottom: '15%', zIndex: 12 };
+                        if (i === 3) positionStyles = { position: 'absolute', right: '10%', top: '2%', zIndex: 10 };
+                        if (i === 4) positionStyles = { position: 'absolute', right: '0%', bottom: '2%', zIndex: 12 };
 
                         return (
                             <div
@@ -167,9 +167,9 @@ export default function TableOfContentsSlide() {
                                     src={product.src}
                                     alt={product.alt}
                                     style={{
-                                        height: '35vh',
-                                        maxHeight: '350px',
-                                        maxWidth: '22vw',
+                                        height: '38vh',
+                                        maxHeight: '400px',
+                                        maxWidth: '26vw',
                                         objectFit: 'contain',
                                         filter: 'drop-shadow(-10px 10px 20px rgba(0,0,0,0.15)) drop-shadow(0 25px 35px rgba(0,0,0,0.1))',
                                         position: 'relative',
