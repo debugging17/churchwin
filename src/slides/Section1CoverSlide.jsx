@@ -20,12 +20,12 @@ export default function Section1CoverSlide() {
         }}>
             {/* Top Right Mini Product Showcase Stamp */}
             <div style={{
-                position: 'absolute', top: '5vh', right: '4vw',
-                width: '32vh', height: '26vh', minWidth: '240px', minHeight: '190px',
-                background: '#ffffff', borderRadius: '24px',
+                position: 'absolute', top: '4vh', right: '3vw',
+                width: '26vh', height: '20vh', minWidth: '180px', minHeight: '140px',
+                background: '#ffffff', borderRadius: '16px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-                zIndex: 20, padding: '1rem'
+                boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+                zIndex: 20, padding: '0.5rem'
             }}>
                 <div style={{
                     position: 'relative',
@@ -49,10 +49,10 @@ export default function Section1CoverSlide() {
                                     src={product.src}
                                     alt={product.alt}
                                     style={{
-                                        maxHeight: '11vh',
-                                        maxWidth: '7vw',
+                                        maxHeight: '8vh',
+                                        maxWidth: '5vw',
                                         objectFit: 'contain',
-                                        filter: 'drop-shadow(-4px 6px 10px rgba(0,0,0,0.15))',
+                                        filter: 'drop-shadow(-3px 4px 6px rgba(0,0,0,0.15))',
                                     }}
                                 />
                             </div>
@@ -63,21 +63,17 @@ export default function Section1CoverSlide() {
 
             {/* Main Centered Content Card */}
             <div className="reveal-content" style={{
-                background: '#ffffff', borderRadius: '16px',
-                padding: '1.5rem 4rem 1.5rem 2rem',
                 display: 'flex', alignItems: 'center', gap: '2.5rem',
-                boxShadow: '0 30px 60px rgba(0,0,0,0.4)',
-                border: '1px solid rgba(255,255,255,0.1)'
             }}>
                 <span style={{
-                    fontSize: '4.5rem', fontWeight: 800, color: '#ff6a00',
+                    fontSize: '4.5rem', fontWeight: 800, color: '#ffffff',
                     fontFamily: 'Montserrat, sans-serif', lineHeight: 1
                 }}>
                     01
                 </span>
 
                 <h1 style={{
-                    margin: 0, fontSize: '3.2rem', fontWeight: 800, color: '#012787',
+                    margin: 0, fontSize: '3.2rem', fontWeight: 800, color: '#ffffff',
                     letterSpacing: '-0.02em', whiteSpace: 'nowrap'
                 }}>
                     The Current Reality
