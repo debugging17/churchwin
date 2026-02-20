@@ -29,7 +29,7 @@ export default function TableOfContentsSlide() {
         }}>
             {/* Left Pane: Executive Summary + TOC */}
             <div className="hide-scrollbar" style={{
-                width: '50%', padding: '1.5rem 2rem 1.5rem 4rem',
+                width: '45%', padding: '1.5rem 1rem 1.5rem 4rem',
                 display: 'flex', flexDirection: 'column',
                 zIndex: 10, overflowY: 'auto',
                 scrollbarWidth: 'none', msOverflowStyle: 'none'
@@ -110,8 +110,8 @@ export default function TableOfContentsSlide() {
 
             {/* Right Pane: 100% 3D Product Showcase */}
             <div style={{
-                width: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                position: 'relative', overflow: 'hidden'
+                width: '55%', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                position: 'relative', overflow: 'visible'
             }}>
                 {/* Soft radial gradient backdrop */}
                 <div style={{
@@ -125,9 +125,9 @@ export default function TableOfContentsSlide() {
                 {/* 3D Product Assembly - side by side, grounded with strict floor shadows */}
                 <div style={{
                     position: 'relative',
-                    width: '100%', padding: '0 2rem 0 0', // added right padding to prevent cutoff
+                    width: '100%', padding: '0 1rem', // balanced padding
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    gap: '-1.5rem', zIndex: 10,
+                    gap: '0', zIndex: 10,
                     perspective: '1200px'
                 }}>
                     {HERO_PRODUCTS.map((product, i) => (
