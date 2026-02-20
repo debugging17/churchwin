@@ -133,13 +133,18 @@ export default function TableOfContentsSlide() {
                     {HERO_PRODUCTS.map((product, i) => {
                         let positionStyles = {};
                         // 0: Shea (Bottom Left), 1: Neem (Top Left), 2: Cocoa (Center), 3: Baobab (Top Right), 4: Moringa (Bottom Right)
-                        // Note: Using slightly offset left percentages because Shea container might be wider due to aspect ratio, 
-                        // moving it to left: '10%' so it distances evenly from the center like Moringa does from the right.
-                        if (i === 0) positionStyles = { position: 'absolute', left: '10%', bottom: '2%', zIndex: 12 };
+                        // Note: Shea has wider negative space, so an increased left percentage is needed to align their visual edges.
+                        if (i === 0) positionStyles = { position: 'absolute', left: '12%', bottom: '2%', zIndex: 12 };
                         if (i === 1) positionStyles = { position: 'absolute', left: '10%', top: '2%', zIndex: 10 };
                         if (i === 2) positionStyles = { position: 'relative', zIndex: 15 }; // Centered naturally 
                         if (i === 3) positionStyles = { position: 'absolute', right: '10%', top: '2%', zIndex: 10 };
                         if (i === 4) positionStyles = { position: 'absolute', right: '10%', bottom: '2%', zIndex: 12 };
+
+                        // Custom hover parameters
+                        let hoverTranslateY = '-20px'; // Default: move UP on hover
+                        if (i === 4 || i === 0) {
+                            hoverTranslateY = '20px'; // Moringa and Shea (bottom row): Move DOWN on hover to avoid overlapping center
+                        }
 
                         return (
                             <div
@@ -153,7 +158,7 @@ export default function TableOfContentsSlide() {
                                     ...positionStyles
                                 }}
                                 onMouseOver={(e) => {
-                                    e.currentTarget.style.transform = 'translateY(-20px) scale(1.15)';
+                                    e.currentTarget.style.transform = `translateY(${hoverTranslateY}) scale(1.15)`;
                                     e.currentTarget.style.zIndex = 20;
                                     e.currentTarget.querySelector('.floor-shadow').style.opacity = '0.5';
                                     e.currentTarget.querySelector('.floor-shadow').style.transform = 'scale(0.8)';
