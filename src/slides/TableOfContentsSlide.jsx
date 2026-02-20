@@ -158,22 +158,13 @@ export default function TableOfContentsSlide() {
                                     ...positionStyles
                                 }}
                                 onMouseOver={(e) => {
-                                    e.currentTarget.style.transform = `translateY(${hoverTranslateY}) scale(1.15) rotateX(0deg) rotateY(0deg)`;
+                                    e.currentTarget.style.transform = `translateY(${hoverTranslateY}) scale(1.15)`;
                                     e.currentTarget.style.zIndex = 20;
                                     e.currentTarget.querySelector('.floor-shadow').style.opacity = '0.5';
                                     e.currentTarget.querySelector('.floor-shadow').style.transform = 'scale(0.8)';
                                 }}
-                                onMouseMove={(e) => {
-                                    // Calculate mouse offset from the center of the element to drive rotation
-                                    const rect = e.currentTarget.getBoundingClientRect();
-                                    const x = e.clientX - rect.left - rect.width / 2;
-                                    const y = e.clientY - rect.top - rect.height / 2;
-                                    const rotateX = -y / 5; // Adjust divisor for rotation sensitivity
-                                    const rotateY = x / 5;
-                                    e.currentTarget.style.transform = `translateY(${hoverTranslateY}) scale(1.15) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                                }}
                                 onMouseOut={(e) => {
-                                    e.currentTarget.style.transform = 'translateY(0) scale(1) rotateX(0deg) rotateY(0deg)';
+                                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
                                     e.currentTarget.style.zIndex = positionStyles.zIndex;
                                     e.currentTarget.querySelector('.floor-shadow').style.opacity = '1';
                                     e.currentTarget.querySelector('.floor-shadow').style.transform = 'scale(1)';
