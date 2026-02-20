@@ -15,7 +15,7 @@ export default function SectionCoverSlide({ num, title, theme = 'dark', slideInd
 
     const isLight = theme === 'light';
     const bgColor = isLight ? '#ffffff' : '#012787';
-    const textColor = isLight ? '#ff6a00' : '#ffffff';
+    const textColor = isLight ? '#012787' : '#ffffff';
 
     return (
         <section className={`slide ${isLight ? 'slide-light' : ''}`} id={`slide-section-${num}`} ref={slideRef} style={{
