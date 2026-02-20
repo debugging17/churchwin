@@ -107,14 +107,21 @@ export default function CurrentRealitySlide() {
                     </div>
 
                     {/* Retail Arm: Churchwin.com */}
-                    <div className="bento-card card-legacy" style={{ opacity: 0.7 }}>
-                        <h4>Churchwin.com (Retail)</h4>
-                        <div className="bento-big-num" style={{ fontSize: '1.5rem', color: '#999' }}>200</div>
-                        <div className="bento-sub">Monthly Visits</div>
+                    <div className="bento-card" style={{
+                        gridColumn: 'span 1',
+                        opacity: 1,
+                        borderStyle: 'dashed',
+                        background: 'rgba(255, 255, 255, 0.12)',
+                        border: '1px dashed rgba(255, 255, 255, 0.25)',
+                        backdropFilter: 'blur(8px)'
+                    }}>
+                        <h4 style={{ whiteSpace: 'normal', overflow: 'visible', fontSize: '0.7rem' }}>Churchwin.com (Retail)</h4>
+                        <div className="bento-big-num" style={{ fontSize: '1.5rem', color: '#ccc' }}>200</div>
+                        <div className="bento-sub" style={{ color: 'rgba(255,255,255,0.7)' }}>Monthly Visits</div>
                         <div className="stat-bar">
-                            <div className="stat-fill" style={{ width: '1%', background: '#666' }} />
+                            <div className="stat-fill" style={{ width: '1%', background: '#888' }} />
                         </div>
-                        <div className="bento-sub" style={{ color: '#999', marginTop: '0.3rem' }}>100% Paid Traffic</div>
+                        <div className="bento-sub" style={{ color: 'rgba(255,255,255,0.6)', marginTop: '0.3rem' }}>100% Paid Traffic</div>
                     </div>
 
                     {/* Insight Card - Cost of Inaction */}
