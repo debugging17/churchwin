@@ -158,13 +158,14 @@ h4 {
     left: 3rem;
     width: 200px;
     height: 2px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.5);
     z-index: 100;
+    mix-blend-mode: difference;
 }
 
 .progress-fill {
     height: 100%;
-    background: var(--accent);
+    background: #fff;
     width: 0%;
     transition: width 0.5s ease;
 }
@@ -173,13 +174,14 @@ h4 {
     position: fixed;
     bottom: 1rem;
     left: 250px;
-    color: var(--text-mute);
+    color: #fff;
     font-size: 0.9rem;
     z-index: 100;
+    mix-blend-mode: difference;
 }
 
 .current-page {
-    color: var(--text-main);
+    color: #fff;
 }
 
 /* Light Mode Variant */

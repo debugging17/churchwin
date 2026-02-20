@@ -14,6 +14,8 @@ const HERO_PRODUCTS = [
     { src: '/assets/images/Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp', alt: 'Shea Butter' },
     { src: '/assets/images/Churchwin_B08ZNQ6WGJ-Neem-Oil-8-Photoroom-2.webp', alt: 'Neem Oil' },
     { src: '/assets/images/Cocoa-Butter-Photoroom-1.png', alt: 'Cocoa Butter' },
+    { src: '/assets/images/baobab.png', alt: 'Baobab' },
+    { src: '/assets/images/moringa.webp', alt: 'Moringa' },
 ];
 
 export default function TableOfContentsSlide() {
@@ -44,17 +46,17 @@ export default function TableOfContentsSlide() {
                     {/* Heading */}
                     <h1 style={{
                         marginTop: 0, // ensure no extra margin cuts it off
-                        fontSize: '3.2rem', fontWeight: 800, color: '#012787',
-                        lineHeight: 1.15, marginBottom: '1.2rem', letterSpacing: '-0.02em'
+                        fontSize: '2.8rem', fontWeight: 800, color: '#012787',
+                        lineHeight: 1.15, marginBottom: '0.8rem', letterSpacing: '-0.02em',
+                        whiteSpace: 'nowrap'
                     }}>
-                        What's Inside<br />
-                        <span style={{ color: '#ff6a00' }}>This Proposal</span>
+                        What's Inside <span style={{ color: '#ff6a00' }}>This Proposal</span>
                     </h1>
 
                     {/* Summary Paragraph */}
                     <p style={{
-                        fontSize: '1.15rem', color: '#444', lineHeight: 1.6,
-                        marginBottom: '2rem', maxWidth: '520px'
+                        fontSize: '1rem', color: '#444', lineHeight: 1.5,
+                        marginBottom: '1rem', maxWidth: '520px'
                     }}>
                         Churchwin Trading Co. produces world-class natural products — but the
                         digital storefront doesn't match. This proposal outlines a{' '}
@@ -123,9 +125,9 @@ export default function TableOfContentsSlide() {
                 {/* 3D Product Assembly - side by side, grounded with strict floor shadows */}
                 <div style={{
                     position: 'relative',
-                    width: '100%', padding: '0 2rem',
+                    width: '100%', padding: '0 1rem',
                     display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
-                    gap: '1.5rem', zIndex: 10,
+                    gap: '-1.5rem', zIndex: 10,
                     perspective: '1200px'
                 }}>
                     {HERO_PRODUCTS.map((product, i) => (
@@ -137,16 +139,20 @@ export default function TableOfContentsSlide() {
                                 flexDirection: 'column',
                                 alignItems: 'center',
                                 transition: 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                                cursor: 'default'
+                                cursor: 'default',
+                                margin: '0 -0.8rem', // Force overlap to fit all 5
+                                zIndex: 10 - i, // Proper stacking order
                             }}
                             onMouseOver={(e) => {
-                                e.currentTarget.style.transform = 'translateY(-10px) scale(1.05)';
+                                e.currentTarget.style.transform = 'translateY(-10px) scale(1.1)';
+                                e.currentTarget.style.zIndex = 20;
                                 // Enhance shadow on hover
                                 e.currentTarget.querySelector('.floor-shadow').style.opacity = '0.5';
                                 e.currentTarget.querySelector('.floor-shadow').style.transform = 'scale(0.9)';
                             }}
                             onMouseOut={(e) => {
                                 e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                                e.currentTarget.style.zIndex = 10 - i;
                                 e.currentTarget.querySelector('.floor-shadow').style.opacity = '1';
                                 e.currentTarget.querySelector('.floor-shadow').style.transform = 'scale(1)';
                             }}
@@ -156,7 +162,7 @@ export default function TableOfContentsSlide() {
                                 alt={product.alt}
                                 style={{
                                     height: '42vh',
-                                    maxHeight: '380px',
+                                    maxHeight: '260px', /* Reduced max height to fit perfectly */
                                     width: 'auto',
                                     objectFit: 'contain',
                                     // Apple-style intrinsic product shadow casting
