@@ -46,10 +46,12 @@ export function useDeck(totalSlides) {
         const currentSlide = slides[index];
         if (currentSlide && currentSlide.classList.contains('slide-light')) {
             gsap.to('.progress-bar', { background: 'rgba(1, 39, 135, 0.15)', duration: 0.5 });
+            gsap.to('.progress-fill', { background: '#012787', duration: 0.5 });
             gsap.to('.page-indicator', { color: 'rgba(1, 39, 135, 0.7)', duration: 0.5 });
             gsap.to('.current-page', { color: '#012787', duration: 0.5 });
         } else {
             gsap.to('.progress-bar', { background: 'rgba(255, 255, 255, 0.1)', duration: 0.5 });
+            gsap.to('.progress-fill', { background: '#ffffff', duration: 0.5 });
             gsap.to('.page-indicator', { color: '#aab8c5', duration: 0.5 });
             gsap.to('.current-page', { color: '#F1EEE2', duration: 0.5 });
         }
