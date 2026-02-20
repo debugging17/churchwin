@@ -21,7 +21,7 @@ export default function CurrentRealitySlide() {
                     We have <strong>0.3%</strong> of the market leader's traffic. Check the breakdown.
                     <br /><br />
                     <span style={{ fontSize: '0.9em', color: 'var(--accent)' }}>
-                        Our entire traffic volume is a rounding error for Baraka Shea.
+                        Our entire traffic volume is nothing compared to Baraka Shea.
                     </span>
                 </p>
             </div>

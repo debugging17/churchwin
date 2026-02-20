@@ -155,7 +155,7 @@ h4 {
 /* Navigation Progress */
 .progress-bar {
     position: fixed;
-    bottom: 1rem;
+    bottom: 2.5rem;
     left: 3rem;
     width: 200px;
     height: 2px;
@@ -173,7 +173,7 @@ h4 {
 
 .page-indicator {
     position: fixed;
-    bottom: 1rem;
+    bottom: 2.5rem;
     left: 250px;
     color: #fff;
     font-size: 0.9rem;
