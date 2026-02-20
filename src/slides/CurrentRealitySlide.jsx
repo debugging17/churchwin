@@ -74,43 +74,36 @@ export default function CurrentRealitySlide() {
                         </div>
                     </div>
 
-                    {/* Client: Churchwin Trading (the company this pitch is for) */}
-                    <div className="bento-card card-client" style={{
-                        background: 'linear-gradient(135deg, rgba(255, 106, 0, 0.15), rgba(255, 106, 0, 0.05))',
-                        border: '2px solid rgba(255, 106, 0, 0.5)'
+                    {/* Client: Churchwin Trading (the company this pitch is for) — expanded top right */}
+                    <div className="bento-card" style={{
+                        gridColumn: 'span 2',
+                        gridRow: 'span 1',
+                        background: 'rgba(255, 106, 0, 0.12)',
+                        border: '2px solid rgba(255, 106, 0, 0.5)',
+                        backdropFilter: 'blur(16px)',
+                        WebkitBackdropFilter: 'blur(16px)',
+                        position: 'relative'
                     }}>
                         <div style={{
                             position: 'absolute', top: '1rem', right: '1rem',
                             background: 'var(--accent)', color: '#fff',
-                            padding: '2px 8px', borderRadius: '12px',
-                            fontSize: '0.7rem', fontWeight: 700
+                            padding: '3px 10px', borderRadius: '12px',
+                            fontSize: '0.75rem', fontWeight: 700
                         }}>YOU</div>
-                        <h4>Churchwin Trading</h4>
-                        <div className="bento-big-num" style={{ color: 'var(--accent)', fontSize: '2rem' }}>N/A</div>
-                        <div className="bento-sub" style={{ color: '#ffaa66', fontWeight: 600 }}>No Digital Presence</div>
+                        <h4 style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.8)', letterSpacing: '1px' }}>Churchwin Trading Co.</h4>
+                        <div className="bento-big-num" style={{ color: '#ff6a00', fontSize: '2.8rem' }}>N/A</div>
+                        <div style={{ fontSize: '0.95rem', color: '#ffcc99', fontWeight: 600 }}>No Digital Presence</div>
                         <div style={{ marginTop: 'auto' }}>
                             <div className="stat-bar">
                                 <div className="stat-fill" style={{ width: '0%', background: 'var(--accent)' }} />
                             </div>
-                            <div className="bento-sub" style={{ color: '#ffaa66' }}>Invisible Online — Zero Organic Traffic</div>
+                            <div style={{ fontSize: '0.8rem', color: '#ff6a00', fontWeight: 600, marginTop: '0.5rem' }}>Invisible Online — Zero Organic Traffic</div>
                         </div>
                     </div>
 
-                    {/* Mid-Tier: FairTale Ghana */}
-                    <div className="bento-card card-competitor">
-                        <h4>FairTale Ghana</h4>
-                        <div className="bento-big-num">2,186</div>
-                        <div className="bento-sub">Monthly Visits</div>
-                        <div className="stat-bar">
-                            <div className="stat-fill" style={{ width: '5%', background: '#f1c40f' }} />
-                        </div>
-                    </div>
-
-                    {/* Retail Arm: Churchwin.com */}
+                    {/* Retail Arm: Churchwin.com — row 2, left */}
                     <div className="bento-card" style={{
                         gridColumn: 'span 1',
-                        opacity: 1,
-                        borderStyle: 'dashed',
                         background: 'rgba(255, 255, 255, 0.18)',
                         border: '1px dashed rgba(255, 255, 255, 0.3)',
                         backdropFilter: 'blur(16px)',
@@ -123,6 +116,21 @@ export default function CurrentRealitySlide() {
                             <div className="stat-fill" style={{ width: '1%', background: '#888' }} />
                         </div>
                         <div className="bento-sub" style={{ color: 'rgba(255,255,255,0.6)', marginTop: '0.3rem' }}>100% Paid Traffic</div>
+                    </div>
+
+                    {/* Mid-Tier: FairTale Ghana — row 2, right */}
+                    <div className="bento-card" style={{
+                        gridColumn: 'span 1',
+                        background: 'rgba(255, 255, 255, 0.14)',
+                        backdropFilter: 'blur(12px)',
+                        WebkitBackdropFilter: 'blur(12px)'
+                    }}>
+                        <h4>FairTale Ghana</h4>
+                        <div className="bento-big-num">2,186</div>
+                        <div className="bento-sub">Monthly Visits</div>
+                        <div className="stat-bar">
+                            <div className="stat-fill" style={{ width: '5%', background: '#f1c40f' }} />
+                        </div>
                     </div>
 
                     {/* Insight Card - Cost of Inaction */}
