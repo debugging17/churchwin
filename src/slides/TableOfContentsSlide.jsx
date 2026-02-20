@@ -140,7 +140,7 @@ export default function TableOfContentsSlide() {
                                 alignItems: 'center',
                                 transition: 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                                 cursor: 'default',
-                                margin: '0 -2rem', // Increased negative margin to squeeze them tighter
+                                margin: '0 -1.5vw', // Use viewport width for responsive overlap margin
                                 zIndex: i % 2 === 0 ? 10 : 5, // Up/down stagger depth
                                 transform: `translateY(${i % 2 === 0 ? '30px' : '-30px'})`, // Alternating stagger
                             }}
@@ -162,9 +162,9 @@ export default function TableOfContentsSlide() {
                                 src={product.src}
                                 alt={product.alt}
                                 style={{
-                                    height: 'auto',
-                                    maxHeight: '260px', /* Reduced slightly */
-                                    maxWidth: '18vw', /* Prevent them from ever getting too wide for the screen split */
+                                    height: '28vh',
+                                    maxHeight: '220px', /* Reduced significantly */
+                                    maxWidth: '10vw', /* Strict responsive width limit to fit 5 images */
                                     objectFit: 'contain',
                                     // Apple-style intrinsic product shadow casting
                                     filter: 'drop-shadow(-10px 10px 20px rgba(0,0,0,0.15)) drop-shadow(0 25px 35px rgba(0,0,0,0.1))',
