@@ -111,9 +111,10 @@ export default function CurrentRealitySlide() {
                         gridColumn: 'span 1',
                         opacity: 1,
                         borderStyle: 'dashed',
-                        background: 'rgba(255, 255, 255, 0.12)',
-                        border: '1px dashed rgba(255, 255, 255, 0.25)',
-                        backdropFilter: 'blur(8px)'
+                        background: 'rgba(255, 255, 255, 0.18)',
+                        border: '1px dashed rgba(255, 255, 255, 0.3)',
+                        backdropFilter: 'blur(16px)',
+                        WebkitBackdropFilter: 'blur(16px)'
                     }}>
                         <h4 style={{ whiteSpace: 'normal', overflow: 'visible', fontSize: '0.7rem' }}>Churchwin.com (Retail)</h4>
                         <div className="bento-big-num" style={{ fontSize: '1.5rem', color: '#ccc' }}>200</div>
