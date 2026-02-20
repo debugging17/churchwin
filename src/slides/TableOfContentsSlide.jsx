@@ -11,9 +11,9 @@ const TOC_ITEMS = [
 ];
 
 const HERO_PRODUCTS = [
-    { src: '/assets/images/Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp', alt: 'Shea Butter', z: 3, rotate: '-8deg', translateX: '10%', scale: 1.1 },
-    { src: '/assets/images/Churchwin_B08ZNQ6WGJ-Neem-Oil-8-Photoroom-2.webp', alt: 'Neem Oil', z: 5, rotate: '0deg', translateX: '0', scale: 1.25 },
-    { src: '/assets/images/Cocoa-Butter-Photoroom-1.png', alt: 'Cocoa Butter', z: 3, rotate: '8deg', translateX: '-10%', scale: 1.1 },
+    { src: '/assets/images/Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp', alt: 'Shea Butter' },
+    { src: '/assets/images/Churchwin_B08ZNQ6WGJ-Neem-Oil-8-Photoroom-2.webp', alt: 'Neem Oil' },
+    { src: '/assets/images/Cocoa-Butter-Photoroom-1.png', alt: 'Cocoa Butter' },
 ];
 
 export default function TableOfContentsSlide() {
@@ -27,82 +27,86 @@ export default function TableOfContentsSlide() {
         }}>
             {/* Left Pane: Executive Summary + TOC */}
             <div style={{
-                width: '50%', padding: '4rem 3rem 3rem 5rem',
-                display: 'flex', flexDirection: 'column', justifyContent: 'center',
+                width: '50%', padding: '2rem 3rem 2rem 5rem',
+                display: 'flex', flexDirection: 'column',
                 zIndex: 10, overflowY: 'auto',
                 scrollbarWidth: 'none', msOverflowStyle: 'none'
             }}>
-                {/* Label */}
-                <span style={{
-                    fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '3px',
-                    color: '#ff6a00', marginBottom: '1.2rem', fontWeight: 700,
-                    display: 'block'
-                }}>Executive Summary</span>
+                {/* Wrapper to naturally center content without clipping top if it is tall */}
+                <div style={{ margin: 'auto 0' }}>
+                    {/* Label */}
+                    <span style={{
+                        fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '3px',
+                        color: '#ff6a00', marginBottom: '1rem', fontWeight: 700,
+                        display: 'block'
+                    }}>Executive Summary</span>
 
-                {/* Heading */}
-                <h1 style={{
-                    fontSize: '3rem', fontWeight: 800, color: '#012787',
-                    lineHeight: 1.15, marginBottom: '1.5rem', letterSpacing: '-0.02em'
-                }}>
-                    What's Inside<br />
-                    <span style={{ color: '#ff6a00' }}>This Proposal</span>
-                </h1>
+                    {/* Heading */}
+                    <h1 style={{
+                        marginTop: 0, // ensure no extra margin cuts it off
+                        fontSize: '3.2rem', fontWeight: 800, color: '#012787',
+                        lineHeight: 1.15, marginBottom: '1.2rem', letterSpacing: '-0.02em'
+                    }}>
+                        What's Inside<br />
+                        <span style={{ color: '#ff6a00' }}>This Proposal</span>
+                    </h1>
 
-                {/* Summary Paragraph */}
-                <p style={{
-                    fontSize: '1.05rem', color: '#444', lineHeight: 1.7,
-                    marginBottom: '2.5rem', maxWidth: '500px'
-                }}>
-                    Churchwin Trading Co. produces world-class natural products — but the
-                    digital storefront doesn't match. This proposal outlines a{' '}
-                    <strong style={{ color: '#012787' }}>90-day technical sprint</strong> to
-                    transform an invisible online presence into a{' '}
-                    <strong style={{ color: '#012787' }}>B2B revenue engine</strong>,
-                    closing an estimated{' '}
-                    <strong style={{ color: '#ff4444' }}>$150k+ monthly gap</strong>.
-                </p>
+                    {/* Summary Paragraph */}
+                    <p style={{
+                        fontSize: '1.15rem', color: '#444', lineHeight: 1.6,
+                        marginBottom: '2rem', maxWidth: '520px'
+                    }}>
+                        Churchwin Trading Co. produces world-class natural products — but the
+                        digital storefront doesn't match. This proposal outlines a{' '}
+                        <strong style={{ color: '#012787' }}>90-day technical sprint</strong> to
+                        transform an invisible online presence into a{' '}
+                        <strong style={{ color: '#012787' }}>B2B revenue engine</strong>,
+                        closing an estimated{' '}
+                        <strong style={{ color: '#ff4444' }}>$150k+ monthly gap</strong>.
+                    </p>
 
-                {/* TOC Items */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                    {TOC_ITEMS.map((item, i) => (
-                        <div key={i} style={{
-                            display: 'flex', alignItems: 'center', gap: '1.2rem',
-                            padding: '0.85rem 1.2rem', borderRadius: '12px',
-                            background: '#f8f9fb',
-                            border: '1px solid rgba(1,39,135,0.06)',
-                            transition: 'all 0.3s ease', cursor: 'default'
-                        }}
-                            onMouseOver={(e) => {
-                                e.currentTarget.style.background = 'rgba(1,39,135,0.05)';
-                                e.currentTarget.style.borderColor = 'rgba(255,106,0,0.2)';
-                                e.currentTarget.style.transform = 'translateX(4px)';
+                    {/* TOC Items */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                        {TOC_ITEMS.map((item, i) => (
+                            <div key={i} style={{
+                                display: 'flex', alignItems: 'center', gap: '1.5rem',
+                                padding: '1rem 1.5rem', borderRadius: '12px',
+                                background: '#f8f9fb',
+                                border: '1px solid rgba(1,39,135,0.06)',
+                                transition: 'all 0.3s ease', cursor: 'default'
                             }}
-                            onMouseOut={(e) => {
-                                e.currentTarget.style.background = '#f8f9fb';
-                                e.currentTarget.style.borderColor = 'rgba(1,39,135,0.06)';
-                                e.currentTarget.style.transform = 'translateX(0)';
-                            }}
-                        >
-                            <span style={{
-                                fontSize: '1.3rem', fontWeight: 800, color: '#ff6a00',
-                                minWidth: '2.2rem', fontFamily: 'Montserrat, sans-serif'
-                            }}>{item.num}</span>
-                            <div style={{ flex: 1 }}>
-                                <div style={{
-                                    fontSize: '0.95rem', fontWeight: 700, color: '#012787',
-                                    marginBottom: '0.1rem'
-                                }}>{item.title}</div>
-                                <div style={{
-                                    fontSize: '0.75rem', color: '#888', lineHeight: 1.4
-                                }}>{item.desc}</div>
+                                onMouseOver={(e) => {
+                                    e.currentTarget.style.background = 'rgba(1,39,135,0.05)';
+                                    e.currentTarget.style.borderColor = 'rgba(255,106,0,0.2)';
+                                    e.currentTarget.style.transform = 'translateX(4px)';
+                                }}
+                                onMouseOut={(e) => {
+                                    e.currentTarget.style.background = '#f8f9fb';
+                                    e.currentTarget.style.borderColor = 'rgba(1,39,135,0.06)';
+                                    e.currentTarget.style.transform = 'translateX(0)';
+                                }}
+                            >
+                                <span style={{
+                                    fontSize: '1.6rem', fontWeight: 800, color: '#ff6a00',
+                                    minWidth: '2.5rem', fontFamily: 'Montserrat, sans-serif'
+                                }}>{item.num}</span>
+                                <div style={{ flex: 1 }}>
+                                    <div style={{
+                                        fontSize: '1.15rem', fontWeight: 700, color: '#012787',
+                                        marginBottom: '0.2rem'
+                                    }}>{item.title}</div>
+                                    <div style={{
+                                        fontSize: '0.95rem', color: '#666', lineHeight: 1.4
+                                    }}>{item.desc}</div>
+                                </div>
+                                <span style={{ color: '#ccc', fontSize: '1.2rem' }}>→</span>
                             </div>
-                            <span style={{ color: '#ccc', fontSize: '1rem' }}>→</span>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
 
-            {/* Right Pane: Apple-style 3D Product Showcase */}
+            {/* Right Pane: 100% 3D Product Showcase */}
             <div style={{
                 width: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
                 position: 'relative', overflow: 'hidden'
@@ -113,83 +117,71 @@ export default function TableOfContentsSlide() {
                     transform: 'translate(-50%, -50%)',
                     width: '120%', height: '120%',
                     background: 'radial-gradient(ellipse at center, rgba(1,39,135,0.04) 0%, rgba(255,106,0,0.03) 40%, transparent 70%)',
-                    pointerEvents: 'none'
+                    pointerEvents: 'none', zIndex: 0
                 }} />
 
-                {/* 3D Product Stack — Apple-style perspective */}
+                {/* 3D Product Assembly - side by side, grounded with strict floor shadows */}
                 <div style={{
                     position: 'relative',
-                    width: '100%', height: '70vh', maxHeight: '550px',
-                    perspective: '1200px',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center'
+                    width: '100%', padding: '0 2rem',
+                    display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
+                    gap: '1.5rem', zIndex: 10,
+                    perspective: '1200px'
                 }}>
                     {HERO_PRODUCTS.map((product, i) => (
                         <div
                             key={i}
                             style={{
-                                position: 'absolute',
-                                transform: `translateX(${product.translateX}) rotateY(${product.rotate}) scale(${product.scale})`,
-                                zIndex: product.z,
-                                transition: 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                                transformStyle: 'preserve-3d',
+                                position: 'relative',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                transition: 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                                 cursor: 'default'
                             }}
                             onMouseOver={(e) => {
-                                e.currentTarget.style.transform = `translateX(${product.translateX}) rotateY(${product.rotate}) scale(${product.scale * 1.08})`;
+                                e.currentTarget.style.transform = 'translateY(-10px) scale(1.05)';
+                                // Enhance shadow on hover
+                                e.currentTarget.querySelector('.floor-shadow').style.opacity = '0.5';
+                                e.currentTarget.querySelector('.floor-shadow').style.transform = 'scale(0.9)';
                             }}
                             onMouseOut={(e) => {
-                                e.currentTarget.style.transform = `translateX(${product.translateX}) rotateY(${product.rotate}) scale(${product.scale})`;
+                                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                                e.currentTarget.querySelector('.floor-shadow').style.opacity = '1';
+                                e.currentTarget.querySelector('.floor-shadow').style.transform = 'scale(1)';
                             }}
                         >
                             <img
                                 src={product.src}
                                 alt={product.alt}
                                 style={{
-                                    height: '45vh',
-                                    maxHeight: '400px',
+                                    height: '42vh',
+                                    maxHeight: '380px',
                                     width: 'auto',
                                     objectFit: 'contain',
-                                    filter: `drop-shadow(0 30px 40px rgba(0,0,0,0.25)) drop-shadow(0 60px 80px rgba(0,0,0,0.15))`,
+                                    // Apple-style intrinsic product shadow casting
+                                    filter: 'drop-shadow(-10px 10px 20px rgba(0,0,0,0.15)) drop-shadow(0 25px 35px rgba(0,0,0,0.1))',
+                                    position: 'relative',
+                                    zIndex: 2,
+                                    pointerEvents: 'none'
+                                }}
+                            />
+                            {/* Distinct 3D Floor Shadow */}
+                            <div
+                                className="floor-shadow"
+                                style={{
+                                    position: 'absolute',
+                                    bottom: '0',
+                                    left: '10%',
+                                    right: '10%',
+                                    height: '24px',
+                                    background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 70%)',
+                                    zIndex: 1,
+                                    transition: 'all 0.4s ease',
                                     pointerEvents: 'none'
                                 }}
                             />
                         </div>
-                    ))}
-                </div>
-
-                {/* Bottom row: smaller supporting products */}
-                <div style={{
-                    position: 'absolute', bottom: '3rem',
-                    display: 'flex', gap: '1.5rem', alignItems: 'flex-end',
-                    justifyContent: 'center', width: '100%', padding: '0 2rem'
-                }}>
-                    {[
-                        '/assets/images/PhotoshopExtension_Image (1).png',
-                        '/assets/images/PhotoshopExtension_Image (2).png',
-                        '/assets/images/PhotoshopExtension_Image (3).png',
-                    ].map((src, i) => (
-                        <img
-                            key={i}
-                            src={src}
-                            alt={`Product ${i + 1}`}
-                            style={{
-                                height: '80px',
-                                width: 'auto',
-                                objectFit: 'contain',
-                                filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.2))',
-                                opacity: 0.7,
-                                transition: 'opacity 0.3s, transform 0.3s',
-                                cursor: 'default'
-                            }}
-                            onMouseOver={(e) => {
-                                e.currentTarget.style.opacity = '1';
-                                e.currentTarget.style.transform = 'translateY(-5px)';
-                            }}
-                            onMouseOut={(e) => {
-                                e.currentTarget.style.opacity = '0.7';
-                                e.currentTarget.style.transform = 'translateY(0)';
-                            }}
-                        />
                     ))}
                 </div>
             </div>
