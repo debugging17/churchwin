@@ -133,11 +133,13 @@ export default function TableOfContentsSlide() {
                     {HERO_PRODUCTS.map((product, i) => {
                         let positionStyles = {};
                         // 0: Shea (Bottom Left), 1: Neem (Top Left), 2: Cocoa (Center), 3: Baobab (Top Right), 4: Moringa (Bottom Right)
-                        if (i === 0) positionStyles = { position: 'absolute', left: '0%', bottom: '2%', zIndex: 12 };
+                        // Note: Using slightly offset left percentages because Shea container might be wider due to aspect ratio, 
+                        // moving it to left: '10%' so it distances evenly from the center like Moringa does from the right.
+                        if (i === 0) positionStyles = { position: 'absolute', left: '10%', bottom: '2%', zIndex: 12 };
                         if (i === 1) positionStyles = { position: 'absolute', left: '10%', top: '2%', zIndex: 10 };
                         if (i === 2) positionStyles = { position: 'relative', zIndex: 15 }; // Centered naturally 
                         if (i === 3) positionStyles = { position: 'absolute', right: '10%', top: '2%', zIndex: 10 };
-                        if (i === 4) positionStyles = { position: 'absolute', right: '0%', bottom: '2%', zIndex: 12 };
+                        if (i === 4) positionStyles = { position: 'absolute', right: '10%', bottom: '2%', zIndex: 12 };
 
                         return (
                             <div
