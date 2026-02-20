@@ -4,7 +4,7 @@ import { useTilt } from '../hooks/useTilt';
 
 export default function CurrentRealitySlide() {
     const slideRef = useRef(null);
-    useSlideAnimation(slideRef, 2);
+    useSlideAnimation(slideRef, 3);
     const tiltRef = useTilt();
 
     return (
