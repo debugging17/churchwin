@@ -29,7 +29,20 @@ export default function CurrentRealitySlide() {
             <div className="visual-pane" ref={tiltRef} style={{ padding: '1rem' }}>
                 <div className="bento-grid">
                     {/* Market Leader: Baraka Shea */}
-                    <div className="bento-card card-leader">
+                    <div
+                        className="bento-card card-leader"
+                        style={{ cursor: 'pointer', transition: 'transform 0.2s, box-shadow 0.2s', border: '1px solid rgba(39, 201, 63, 0.3)' }}
+                        onClick={() => window.open('/Website_Analysis_&_Insights.Jan_2026.pdf', '_blank')}
+                        title="Click to view full SimilarWeb Report"
+                        onMouseOver={(e) => {
+                            e.currentTarget.style.transform = 'translateY(-5px)';
+                            e.currentTarget.style.boxShadow = '0 15px 30px rgba(39, 201, 63, 0.15)';
+                        }}
+                        onMouseOut={(e) => {
+                            e.currentTarget.style.transform = 'translateY(0)';
+                            e.currentTarget.style.boxShadow = 'none';
+                        }}
+                    >
                         <div style={{
                             position: 'absolute', top: '1rem', right: '1rem',
                             background: '#27c93f', color: '#000',
@@ -49,8 +62,14 @@ export default function CurrentRealitySlide() {
                             <div className="stat-bar">
                                 <div className="stat-fill" style={{ width: '100%', background: '#27c93f' }} />
                             </div>
-                            <div className="bento-sub" style={{ marginTop: '1rem' }}>
+                            <div className="bento-sub" style={{ marginTop: '0.8rem' }}>
                                 3:27 Avg Duration • 2.02 Pages/Visit
+                            </div>
+                            <div style={{
+                                fontSize: '0.65rem', color: '#27c93f', marginTop: '1rem',
+                                display: 'flex', alignItems: 'center', gap: '0.3rem', fontWeight: 600
+                            }}>
+                                📄 CLICK FOR FULL SIMILARWEB REPORT
                             </div>
                         </div>
                     </div>
@@ -94,17 +113,17 @@ export default function CurrentRealitySlide() {
                         </div>
                     </div>
 
-                    {/* Insight Card */}
-                    <div className="bento-card" style={{ gridColumn: 'span 2', background: 'rgba(0,0,0,0.3)' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', gap: '1rem' }}>
+                    {/* Insight Card - Cost of Inaction */}
+                    <div className="bento-card" style={{ gridColumn: 'span 2', background: 'rgba(255,0,0,0.1)', border: '1px solid rgba(255,0,0,0.3)' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', gap: '1.5rem' }}>
                             <div style={{ textAlign: 'center' }}>
-                                <div style={{ fontSize: '2rem', color: 'var(--accent)', fontWeight: 700 }}>264x</div>
-                                <div style={{ fontSize: '0.8rem' }}>Traffic Gap</div>
+                                <div style={{ fontSize: '2.5rem', color: '#ff4444', fontWeight: 800 }}>$150k+</div>
+                                <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff' }}>Est. Lost Monthly Revenue</div>
                             </div>
-                            <div style={{ width: '1px', height: '40px', background: 'rgba(255,255,255,0.1)' }} />
+                            <div style={{ width: '1px', height: '50px', background: 'rgba(255,255,255,0.2)' }} />
                             <div style={{ textAlign: 'center' }}>
-                                <div style={{ fontSize: '2rem', color: '#fff', fontWeight: 700 }}>~2m</div>
-                                <div style={{ fontSize: '0.8rem' }}>Visit Duration Gap</div>
+                                <div style={{ fontSize: '1.5rem', color: '#ffaa66', fontWeight: 700 }}>The C.O.I.</div>
+                                <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)' }}>(Cost of Inaction)</div>
                             </div>
                         </div>
                     </div>

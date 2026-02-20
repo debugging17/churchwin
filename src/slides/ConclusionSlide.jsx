@@ -28,20 +28,29 @@ export default function ConclusionSlide() {
             </div>
 
             <div className="narrative-pane">
-                <span className="label">Next Steps</span>
+                <span className="label">The Close</span>
                 <h1 className="headline-xl">
-                    Let's Grow <br /><span className="highlight">Together</span>
+                    Zero-Risk <br /><span className="highlight">Next Step</span>
                 </h1>
-                <p className="body-xl">
+                <p className="body-xl" style={{ fontSize: '1.2rem' }}>
                     This isn't just a website update.<br />
-                    It's a <strong>Market Domination Strategy</strong>.
+                    It's an <strong>enterprise-grade digital sales engine</strong>.
                     <br /><br />
-                    <strong>Proposal:</strong><br />
-                    • Full Rebrand (Logo Refinement)<br />
-                    • High-Performance Shopify/Custom Hybrid<br />
-                    • Sales Funnel Setup (Apollo + Instantly)
+                    <strong>Proposal Action Item:</strong><br />
+                    Let's schedule a 30-minute working session next Tuesday to review the Day 1-30 wireframes for the new high-converting product pages.
                     <br /><br />
-                    <span style={{ color: 'var(--accent)', fontWeight: 700 }}>Ready to Start?</span>
+                    <button style={{
+                        background: 'var(--accent)', color: '#000', border: 'none',
+                        padding: '1rem 2rem', borderRadius: '4px', fontWeight: 800,
+                        cursor: 'pointer', transition: 'transform 0.2s', fontSize: '1rem',
+                        boxShadow: '0 10px 20px rgba(255,106,0,0.3)',
+                        marginTop: '1rem'
+                    }}
+                        onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                        onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                    >
+                        SCHEDULE WORKING SESSION
+                    </button>
                 </p>
             </div>
         </section>

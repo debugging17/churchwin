@@ -6,8 +6,8 @@ import gsap from 'gsap';
 const STRATEGY_DETAILS = [
     {
         num: '01',
-        label: 'MONTH 1',
-        title: 'Digital Foundation',
+        label: 'DAYS 1-30',
+        title: 'Core Architecture & UX',
         subtitle: 'Fixing the plumbing',
         color: '#4facfe',
         tags: ['UX/UI Overhaul', 'SEO Strategy', 'CRM Setup'],
@@ -17,7 +17,7 @@ const STRATEGY_DETAILS = [
                 icon: '🎨',
                 name: 'UX/UI Overhaul',
                 desc: 'Redesign the storefront with conversion-focused layouts, strong CTAs ("Request Sample"), and mobile-first responsive design.',
-                kpi: 'Target: 3x increase in time-on-site'
+                kpi: 'Target: Decrease bounce rate by 30%'
             },
             {
                 icon: '🔍',
@@ -41,8 +41,8 @@ const STRATEGY_DETAILS = [
     },
     {
         num: '02',
-        label: 'MONTH 2',
-        title: 'Automation Engine',
+        label: 'DAYS 31-60',
+        title: 'Automation & CRM',
         subtitle: 'Turning on the faucet',
         color: '#ff6a00',
         tags: ['Apollo.io Mining', 'Instantly.ai', 'Asset Production'],
@@ -58,7 +58,7 @@ const STRATEGY_DETAILS = [
                 icon: '📧',
                 name: 'Instantly.ai Cold Outreach',
                 desc: 'Build 3 automated email sequences: Introduction → Value Proposition → Case Study → Meeting CTA. A/B test subject lines for 40%+ open rate.',
-                kpi: 'Target: 2-3% reply rate'
+                kpi: 'Target: 50 automated B2B sample requests'
             },
             {
                 icon: '🎬',
@@ -76,8 +76,8 @@ const STRATEGY_DETAILS = [
     },
     {
         num: '03',
-        label: 'MONTH 3',
-        title: 'Scale & Amplify',
+        label: 'DAYS 61-90',
+        title: 'Scaling & Portals',
         subtitle: 'Full amplification',
         color: '#27c93f',
         tags: ['UGC Campaign', 'Retargeting', 'Wholesale Portal'],
@@ -97,8 +97,8 @@ const STRATEGY_DETAILS = [
             },
             {
                 icon: '🏪',
-                name: 'Wholesale Portal',
-                desc: 'Launch a self-serve B2B portal with tiered pricing, MOQ calculator, and sample request form. Integrate with CRM for automated follow-up.',
+                name: 'Wholesale Portals',
+                desc: 'Launch a self-serve B2B portal with tiered pricing, MOQ calculator, and sample request form. Architected to support new verticals (Moringa, Baobab).',
                 kpi: 'Target: 20 portal signups/month'
             },
             {
@@ -268,14 +268,14 @@ export default function RoadmapSlide() {
                 </p>
 
                 <p className="body-xl" style={{ fontSize: 'clamp(0.85rem, 1.1vw, 1.1rem)' }}>
-                    <strong style={{ color: '#fff' }}>Month 1: Foundation</strong><br />
-                    Fixing the plumbing. UX Overhaul &amp; SEO.
+                    <strong style={{ color: '#fff' }}>Days 1-30: Core Architecture</strong><br />
+                    UX Overhaul, SEO Foundation, CRM structure.
                     <br /><br />
-                    <strong style={{ color: '#fff' }}>Month 2: Automation</strong><br />
-                    Turning on the faucet. Apollo.io &amp; Cold Outreach.
+                    <strong style={{ color: '#fff' }}>Days 31-60: Automation &amp; CRM</strong><br />
+                    Cold Outreach pipeline, Lead Scoring, Video Assets.
                     <br /><br />
-                    <strong style={{ color: '#fff' }}>Month 3: Scale</strong><br />
-                    Amplification. Retargeting (Meta Pixel) &amp; UGC.
+                    <strong style={{ color: '#fff' }}>Days 61-90: Scaling &amp; Portals</strong><br />
+                    Wholesale B2B Self-Serve Portal, Retargeting.
                 </p>
             </div>
 

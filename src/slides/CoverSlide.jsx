@@ -15,16 +15,28 @@ export default function CoverSlide() {
                 justifyContent: 'center',
                 position: 'relative',
                 overflow: 'hidden',
-                background: 'radial-gradient(circle at 50% 50%, #023e8a 0%, #012787 100%)'
+                background: '#011533' // Deep dark blue to make video pop
             }}
         >
-            {/* World Map Overlay */}
+            {/* Background Video (Phase 1: Hook) */}
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{
+                    position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+                    objectFit: 'cover', opacity: 0.35, zIndex: 1, pointerEvents: 'none',
+                    filter: 'grayscale(30%)'
+                }}
+            >
+                <source src="/assets/videos/vid-6.mp4" type="video/mp4" />
+            </video>
+
+            {/* Gradient Overlay for Text Readability */}
             <div style={{
-                position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-                opacity: 0.1,
-                backgroundImage: "url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg')",
-                backgroundSize: 'cover',
-                pointerEvents: 'none'
+                position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 2,
+                background: 'linear-gradient(to bottom, rgba(1,39,135,0.4) 0%, rgba(1,39,135,0.9) 100%)'
             }} />
 
             {/* Brand Logo */}
@@ -34,7 +46,7 @@ export default function CoverSlide() {
                 background: 'rgba(255, 255, 255, 0.95)',
                 padding: '1rem 3rem',
                 borderRadius: '4px',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.3)'
+                boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
             }}>
                 <img
                     src="/assets/images/churchwin_logo_new.png"
@@ -48,24 +60,34 @@ export default function CoverSlide() {
                 className="narrative-pane"
                 style={{ width: '100%', textAlign: 'center', alignItems: 'center', padding: '0 10vw', zIndex: 10 }}
             >
-                <h1 className="headline-xl" style={{ fontSize: '3.5rem', marginBottom: '2rem' }}>
+                <h1 className="headline-xl" style={{ fontSize: '3.8rem', marginBottom: '1.5rem', lineHeight: 1.2 }}>
                     Revitalizing Churchwin:<br />
-                    <span style={{ color: 'var(--accent)', fontWeight: 300 }}>
-                        A Strategic Roadmap to Global B2B Dominance
+                    <span style={{ color: 'var(--accent)', fontWeight: 300, fontSize: '3rem' }}>
+                        Digital Transformation &amp; Web Architecture
                     </span>
                 </h1>
 
-                <div style={{ height: '2px', width: '100px', background: 'var(--accent)', marginBottom: '2rem' }} />
+                <div style={{ height: '2px', width: '100px', background: 'var(--accent)', margin: '0 auto 2rem auto' }} />
 
-                <p className="body-xl" style={{ fontSize: '1.5rem', color: 'var(--text-mute)' }}>
-                    Turning "Hidden Gem" Quality into <br />Market-Leading Revenue (Q1-Q2 2026)
+                <p className="body-xl" style={{ fontSize: '1.5rem', color: 'rgba(255,255,255,0.9)' }}>
+                    A Strategic Proposal to Translate "Hidden Gem" Quality<br /> into Market-Leading B2B Revenue.
                 </p>
 
+                {/* Engineering/Architect Angle Badge */}
                 <div style={{
-                    marginTop: '4rem', fontSize: '0.9rem', letterSpacing: '2px',
-                    textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)'
+                    marginTop: '4rem', background: 'rgba(255,255,255,0.05)', display: 'inline-block',
+                    padding: '1.2rem 2.5rem', borderRadius: '12px', border: '1px solid rgba(255,106,0,0.3)',
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
                 }}>
-                    Strategic Digital Marketing &amp; Brand Revamp Proposal
+                    <div style={{ fontSize: '0.85rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '0.4rem', fontWeight: 700 }}>
+                        System Architecture Proposal
+                    </div>
+                    <div style={{ fontSize: '1.2rem', color: '#fff', fontWeight: 600 }}>
+                        Technical Web Architect
+                    </div>
+                    <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.4rem', letterSpacing: '0.5px' }}>
+                        Engineering Rigor • Agile Project Management • ROI-Driven Web Dev
+                    </div>
                 </div>
             </div>
         </section>
