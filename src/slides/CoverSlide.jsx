@@ -69,9 +69,9 @@ export default function CoverSlide() {
                 </div>
 
                 <h1 className="headline-xl" style={{ fontSize: '3.8rem', marginBottom: '1.2rem', lineHeight: 1.2 }}>
-                    Revitalizing Churchwin:<br />
+                    Revitalizing Churchwin Trading:<br />
                     <span style={{ color: 'var(--accent)', fontWeight: 300, fontSize: '3rem' }}>
-                        Digital Transformation &amp; Web Architecture
+                        Digital Transformation &amp; Web Presence Amplification
                     </span>
                 </h1>
 
