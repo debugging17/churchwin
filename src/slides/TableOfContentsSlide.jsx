@@ -14,6 +14,8 @@ const HERO_PRODUCTS = [
     { src: '/assets/images/Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp', alt: 'Shea Butter' },
     { src: '/assets/images/Churchwin_B08ZNQ6WGJ-Neem-Oil-8-Photoroom-2.webp', alt: 'Neem Oil' },
     { src: '/assets/images/Cocoa-Butter-Photoroom-1.png', alt: 'Cocoa Butter' },
+    { src: '/assets/images/baobab.png', alt: 'Baobab' },
+    { src: '/assets/images/moringa.webp', alt: 'Moringa' },
 ];
 
 export default function TableOfContentsSlide() {
@@ -26,35 +28,35 @@ export default function TableOfContentsSlide() {
             background: '#ffffff', overflow: 'hidden'
         }}>
             {/* Left Pane: Executive Summary + TOC */}
-            <div style={{
-                width: '50%', padding: '2rem 3rem 4rem 5rem',
-                display: 'flex', flexDirection: 'column', justifyContent: 'center',
-                zIndex: 10, overflowY: 'visible'
+            <div className="hide-scrollbar" style={{
+                width: '45%', padding: '1.5rem 1rem 1.5rem 4rem',
+                display: 'flex', flexDirection: 'column',
+                zIndex: 10, overflowY: 'auto',
+                scrollbarWidth: 'none', msOverflowStyle: 'none'
             }}>
-                {/* Wrapper to align items */}
-                <div>
+                {/* Wrapper to naturally center content without clipping top if it is tall */}
+                <div style={{ margin: 'auto 0' }}>
                     {/* Label */}
                     <span style={{
                         fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '3px',
-                        color: '#ff6a00', marginBottom: '0.8rem', fontWeight: 700,
+                        color: '#ff6a00', marginBottom: '1rem', fontWeight: 700,
                         display: 'block'
                     }}>Executive Summary</span>
 
-                    {/* Heading (Inline) */}
+                    {/* Heading */}
                     <h1 style={{
-                        marginTop: 0,
-                        fontSize: '2.8rem', fontWeight: 800, color: '#012787',
-                        lineHeight: 1.15, marginBottom: '1.2rem', letterSpacing: '-0.02em',
-                        display: 'flex', gap: '0.3em', flexWrap: 'wrap', alignItems: 'center'
+                        marginTop: 0, // ensure no extra margin cuts it off
+                        fontSize: '2.5rem', fontWeight: 800, color: '#012787',
+                        lineHeight: 1.15, marginBottom: '0.6rem', letterSpacing: '-0.02em',
+                        whiteSpace: 'nowrap'
                     }}>
-                        <span>What's Inside</span>
-                        <span style={{ color: '#ff6a00' }}>This Proposal</span>
+                        What's Inside <span style={{ color: '#012787' }}>This Proposal</span>
                     </h1>
 
                     {/* Summary Paragraph */}
                     <p style={{
-                        fontSize: '1.1rem', color: '#444', lineHeight: 1.5,
-                        marginBottom: '1.5rem', maxWidth: '540px'
+                        fontSize: '0.95rem', color: '#444', lineHeight: 1.5,
+                        marginBottom: '0.8rem', maxWidth: '520px'
                     }}>
                         Churchwin Trading Co. produces world-class natural products — but the
                         digital storefront doesn't match. This proposal outlines a{' '}
@@ -70,7 +72,7 @@ export default function TableOfContentsSlide() {
                         {TOC_ITEMS.map((item, i) => (
                             <div key={i} style={{
                                 display: 'flex', alignItems: 'center', gap: '1.2rem',
-                                padding: '0.75rem 1.2rem', borderRadius: '12px',
+                                padding: '0.75rem 1.25rem', borderRadius: '12px',
                                 background: '#f8f9fb',
                                 border: '1px solid rgba(1,39,135,0.06)',
                                 transition: 'all 0.3s ease', cursor: 'default'
@@ -88,11 +90,11 @@ export default function TableOfContentsSlide() {
                             >
                                 <span style={{
                                     fontSize: '1.4rem', fontWeight: 800, color: '#ff6a00',
-                                    minWidth: '2.5rem', fontFamily: 'Montserrat, sans-serif'
+                                    minWidth: '2.2rem', fontFamily: 'Montserrat, sans-serif'
                                 }}>{item.num}</span>
                                 <div style={{ flex: 1 }}>
                                     <div style={{
-                                        fontSize: '1.05rem', fontWeight: 700, color: '#012787',
+                                        fontSize: '1rem', fontWeight: 700, color: '#012787',
                                         marginBottom: '0.1rem'
                                     }}>{item.title}</div>
                                     <div style={{
@@ -108,8 +110,8 @@ export default function TableOfContentsSlide() {
 
             {/* Right Pane: 100% 3D Product Showcase */}
             <div style={{
-                width: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                position: 'relative', overflow: 'hidden'
+                width: '55%', display: 'flex', alignItems: 'stretch', justifyContent: 'center',
+                position: 'relative', overflow: 'visible'
             }}>
                 {/* Soft radial gradient backdrop */}
                 <div style={{
@@ -120,70 +122,86 @@ export default function TableOfContentsSlide() {
                     pointerEvents: 'none', zIndex: 0
                 }} />
 
-                {/* 3D Product Assembly - side by side, grounded with strict floor shadows */}
+                {/* 3D Product Assembly - Scattered Layout */}
                 <div style={{
                     position: 'relative',
                     width: '100%', padding: '0 1rem',
-                    display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
-                    gap: '1rem', zIndex: 10,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    height: '100%', zIndex: 10,
                     perspective: '1200px'
                 }}>
-                    {HERO_PRODUCTS.map((product, i) => (
-                        <div
-                            key={i}
-                            style={{
-                                position: 'relative',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                transition: 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                                cursor: 'default',
-                                flex: '0 1 30%', // ensure they flex and never blow out
-                                minWidth: 0
-                            }}
-                            onMouseOver={(e) => {
-                                e.currentTarget.style.transform = 'translateY(-10px) scale(1.05)';
-                                // Enhance shadow on hover
-                                e.currentTarget.querySelector('.floor-shadow').style.opacity = '0.5';
-                                e.currentTarget.querySelector('.floor-shadow').style.transform = 'scale(0.9)';
-                            }}
-                            onMouseOut={(e) => {
-                                e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                                e.currentTarget.querySelector('.floor-shadow').style.opacity = '1';
-                                e.currentTarget.querySelector('.floor-shadow').style.transform = 'scale(1)';
-                            }}
-                        >
-                            <img
-                                src={product.src}
-                                alt={product.alt}
-                                style={{
-                                    height: 'auto',
-                                    maxHeight: '40vh',
-                                    width: '100%',
-                                    objectFit: 'contain',
-                                    // Apple-style intrinsic product shadow casting
-                                    filter: 'drop-shadow(-10px 10px 20px rgba(0,0,0,0.15)) drop-shadow(0 25px 35px rgba(0,0,0,0.1))',
-                                    zIndex: 2,
-                                    pointerEvents: 'none'
-                                }}
-                            />
-                            {/* Distinct 3D Floor Shadow */}
+                    {HERO_PRODUCTS.map((product, i) => {
+                        let positionStyles = {};
+                        // 0: Shea (Bottom Left), 1: Neem (Top Left), 2: Cocoa (Center), 3: Baobab (Top Right), 4: Moringa (Bottom Right)
+                        // Note: Shea has wider negative space, so an increased left percentage is needed to align their visual edges.
+                        if (i === 0) positionStyles = { position: 'absolute', left: '12%', bottom: '2%', zIndex: 12 };
+                        if (i === 1) positionStyles = { position: 'absolute', left: '10%', top: '2%', zIndex: 10 };
+                        if (i === 2) positionStyles = { position: 'relative', zIndex: 15 }; // Centered naturally 
+                        if (i === 3) positionStyles = { position: 'absolute', right: '10%', top: '2%', zIndex: 10 };
+                        if (i === 4) positionStyles = { position: 'absolute', right: '10%', bottom: '2%', zIndex: 12 };
+
+                        // Custom hover parameters
+                        let hoverTranslateY = '-20px'; // Default: move UP on hover
+                        if (i === 4 || i === 0) {
+                            hoverTranslateY = '20px'; // Moringa and Shea (bottom row): Move DOWN on hover to avoid overlapping center
+                        }
+
+                        return (
                             <div
-                                className="floor-shadow"
+                                key={i}
                                 style={{
-                                    position: 'absolute',
-                                    bottom: '0',
-                                    left: '10%',
-                                    right: '10%',
-                                    height: '24px',
-                                    background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 70%)',
-                                    zIndex: 1,
-                                    transition: 'all 0.4s ease',
-                                    pointerEvents: 'none'
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    transition: 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                                    cursor: 'default',
+                                    ...positionStyles
                                 }}
-                            />
-                        </div>
-                    ))}
+                                onMouseOver={(e) => {
+                                    e.currentTarget.style.transform = `translateY(${hoverTranslateY}) scale(1.15)`;
+                                    e.currentTarget.style.zIndex = 20;
+                                    e.currentTarget.querySelector('.floor-shadow').style.opacity = '0.5';
+                                    e.currentTarget.querySelector('.floor-shadow').style.transform = 'scale(0.8)';
+                                }}
+                                onMouseOut={(e) => {
+                                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                                    e.currentTarget.style.zIndex = positionStyles.zIndex;
+                                    e.currentTarget.querySelector('.floor-shadow').style.opacity = '1';
+                                    e.currentTarget.querySelector('.floor-shadow').style.transform = 'scale(1)';
+                                }}
+                            >
+                                <img
+                                    src={product.src}
+                                    alt={product.alt}
+                                    style={{
+                                        height: '38vh',
+                                        maxHeight: '400px',
+                                        maxWidth: '26vw',
+                                        objectFit: 'contain',
+                                        filter: 'drop-shadow(-10px 10px 20px rgba(0,0,0,0.15)) drop-shadow(0 25px 35px rgba(0,0,0,0.1))',
+                                        position: 'relative',
+                                        zIndex: 2,
+                                        pointerEvents: 'none'
+                                    }}
+                                />
+                                {/* Distinct 3D Floor Shadow */}
+                                <div
+                                    className="floor-shadow"
+                                    style={{
+                                        position: 'absolute',
+                                        bottom: '0',
+                                        left: '10%',
+                                        right: '10%',
+                                        height: '24px',
+                                        background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 70%)',
+                                        zIndex: 1,
+                                        transition: 'all 0.4s ease',
+                                        pointerEvents: 'none'
+                                    }}
+                                />
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
