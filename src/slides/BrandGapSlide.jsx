@@ -3,7 +3,7 @@ import { useSlideAnimation } from '../hooks/useSlideAnimation';
 
 export default function BrandGapSlide() {
     const slideRef = useRef(null);
-    useSlideAnimation(slideRef, 2);
+    useSlideAnimation(slideRef, 3);
 
     return (
         <section className="slide slide-light" id="slide-3" ref={slideRef}>

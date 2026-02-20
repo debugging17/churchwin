@@ -3,7 +3,7 @@ import { useSlideAnimation } from '../hooks/useSlideAnimation';
 
 export default function SalesEngineSlide() {
     const slideRef = useRef(null);
-    useSlideAnimation(slideRef, 4);
+    useSlideAnimation(slideRef, 5);
 
     return (
         <section className="slide slide-light" id="slide-5" ref={slideRef}>

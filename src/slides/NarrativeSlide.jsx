@@ -3,7 +3,7 @@ import { useSlideAnimation } from '../hooks/useSlideAnimation';
 
 export default function NarrativeSlide() {
     const slideRef = useRef(null);
-    useSlideAnimation(slideRef, 5);
+    useSlideAnimation(slideRef, 6);
 
     return (
         <section className="slide" id="slide-6" ref={slideRef}>

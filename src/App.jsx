@@ -5,6 +5,7 @@ import './styles/responsive.css';
 
 import DeckContainer from './components/DeckContainer';
 import CoverSlide from './slides/CoverSlide';
+import TableOfContentsSlide from './slides/TableOfContentsSlide';
 import CurrentRealitySlide from './slides/CurrentRealitySlide';
 import BrandGapSlide from './slides/BrandGapSlide';
 import RoadmapSlide from './slides/RoadmapSlide';
@@ -16,6 +17,7 @@ function App() {
     return (
         <DeckContainer>
             <CoverSlide />
+            <TableOfContentsSlide />
             <CurrentRealitySlide />
             <BrandGapSlide />
             <RoadmapSlide />
