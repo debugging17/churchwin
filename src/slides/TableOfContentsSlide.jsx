@@ -2,21 +2,18 @@ import { useRef } from 'react';
 import { useSlideAnimation } from '../hooks/useSlideAnimation';
 
 const TOC_ITEMS = [
-    { num: '01', title: 'The Current Reality', desc: 'Where Churchwin Trading stands in the digital landscape today — traffic data, competitor analysis & the cost of inaction.' },
-    { num: '02', title: 'The Brand Gap', desc: 'Why world-class products deserve a world-class digital presence — and what\'s holding us back.' },
-    { num: '03', title: '90-Day Roadmap', desc: 'A phased technical sprint to build SEO authority, conversion funnels & a B2B sales engine.' },
-    { num: '04', title: 'The Sales Engine', desc: 'Turning the website into a lead-generation machine with outbound workflows & automation.' },
-    { num: '05', title: 'Digital Architecture', desc: 'Multi-industry B2B portal design — scalable across Cosmetics, Nutraceuticals & beyond.' },
-    { num: '06', title: 'Next Steps', desc: 'A zero-risk invitation to a 30-minute working session with Day 1-30 wireframes.' },
+    { num: '01', title: 'The Current Reality', desc: 'Traffic data, competitor analysis & the cost of inaction.' },
+    { num: '02', title: 'The Brand Gap', desc: 'Why world-class products need a world-class digital presence.' },
+    { num: '03', title: '90-Day Roadmap', desc: 'A phased sprint to build SEO authority & conversion funnels.' },
+    { num: '04', title: 'The Sales Engine', desc: 'Lead-gen machine with outbound workflows & automation.' },
+    { num: '05', title: 'Digital Architecture', desc: 'Multi-industry B2B portal — scalable across verticals.' },
+    { num: '06', title: 'Next Steps', desc: 'Zero-risk 30-minute working session with wireframes.' },
 ];
 
-const PRODUCT_IMAGES = [
-    { src: '/assets/images/Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp', alt: 'Shea Butter', label: 'Shea Butter' },
-    { src: '/assets/images/Churchwin_B08ZNQ6WGJ-Neem-Oil-8-Photoroom-2.webp', alt: 'Neem Oil', label: 'Neem Oil' },
-    { src: '/assets/images/Cocoa-Butter-Photoroom-1.png', alt: 'Cocoa Butter', label: 'Cocoa Butter' },
-    { src: '/assets/images/PhotoshopExtension_Image (1).png', alt: 'Product Render 1' },
-    { src: '/assets/images/PhotoshopExtension_Image (2).png', alt: 'Product Render 2' },
-    { src: '/assets/images/PhotoshopExtension_Image (3).png', alt: 'Product Render 3' },
+const HERO_PRODUCTS = [
+    { src: '/assets/images/Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp', alt: 'Shea Butter', z: 3, rotate: '-8deg', translateX: '10%', scale: 1.1 },
+    { src: '/assets/images/Churchwin_B08ZNQ6WGJ-Neem-Oil-8-Photoroom-2.webp', alt: 'Neem Oil', z: 5, rotate: '0deg', translateX: '0', scale: 1.25 },
+    { src: '/assets/images/Cocoa-Butter-Photoroom-1.png', alt: 'Cocoa Butter', z: 3, rotate: '8deg', translateX: '-10%', scale: 1.1 },
 ];
 
 export default function TableOfContentsSlide() {
@@ -25,132 +22,174 @@ export default function TableOfContentsSlide() {
 
     return (
         <section className="slide" id="slide-toc" ref={slideRef} style={{
-            display: 'flex', alignItems: 'stretch', justifyContent: 'center',
-            background: 'var(--bg-dark)', overflow: 'hidden'
+            display: 'flex', alignItems: 'stretch',
+            background: '#ffffff', overflow: 'hidden'
         }}>
             {/* Left Pane: Executive Summary + TOC */}
             <div style={{
-                width: '55%', padding: '3rem 2.5rem 2rem 4rem',
+                width: '50%', padding: '4rem 3rem 3rem 5rem',
                 display: 'flex', flexDirection: 'column', justifyContent: 'center',
                 zIndex: 10, overflowY: 'auto',
                 scrollbarWidth: 'none', msOverflowStyle: 'none'
             }}>
-                <span className="label">Executive Summary</span>
-                <h1 className="headline-xl" style={{ fontSize: '2.8rem', marginBottom: '1rem', lineHeight: 1.15 }}>
+                {/* Label */}
+                <span style={{
+                    fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '3px',
+                    color: '#ff6a00', marginBottom: '1.2rem', fontWeight: 700,
+                    display: 'block'
+                }}>Executive Summary</span>
+
+                {/* Heading */}
+                <h1 style={{
+                    fontSize: '3rem', fontWeight: 800, color: '#012787',
+                    lineHeight: 1.15, marginBottom: '1.5rem', letterSpacing: '-0.02em'
+                }}>
                     What's Inside<br />
-                    <span className="highlight">This Proposal</span>
+                    <span style={{ color: '#ff6a00' }}>This Proposal</span>
                 </h1>
 
+                {/* Summary Paragraph */}
                 <p style={{
-                    fontSize: '1rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.6,
-                    marginBottom: '2rem', maxWidth: '550px'
+                    fontSize: '1.05rem', color: '#444', lineHeight: 1.7,
+                    marginBottom: '2.5rem', maxWidth: '500px'
                 }}>
-                    Churchwin Trading Co. produces world-class natural products — but the digital storefront
-                    doesn't match. This proposal outlines a <strong style={{ color: '#ff6a00' }}>90-day technical sprint</strong> to
-                    transform an invisible online presence into a <strong style={{ color: '#ff6a00' }}>B2B revenue engine</strong>,
-                    closing an estimated <strong style={{ color: '#ff4444' }}>$150k+ monthly gap</strong>.
+                    Churchwin Trading Co. produces world-class natural products — but the
+                    digital storefront doesn't match. This proposal outlines a{' '}
+                    <strong style={{ color: '#012787' }}>90-day technical sprint</strong> to
+                    transform an invisible online presence into a{' '}
+                    <strong style={{ color: '#012787' }}>B2B revenue engine</strong>,
+                    closing an estimated{' '}
+                    <strong style={{ color: '#ff4444' }}>$150k+ monthly gap</strong>.
                 </p>
 
                 {/* TOC Items */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                     {TOC_ITEMS.map((item, i) => (
                         <div key={i} style={{
-                            display: 'flex', alignItems: 'flex-start', gap: '1rem',
-                            padding: '0.7rem 1rem', borderRadius: '10px',
-                            background: 'rgba(255,255,255,0.04)',
-                            border: '1px solid rgba(255,255,255,0.06)',
+                            display: 'flex', alignItems: 'center', gap: '1.2rem',
+                            padding: '0.85rem 1.2rem', borderRadius: '12px',
+                            background: '#f8f9fb',
+                            border: '1px solid rgba(1,39,135,0.06)',
                             transition: 'all 0.3s ease', cursor: 'default'
                         }}
                             onMouseOver={(e) => {
-                                e.currentTarget.style.background = 'rgba(255,106,0,0.08)';
+                                e.currentTarget.style.background = 'rgba(1,39,135,0.05)';
                                 e.currentTarget.style.borderColor = 'rgba(255,106,0,0.2)';
+                                e.currentTarget.style.transform = 'translateX(4px)';
                             }}
                             onMouseOut={(e) => {
-                                e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
-                                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)';
+                                e.currentTarget.style.background = '#f8f9fb';
+                                e.currentTarget.style.borderColor = 'rgba(1,39,135,0.06)';
+                                e.currentTarget.style.transform = 'translateX(0)';
                             }}
                         >
                             <span style={{
-                                fontSize: '1.2rem', fontWeight: 800, color: '#ff6a00',
-                                minWidth: '2rem', fontFamily: 'Montserrat, sans-serif'
+                                fontSize: '1.3rem', fontWeight: 800, color: '#ff6a00',
+                                minWidth: '2.2rem', fontFamily: 'Montserrat, sans-serif'
                             }}>{item.num}</span>
-                            <div>
-                                <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#fff', marginBottom: '0.15rem' }}>
-                                    {item.title}
-                                </div>
-                                <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.4 }}>
-                                    {item.desc}
-                                </div>
+                            <div style={{ flex: 1 }}>
+                                <div style={{
+                                    fontSize: '0.95rem', fontWeight: 700, color: '#012787',
+                                    marginBottom: '0.1rem'
+                                }}>{item.title}</div>
+                                <div style={{
+                                    fontSize: '0.75rem', color: '#888', lineHeight: 1.4
+                                }}>{item.desc}</div>
                             </div>
+                            <span style={{ color: '#ccc', fontSize: '1rem' }}>→</span>
                         </div>
                     ))}
                 </div>
             </div>
 
-            {/* Right Pane: Product Images Stack */}
+            {/* Right Pane: Apple-style 3D Product Showcase */}
             <div style={{
-                width: '45%', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                position: 'relative', padding: '2rem', zIndex: 10
+                width: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                position: 'relative', overflow: 'hidden'
             }}>
-                {/* Decorative gradient backdrop */}
+                {/* Soft radial gradient backdrop */}
                 <div style={{
                     position: 'absolute', top: '50%', left: '50%',
                     transform: 'translate(-50%, -50%)',
-                    width: '80%', height: '80%',
-                    background: 'radial-gradient(ellipse, rgba(255,106,0,0.08) 0%, transparent 70%)',
-                    borderRadius: '50%', pointerEvents: 'none'
+                    width: '120%', height: '120%',
+                    background: 'radial-gradient(ellipse at center, rgba(1,39,135,0.04) 0%, rgba(255,106,0,0.03) 40%, transparent 70%)',
+                    pointerEvents: 'none'
                 }} />
 
-                {/* Product Grid */}
+                {/* 3D Product Stack — Apple-style perspective */}
                 <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3, 1fr)',
-                    gridTemplateRows: 'repeat(2, 1fr)',
-                    gap: '1rem',
-                    width: '100%', maxWidth: '500px',
-                    position: 'relative'
+                    position: 'relative',
+                    width: '100%', height: '70vh', maxHeight: '550px',
+                    perspective: '1200px',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center'
                 }}>
-                    {PRODUCT_IMAGES.map((img, i) => (
-                        <div key={i} style={{
-                            background: 'rgba(255,255,255,0.06)',
-                            border: '1px solid rgba(255,255,255,0.1)',
-                            borderRadius: '14px',
-                            padding: '0.8rem',
-                            display: 'flex', flexDirection: 'column',
-                            alignItems: 'center', justifyContent: 'center',
-                            aspectRatio: '1',
-                            backdropFilter: 'blur(10px)',
-                            WebkitBackdropFilter: 'blur(10px)',
-                            transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
-                            cursor: 'default'
-                        }}
+                    {HERO_PRODUCTS.map((product, i) => (
+                        <div
+                            key={i}
+                            style={{
+                                position: 'absolute',
+                                transform: `translateX(${product.translateX}) rotateY(${product.rotate}) scale(${product.scale})`,
+                                zIndex: product.z,
+                                transition: 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                                transformStyle: 'preserve-3d',
+                                cursor: 'default'
+                            }}
                             onMouseOver={(e) => {
-                                e.currentTarget.style.transform = 'translateY(-4px) scale(1.03)';
-                                e.currentTarget.style.borderColor = 'rgba(255,106,0,0.3)';
-                                e.currentTarget.style.boxShadow = '0 12px 30px rgba(255,106,0,0.1)';
+                                e.currentTarget.style.transform = `translateX(${product.translateX}) rotateY(${product.rotate}) scale(${product.scale * 1.08})`;
                             }}
                             onMouseOut={(e) => {
-                                e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
-                                e.currentTarget.style.boxShadow = 'none';
+                                e.currentTarget.style.transform = `translateX(${product.translateX}) rotateY(${product.rotate}) scale(${product.scale})`;
                             }}
                         >
                             <img
-                                src={img.src}
-                                alt={img.alt}
+                                src={product.src}
+                                alt={product.alt}
                                 style={{
-                                    width: '100%', height: '80%', objectFit: 'contain',
-                                    filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.4))'
+                                    height: '45vh',
+                                    maxHeight: '400px',
+                                    width: 'auto',
+                                    objectFit: 'contain',
+                                    filter: `drop-shadow(0 30px 40px rgba(0,0,0,0.25)) drop-shadow(0 60px 80px rgba(0,0,0,0.15))`,
+                                    pointerEvents: 'none'
                                 }}
                             />
-                            {img.label && (
-                                <div style={{
-                                    fontSize: '0.65rem', color: 'rgba(255,255,255,0.6)',
-                                    marginTop: '0.4rem', textAlign: 'center',
-                                    fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase'
-                                }}>{img.label}</div>
-                            )}
                         </div>
+                    ))}
+                </div>
+
+                {/* Bottom row: smaller supporting products */}
+                <div style={{
+                    position: 'absolute', bottom: '3rem',
+                    display: 'flex', gap: '1.5rem', alignItems: 'flex-end',
+                    justifyContent: 'center', width: '100%', padding: '0 2rem'
+                }}>
+                    {[
+                        '/assets/images/PhotoshopExtension_Image (1).png',
+                        '/assets/images/PhotoshopExtension_Image (2).png',
+                        '/assets/images/PhotoshopExtension_Image (3).png',
+                    ].map((src, i) => (
+                        <img
+                            key={i}
+                            src={src}
+                            alt={`Product ${i + 1}`}
+                            style={{
+                                height: '80px',
+                                width: 'auto',
+                                objectFit: 'contain',
+                                filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.2))',
+                                opacity: 0.7,
+                                transition: 'opacity 0.3s, transform 0.3s',
+                                cursor: 'default'
+                            }}
+                            onMouseOver={(e) => {
+                                e.currentTarget.style.opacity = '1';
+                                e.currentTarget.style.transform = 'translateY(-5px)';
+                            }}
+                            onMouseOut={(e) => {
+                                e.currentTarget.style.opacity = '0.7';
+                                e.currentTarget.style.transform = 'translateY(0)';
+                            }}
+                        />
                     ))}
                 </div>
             </div>
