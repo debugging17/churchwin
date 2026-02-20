@@ -50,7 +50,7 @@ export default function TableOfContentsSlide() {
                         lineHeight: 1.15, marginBottom: '0.6rem', letterSpacing: '-0.02em',
                         whiteSpace: 'nowrap'
                     }}>
-                        What's Inside <span style={{ color: '#ff6a00' }}>This Proposal</span>
+                        What's Inside <span style={{ color: '#012787' }}>This Proposal</span>
                     </h1>
 
                     {/* Summary Paragraph */}
@@ -110,7 +110,7 @@ export default function TableOfContentsSlide() {
 
             {/* Right Pane: 100% 3D Product Showcase */}
             <div style={{
-                width: '55%', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                width: '55%', display: 'flex', alignItems: 'stretch', justifyContent: 'center',
                 position: 'relative', overflow: 'visible'
             }}>
                 {/* Soft radial gradient backdrop */}
@@ -122,74 +122,79 @@ export default function TableOfContentsSlide() {
                     pointerEvents: 'none', zIndex: 0
                 }} />
 
-                {/* 3D Product Assembly - side by side, grounded with strict floor shadows */}
+                {/* 3D Product Assembly - Scattered Layout */}
                 <div style={{
                     position: 'relative',
-                    width: '100%', padding: '0 1rem', // balanced padding
+                    width: '100%', padding: '0 1rem',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    gap: '0', zIndex: 10,
+                    height: '100%', zIndex: 10,
                     perspective: '1200px'
                 }}>
-                    {HERO_PRODUCTS.map((product, i) => (
-                        <div
-                            key={i}
-                            style={{
-                                position: 'relative',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                transition: 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                                cursor: 'default',
-                                margin: '0 -1.5vw', // Use viewport width for responsive overlap margin
-                                zIndex: i % 2 === 0 ? 10 : 5, // Up/down stagger depth
-                                transform: `translateY(${i % 2 === 0 ? '30px' : '-30px'})`, // Alternating stagger
-                            }}
-                            onMouseOver={(e) => {
-                                e.currentTarget.style.transform = `translateY(${i % 2 === 0 ? '20px' : '-40px'}) scale(1.1)`;
-                                e.currentTarget.style.zIndex = 20;
-                                // Enhance shadow on hover
-                                e.currentTarget.querySelector('.floor-shadow').style.opacity = '0.5';
-                                e.currentTarget.querySelector('.floor-shadow').style.transform = 'scale(0.9)';
-                            }}
-                            onMouseOut={(e) => {
-                                e.currentTarget.style.transform = `translateY(${i % 2 === 0 ? '30px' : '-30px'}) scale(1)`;
-                                e.currentTarget.style.zIndex = i % 2 === 0 ? 10 : 5;
-                                e.currentTarget.querySelector('.floor-shadow').style.opacity = '1';
-                                e.currentTarget.querySelector('.floor-shadow').style.transform = 'scale(1)';
-                            }}
-                        >
-                            <img
-                                src={product.src}
-                                alt={product.alt}
-                                style={{
-                                    height: '28vh',
-                                    maxHeight: '220px', /* Reduced significantly */
-                                    maxWidth: '10vw', /* Strict responsive width limit to fit 5 images */
-                                    objectFit: 'contain',
-                                    // Apple-style intrinsic product shadow casting
-                                    filter: 'drop-shadow(-10px 10px 20px rgba(0,0,0,0.15)) drop-shadow(0 25px 35px rgba(0,0,0,0.1))',
-                                    position: 'relative',
-                                    zIndex: 2,
-                                    pointerEvents: 'none'
-                                }}
-                            />
-                            {/* Distinct 3D Floor Shadow */}
+                    {HERO_PRODUCTS.map((product, i) => {
+                        let positionStyles = {};
+                        // 0: Shea (Bottom Left), 1: Neem (Top Left), 2: Cocoa (Center), 3: Baobab (Top Right), 4: Moringa (Bottom Right)
+                        if (i === 0) positionStyles = { position: 'absolute', left: '2%', bottom: '15%', zIndex: 12 };
+                        if (i === 1) positionStyles = { position: 'absolute', left: '18%', top: '15%', zIndex: 10 };
+                        if (i === 2) positionStyles = { position: 'relative', zIndex: 15 }; // Centered naturally 
+                        if (i === 3) positionStyles = { position: 'absolute', right: '18%', top: '15%', zIndex: 10 };
+                        if (i === 4) positionStyles = { position: 'absolute', right: '2%', bottom: '15%', zIndex: 12 };
+
+                        return (
                             <div
-                                className="floor-shadow"
+                                key={i}
                                 style={{
-                                    position: 'absolute',
-                                    bottom: '0',
-                                    left: '10%',
-                                    right: '10%',
-                                    height: '24px',
-                                    background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 70%)',
-                                    zIndex: 1,
-                                    transition: 'all 0.4s ease',
-                                    pointerEvents: 'none'
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    transition: 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                                    cursor: 'default',
+                                    ...positionStyles
                                 }}
-                            />
-                        </div>
-                    ))}
+                                onMouseOver={(e) => {
+                                    e.currentTarget.style.transform = 'translateY(-20px) scale(1.15)';
+                                    e.currentTarget.style.zIndex = 20;
+                                    e.currentTarget.querySelector('.floor-shadow').style.opacity = '0.5';
+                                    e.currentTarget.querySelector('.floor-shadow').style.transform = 'scale(0.8)';
+                                }}
+                                onMouseOut={(e) => {
+                                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                                    e.currentTarget.style.zIndex = positionStyles.zIndex;
+                                    e.currentTarget.querySelector('.floor-shadow').style.opacity = '1';
+                                    e.currentTarget.querySelector('.floor-shadow').style.transform = 'scale(1)';
+                                }}
+                            >
+                                <img
+                                    src={product.src}
+                                    alt={product.alt}
+                                    style={{
+                                        height: '35vh',
+                                        maxHeight: '350px',
+                                        maxWidth: '22vw',
+                                        objectFit: 'contain',
+                                        filter: 'drop-shadow(-10px 10px 20px rgba(0,0,0,0.15)) drop-shadow(0 25px 35px rgba(0,0,0,0.1))',
+                                        position: 'relative',
+                                        zIndex: 2,
+                                        pointerEvents: 'none'
+                                    }}
+                                />
+                                {/* Distinct 3D Floor Shadow */}
+                                <div
+                                    className="floor-shadow"
+                                    style={{
+                                        position: 'absolute',
+                                        bottom: '0',
+                                        left: '10%',
+                                        right: '10%',
+                                        height: '24px',
+                                        background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 70%)',
+                                        zIndex: 1,
+                                        transition: 'all 0.4s ease',
+                                        pointerEvents: 'none'
+                                    }}
+                                />
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
