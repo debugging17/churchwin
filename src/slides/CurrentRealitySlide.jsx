@@ -32,7 +32,7 @@ export default function CurrentRealitySlide() {
                     <div
                         className="bento-card card-leader"
                         style={{ cursor: 'pointer', transition: 'transform 0.2s, box-shadow 0.2s', border: '1px solid rgba(39, 201, 63, 0.3)' }}
-                        onClick={() => window.open('/Website_Analysis_&_Insights.Jan_2026.pdf', '_blank')}
+                        onClick={() => window.open('/assets/docs/Website_Analysis_Insights_Jan_2026.pdf', '_blank')}
                         title="Click to view full SimilarWeb Report"
                         onMouseOver={(e) => {
                             e.currentTarget.style.transform = 'translateY(-5px)';
