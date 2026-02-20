@@ -83,17 +83,17 @@ export default function CoverSlide() {
 
                 {/* Engineering/Architect Angle Badge */}
                 <div style={{
-                    marginTop: '3.5rem', background: 'rgba(255,255,255,0.05)', display: 'inline-block',
-                    padding: '1.2rem 2.5rem', borderRadius: '12px', border: '1px solid rgba(255,106,0,0.3)',
-                    boxShadow: '0 10px 30px rgba(0,0,0,0.2)', backdropFilter: 'blur(5px)'
+                    marginTop: '3.5rem', background: 'rgba(255,255,255,0.15)', display: 'inline-block',
+                    padding: '1.2rem 2.5rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.2)',
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.4)', backdropFilter: 'blur(12px)'
                 }}>
-                    <div style={{ fontSize: '0.85rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '0.4rem', fontWeight: 700 }}>
+                    <div style={{ fontSize: '0.85rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '0.4rem', fontWeight: 800 }}>
                         B2B Growth &amp; Digital Strategy
                     </div>
-                    <div style={{ fontSize: '1.2rem', color: '#fff', fontWeight: 600 }}>
+                    <div style={{ fontSize: '1.2rem', color: '#fff', fontWeight: 700 }}>
                         Technical Web Architect
                     </div>
-                    <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)', marginTop: '0.4rem', letterSpacing: '0.5px' }}>
+                    <div style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.9)', marginTop: '0.4rem', letterSpacing: '0.5px' }}>
                         Engineering Rigor • Agile Project Management • ROI-Driven Web Dev
                     </div>
                 </div>
