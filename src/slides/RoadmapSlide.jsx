@@ -153,82 +153,84 @@ function StrategyModal({ month, onClose }) {
                 ref={modalRef}
                 onClick={(e) => e.stopPropagation()}
                 style={{
-                    background: 'linear-gradient(145deg, #0d1117 0%, #161b22 100%)',
+                    background: '#ffffff', // White background
                     border: `1px solid ${month.color}44`,
                     borderRadius: '20px',
                     padding: '2rem 2.5rem',
                     width: '90vw', maxWidth: '700px', maxHeight: '85vh',
                     overflowY: 'auto', cursor: 'default',
-                    boxShadow: `0 30px 80px rgba(0,0,0,0.6), 0 0 40px ${month.color}22`
+                    boxShadow: `0 30px 80px rgba(0,0,0,0.3), 0 0 40px rgba(255,106,0,0.15)`
                 }}
             >
                 {/* Modal Header */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
                     <div>
                         <div style={{
-                            display: 'inline-block', background: month.color,
-                            color: month.color === '#ff6a00' ? '#000' : '#fff',
+                            display: 'inline-block', background: '#ff6a00',
+                            color: '#fff',
                             padding: '4px 14px', borderRadius: '20px',
                             fontSize: '0.7rem', fontWeight: 800, letterSpacing: '1.5px', marginBottom: '0.75rem'
                         }}>{month.label}</div>
                         <h2 style={{
-                            fontSize: '1.8rem', fontWeight: 800, color: '#fff',
+                            fontSize: '1.8rem', fontWeight: 800, color: '#012787',
                             display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0
                         }}>
                             <span>{month.icon}</span> {month.title}
                         </h2>
-                        <p style={{ color: '#8b949e', fontStyle: 'italic', margin: '0.25rem 0 0', fontSize: '0.95rem' }}>
+                        <p style={{ color: '#012787', opacity: 0.8, fontStyle: 'italic', margin: '0.25rem 0 0', fontSize: '0.95rem' }}>
                             {month.subtitle}
                         </p>
                     </div>
                     <button
                         onClick={handleClose}
                         style={{
-                            background: 'rgba(255,255,255,0.1)', border: 'none',
-                            color: '#fff', width: '36px', height: '36px',
+                            background: 'rgba(1,39,135,0.1)', border: 'none',
+                            color: '#012787', width: '36px', height: '36px',
                             borderRadius: '50%', cursor: 'pointer', fontSize: '1.1rem',
                             display: 'grid', placeItems: 'center', flexShrink: 0,
                             transition: 'background 0.2s'
                         }}
-                        onMouseOver={(e) => e.target.style.background = 'rgba(255,255,255,0.2)'}
-                        onMouseOut={(e) => e.target.style.background = 'rgba(255,255,255,0.1)'}
+                        onMouseOver={(e) => e.target.style.background = 'rgba(1,39,135,0.2)'}
+                        onMouseOut={(e) => e.target.style.background = 'rgba(1,39,135,0.1)'}
                     >✕</button>
                 </div>
 
                 {/* Divider */}
-                <div style={{ height: '1px', background: `linear-gradient(to right, ${month.color}66, transparent)`, marginBottom: '1.5rem' }} />
+                <div style={{ height: '1px', background: `linear-gradient(to right, rgba(1,39,135,0.2), transparent)`, marginBottom: '1.5rem' }} />
 
                 {/* Strategy Cards Grid */}
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
                     {month.strategies.map((s, i) => (
                         <div key={i} style={{
-                            background: 'rgba(255,255,255,0.03)',
-                            border: '1px solid rgba(255,255,255,0.06)',
+                            background: '#f8f9fa',
+                            border: '1px solid rgba(1,39,135,0.1)',
                             borderRadius: '14px', padding: '1.25rem',
-                            transition: 'border-color 0.3s, transform 0.3s',
+                            transition: 'border-color 0.3s, transform 0.3s, box-shadow 0.3s',
                             cursor: 'default'
                         }}
                             onMouseOver={(e) => {
-                                e.currentTarget.style.borderColor = `${month.color}55`;
+                                e.currentTarget.style.borderColor = `rgba(255,106,0,0.4)`;
+                                e.currentTarget.style.boxShadow = `0 5px 15px rgba(255,106,0,0.1)`;
                                 e.currentTarget.style.transform = 'translateY(-2px)';
                             }}
                             onMouseOut={(e) => {
-                                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)';
+                                e.currentTarget.style.borderColor = 'rgba(1,39,135,0.1)';
+                                e.currentTarget.style.boxShadow = 'none';
                                 e.currentTarget.style.transform = 'translateY(0)';
                             }}
                         >
                             <div style={{ fontSize: '1.8rem', marginBottom: '0.6rem' }}>{s.icon}</div>
                             <h4 style={{
-                                color: '#fff', fontSize: '0.95rem', fontWeight: 700,
+                                color: '#012787', fontSize: '0.95rem', fontWeight: 700,
                                 marginBottom: '0.4rem', letterSpacing: '-0.01em'
                             }}>{s.name}</h4>
                             <p style={{
-                                color: '#8b949e', fontSize: '0.8rem', lineHeight: 1.5,
+                                color: '#333', fontSize: '0.8rem', lineHeight: 1.5,
                                 marginBottom: '0.75rem'
                             }}>{s.desc}</p>
                             <div style={{
                                 fontSize: '0.7rem', fontWeight: 600,
-                                color: month.color, background: `${month.color}15`,
+                                color: '#ff6a00', background: `rgba(255,106,0,0.1)`,
                                 padding: '4px 10px', borderRadius: '6px',
                                 display: 'inline-block', letterSpacing: '0.3px'
                             }}>{s.kpi}</div>
@@ -239,10 +241,11 @@ function StrategyModal({ month, onClose }) {
                 {/* Click hint at the bottom */}
                 <div style={{
                     textAlign: 'center', marginTop: '1.5rem',
-                    fontSize: '0.75rem', color: '#484f58'
+                    fontSize: '0.75rem', color: '#666'
                 }}>
                     Press <kbd style={{
-                        background: 'rgba(255,255,255,0.1)', padding: '2px 6px',
+                        background: 'rgba(1,39,135,0.1)', color: '#012787', padding: '2px 6px',
+                        border: '1px solid rgba(1,39,135,0.2)',
                         borderRadius: '4px', fontSize: '0.7rem'
                     }}>ESC</kbd> or click outside to close
                 </div>
