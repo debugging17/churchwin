@@ -79,6 +79,21 @@ export default function Section1CoverSlide() {
                     The Current Reality
                 </h1>
             </div>
+            {/* Bottom Right Logo Stamp */}
+            <div style={{
+                position: 'absolute', bottom: '4vh', right: '3vw',
+                background: '#ffffff', borderRadius: '12px',
+                padding: '0.8rem 1.2rem',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+                zIndex: 20
+            }}>
+                <img
+                    src="/assets/images/churchwin_logo_new.png"
+                    alt="Churchwin Trading Co."
+                    style={{ height: '5vh', minHeight: '40px', objectFit: 'contain' }}
+                />
+            </div>
         </section>
     );
 }
