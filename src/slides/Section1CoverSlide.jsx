@@ -16,8 +16,7 @@ export default function Section1CoverSlide() {
     return (
         <section className="slide" id="slide-section-cover" ref={slideRef} style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            background: '#012787', position: 'relative', overflow: 'hidden',
-            width: '100%', height: '100%'
+            background: '#012787', position: 'relative', overflow: 'hidden'
         }}>
             {/* Top Right Mini Product Showcase Stamp */}
             <div style={{
