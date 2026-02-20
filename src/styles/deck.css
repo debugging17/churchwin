@@ -101,7 +101,8 @@ h4 {
     -ms-overflow-style: none;
 }
 
-.narrative-pane::-webkit-scrollbar {
+.narrative-pane::-webkit-scrollbar,
+.hide-scrollbar::-webkit-scrollbar {
     display: none;
 }
 

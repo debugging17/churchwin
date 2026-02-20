@@ -28,8 +28,8 @@ export default function TableOfContentsSlide() {
             background: '#ffffff', overflow: 'hidden'
         }}>
             {/* Left Pane: Executive Summary + TOC */}
-            <div style={{
-                width: '50%', padding: '2rem 3rem 2rem 5rem',
+            <div className="hide-scrollbar" style={{
+                width: '50%', padding: '1.5rem 2rem 1.5rem 4rem',
                 display: 'flex', flexDirection: 'column',
                 zIndex: 10, overflowY: 'auto',
                 scrollbarWidth: 'none', msOverflowStyle: 'none'
@@ -46,8 +46,8 @@ export default function TableOfContentsSlide() {
                     {/* Heading */}
                     <h1 style={{
                         marginTop: 0, // ensure no extra margin cuts it off
-                        fontSize: '2.8rem', fontWeight: 800, color: '#012787',
-                        lineHeight: 1.15, marginBottom: '0.8rem', letterSpacing: '-0.02em',
+                        fontSize: '2.5rem', fontWeight: 800, color: '#012787',
+                        lineHeight: 1.15, marginBottom: '0.6rem', letterSpacing: '-0.02em',
                         whiteSpace: 'nowrap'
                     }}>
                         What's Inside <span style={{ color: '#ff6a00' }}>This Proposal</span>
@@ -55,8 +55,8 @@ export default function TableOfContentsSlide() {
 
                     {/* Summary Paragraph */}
                     <p style={{
-                        fontSize: '1rem', color: '#444', lineHeight: 1.5,
-                        marginBottom: '1rem', maxWidth: '520px'
+                        fontSize: '0.95rem', color: '#444', lineHeight: 1.5,
+                        marginBottom: '0.8rem', maxWidth: '520px'
                     }}>
                         Churchwin Trading Co. produces world-class natural products — but the
                         digital storefront doesn't match. This proposal outlines a{' '}
@@ -68,11 +68,11 @@ export default function TableOfContentsSlide() {
                     </p>
 
                     {/* TOC Items */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                         {TOC_ITEMS.map((item, i) => (
                             <div key={i} style={{
-                                display: 'flex', alignItems: 'center', gap: '1.5rem',
-                                padding: '1rem 1.5rem', borderRadius: '12px',
+                                display: 'flex', alignItems: 'center', gap: '1.2rem',
+                                padding: '0.75rem 1.25rem', borderRadius: '12px',
                                 background: '#f8f9fb',
                                 border: '1px solid rgba(1,39,135,0.06)',
                                 transition: 'all 0.3s ease', cursor: 'default'
@@ -89,16 +89,16 @@ export default function TableOfContentsSlide() {
                                 }}
                             >
                                 <span style={{
-                                    fontSize: '1.6rem', fontWeight: 800, color: '#ff6a00',
-                                    minWidth: '2.5rem', fontFamily: 'Montserrat, sans-serif'
+                                    fontSize: '1.4rem', fontWeight: 800, color: '#ff6a00',
+                                    minWidth: '2.2rem', fontFamily: 'Montserrat, sans-serif'
                                 }}>{item.num}</span>
                                 <div style={{ flex: 1 }}>
                                     <div style={{
-                                        fontSize: '1.15rem', fontWeight: 700, color: '#012787',
-                                        marginBottom: '0.2rem'
+                                        fontSize: '1rem', fontWeight: 700, color: '#012787',
+                                        marginBottom: '0.1rem'
                                     }}>{item.title}</div>
                                     <div style={{
-                                        fontSize: '0.95rem', color: '#666', lineHeight: 1.4
+                                        fontSize: '0.85rem', color: '#666', lineHeight: 1.3
                                     }}>{item.desc}</div>
                                 </div>
                                 <span style={{ color: '#ccc', fontSize: '1.2rem' }}>→</span>
@@ -125,8 +125,8 @@ export default function TableOfContentsSlide() {
                 {/* 3D Product Assembly - side by side, grounded with strict floor shadows */}
                 <div style={{
                     position: 'relative',
-                    width: '100%', padding: '0 1rem',
-                    display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
+                    width: '100%', padding: '0 2rem 0 0', // added right padding to prevent cutoff
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
                     gap: '-1.5rem', zIndex: 10,
                     perspective: '1200px'
                 }}>
@@ -140,19 +140,20 @@ export default function TableOfContentsSlide() {
                                 alignItems: 'center',
                                 transition: 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                                 cursor: 'default',
-                                margin: '0 -0.8rem', // Force overlap to fit all 5
-                                zIndex: 10 - i, // Proper stacking order
+                                margin: '0 -1.5rem', // Force overlap to fit all 5 comfortably
+                                zIndex: i % 2 === 0 ? 10 : 5, // Up/down stagger depth
+                                transform: `translateY(${i % 2 === 0 ? '30px' : '-30px'})`, // Alternating stagger
                             }}
                             onMouseOver={(e) => {
-                                e.currentTarget.style.transform = 'translateY(-10px) scale(1.1)';
+                                e.currentTarget.style.transform = `translateY(${i % 2 === 0 ? '20px' : '-40px'}) scale(1.1)`;
                                 e.currentTarget.style.zIndex = 20;
                                 // Enhance shadow on hover
                                 e.currentTarget.querySelector('.floor-shadow').style.opacity = '0.5';
                                 e.currentTarget.querySelector('.floor-shadow').style.transform = 'scale(0.9)';
                             }}
                             onMouseOut={(e) => {
-                                e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                                e.currentTarget.style.zIndex = 10 - i;
+                                e.currentTarget.style.transform = `translateY(${i % 2 === 0 ? '30px' : '-30px'}) scale(1)`;
+                                e.currentTarget.style.zIndex = i % 2 === 0 ? 10 : 5;
                                 e.currentTarget.querySelector('.floor-shadow').style.opacity = '1';
                                 e.currentTarget.querySelector('.floor-shadow').style.transform = 'scale(1)';
                             }}
@@ -161,8 +162,8 @@ export default function TableOfContentsSlide() {
                                 src={product.src}
                                 alt={product.alt}
                                 style={{
-                                    height: '42vh',
-                                    maxHeight: '260px', /* Reduced max height to fit perfectly */
+                                    height: 'auto',
+                                    maxHeight: '280px', /* Allow slightly larger now that they are staggered */
                                     width: 'auto',
                                     objectFit: 'contain',
                                     // Apple-style intrinsic product shadow casting
