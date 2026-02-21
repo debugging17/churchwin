@@ -64,13 +64,12 @@ export default function NarrativeSlide() {
                 </p>
             </div>
 
-            <div className="visual-pane" style={{ alignItems: 'stretch' }}>
+            <div className="visual-pane" style={{ alignItems: 'center', justifyContent: 'center' }}>
                 {/* B2B Portal UI Mockup */}
                 <div style={{
-                    width: '100%', height: '100%', background: '#fff', borderRadius: '12px',
+                    width: '100%', maxWidth: '520px', background: '#fff', borderRadius: '16px',
                     display: 'flex', flexDirection: 'column',
-                    position: 'relative', overflow: 'hidden',
-                    boxShadow: '0 20px 40px rgba(0,0,0,0.2)'
+                    position: 'relative', overflow: 'hidden'
                 }}>
                     {/* Navigation Tabs */}
                     <div style={{
@@ -99,22 +98,40 @@ export default function NarrativeSlide() {
                     </div>
 
                     {/* Portal Content */}
-                    <div style={{ padding: '2rem', flex: 1, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                    <div style={{ padding: '2rem 2rem 2.5rem', flex: 1, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
 
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <div>
-                                <h3 style={{ margin: 0, color: '#333', fontSize: '1.3rem' }}>{v.heading}</h3>
-                                <div style={{ color: '#666', fontSize: '0.85rem', marginTop: '0.2rem' }}>{v.tier}</div>
+                                <h3 style={{ margin: 0, color: '#1a1a2e', fontSize: '1.4rem', fontWeight: 800 }}>{v.heading}</h3>
+                                <div style={{ color: '#666', fontSize: '0.85rem', marginTop: '0.3rem' }}>{v.tier}</div>
                             </div>
-                            <div style={{ background: v.badgeBg, color: v.badgeColor, padding: '0.4rem 0.8rem', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 700 }}>{v.badge}</div>
+                            <div style={{ background: v.badgeBg, color: v.badgeColor, padding: '0.4rem 0.8rem', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 700, whiteSpace: 'nowrap' }}>{v.badge}</div>
                         </div>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+                        {/* Divider */}
+                        <div style={{ height: '1px', background: 'linear-gradient(to right, #eee, transparent)' }} />
+
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', flex: 1 }}>
                             {v.features.map((f, fi) => (
-                                <div key={fi} style={{ border: '1px solid #eee', borderRadius: '8px', padding: '1rem', background: '#fafafa' }}>
-                                    <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{f.icon}</div>
-                                    <div style={{ fontWeight: 700, color: '#333', fontSize: '0.9rem' }}>{f.name}</div>
-                                    <div style={{ color: '#777', fontSize: '0.75rem', marginTop: '0.3rem' }}>{f.desc}</div>
+                                <div key={fi} style={{
+                                    border: '1px solid #e8e8e8', borderRadius: '12px',
+                                    padding: '1.5rem 1.25rem', background: '#fafbfc',
+                                    display: 'flex', flexDirection: 'column',
+                                    transition: 'border-color 0.3s, transform 0.3s',
+                                    cursor: 'default'
+                                }}
+                                    onMouseOver={(e) => {
+                                        e.currentTarget.style.borderColor = '#ff6a00';
+                                        e.currentTarget.style.transform = 'translateY(-2px)';
+                                    }}
+                                    onMouseOut={(e) => {
+                                        e.currentTarget.style.borderColor = '#e8e8e8';
+                                        e.currentTarget.style.transform = 'translateY(0)';
+                                    }}
+                                >
+                                    <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>{f.icon}</div>
+                                    <div style={{ fontWeight: 700, color: '#1a1a2e', fontSize: '1rem', marginBottom: '0.4rem' }}>{f.name}</div>
+                                    <div style={{ color: '#888', fontSize: '0.8rem', lineHeight: 1.5 }}>{f.desc}</div>
                                 </div>
                             ))}
                         </div>
