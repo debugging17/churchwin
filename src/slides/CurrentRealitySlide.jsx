@@ -137,7 +137,7 @@ export default function CurrentRealitySlide() {
                         border: '1px solid rgba(255,68,68,0.4)',
                         padding: '1.5rem'
                     }}>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', gap: '2.5rem' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', gap: '2.5rem', flexWrap: 'wrap' }}>
                             <div style={{ textAlign: 'center' }}>
                                 <div style={{ fontSize: '3rem', color: '#ff4444', fontWeight: 800, lineHeight: 1 }}>$150k+</div>
                                 <div style={{ fontSize: '1rem', fontWeight: 600, color: '#fff', marginTop: '0.3rem' }}>Est. Lost Monthly Revenue</div>

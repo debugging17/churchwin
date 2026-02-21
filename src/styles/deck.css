@@ -220,13 +220,17 @@ h4 {
     .slide {
         flex-direction: column;
         padding-bottom: 6rem;
+        overflow-x: hidden;
         overflow-y: auto;
         /* Allow column scroll */
         align-items: center !important;
+        box-sizing: border-box;
+        max-width: 100vw;
     }
 
-    /* Force all 50% split pane divs to 100% on tablet/mobile */
-    .slide>div {
+    /* Force specific panes to 100% on tablet/mobile rather than a wildcard */
+    .slide>.visual-pane,
+    .slide>.narrative-pane {
         width: 100% !important;
         height: auto !important;
         padding: 2rem !important;

@@ -28,7 +28,7 @@ export default function TableOfContentsSlide() {
             background: '#ffffff', overflow: 'hidden'
         }}>
             {/* Left Pane: Executive Summary + TOC */}
-            <div className="hide-scrollbar" style={{
+            <div className="narrative-pane hide-scrollbar" style={{
                 width: '45%', padding: '1.5rem 1rem 1.5rem 4rem',
                 display: 'flex', flexDirection: 'column',
                 zIndex: 10, overflowY: 'auto',
@@ -108,7 +108,7 @@ export default function TableOfContentsSlide() {
             </div>
 
             {/* Right Pane: 100% 3D Product Showcase */}
-            <div style={{
+            <div className="visual-pane" style={{
                 width: '55%', display: 'flex', alignItems: 'stretch', justifyContent: 'center',
                 position: 'relative', overflow: 'visible'
             }}>
@@ -173,8 +173,7 @@ export default function TableOfContentsSlide() {
                                     src={product.src}
                                     alt={product.alt}
                                     style={{
-                                        height: '38vh',
-                                        maxHeight: '400px',
+                                        height: 'clamp(150px, 25vh, 400px)',
                                         maxWidth: '26vw',
                                         objectFit: 'contain',
                                         filter: 'drop-shadow(-10px 10px 20px rgba(0,0,0,0.15)) drop-shadow(0 25px 35px rgba(0,0,0,0.1))',

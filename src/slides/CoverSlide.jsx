@@ -68,16 +68,16 @@ export default function CoverSlide() {
                     />
                 </div>
 
-                <h1 className="headline-xl" style={{ fontSize: '3.8rem', marginBottom: '1.2rem', lineHeight: 1.2 }}>
+                <h1 className="headline-xl" style={{ marginBottom: '1.2rem', lineHeight: 1.2 }}>
                     Revitalizing Churchwin Trading:<br />
-                    <span style={{ color: 'var(--accent)', fontWeight: 300, fontSize: '3rem' }}>
+                    <span style={{ color: 'var(--accent)', fontWeight: 300, fontSize: '0.8em' }}>
                         Digital Transformation &amp; Web Presence Amplification
                     </span>
                 </h1>
 
                 <div style={{ height: '2px', width: '100px', background: 'var(--accent)', margin: '0 auto 1.5rem auto' }} />
 
-                <p className="body-xl" style={{ fontSize: '1.5rem', color: 'rgba(255,255,255,0.9)' }}>
+                <p className="body-xl" style={{ color: 'rgba(255,255,255,0.9)' }}>
                     A Strategic Proposal to Translate "Hidden Gem" Quality<br /> into Market-Leading B2B Revenue.
                 </p>
 

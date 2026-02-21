@@ -31,7 +31,7 @@ export default function BrandGapSlide() {
                 <div
                     className="split-comparison"
                     style={{
-                        display: 'flex', gap: '1rem', width: '100%', height: 'auto',
+                        display: 'flex', gap: '1rem', width: '100%', height: 'auto', flexWrap: 'wrap',
                         minHeight: '400px', maxWidth: '800px', padding: '1rem 0'
                     }}
                 >

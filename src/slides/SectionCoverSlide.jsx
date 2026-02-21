@@ -67,18 +67,20 @@ export default function SectionCoverSlide({ num, title, theme = 'dark', slideInd
 
             {/* Main Centered Content Card */}
             <div className="reveal-content" style={{
-                display: 'flex', alignItems: 'center', gap: '2.5rem',
+                display: 'flex', alignItems: 'center', gap: 'clamp(1rem, 2vw, 2.5rem)',
+                flexWrap: 'wrap', justifyContent: 'center', textAlign: 'center',
+                padding: '0 2rem'
             }}>
                 <span style={{
-                    fontSize: '4.5rem', fontWeight: 800, color: textColor,
+                    fontSize: 'clamp(3rem, 8vw, 4.5rem)', fontWeight: 800, color: textColor,
                     fontFamily: 'Montserrat, sans-serif', lineHeight: 1
                 }}>
                     {num}
                 </span>
 
                 <h1 style={{
-                    margin: 0, fontSize: '3.2rem', fontWeight: 800, color: textColor,
-                    letterSpacing: '-0.02em', whiteSpace: 'nowrap'
+                    margin: 0, fontSize: 'clamp(2rem, 6vw, 3.2rem)', fontWeight: 800, color: textColor,
+                    letterSpacing: '-0.02em', whiteSpace: 'normal', maxWidth: '100%'
                 }}>
                     {title}
                 </h1>
