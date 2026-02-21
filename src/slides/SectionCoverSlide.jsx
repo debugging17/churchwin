@@ -71,12 +71,35 @@ export default function SectionCoverSlide({ num, title, theme = 'dark', slideInd
                 flexWrap: 'wrap', justifyContent: 'center', textAlign: 'center',
                 padding: '0 2rem'
             }}>
-                <span style={{
-                    fontSize: 'clamp(3rem, 8vw, 4.5rem)', fontWeight: 800, color: textColor,
-                    fontFamily: 'Montserrat, sans-serif', lineHeight: 1
-                }}>
-                    {num}
-                </span>
+                {isLight ? (
+                    <div style={{
+                        backgroundColor: '#012787',
+                        padding: 'clamp(0.4rem, 1.2vw, 0.8rem) clamp(0.8rem, 1.8vw, 1.2rem)',
+                        borderRadius: 'clamp(12px, 2vw, 24px)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        lineHeight: 1
+                    }}>
+                        <span style={{
+                            fontSize: 'clamp(3rem, 8vw, 4.5rem)',
+                            fontWeight: 800,
+                            fontFamily: 'Montserrat, sans-serif',
+                            lineHeight: 1,
+                            color: 'transparent',
+                            WebkitTextStroke: 'min(3px, 0.04em) #ffffff'
+                        }}>
+                            {num}
+                        </span>
+                    </div>
+                ) : (
+                    <span style={{
+                        fontSize: 'clamp(3rem, 8vw, 4.5rem)', fontWeight: 800, color: textColor,
+                        fontFamily: 'Montserrat, sans-serif', lineHeight: 1
+                    }}>
+                        {num}
+                    </span>
+                )}
 
                 <h1 style={{
                     margin: 0, fontSize: 'clamp(2rem, 6vw, 3.2rem)', fontWeight: 800, color: textColor,

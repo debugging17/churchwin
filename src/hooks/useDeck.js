@@ -106,7 +106,7 @@ export function useDeck(totalSlides) {
     }, [totalSlides, performSlideTransition]);
 
     // Helper to detect internal scroll areas and interactive elements
-    const isInternalScroll = useCallback((target) => {
+    const isInternalScroll = useCallback((target, isVerticalSwipe = false) => {
         // If a modal is open, don't allow slide navigation
         if (document.querySelector('[data-modal-overlay]')) return true;
 
@@ -115,6 +115,15 @@ export function useDeck(totalSlides) {
 
         const scrollable = target.closest('.slide');
         if (!scrollable) return false;
+
+        // On mobile/tablet, block ONLY vertical swipe navigation if there is vertical overflow
+        if (isVerticalSwipe && window.innerWidth <= 1024) {
+            // Give a 5px threshold to avoid false positives on perfectly fit elements
+            if (scrollable.scrollHeight > scrollable.clientHeight + 5) {
+                return true;
+            }
+        }
+
         if (scrollable.id === 'slide-6' && window.innerWidth <= 768) {
             return true;
         }
@@ -129,22 +138,22 @@ export function useDeck(totalSlides) {
             type: "wheel,touch,pointer",
             onUp: (self) => {
                 // Wheel scrolled UP, or User swiped vertically Downwards (moving content up organically)
-                if (isInternalScroll(self.event.target)) return;
+                if (isInternalScroll(self.event.target, true)) return;
                 gotoSlide(currentIndexRef.current - 1);
             },
             onDown: (self) => {
                 // Wheel scrolled DOWN, or User swiped vertically Upwards
-                if (isInternalScroll(self.event.target)) return;
+                if (isInternalScroll(self.event.target, true)) return;
                 gotoSlide(currentIndexRef.current + 1);
             },
             onLeft: (self) => {
                 // User swiped horizontally Left (wanting next page on the right)
-                if (isInternalScroll(self.event.target)) return;
+                if (isInternalScroll(self.event.target, false)) return;
                 gotoSlide(currentIndexRef.current + 1);
             },
             onRight: (self) => {
                 // User swiped horizontally Right (wanting prev page on the left)
-                if (isInternalScroll(self.event.target)) return;
+                if (isInternalScroll(self.event.target, false)) return;
                 gotoSlide(currentIndexRef.current - 1);
             },
             wheelSpeed: -1,
