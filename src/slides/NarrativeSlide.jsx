@@ -66,11 +66,19 @@ export default function NarrativeSlide() {
 
             <div className="visual-pane">
                 {/* B2B Portal UI Mockup */}
+                {/* Floating animation */}
+                <style>{`
+                    @keyframes portalFloat {
+                        0%, 100% { transform: translateY(0px); }
+                        50% { transform: translateY(-12px); }
+                    }
+                `}</style>
                 <div style={{
                     width: '100%', background: '#fff', borderRadius: '12px',
                     display: 'flex', flexDirection: 'column',
                     position: 'relative', overflow: 'hidden',
-                    boxShadow: '0 20px 40px rgba(0,0,0,0.2)'
+                    boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
+                    animation: 'portalFloat 4s ease-in-out infinite'
                 }}>
                     {/* Navigation Tabs */}
                     <div style={{
