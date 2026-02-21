@@ -94,7 +94,7 @@ export default function SectionCoverSlide({ num, title, theme = 'dark', slideInd
                     </div>
                 ) : (
                     <div style={{
-                        border: '3px solid rgba(255,255,255,0.7)',
+                        backgroundColor: '#ffffff',
                         borderRadius: 'clamp(10px, 1.8vw, 20px)',
                         padding: 'clamp(0.3rem, 1vw, 0.7rem) clamp(0.7rem, 1.6vw, 1.1rem)',
                         display: 'inline-flex',
@@ -108,7 +108,7 @@ export default function SectionCoverSlide({ num, title, theme = 'dark', slideInd
                             fontFamily: 'Montserrat, sans-serif',
                             lineHeight: 1,
                             color: 'transparent',
-                            WebkitTextStroke: '2.5px rgba(255,255,255,0.85)'
+                            WebkitTextStroke: '2.5px #012787'
                         }}>
                             {num}
                         </span>
