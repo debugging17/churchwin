@@ -66,33 +66,6 @@ export default function TableOfContentsSlide() {
                         <strong style={{ color: '#ff4444' }}>$150k+ monthly gap</strong>.
                     </p>
 
-                    {/* Mobile-only inline product strip */}
-                    <div className="toc-mobile-products" style={{
-                        display: 'none', /* shown via CSS on mobile */
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: '0.6rem',
-                        padding: '0.5rem 0',
-                        marginBottom: '0.5rem',
-                        background: 'rgba(1,39,135,0.03)',
-                        borderRadius: '10px'
-                    }}>
-                        {HERO_PRODUCTS.map((product, i) => (
-                            <img
-                                key={i}
-                                src={product.src}
-                                alt={product.alt}
-                                style={{
-                                    height: '50px',
-                                    maxWidth: '40px',
-                                    objectFit: 'contain',
-                                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
-                                }}
-                            />
-                        ))}
-                    </div>
-
                     {/* TOC Items */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                         {TOC_ITEMS.map((item, i) => (
@@ -228,6 +201,35 @@ export default function TableOfContentsSlide() {
                         );
                     })}
                 </div>
+            </div>
+
+            {/* Mobile floating product bar — absolutely positioned, doesn't affect content flow */}
+            <div className="toc-mobile-products" style={{
+                display: 'none', /* shown via CSS on mobile */
+                position: 'absolute',
+                bottom: '4.5rem',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                flexDirection: 'row',
+                alignItems: 'flex-end',
+                justifyContent: 'center',
+                gap: '0.3rem',
+                zIndex: 30,
+                pointerEvents: 'none'
+            }}>
+                {HERO_PRODUCTS.map((product, i) => (
+                    <img
+                        key={i}
+                        src={product.src}
+                        alt={product.alt}
+                        style={{
+                            height: i === 2 ? '80px' : '65px',
+                            maxWidth: '60px',
+                            objectFit: 'contain',
+                            filter: 'drop-shadow(0 3px 8px rgba(0,0,0,0.15))',
+                        }}
+                    />
+                ))}
             </div>
         </section>
     );
