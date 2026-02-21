@@ -114,6 +114,17 @@ const STRATEGY_DETAILS = [
 function StrategyModal({ month, onClose }) {
     const overlayRef = useRef(null);
     const modalRef = useRef(null);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    const [isTablet, setIsTablet] = useState(window.innerWidth > 768 && window.innerWidth <= 1024);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+            setIsTablet(window.innerWidth > 768 && window.innerWidth <= 1024);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     useEffect(() => {
         gsap.fromTo(overlayRef.current, { opacity: 0 }, { opacity: 1, duration: 0.3 });
@@ -138,6 +149,8 @@ function StrategyModal({ month, onClose }) {
         return () => window.removeEventListener('keydown', handleKey);
     }, [handleClose]);
 
+    const isSmall = isMobile || isTablet;
+
     return (
         <div
             ref={overlayRef}
@@ -146,38 +159,41 @@ function StrategyModal({ month, onClose }) {
             style={{
                 position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
                 background: 'rgba(0, 0, 0, 0.7)', backdropFilter: 'blur(8px)',
-                display: 'grid', placeItems: 'center', zIndex: 10000, cursor: 'pointer'
+                display: 'grid', placeItems: 'center', zIndex: 10000, cursor: 'pointer',
+                padding: isMobile ? '0.5rem' : '1rem'
             }}
         >
             <div
                 ref={modalRef}
                 onClick={(e) => e.stopPropagation()}
                 style={{
-                    background: '#ffffff', // White background
+                    background: '#ffffff',
                     border: `1px solid ${month.color}44`,
-                    borderRadius: '20px',
-                    padding: '2rem 2.5rem',
-                    width: '90vw', maxWidth: '700px', maxHeight: '85vh',
+                    borderRadius: isMobile ? '14px' : '20px',
+                    padding: isMobile ? '1.25rem 1rem' : isTablet ? '1.5rem 1.75rem' : '2rem 2.5rem',
+                    width: isMobile ? '100%' : '94vw',
+                    maxWidth: isMobile ? '100%' : isTablet ? '750px' : '950px',
+                    maxHeight: isMobile ? '95vh' : '92vh',
                     overflowY: 'auto', cursor: 'default',
                     boxShadow: `0 30px 80px rgba(0,0,0,0.3), 0 0 40px rgba(255,106,0,0.15)`
                 }}
             >
                 {/* Modal Header */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: isSmall ? '1rem' : '1.25rem' }}>
                     <div>
                         <div style={{
                             display: 'inline-block', background: '#ff6a00',
                             color: '#fff',
                             padding: '4px 14px', borderRadius: '20px',
-                            fontSize: '0.7rem', fontWeight: 800, letterSpacing: '1.5px', marginBottom: '0.75rem'
+                            fontSize: '0.7rem', fontWeight: 800, letterSpacing: '1.5px', marginBottom: '0.5rem'
                         }}>{month.label}</div>
                         <h2 style={{
-                            fontSize: '1.8rem', fontWeight: 800, color: '#012787',
+                            fontSize: isMobile ? '1.3rem' : '1.6rem', fontWeight: 800, color: '#012787',
                             display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0
                         }}>
                             <span>{month.icon}</span> {month.title}
                         </h2>
-                        <p style={{ color: '#012787', opacity: 0.8, fontStyle: 'italic', margin: '0.25rem 0 0', fontSize: '0.95rem' }}>
+                        <p style={{ color: '#012787', opacity: 0.8, fontStyle: 'italic', margin: '0.25rem 0 0', fontSize: isMobile ? '0.8rem' : '0.95rem' }}>
                             {month.subtitle}
                         </p>
                     </div>
@@ -196,15 +212,20 @@ function StrategyModal({ month, onClose }) {
                 </div>
 
                 {/* Divider */}
-                <div style={{ height: '1px', background: `linear-gradient(to right, rgba(1,39,135,0.2), transparent)`, marginBottom: '1.5rem' }} />
+                <div style={{ height: '1px', background: `linear-gradient(to right, rgba(1,39,135,0.2), transparent)`, marginBottom: isSmall ? '0.75rem' : '1.25rem' }} />
 
                 {/* Strategy Cards Grid */}
-                <div className="strategy-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+                <div className="strategy-grid" style={{
+                    display: 'grid',
+                    gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+                    gap: isMobile ? '0.75rem' : '1rem'
+                }}>
                     {month.strategies.map((s, i) => (
                         <div key={i} style={{
                             background: '#f8f9fa',
                             border: '1px solid rgba(1,39,135,0.1)',
-                            borderRadius: '14px', padding: '1.25rem',
+                            borderRadius: '14px',
+                            padding: isMobile ? '1rem' : '1.25rem',
                             transition: 'border-color 0.3s, transform 0.3s, box-shadow 0.3s',
                             cursor: 'default'
                         }}
@@ -219,14 +240,14 @@ function StrategyModal({ month, onClose }) {
                                 e.currentTarget.style.transform = 'translateY(0)';
                             }}
                         >
-                            <div style={{ fontSize: '1.8rem', marginBottom: '0.6rem' }}>{s.icon}</div>
+                            <div style={{ fontSize: isMobile ? '1.4rem' : '1.8rem', marginBottom: '0.4rem' }}>{s.icon}</div>
                             <h4 style={{
-                                color: '#012787', fontSize: '0.95rem', fontWeight: 700,
-                                marginBottom: '0.4rem', letterSpacing: '-0.01em'
+                                color: '#012787', fontSize: isMobile ? '0.85rem' : '0.95rem', fontWeight: 700,
+                                marginBottom: '0.3rem', letterSpacing: '-0.01em'
                             }}>{s.name}</h4>
                             <p style={{
-                                color: '#333', fontSize: '0.8rem', lineHeight: 1.5,
-                                marginBottom: '0.75rem'
+                                color: '#333', fontSize: isMobile ? '0.75rem' : '0.8rem', lineHeight: 1.5,
+                                marginBottom: '0.6rem'
                             }}>{s.desc}</p>
                             <div style={{
                                 fontSize: '0.7rem', fontWeight: 600,
@@ -240,7 +261,7 @@ function StrategyModal({ month, onClose }) {
 
                 {/* Click hint at the bottom */}
                 <div style={{
-                    textAlign: 'center', marginTop: '1.5rem',
+                    textAlign: 'center', marginTop: isSmall ? '0.75rem' : '1.25rem',
                     fontSize: '0.75rem', color: '#666'
                 }}>
                     Press <kbd style={{
