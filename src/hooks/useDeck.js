@@ -45,16 +45,22 @@ export function useDeck(totalSlides) {
         // Handle Light Mode specifics for Nav
         const slides = document.querySelectorAll('.slide');
         const currentSlide = slides[index];
-        if (currentSlide && currentSlide.classList.contains('slide-light')) {
+        const isLightSlide = currentSlide && (
+            currentSlide.classList.contains('slide-light') ||
+            currentSlide.style.background === '#ffffff' ||
+            currentSlide.style.backgroundColor === '#ffffff' ||
+            currentSlide.style.background === 'rgb(255, 255, 255)'
+        );
+        if (isLightSlide) {
             gsap.to('.progress-bar', { background: 'rgba(1, 39, 135, 0.15)', duration: 0.5 });
             gsap.to('.progress-fill', { background: '#012787', duration: 0.5 });
-            if (pageIndicatorRef.current) gsap.to(pageIndicatorRef.current, { color: 'rgba(1, 39, 135, 0.7) !important', duration: 0.5 });
-            if (pageNumRef.current) gsap.to(pageNumRef.current, { color: '#012787 !important', duration: 0.5 });
+            if (pageIndicatorRef.current) pageIndicatorRef.current.style.color = '#012787';
+            if (pageNumRef.current) pageNumRef.current.style.color = '#012787';
         } else {
             gsap.to('.progress-bar', { background: 'rgba(255, 255, 255, 0.1)', duration: 0.5 });
             gsap.to('.progress-fill', { background: '#ffffff', duration: 0.5 });
-            if (pageIndicatorRef.current) gsap.to(pageIndicatorRef.current, { color: '#aab8c5 !important', duration: 0.5 });
-            if (pageNumRef.current) gsap.to(pageNumRef.current, { color: '#F1EEE2 !important', duration: 0.5 });
+            if (pageIndicatorRef.current) pageIndicatorRef.current.style.color = '#aab8c5';
+            if (pageNumRef.current) pageNumRef.current.style.color = '#F1EEE2';
         }
     }, [totalSlides]);
 
