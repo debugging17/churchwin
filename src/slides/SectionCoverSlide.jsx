@@ -86,8 +86,9 @@ export default function SectionCoverSlide({ num, title, theme = 'dark', slideInd
                             fontWeight: 800,
                             fontFamily: 'Montserrat, sans-serif',
                             lineHeight: 1,
-                            color: 'transparent',
-                            WebkitTextStroke: 'min(3px, 0.04em) #ffffff'
+                            color: '#012787',
+                            WebkitTextStroke: '2.5px #ffffff',
+                            paintOrder: 'stroke fill'
                         }}>
                             {num}
                         </span>
@@ -107,8 +108,9 @@ export default function SectionCoverSlide({ num, title, theme = 'dark', slideInd
                             fontWeight: 800,
                             fontFamily: 'Montserrat, sans-serif',
                             lineHeight: 1,
-                            color: 'transparent',
-                            WebkitTextStroke: '2.5px #012787'
+                            color: '#ffffff',
+                            WebkitTextStroke: '2.5px #012787',
+                            paintOrder: 'stroke fill'
                         }}>
                             {num}
                         </span>
