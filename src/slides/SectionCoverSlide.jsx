@@ -93,12 +93,26 @@ export default function SectionCoverSlide({ num, title, theme = 'dark', slideInd
                         </span>
                     </div>
                 ) : (
-                    <span style={{
-                        fontSize: 'clamp(3rem, 8vw, 4.5rem)', fontWeight: 800, color: textColor,
-                        fontFamily: 'Montserrat, sans-serif', lineHeight: 1
+                    <div style={{
+                        border: '3px solid rgba(255,255,255,0.7)',
+                        borderRadius: 'clamp(10px, 1.8vw, 20px)',
+                        padding: 'clamp(0.3rem, 1vw, 0.7rem) clamp(0.7rem, 1.6vw, 1.1rem)',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        lineHeight: 1
                     }}>
-                        {num}
-                    </span>
+                        <span style={{
+                            fontSize: 'clamp(3rem, 8vw, 4.5rem)',
+                            fontWeight: 800,
+                            fontFamily: 'Montserrat, sans-serif',
+                            lineHeight: 1,
+                            color: 'transparent',
+                            WebkitTextStroke: '2.5px rgba(255,255,255,0.85)'
+                        }}>
+                            {num}
+                        </span>
+                    </div>
                 )}
 
                 <h1 style={{
