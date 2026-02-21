@@ -66,6 +66,33 @@ export default function TableOfContentsSlide() {
                         <strong style={{ color: '#ff4444' }}>$150k+ monthly gap</strong>.
                     </p>
 
+                    {/* Mobile-only inline product strip */}
+                    <div className="toc-mobile-products" style={{
+                        display: 'none', /* shown via CSS on mobile */
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.6rem',
+                        padding: '0.5rem 0',
+                        marginBottom: '0.5rem',
+                        background: 'rgba(1,39,135,0.03)',
+                        borderRadius: '10px'
+                    }}>
+                        {HERO_PRODUCTS.map((product, i) => (
+                            <img
+                                key={i}
+                                src={product.src}
+                                alt={product.alt}
+                                style={{
+                                    height: '50px',
+                                    maxWidth: '40px',
+                                    objectFit: 'contain',
+                                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
+                                }}
+                            />
+                        ))}
+                    </div>
+
                     {/* TOC Items */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                         {TOC_ITEMS.map((item, i) => (
