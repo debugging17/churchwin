@@ -37,7 +37,7 @@ export default function CoverSlide() {
             {/* Gradient Overlay for Text Readability */}
             <div style={{
                 position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 2,
-                background: 'linear-gradient(to bottom, rgba(1,39,135,0.5) 0%, rgba(1,39,135,0.85) 100%)'
+                background: 'linear-gradient(to bottom, rgba(1,39,135,0.45) 0%, rgba(1,39,135,0.80) 100%)'
             }} />
 
             {/* Main Content Pane */}
