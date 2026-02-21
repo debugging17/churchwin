@@ -11,6 +11,7 @@ export function useDeck(totalSlides) {
     const containerRef = useRef(null);
     const progressRef = useRef(null);
     const pageNumRef = useRef(null);
+    const pageIndicatorRef = useRef(null);
     const bgTextRef = useRef(null);
     const isAnimatingRef = useRef(false);
     const currentIndexRef = useRef(0);
@@ -47,13 +48,13 @@ export function useDeck(totalSlides) {
         if (currentSlide && currentSlide.classList.contains('slide-light')) {
             gsap.to('.progress-bar', { background: 'rgba(1, 39, 135, 0.15)', duration: 0.5 });
             gsap.to('.progress-fill', { background: '#012787', duration: 0.5 });
-            gsap.to('.page-indicator', { color: 'rgba(1, 39, 135, 0.7)', duration: 0.5 });
-            gsap.to('.current-page', { color: '#012787', duration: 0.5 });
+            if (pageIndicatorRef.current) gsap.to(pageIndicatorRef.current, { color: 'rgba(1, 39, 135, 0.7) !important', duration: 0.5 });
+            if (pageNumRef.current) gsap.to(pageNumRef.current, { color: '#012787 !important', duration: 0.5 });
         } else {
             gsap.to('.progress-bar', { background: 'rgba(255, 255, 255, 0.1)', duration: 0.5 });
             gsap.to('.progress-fill', { background: '#ffffff', duration: 0.5 });
-            gsap.to('.page-indicator', { color: '#aab8c5', duration: 0.5 });
-            gsap.to('.current-page', { color: '#F1EEE2', duration: 0.5 });
+            if (pageIndicatorRef.current) gsap.to(pageIndicatorRef.current, { color: '#aab8c5 !important', duration: 0.5 });
+            if (pageNumRef.current) gsap.to(pageNumRef.current, { color: '#F1EEE2 !important', duration: 0.5 });
         }
     }, [totalSlides]);
 
@@ -122,20 +123,47 @@ export function useDeck(totalSlides) {
 
     // Setup Observer and keyboard listeners
     useEffect(() => {
+        // Observer handles trackpad, wheel, and pointer down/up (including touch)
         const observer = Observer.create({
             target: window,
             type: "wheel,touch,pointer",
             onUp: (self) => {
-                if (isInternalScroll(self.event.target)) return;
-                gotoSlide(currentIndexRef.current - 1);
+                // If it was a deep horizontal swipe left (next)
+                if (self.velocityX < -500 || self.deltaX > 20) {
+                    if (isInternalScroll(self.event.target)) return;
+                    gotoSlide(currentIndexRef.current + 1);
+                    return;
+                }
+                // Regular scroll up
+                if (Math.abs(self.deltaY) > Math.abs(self.deltaX)) {
+                    if (isInternalScroll(self.event.target)) return;
+                    gotoSlide(currentIndexRef.current - 1);
+                }
             },
             onDown: (self) => {
+                // If it was a deep horizontal swipe right (prev)
+                if (self.velocityX > 500 || self.deltaX < -20) {
+                    if (isInternalScroll(self.event.target)) return;
+                    gotoSlide(currentIndexRef.current - 1);
+                    return;
+                }
+                // Regular scroll down
+                if (Math.abs(self.deltaY) > Math.abs(self.deltaX)) {
+                    if (isInternalScroll(self.event.target)) return;
+                    gotoSlide(currentIndexRef.current + 1);
+                }
+            },
+            onLeft: (self) => {
                 if (isInternalScroll(self.event.target)) return;
                 gotoSlide(currentIndexRef.current + 1);
             },
+            onRight: (self) => {
+                if (isInternalScroll(self.event.target)) return;
+                gotoSlide(currentIndexRef.current - 1);
+            },
             wheelSpeed: -1,
             tolerance: 10,
-            preventDefault: true
+            preventDefault: false // allow native nested scrolling when needed
         });
 
         const handleKeydown = (e) => {
@@ -161,6 +189,7 @@ export function useDeck(totalSlides) {
         containerRef,
         progressRef,
         pageNumRef,
+        pageIndicatorRef,
         bgTextRef,
         gotoSlide,
     };

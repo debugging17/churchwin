@@ -211,3 +211,76 @@ h4 {
 .slide-light~.bg-text {
     color: rgba(8, 41, 88, 0.03);
 }
+
+/* ========================================================= */
+/* RESPONSIVENESS (TABLETS & MOBILE)                         */
+/* ========================================================= */
+
+@media (max-width: 1024px) {
+    .slide {
+        flex-direction: column;
+        padding-bottom: 6rem;
+        overflow-y: auto;
+        /* Allow column scroll */
+        align-items: center !important;
+    }
+
+    /* Force all 50% split pane divs to 100% on tablet/mobile */
+    .slide>div {
+        width: 100% !important;
+        height: auto !important;
+        padding: 2rem !important;
+    }
+
+    .visual-pane,
+    .narrative-pane {
+        width: 100% !important;
+        min-height: auto;
+        padding: 2rem !important;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .narrative-pane {
+        padding-top: 4rem !important;
+        /* Center narrative text on mobile typically looks better */
+    }
+
+    .headline-xl {
+        font-size: clamp(2rem, 7vw, 2.5rem) !important;
+    }
+
+    .body-xl {
+        font-size: 1.1rem !important;
+        max-width: 100%;
+    }
+
+    .progress-bar {
+        left: 2rem;
+        width: 120px;
+    }
+
+    .page-indicator {
+        left: 160px;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide {
+        padding-bottom: 5rem;
+    }
+
+    .narrative-pane {
+        padding: 1.5rem !important;
+        padding-top: 3rem !important;
+    }
+
+    .progress-bar {
+        left: 1rem;
+        width: 100px;
+    }
+
+    .page-indicator {
+        left: 120px;
+    }
+}

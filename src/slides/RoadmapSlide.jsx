@@ -199,7 +199,7 @@ function StrategyModal({ month, onClose }) {
                 <div style={{ height: '1px', background: `linear-gradient(to right, rgba(1,39,135,0.2), transparent)`, marginBottom: '1.5rem' }} />
 
                 {/* Strategy Cards Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+                <div className="strategy-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
                     {month.strategies.map((s, i) => (
                         <div key={i} style={{
                             background: '#f8f9fa',

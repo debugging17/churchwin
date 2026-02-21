@@ -44,11 +44,10 @@ export default function TableOfContentsSlide() {
                     }}>Executive Summary</span>
 
                     {/* Heading */}
-                    <h1 style={{
+                    <h1 className="toc-heading" style={{
                         marginTop: 0, // ensure no extra margin cuts it off
                         fontSize: '2.5rem', fontWeight: 800, color: '#012787',
-                        lineHeight: 1.15, marginBottom: '0.6rem', letterSpacing: '-0.02em',
-                        whiteSpace: 'nowrap'
+                        lineHeight: 1.15, marginBottom: '0.6rem', letterSpacing: '-0.02em'
                     }}>
                         What's Inside <span style={{ color: '#012787' }}>This Proposal</span>
                     </h1>

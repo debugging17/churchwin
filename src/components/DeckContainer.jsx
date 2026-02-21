@@ -7,6 +7,7 @@ export default function DeckContainer({ children }) {
         containerRef,
         progressRef,
         pageNumRef,
+        pageIndicatorRef,
         bgTextRef,
     } = useDeck(TOTAL_SLIDES);
 
@@ -30,7 +31,7 @@ export default function DeckContainer({ children }) {
             <div className="progress-bar">
                 <div className="progress-fill" ref={progressRef} />
             </div>
-            <div className="page-indicator">
+            <div className="page-indicator" ref={pageIndicatorRef}>
                 <span className="current-page" ref={pageNumRef}>01</span> / {TOTAL_SLIDES.toString().padStart(2, '0')}
             </div>
         </>
