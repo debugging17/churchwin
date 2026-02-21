@@ -128,41 +128,27 @@ export function useDeck(totalSlides) {
             target: window,
             type: "wheel,touch,pointer",
             onUp: (self) => {
-                // If it was a deep horizontal swipe left (next)
-                if (self.velocityX < -500 || self.deltaX > 20) {
-                    if (isInternalScroll(self.event.target)) return;
-                    gotoSlide(currentIndexRef.current + 1);
-                    return;
-                }
-                // Regular scroll up
-                if (Math.abs(self.deltaY) > Math.abs(self.deltaX)) {
-                    if (isInternalScroll(self.event.target)) return;
-                    gotoSlide(currentIndexRef.current - 1);
-                }
+                // Wheel scrolled UP, or User swiped vertically Downwards (moving content up organically)
+                if (isInternalScroll(self.event.target)) return;
+                gotoSlide(currentIndexRef.current - 1);
             },
             onDown: (self) => {
-                // If it was a deep horizontal swipe right (prev)
-                if (self.velocityX > 500 || self.deltaX < -20) {
-                    if (isInternalScroll(self.event.target)) return;
-                    gotoSlide(currentIndexRef.current - 1);
-                    return;
-                }
-                // Regular scroll down
-                if (Math.abs(self.deltaY) > Math.abs(self.deltaX)) {
-                    if (isInternalScroll(self.event.target)) return;
-                    gotoSlide(currentIndexRef.current + 1);
-                }
+                // Wheel scrolled DOWN, or User swiped vertically Upwards
+                if (isInternalScroll(self.event.target)) return;
+                gotoSlide(currentIndexRef.current + 1);
             },
             onLeft: (self) => {
+                // User swiped horizontally Left (wanting next page on the right)
                 if (isInternalScroll(self.event.target)) return;
                 gotoSlide(currentIndexRef.current + 1);
             },
             onRight: (self) => {
+                // User swiped horizontally Right (wanting prev page on the left)
                 if (isInternalScroll(self.event.target)) return;
                 gotoSlide(currentIndexRef.current - 1);
             },
             wheelSpeed: -1,
-            tolerance: 10,
+            tolerance: 30, // Increased tolerance to prevent micro-jitters from firing
             preventDefault: false // allow native nested scrolling when needed
         });
 
