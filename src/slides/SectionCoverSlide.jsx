@@ -29,7 +29,7 @@ export default function SectionCoverSlide({ num, title, theme = 'dark', slideInd
                 background: '#ffffff', borderRadius: '16px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 boxShadow: isLight ? '0 10px 40px rgba(0,0,0,0.1)' : '0 10px 30px rgba(0,0,0,0.2)',
-                zIndex: 20, padding: '0.5rem', border: isLight ? '1px solid rgba(0,0,0,0.05)' : 'none'
+                zIndex: 20, padding: '0.5rem', border: isLight ? '4px solid #ff6a00' : 'none'
             }}>
                 <div style={{
                     position: 'relative',
@@ -132,7 +132,7 @@ export default function SectionCoverSlide({ num, title, theme = 'dark', slideInd
                 padding: '0.8rem 1.2rem',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 boxShadow: isLight ? '0 10px 40px rgba(0,0,0,0.1)' : '0 10px 30px rgba(0,0,0,0.2)',
-                zIndex: 20, border: isLight ? '1px solid rgba(0,0,0,0.05)' : 'none'
+                zIndex: 20, border: isLight ? '4px solid #ff6a00' : 'none'
             }}>
                 <img
                     src="/assets/images/churchwin_logo_new.png"
