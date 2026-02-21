@@ -290,13 +290,20 @@ h4 {
         left: 120px;
     }
 
-    /* Hide product stamp on section cover slides on mobile */
+    /* Reposition product stamp on section cover slides for mobile */
     .section-product-stamp {
-        display: none !important;
+        width: 45vw !important;
+        height: 35vw !important;
+        min-width: 140px !important;
+        min-height: 110px !important;
+        top: 2vh !important;
+        right: 2vw !important;
     }
 
-    /* Hide product showcase on TOC slide on mobile */
+    /* Constrain TOC product showcase on mobile */
     #slide-toc .visual-pane {
-        display: none !important;
+        max-height: 30vh;
+        overflow: hidden;
+        padding: 1rem !important;
     }
 }

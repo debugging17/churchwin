@@ -59,7 +59,7 @@ export default function CoverSlide() {
                     padding: '1rem 3rem',
                     borderRadius: '8px',
                     boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
-                    marginTop: '15vh',
+                    marginTop: '3vh',
                     marginBottom: '2.5rem'
                 }}>
                     <img
