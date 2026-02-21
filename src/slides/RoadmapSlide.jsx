@@ -370,8 +370,9 @@ export default function RoadmapSlide() {
                                 ))}
                                 {/* Click hint */}
                                 <span style={{
-                                    fontSize: '0.65rem', color: 'rgba(255,255,255,0.3)',
-                                    marginLeft: 'auto'
+                                    fontSize: '0.72rem', color: '#ff6a00',
+                                    marginLeft: 'auto', fontWeight: 600,
+                                    opacity: 0.9, letterSpacing: '0.3px'
                                 }}>Click to explore →</span>
                             </div>
 
