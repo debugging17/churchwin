@@ -269,6 +269,15 @@ h4 {
     .page-indicator {
         left: 160px;
     }
+
+    /* Show inline product strip on tablet/mobile, hide the separate visual-pane */
+    .toc-mobile-products {
+        display: flex !important;
+    }
+
+    #slide-toc .visual-pane {
+        display: none !important;
+    }
 }
 
 @media (max-width: 768px) {
@@ -298,15 +307,6 @@ h4 {
         min-height: 110px !important;
         top: 2vh !important;
         right: 2vw !important;
-    }
-
-    /* Show inline product strip on mobile, hide the separate visual-pane */
-    .toc-mobile-products {
-        display: flex !important;
-    }
-
-    #slide-toc .visual-pane {
-        display: none !important;
     }
 
     /* Hide floor shadows on mobile */
