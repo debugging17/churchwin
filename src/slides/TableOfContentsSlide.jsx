@@ -131,13 +131,12 @@ export default function TableOfContentsSlide() {
                 }}>
                     {HERO_PRODUCTS.map((product, i) => {
                         let positionStyles = {};
-                        // 0: Shea (Bottom Left), 1: Neem (Top Left), 2: Cocoa (Center), 3: Baobab (Top Right), 4: Moringa (Bottom Right)
-                        // Note: Shea has wider negative space, so an increased left percentage is needed to align their visual edges.
-                        if (i === 0) positionStyles = { position: 'absolute', left: '12%', bottom: '2%', zIndex: 12 };
-                        if (i === 1) positionStyles = { position: 'absolute', left: '10%', top: '2%', zIndex: 10 };
+                        // Tighter cluster: products pulled more toward center
+                        if (i === 0) positionStyles = { position: 'absolute', left: '18%', bottom: '10%', zIndex: 12 };
+                        if (i === 1) positionStyles = { position: 'absolute', left: '15%', top: '8%', zIndex: 10 };
                         if (i === 2) positionStyles = { position: 'relative', zIndex: 15 }; // Centered naturally 
-                        if (i === 3) positionStyles = { position: 'absolute', right: '10%', top: '2%', zIndex: 10 };
-                        if (i === 4) positionStyles = { position: 'absolute', right: '10%', bottom: '2%', zIndex: 12 };
+                        if (i === 3) positionStyles = { position: 'absolute', right: '15%', top: '8%', zIndex: 10 };
+                        if (i === 4) positionStyles = { position: 'absolute', right: '18%', bottom: '10%', zIndex: 12 };
 
                         // Custom hover parameters
                         let hoverTranslateY = '-20px'; // Default: move UP on hover
@@ -173,8 +172,8 @@ export default function TableOfContentsSlide() {
                                     src={product.src}
                                     alt={product.alt}
                                     style={{
-                                        height: 'clamp(150px, 25vh, 400px)',
-                                        maxWidth: '26vw',
+                                        height: 'clamp(150px, 30vh, 400px)',
+                                        maxWidth: '22vw',
                                         objectFit: 'contain',
                                         filter: 'drop-shadow(-10px 10px 20px rgba(0,0,0,0.15)) drop-shadow(0 25px 35px rgba(0,0,0,0.1))',
                                         position: 'relative',
