@@ -23,7 +23,7 @@ export default function SectionCoverSlide({ num, title, theme = 'dark', slideInd
             background: bgColor, position: 'relative', overflow: 'hidden'
         }}>
             {/* Top Right Mini Product Showcase Stamp */}
-            <div style={{
+            <div className="section-product-stamp" style={{
                 position: 'absolute', top: '4vh', right: '3vw',
                 width: '26vh', height: '20vh', minWidth: '180px', minHeight: '140px',
                 background: '#ffffff', borderRadius: '16px',
@@ -53,8 +53,8 @@ export default function SectionCoverSlide({ num, title, theme = 'dark', slideInd
                                     src={product.src}
                                     alt={product.alt}
                                     style={{
-                                        maxHeight: '8vh',
-                                        maxWidth: '5vw',
+                                        maxHeight: 'clamp(30px, 8vh, 80px)',
+                                        maxWidth: 'clamp(25px, 10vw, 60px)',
                                         objectFit: 'contain',
                                         filter: 'drop-shadow(-3px 4px 6px rgba(0,0,0,0.15))',
                                     }}
