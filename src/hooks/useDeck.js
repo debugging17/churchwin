@@ -15,16 +15,22 @@ export function useDeck(totalSlides) {
     const bgTextRef = useRef(null);
     const isAnimatingRef = useRef(false);
     const currentIndexRef = useRef(0);
+    const slidesRef = useRef([]);
 
     // Keep ref in sync with state
     useEffect(() => {
         currentIndexRef.current = currentIndex;
     }, [currentIndex]);
 
+    // Cache slide elements once after mount
+    useEffect(() => {
+        slidesRef.current = Array.from(document.querySelectorAll('.slide'));
+    }, []);
+
     const updateUI = useCallback((index) => {
         // Update page number
         if (pageNumRef.current) {
-            pageNumRef.current.innerText = (index + 1).toString().padStart(2, '0');
+            pageNumRef.current.textContent = (index + 1).toString().padStart(2, '0');
         }
 
         // Update progress bar
@@ -35,7 +41,7 @@ export function useDeck(totalSlides) {
 
         // Update background text
         if (bgTextRef.current) {
-            bgTextRef.current.innerText = BG_TEXTS[index] || "CHURCHWIN";
+            bgTextRef.current.textContent = BG_TEXTS[index] || "CHURCHWIN";
             gsap.fromTo(bgTextRef.current,
                 { opacity: 0, scale: 0.8 },
                 { opacity: 0.05, scale: 1, duration: 1 }
@@ -43,8 +49,7 @@ export function useDeck(totalSlides) {
         }
 
         // Handle Light Mode specifics for Nav
-        const slides = document.querySelectorAll('.slide');
-        const currentSlide = slides[index];
+        const currentSlide = slidesRef.current[index];
         const isLightSlide = currentSlide && (
             currentSlide.classList.contains('slide-light') ||
             currentSlide.style.background === '#ffffff' ||

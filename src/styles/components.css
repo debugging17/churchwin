@@ -67,6 +67,7 @@
     width: auto;
     object-fit: contain;
     transition: all 0.5s ease-out;
+    will-change: transform;
 }
 
 .product-hero-item.main {
@@ -194,9 +195,8 @@
     position: relative;
     transition: transform 0.3s ease, border-color 0.3s ease;
     min-width: 0;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    /* Prevent grid blowout */
+    /* Performance: limit repaint scope */
+    contain: content;
 }
 
 .bento-card:hover {
@@ -341,144 +341,4 @@
     background: #fdfdfd !important;
 }
 
-/* ========================================================= */
-/* COMPONENT RESPONSIVENESS (TABLETS & MOBILE)               */
-/* ========================================================= */
-
-@media (max-width: 1024px) {
-
-    /* Adjust Bento Grid to 2 columns on tablets */
-    .bento-grid {
-        grid-template-columns: repeat(2, 1fr);
-        height: auto;
-        max-height: none;
-        gap: 1rem;
-    }
-
-    .card-leader {
-        grid-column: span 2;
-        grid-row: span 1;
-    }
-
-    .card-client,
-    .card-competitor,
-    .card-legacy {
-        grid-column: span 1;
-    }
-
-    .bento-card:nth-child(5) {
-        grid-column: span 2;
-        /* Cost of Inaction / full bottom row */
-    }
-
-    /* Adjust Browser Frame */
-    .browser-frame {
-        width: 100%;
-        margin-top: 1rem;
-    }
-
-    /* Scaling down big products for tablet */
-    .apple-product-cluster {
-        height: 40vh;
-    }
-
-    .product-hero-item.main {
-        width: 85vmin;
-    }
-
-    .product-hero-item.left {
-        width: 60vmin;
-        transform: translateX(-25%) rotate(-10deg) translateZ(-50px);
-    }
-
-    .product-hero-item.right {
-        width: 55vmin;
-        transform: translateX(25%) rotate(10deg) translateZ(20px);
-    }
-}
-
-@media (max-width: 768px) {
-
-    /* Collapse Bento Grid to 1 column on phones */
-    .bento-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .card-leader,
-    .card-client,
-    .card-competitor,
-    .card-legacy,
-    .bento-card {
-        grid-column: span 1 !important;
-        grid-row: auto !important;
-    }
-
-    .bento-big-num {
-        font-size: 1.8rem;
-    }
-
-    /* Mobile KPI Cards */
-    .kpi-modern {
-        flex-direction: column;
-        text-align: center;
-        padding: 1rem;
-    }
-
-    /* Scale Apple Products much smaller for vertical stacking */
-    .apple-product-cluster {
-        height: 35vh;
-        margin-top: 2rem;
-    }
-
-    .product-hero-item.main {
-        width: 90vmin;
-    }
-
-    .product-hero-item.left {
-        width: 70vmin;
-        transform: translateX(-15%) rotate(-5deg) translateZ(-50px);
-    }
-
-    .product-hero-item.right {
-        width: 65vmin;
-        transform: translateX(15%) rotate(5deg) translateZ(20px);
-    }
-
-    .headshot-frame {
-        width: 80vw;
-        height: 100vw;
-        max-height: 400px;
-    }
-
-    /* Cover Slide overrides */
-    .headline-xl span {
-        font-size: 1.8rem !important;
-    }
-
-    /* Section Cover Slide overrides */
-    .reveal-content {
-        flex-direction: column;
-        gap: 1rem !important;
-        text-align: center;
-    }
-
-    .reveal-content h1 {
-        white-space: normal !important;
-        font-size: 2.4rem !important;
-    }
-
-    .reveal-content span {
-        font-size: 3rem !important;
-    }
-
-    /* Roadmap grid */
-    .strategy-grid {
-        grid-template-columns: 1fr !important;
-    }
-
-    /* TOC Heading */
-    .toc-heading {
-        font-size: 2rem !important;
-        white-space: normal !important;
-    }
-}
+/* Responsive rules consolidated in responsive.css */

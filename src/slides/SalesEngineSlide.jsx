@@ -55,7 +55,7 @@ export default function SalesEngineSlide() {
                         {/* Fake Video or Image mockup area */}
                         <div style={{ position: 'relative', width: '100%', height: '220px', background: '#000' }}>
                             <video
-                                autoPlay loop muted playsInline
+                                autoPlay loop muted playsInline preload="none"
                                 style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.6 }}
                             >
                                 <source src="/assets/videos/vid-6.mp4" type="video/mp4" />

@@ -62,7 +62,7 @@ export default function BrandGapSlide() {
                         {/* Immersive Sourcing Hero Video */}
                         <div style={{ position: 'relative', width: '100%', height: '140px', background: '#000', overflow: 'hidden' }}>
                             <video
-                                autoPlay loop muted playsInline
+                                autoPlay loop muted playsInline preload="none"
                                 style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.7 }}
                             >
                                 <source src="/assets/videos/vid-4.mp4" type="video/mp4" />
@@ -90,6 +90,7 @@ export default function BrandGapSlide() {
                             <img
                                 src="/assets/images/Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp"
                                 alt="Product 3D Mockup"
+                                loading="lazy"
                                 style={{ width: '80%', objectFit: 'contain', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.5))' }}
                             />
 

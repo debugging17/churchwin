@@ -50,6 +50,7 @@ h4 {
     pointer-events: none;
     z-index: 9999;
     opacity: 0.05;
+    isolation: isolate;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
@@ -71,6 +72,8 @@ h4 {
     flex-shrink: 0;
     /* Safe zone: prevent content from touching the fixed footer UI */
     padding-bottom: 5rem;
+    /* Performance: isolate layout/paint per slide */
+    contain: layout style;
 }
 
 /* Split Architecture */
@@ -213,104 +216,4 @@ h4 {
     color: rgba(8, 41, 88, 0.03);
 }
 
-/* ========================================================= */
-/* RESPONSIVENESS (TABLETS & MOBILE)                         */
-/* ========================================================= */
-
-@media (max-width: 1024px) {
-    .slide {
-        flex-direction: column;
-        padding-bottom: 6rem;
-        overflow-x: hidden;
-        overflow-y: auto;
-        align-items: center !important;
-        justify-content: flex-start;
-        box-sizing: border-box;
-        max-width: 100vw;
-        overscroll-behavior: none;
-    }
-
-    /* Force specific panes to 100% on tablet/mobile rather than a wildcard */
-    .slide>.visual-pane,
-    .slide>.narrative-pane {
-        width: 100% !important;
-        height: auto !important;
-        padding: 2rem !important;
-    }
-
-    .visual-pane,
-    .narrative-pane {
-        width: 100% !important;
-        min-height: auto;
-        padding: 2rem !important;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .narrative-pane {
-        padding-top: 4rem !important;
-        /* Center narrative text on mobile typically looks better */
-    }
-
-    .headline-xl {
-        font-size: clamp(2rem, 7vw, 2.5rem) !important;
-    }
-
-    .body-xl {
-        font-size: 1.1rem !important;
-        max-width: 100%;
-    }
-
-    .progress-bar {
-        left: 2rem;
-        width: 120px;
-    }
-
-    .page-indicator {
-        left: 160px;
-    }
-
-    /* Show inline product strip on tablet/mobile, hide the separate visual-pane */
-    .toc-mobile-products {
-        display: flex !important;
-    }
-
-    #slide-toc .visual-pane {
-        display: none !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .slide {
-        padding-bottom: 5rem;
-    }
-
-    .narrative-pane {
-        padding: 1.5rem !important;
-        padding-top: 3rem !important;
-    }
-
-    .progress-bar {
-        left: 1rem;
-        width: 100px;
-    }
-
-    .page-indicator {
-        left: 120px;
-    }
-
-    /* Reposition product stamp on section cover slides for mobile */
-    .section-product-stamp {
-        width: 45vw !important;
-        height: 35vw !important;
-        min-width: 140px !important;
-        min-height: 110px !important;
-        top: 2vh !important;
-        right: 2vw !important;
-    }
-
-    /* Hide floor shadows on mobile */
-    #slide-toc .visual-pane .floor-shadow {
-        display: none !important;
-    }
-}
+/* Responsive rules consolidated in responsive.css */
