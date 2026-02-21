@@ -300,10 +300,49 @@ h4 {
         right: 2vw !important;
     }
 
-    /* Constrain TOC product showcase on mobile */
+    /* Constrain TOC product showcase on mobile — flatten to horizontal strip */
     #slide-toc .visual-pane {
-        max-height: 30vh;
-        overflow: hidden;
-        padding: 1rem !important;
+        height: auto !important;
+        max-height: none;
+        overflow: visible;
+        padding: 0.5rem 1rem !important;
+    }
+
+    /* Kill the 3D scattered layout on mobile — make it a simple row */
+    #slide-toc .visual-pane>div:first-of-type {
+        display: none !important;
+        /* Hide the radial gradient backdrop */
+    }
+
+    #slide-toc .visual-pane>div:last-of-type {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.5rem;
+        height: auto !important;
+        perspective: none !important;
+        padding: 0.5rem !important;
+    }
+
+    /* Force all product containers to be inline, not absolute */
+    #slide-toc .visual-pane>div:last-of-type>div {
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+    }
+
+    /* Shrink images to thumbnail size */
+    #slide-toc .visual-pane>div:last-of-type>div img {
+        height: 60px !important;
+        max-width: 50px !important;
+    }
+
+    /* Hide floor shadows on mobile */
+    #slide-toc .visual-pane .floor-shadow {
+        display: none !important;
     }
 }
