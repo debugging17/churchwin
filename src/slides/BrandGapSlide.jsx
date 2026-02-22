@@ -7,7 +7,7 @@ export default function BrandGapSlide() {
 
   return (
     <section className="slide slide-light" id="slide-3" ref={slideRef}>
-      <div className="narrative-pane" style={{ paddingTop: "3rem", width: "42%" }}>
+      <div className="narrative-pane" style={{ paddingTop: "3rem", width: "36%" }}>
         <span
           className="label"
           style={{ marginBottom: "0.25rem", display: "inline-block" }}
@@ -45,25 +45,25 @@ export default function BrandGapSlide() {
         </p>
       </div>
 
-      <div className="visual-pane" style={{ width: "58%" }}>
+      <div className="visual-pane" style={{ width: "64%" }}>
         {/* Split Screen Comparison */}
         <div
           className="split-comparison"
           style={{
             display: "flex",
-            gap: "1.5rem",
+            gap: "2.5rem",
             width: "100%",
             height: "auto",
-            flexWrap: "wrap",
+            flexWrap: "nowrap",
             minHeight: "400px",
-            maxWidth: "1000px",
-            padding: "1rem 0",
+            maxWidth: "1100px",
+            padding: "1rem 2rem 1rem 0",
           }}
         >
           {/* Left: Current (Boring) */}
           <div
             style={{
-              flex: 1.1,
+              flex: 1.4,
               background: "#e0e7ff",
               border: "1px dashed #999",
               borderRadius: "12px",
@@ -73,7 +73,7 @@ export default function BrandGapSlide() {
               display: "flex",
               flexDirection: "column",
               boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-              minWidth: "280px",
+              minWidth: "350px",
             }}
           >
             {/* MacOS-style header for the screenshot */}
@@ -120,7 +120,7 @@ export default function BrandGapSlide() {
           {/* Right: Future (Dynamic Prototype - Separated) */}
           <div
             style={{
-              flex: 1.1,
+              flex: 1,
               position: "relative",
               display: "flex",
               flexDirection: "column",
@@ -132,8 +132,8 @@ export default function BrandGapSlide() {
             <div
               style={{
                 width: "100%",
-                flex: 1,
-                minHeight: "280px",
+                flex: "0 0 360px",
+                minHeight: "360px",
                 background: "#000",
                 borderRadius: "12px",
                 overflow: "hidden",
