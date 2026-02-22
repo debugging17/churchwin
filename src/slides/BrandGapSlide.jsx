@@ -7,42 +7,56 @@ export default function BrandGapSlide() {
 
   return (
     <section className="slide slide-light" id="slide-3" ref={slideRef}>
-      <div className="narrative-pane" style={{ paddingTop: "3rem", width: "38%" }}>
+      <div className="narrative-pane" style={{ paddingTop: "2rem", width: "40%", paddingRight: "3rem" }}>
         <span
           className="label"
           style={{ marginBottom: "0.25rem", display: "inline-block" }}
         >
           The Brand Gap
         </span>
-        <h1 className="headline-xl" style={{ marginTop: 0 }}>
+        <h1 className="headline-xl" style={{ marginTop: 0, marginBottom: "1rem" }}>
           Great Product, <br />
           <span className="highlight">Outdated Presence</span>
         </h1>
-        <p
+        <div
           className="body-xl"
-          style={{ fontSize: "clamp(0.85rem, 1.1vw, 1.15rem)" }}
+          style={{
+            fontSize: "clamp(0.85rem, 1vw, 1.05rem)",
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
+            lineHeight: "1.4"
+          }}
         >
-          Our digital storefront fails to reflect our premium sourcing.
-          <br />
-          <br />
-          <strong>1. Product Specificity:</strong>
-          <br />
-          We pitch Baobab and Moringa generically instead of as a
-          &quot;bio-retinol alternative&quot; and a &quot;protein-dense
-          superfood&quot;.
-          <br />
-          <br />
-          <strong>2. Missing the Target:</strong>
-          <br />
-          We miss Tier-1 &quot;Anchor Clients&quot;—R&D Directors, Procurement
-          Managers, and Corporate Spa Directors.
-          <br />
-          <br />
-          <strong>3. The Expectation Gap:</strong>
-          <br />
-          These high-value buyers expect a premium, data-rich digital experience
-          that reflects our ethical, on-demand freshness.
-        </p>
+          <p style={{ margin: 0 }}>
+            Our digital storefront fails to reflect our premium sourcing.
+          </p>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
+            <strong style={{ color: "var(--accent)" }}>1. Product Specificity:</strong>
+            <p style={{ margin: 0 }}>
+              We pitch Baobab and Moringa generically instead of as a
+              &quot;bio-retinol alternative&quot; and a &quot;protein-dense
+              superfood&quot;.
+            </p>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
+            <strong style={{ color: "var(--accent)" }}>2. Missing the Target:</strong>
+            <p style={{ margin: 0 }}>
+              We miss Tier-1 &quot;Anchor Clients&quot;—R&D Directors, Procurement
+              Managers, and Corporate Spa Directors.
+            </p>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
+            <strong style={{ color: "var(--accent)" }}>3. The Expectation Gap:</strong>
+            <p style={{ margin: 0 }}>
+              These high-value buyers expect a premium, data-rich digital experience
+              that reflects our ethical, on-demand freshness.
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className="visual-pane" style={{ width: "62%" }}>
