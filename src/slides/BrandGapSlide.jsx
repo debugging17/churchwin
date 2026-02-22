@@ -92,19 +92,31 @@ export default function BrandGapSlide() {
               <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#ff5f56" }} />
               <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#ffbd2e" }} />
               <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#27c93f" }} />
-              <div style={{ fontSize: "0.6rem", color: "#9ca3af", marginLeft: "auto", fontWeight: 600 }}>churchwin.com/products</div>
+              <div style={{ fontSize: "0.6rem", color: "#9ca3af", marginLeft: "auto", fontWeight: 600 }}>churchwintrading.com/products</div>
             </div>
-            <img
-              src="/assets/images/productcatalogue.png"
-              alt="Current Static Catalog Dashboard"
-              style={{
-                width: "100%",
-                flex: 1,
-                minHeight: 0,
-                objectFit: "cover",
-                objectPosition: "top center",
-              }}
-            />
+            <div style={{ position: "relative", flex: 1, minHeight: 0 }}>
+              <img
+                src="/assets/images/productcatalogue.png"
+                alt="Current Static Catalog Dashboard"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "top center",
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute", top: "10px", right: "10px",
+                  background: "rgba(0,0,0,0.75)", color: "#fff", padding: "6px 10px",
+                  borderRadius: "6px", fontSize: "0.7rem", fontWeight: 800,
+                  backdropFilter: "blur(4px)", border: "1px solid rgba(255,255,255,0.15)",
+                  letterSpacing: "0.05em",
+                }}
+              >
+                STATIC CATALOGUE
+              </div>
+            </div>
           </div>
 
           {/* Right: Future (Dynamic Prototype - Separated) */}
