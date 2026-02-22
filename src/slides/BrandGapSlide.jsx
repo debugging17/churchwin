@@ -161,31 +161,34 @@ export default function BrandGapSlide() {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "1rem",
+                padding: "2rem 1rem",
+                background: "linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%)",
+                borderRadius: "12px",
+                border: "1px solid rgba(255,255,255,0.6)",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
+                backdropFilter: "blur(10px)",
               }}
             >
-              <div
-                style={{
-                  position: "absolute", top: "0", right: "0",
-                  background: "rgba(0,0,0,0.05)", color: "#666", padding: "4px 8px",
-                  borderRadius: "4px", fontSize: "0.6rem", border: "1px solid rgba(0,0,0,0.1)"
-                }}
-              >
-                🔄 360° INTERACTIVE VIEW
-              </div>
               <img
                 src="/assets/images/Churchwin_B09ZF5HS5W-Shea-Butter_Listing-Images_Image-5-Photoroom.webp"
                 alt="Product 3D Mockup"
                 loading="lazy"
                 style={{
                   width: "100%",
-                  maxWidth: "250px",
+                  maxWidth: "280px",
                   objectFit: "contain",
-                  filter: "drop-shadow(0 20px 30px rgba(0,0,0,0.15))",
-                  mixBlendMode: "multiply" /* Blends nicely with the slide-light background */
+                  filter: "drop-shadow(0 25px 35px rgba(0,0,0,0.1))",
+                  mixBlendMode: "multiply" /* Blends nicely with the transparent/light background */
                 }}
               />
-              <div style={{ textAlign: "center", color: "var(--accent)", fontSize: "1.1rem", fontWeight: 800, marginTop: "1rem" }}>
+              <div style={{
+                textAlign: "center",
+                color: "#111",
+                fontSize: "1.25rem",
+                fontWeight: 800,
+                marginTop: "1.5rem",
+                letterSpacing: "-0.01em"
+              }}>
                 Premium Bulk Shea Butter
               </div>
             </div>
