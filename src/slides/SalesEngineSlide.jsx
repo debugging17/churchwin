@@ -13,7 +13,7 @@ export default function SalesEngineSlide() {
                     Stop Waiting. <br /><span className="highlight">Go Get Them.</span>
                 </h1>
                 <p className="body-xl">
-                    Implementing Judith's <strong>5-Step Sales Pipeline</strong> for absolute precision targeting.
+                    Implementing a proven <strong>5-Step Sales Pipeline</strong> for absolute precision targeting.
                     <br /><br />
                     <strong>1. Automated Fulfillment:</strong><br />
                     Instant dispatch of a &quot;B2B Starter Package&quot; (Catalogs, COAs, Tiered Pricing) upon lead capture.
@@ -120,8 +120,8 @@ export default function SalesEngineSlide() {
                                 <div style={{ fontSize: '0.65rem', color: '#0a66c2', marginLeft: 'auto', fontWeight: 700 }}>linkedin.com</div>
                             </div>
                             <div style={{ padding: '1.25rem', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                                <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: '#0a66c2', color: '#fff', display: 'grid', placeItems: 'center', fontSize: '1.2rem', fontWeight: 700, marginBottom: '0.5rem' }}>JC</div>
-                                <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#000' }}>Judith Connected</div>
+                                <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: '#0a66c2', color: '#fff', display: 'grid', placeItems: 'center', fontSize: '1.2rem', fontWeight: 700, marginBottom: '0.5rem' }}>✓</div>
+                                <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#000' }}>Prospect Connected</div>
                                 <div style={{ fontSize: '0.65rem', color: '#666', marginTop: '2px' }}>VP Procurement @ L'Oréal</div>
                                 <div style={{ marginTop: '0.6rem', background: '#e8f3ff', color: '#0a66c2', padding: '4px 10px', borderRadius: '12px', fontSize: '0.65rem', fontWeight: 700, display: 'inline-block' }}>
                                     +500 NETWORK GROWTH
