@@ -63,17 +63,18 @@ export default function BrandGapSlide() {
           {/* Left: Current (Boring) */}
           <div
             style={{
-              flex: 1,
+              flex: 1.4,
               background: "#e0e7ff",
               border: "1px dashed #999",
               borderRadius: "12px",
               position: "relative",
               opacity: 0.9,
-              transform: "scale(0.95)",
+              transform: "scale(1)",
               overflow: "hidden",
               display: "flex",
               flexDirection: "column",
               boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+              minWidth: "320px",
             }}
           >
             {/* MacOS-style header for the screenshot */}
@@ -87,40 +88,10 @@ export default function BrandGapSlide() {
                 gap: "6px",
               }}
             >
-              <div
-                style={{
-                  width: "8px",
-                  height: "8px",
-                  borderRadius: "50%",
-                  background: "#ff5f56",
-                }}
-              />
-              <div
-                style={{
-                  width: "8px",
-                  height: "8px",
-                  borderRadius: "50%",
-                  background: "#ffbd2e",
-                }}
-              />
-              <div
-                style={{
-                  width: "8px",
-                  height: "8px",
-                  borderRadius: "50%",
-                  background: "#27c93f",
-                }}
-              />
-              <div
-                style={{
-                  fontSize: "0.6rem",
-                  color: "#9ca3af",
-                  marginLeft: "auto",
-                  fontWeight: 600,
-                }}
-              >
-                churchwin.com/products
-              </div>
+              <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#ff5f56" }} />
+              <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#ffbd2e" }} />
+              <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#27c93f" }} />
+              <div style={{ fontSize: "0.6rem", color: "#9ca3af", marginLeft: "auto", fontWeight: 600 }}>churchwin.com/products</div>
             </div>
             <img
               src="/assets/images/productcatalogue.png"
@@ -135,28 +106,28 @@ export default function BrandGapSlide() {
             />
           </div>
 
-          {/* Right: Future (Dynamic Prototype) */}
+          {/* Right: Future (Dynamic Prototype - Separated) */}
           <div
             style={{
               flex: 1,
-              background: "#111",
-              borderRadius: "12px",
               position: "relative",
-              boxShadow: "0 30px 60px rgba(0,0,0,0.5)",
-              border: "2px solid var(--accent)",
-              overflow: "hidden",
               display: "flex",
               flexDirection: "column",
+              gap: "1rem",
+              minWidth: "250px",
             }}
           >
-            {/* Immersive Sourcing Hero Video */}
+            {/* Immersive Sourcing Hero Video (Separated Layer) */}
             <div
               style={{
-                position: "relative",
                 width: "100%",
-                height: "140px",
+                height: "180px",
                 background: "#000",
+                borderRadius: "12px",
                 overflow: "hidden",
+                border: "2px solid var(--accent)",
+                boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
+                position: "relative",
               }}
             >
               <video
@@ -165,57 +136,39 @@ export default function BrandGapSlide() {
                 muted
                 playsInline
                 preload="none"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  opacity: 0.7,
-                }}
+                style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.8 }}
               >
                 <source src="/assets/videos/vid-4.mp4" type="video/mp4" />
               </video>
               <div
                 style={{
-                  position: "absolute",
-                  bottom: "10px",
-                  left: "10px",
-                  background: "rgba(0,0,0,0.6)",
-                  color: "#fff",
-                  padding: "2px 8px",
-                  borderRadius: "4px",
-                  fontSize: "0.6rem",
-                  fontWeight: 700,
+                  position: "absolute", bottom: "10px", left: "10px",
+                  background: "rgba(0,0,0,0.6)", color: "#fff", padding: "4px 8px",
+                  borderRadius: "4px", fontSize: "0.65rem", fontWeight: 700,
+                  backdropFilter: "blur(4px)"
                 }}
               >
                 ▶ ETHICAL SOURCING
               </div>
             </div>
 
-            {/* Interactive 3D Product Area */}
+            {/* Premium Shea Butter Image Blended */}
             <div
               style={{
                 flex: 1,
-                padding: "1rem",
                 position: "relative",
-                zIndex: 2,
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                background: "linear-gradient(to bottom, #111, #222)",
+                padding: "1rem",
               }}
             >
               <div
                 style={{
-                  position: "absolute",
-                  top: "10px",
-                  right: "10px",
-                  background: "rgba(255,255,255,0.1)",
-                  color: "#aaa",
-                  padding: "4px 8px",
-                  borderRadius: "4px",
-                  fontSize: "0.6rem",
-                  border: "1px solid rgba(255,255,255,0.2)",
+                  position: "absolute", top: "0", right: "0",
+                  background: "rgba(0,0,0,0.05)", color: "#666", padding: "4px 8px",
+                  borderRadius: "4px", fontSize: "0.6rem", border: "1px solid rgba(0,0,0,0.1)"
                 }}
               >
                 🔄 360° INTERACTIVE VIEW
@@ -225,45 +178,15 @@ export default function BrandGapSlide() {
                 alt="Product 3D Mockup"
                 loading="lazy"
                 style={{
-                  width: "80%",
+                  width: "100%",
+                  maxWidth: "250px",
                   objectFit: "contain",
-                  filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.5))",
+                  filter: "drop-shadow(0 20px 30px rgba(0,0,0,0.15))",
+                  mixBlendMode: "multiply" /* Blends nicely with the slide-light background */
                 }}
               />
-
-              <div style={{ marginTop: "auto", width: "100%" }}>
-                <div
-                  style={{
-                    textAlign: "center",
-                    color: "#fff",
-                    fontSize: "1rem",
-                    fontWeight: 700,
-                    marginBottom: "0.5rem",
-                  }}
-                >
-                  Premium Bulk Shea Butter
-                </div>
-                <div
-                  style={{
-                    background: "var(--accent)",
-                    color: "#000",
-                    padding: "0.6rem 1rem",
-                    borderRadius: "6px",
-                    textAlign: "center",
-                    fontWeight: 800,
-                    cursor: "pointer",
-                    transition: "transform 0.2s",
-                    boxShadow: "0 5px 15px rgba(255,106,0,0.3)",
-                  }}
-                  onMouseOver={(e) =>
-                    (e.currentTarget.style.transform = "scale(1.02)")
-                  }
-                  onMouseOut={(e) =>
-                    (e.currentTarget.style.transform = "scale(1)")
-                  }
-                >
-                  REQUEST B2B SAMPLE
-                </div>
+              <div style={{ textAlign: "center", color: "var(--accent)", fontSize: "1.1rem", fontWeight: 800, marginTop: "1rem" }}>
+                Premium Bulk Shea Butter
               </div>
             </div>
           </div>
