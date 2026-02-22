@@ -7,7 +7,7 @@ export default function BrandGapSlide() {
 
   return (
     <section className="slide slide-light" id="slide-3" ref={slideRef}>
-      <div className="narrative-pane" style={{ paddingTop: "3rem", width: "36%" }}>
+      <div className="narrative-pane" style={{ paddingTop: "3rem", width: "38%" }}>
         <span
           className="label"
           style={{ marginBottom: "0.25rem", display: "inline-block" }}
@@ -45,25 +45,26 @@ export default function BrandGapSlide() {
         </p>
       </div>
 
-      <div className="visual-pane" style={{ width: "64%" }}>
+      <div className="visual-pane" style={{ width: "62%" }}>
         {/* Split Screen Comparison */}
         <div
           className="split-comparison"
           style={{
             display: "flex",
-            gap: "2.5rem",
+            gap: "1.5rem",
             width: "100%",
-            height: "auto",
+            height: "100%",
+            maxHeight: "680px", /* Constrain vertical height so it doesn't cut off */
             flexWrap: "nowrap",
-            minHeight: "400px",
-            maxWidth: "1100px",
+            maxWidth: "950px", /* Keep it within the screen bounds so the right edge isn't cut off */
             padding: "1rem 2rem 1rem 0",
+            alignItems: "stretch" /* Make columns equal height */
           }}
         >
           {/* Left: Current (Boring) */}
           <div
             style={{
-              flex: 1.4,
+              flex: 1.2, /* Larger catalog card */
               background: "#e0e7ff",
               border: "1px dashed #999",
               borderRadius: "12px",
@@ -73,7 +74,7 @@ export default function BrandGapSlide() {
               display: "flex",
               flexDirection: "column",
               boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-              minWidth: "350px",
+              minWidth: "300px",
             }}
           >
             {/* MacOS-style header for the screenshot */}
@@ -124,16 +125,16 @@ export default function BrandGapSlide() {
               position: "relative",
               display: "flex",
               flexDirection: "column",
-              gap: "2rem",
-              minWidth: "300px",
+              gap: "1.5rem",
+              minWidth: "280px",
             }}
           >
             {/* Immersive Sourcing Hero Video (Separated Layer) */}
             <div
               style={{
                 width: "100%",
-                flex: "0 0 360px",
-                minHeight: "360px",
+                flex: 1, /* Lets the video container expand to fill vertical space */
+                minHeight: "240px",
                 background: "#000",
                 borderRadius: "12px",
                 overflow: "hidden",
@@ -172,6 +173,7 @@ export default function BrandGapSlide() {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
+                flexShrink: 0 /* Prevents product image from squashing */
               }}
             >
               <img
@@ -180,16 +182,16 @@ export default function BrandGapSlide() {
                 loading="lazy"
                 style={{
                   width: "100%",
-                  maxWidth: "260px",
+                  maxWidth: "240px",
                   objectFit: "contain",
                   filter: "drop-shadow(0 30px 40px rgba(0,0,0,0.2))",
-                  mixBlendMode: "multiply" /* Blends nicely with the transparent/light background */
+                  mixBlendMode: "multiply"
                 }}
               />
               <div style={{
                 textAlign: "center",
                 color: "#111",
-                fontSize: "1.4rem",
+                fontSize: "1.3rem",
                 fontWeight: 900,
                 marginTop: "0.5rem",
                 letterSpacing: "-0.02em"
