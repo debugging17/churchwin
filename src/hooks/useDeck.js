@@ -113,6 +113,32 @@ export function useDeck(totalSlides) {
             return;
         }
 
+        // Special Exit Animation for Section Covers
+        const currentSlide = slidesRef.current[currentIndexRef.current];
+        if (currentSlide && currentSlide.id.startsWith('slide-section-')) {
+            const numEl = currentSlide.querySelector('.section-cover-number');
+            const titleEl = currentSlide.querySelector('.section-cover-title');
+            const productStamp = currentSlide.querySelector('.section-cover-product-stamp');
+            const logoStamp = currentSlide.querySelector('.section-cover-logo-stamp');
+
+            if (numEl || titleEl) {
+                const tlExit = gsap.timeline({
+                    onComplete: () => {
+                        performSlideTransition(index, direction);
+                    }
+                });
+
+                const dirSign = direction === 'next' ? -1 : 1;
+
+                if (numEl) tlExit.to(numEl, { y: -30, opacity: 0, duration: 0.3, ease: "power2.in" }, 0);
+                if (titleEl) tlExit.to(titleEl, { x: 30 * dirSign, opacity: 0, duration: 0.3, ease: "power2.in" }, 0.05);
+                if (productStamp) tlExit.to(productStamp, { y: -30, opacity: 0, duration: 0.3, ease: "power2.in" }, 0);
+                if (logoStamp) tlExit.to(logoStamp, { y: 30, opacity: 0, duration: 0.3, ease: "power2.in" }, 0);
+
+                return;
+            }
+        }
+
         performSlideTransition(index, direction);
     }, [totalSlides, performSlideTransition]);
 

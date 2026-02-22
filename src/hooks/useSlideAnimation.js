@@ -72,6 +72,24 @@ export function useSlideAnimation(slideRef, slideIndex) {
             return;
         }
 
+        // Section Cover Slides
+        if (slide.id.startsWith('slide-section-')) {
+            const numEl = slide.querySelector('.section-cover-number');
+            const titleEl = slide.querySelector('.section-cover-title');
+            const productStamp = slide.querySelector('.section-cover-product-stamp');
+            const logoStamp = slide.querySelector('.section-cover-logo-stamp');
+
+            gsap.set([numEl, titleEl, productStamp, logoStamp].filter(Boolean), { clearProps: "all" });
+
+            const dirSign = direction === 'next' ? 1 : -1;
+
+            if (numEl) gsap.fromTo(numEl, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "back.out(1.5)", delay: 0.2 });
+            if (titleEl) gsap.fromTo(titleEl, { x: 50 * dirSign, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 0.3 });
+            if (productStamp) gsap.fromTo(productStamp, { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "back.out(1.2)", delay: 0.4 });
+            if (logoStamp) gsap.fromTo(logoStamp, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "back.out(1.2)", delay: 0.5 });
+            return;
+        }
+
         // Standard Animation for other slides
 
         // 1. Headlines

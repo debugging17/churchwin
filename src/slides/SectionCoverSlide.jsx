@@ -23,7 +23,7 @@ export default function SectionCoverSlide({ num, title, theme = 'dark', slideInd
             background: bgColor, position: 'relative', overflow: 'hidden'
         }}>
             {/* Top Right Mini Product Showcase Stamp */}
-            <div className="section-product-stamp" style={{
+            <div className="section-product-stamp section-cover-product-stamp" style={{
                 position: 'absolute', top: '4vh', right: '3vw',
                 width: '26vh', height: '20vh', minWidth: '180px', minHeight: '140px',
                 background: '#ffffff', borderRadius: '16px',
@@ -74,7 +74,7 @@ export default function SectionCoverSlide({ num, title, theme = 'dark', slideInd
                 padding: '0 2rem'
             }}>
                 {isLight ? (
-                    <div style={{
+                    <div className="section-cover-number" style={{
                         backgroundColor: '#012787',
                         padding: 'clamp(0.4rem, 1.2vw, 0.8rem) clamp(0.8rem, 1.8vw, 1.2rem)',
                         borderRadius: 'clamp(12px, 2vw, 24px)',
@@ -96,7 +96,7 @@ export default function SectionCoverSlide({ num, title, theme = 'dark', slideInd
                         </span>
                     </div>
                 ) : (
-                    <div style={{
+                    <div className="section-cover-number" style={{
                         backgroundColor: '#ffffff',
                         borderRadius: 'clamp(10px, 1.8vw, 20px)',
                         padding: 'clamp(0.3rem, 1vw, 0.7rem) clamp(0.7rem, 1.6vw, 1.1rem)',
@@ -119,7 +119,7 @@ export default function SectionCoverSlide({ num, title, theme = 'dark', slideInd
                     </div>
                 )}
 
-                <h1 style={{
+                <h1 className="section-cover-title" style={{
                     margin: 0, fontSize: 'clamp(2rem, 6vw, 3.2rem)', fontWeight: 800, color: textColor,
                     letterSpacing: '-0.02em', whiteSpace: 'normal', maxWidth: '100%'
                 }}>
@@ -128,7 +128,7 @@ export default function SectionCoverSlide({ num, title, theme = 'dark', slideInd
             </div>
 
             {/* Bottom Right Logo Stamp */}
-            <div style={{
+            <div className="section-cover-logo-stamp" style={{
                 position: 'absolute', bottom: '4vh', right: '3vw',
                 background: '#ffffff', borderRadius: '12px',
                 padding: '0.8rem 1.2rem',
