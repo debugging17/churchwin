@@ -3,39 +3,39 @@ import { useSlideAnimation } from '../hooks/useSlideAnimation';
 
 const VERTICALS = [
     {
-        tab: 'Cosmetics',
-        heading: 'Contract Manufacturing',
-        tier: 'Tier 1 Access (1000kg+ MOQ)',
-        badge: 'VERIFIED DISTRIBUTOR',
+        tab: 'Industry Hubs',
+        heading: 'Cosmetics & Nutraceuticals',
+        tier: 'Food & Beverage, Luxury Hospitality',
+        badge: 'DEDICATED PORTALS',
         badgeBg: '#e0f2fe',
         badgeColor: '#0369a1',
         features: [
-            { icon: '🧮', name: 'Dynamic MOQ Calculator', desc: 'Live LTL Freight Estimates' },
+            { icon: '⚙️', name: 'Automated Procurement', desc: 'Self-serve pipelines & MOQ calculators' },
             { icon: '🔑', name: 'Gated Pricing Tiers', desc: 'Volume-based auto-discounting' },
         ]
     },
     {
-        tab: 'Nutraceuticals',
-        heading: 'Health & Wellness Supply',
-        tier: 'GMP Certified (500kg+ MOQ)',
-        badge: 'CERTIFIED SUPPLIER',
+        tab: 'White-Label',
+        heading: 'High-Profit Revenue Model',
+        tier: 'Turnkey Infrastructure',
+        badge: 'SCALABLE GROWTH',
         badgeBg: '#dcfce7',
         badgeColor: '#15803d',
         features: [
-            { icon: '🧪', name: 'COA & Lab Results Portal', desc: 'Batch-level certificates of analysis' },
-            { icon: '📦', name: 'Custom Formulation Builder', desc: 'Blend ratios & encapsulation options' },
+            { icon: '🏨', name: 'Luxury Hotel Partnerships', desc: 'Custom branding & private label packaging' },
+            { icon: '⚡', name: 'Influencer Manufacturing', desc: 'End-to-end turnkey product line creation' },
         ]
     },
     {
-        tab: 'Luxury Spas',
-        heading: 'Premium Spa Ingredients',
-        tier: 'Artisan Grade (200kg+ MOQ)',
-        badge: 'EXCLUSIVE PARTNER',
+        tab: 'Partner Network',
+        heading: 'Churchwin Global Partners',
+        tier: 'Gated, Secure Ecosystem',
+        badge: 'CLIENT RETENTION',
         badgeBg: '#fef3c7',
         badgeColor: '#92400e',
         features: [
-            { icon: '🌿', name: 'Origin Story Traceability', desc: 'QR-linked cooperative & harvest data' },
-            { icon: '💎', name: 'White-Label Packaging', desc: 'Custom branding & private label options' },
+            { icon: '🔄', name: 'Cross-Selling Tools', desc: 'Introducing Baobab to Shea Butter clients' },
+            { icon: '🎓', name: 'Exclusive Resources', desc: 'Quarterly webinars & market newsletters' },
         ]
     }
 ];

@@ -33,11 +33,11 @@ export default function ConclusionSlide() {
                     Zero-Risk <br /><span className="highlight">Next Step</span>
                 </h1>
                 <p className="body-xl" style={{ fontSize: '1.2rem' }}>
-                    This isn't just a website update.<br />
-                    It's an <strong>enterprise-grade digital sales engine</strong>.
+                    We aren't building a catalog.<br />
+                    We are building an <strong>enterprise-grade digital sales engine</strong>.
                     <br /><br />
                     <strong>Proposal Action Item:</strong><br />
-                    Let's schedule a 30-minute working session next Tuesday to review the Day 1-30 wireframes for the new high-converting product pages.
+                    Let's schedule a zero-risk 30-minute working session to review the UX wireframes and how they digitally support capturing <strong>1,000+ qualified global prospects, 50+ sample shipments, and 10-20 high-volume bulk clients.</strong>
                     <br /><br />
                     <button style={{
                         background: 'var(--accent)', color: '#000', border: 'none',

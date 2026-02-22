@@ -13,16 +13,16 @@ export default function BrandGapSlide() {
                     Great Product, <br /><span className="highlight">Outdated Presence</span>
                 </h1>
                 <p className="body-xl" style={{ fontSize: 'clamp(0.85rem, 1.1vw, 1.15rem)' }}>
-                    Our digital storefront does not reflect our product quality.
+                    Our digital storefront fails to reflect our premium sourcing.
                     <br /><br />
-                    <strong>1. Static vs. Dynamic:</strong><br />
-                    Our site is a flat catalog. No Clear CTAs (&quot;Request Sample&quot;).
+                    <strong>1. Product Specificity:</strong><br />
+                    We pitch Baobab and Moringa generically instead of as a &quot;bio-retinol alternative&quot; and a &quot;protein-dense superfood&quot;.
                     <br /><br />
-                    <strong>2. Narrative Void:</strong><br />
-                    Competitors sell &quot;Impact&quot; &amp; &quot;Ethics&quot;. We list specs.
+                    <strong>2. Missing the Target:</strong><br />
+                    We miss Tier-1 &quot;Anchor Clients&quot;—R&D Directors, Procurement Managers, and Corporate Spa Directors.
                     <br /><br />
-                    <strong>3. Zero Trust Signals:</strong><br />
-                    No User Generated Content. No Maker Stories. We look risky.
+                    <strong>3. The Expectation Gap:</strong><br />
+                    These high-value buyers expect a premium, data-rich digital experience that reflects our ethical, on-demand freshness.
                 </p>
             </div>
 

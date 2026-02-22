@@ -7,17 +7,17 @@ const STRATEGY_DETAILS = [
     {
         num: '01',
         label: 'DAYS 1-30',
-        title: 'Core Architecture & UX',
-        subtitle: 'Fixing the plumbing',
+        title: 'Core Architecture',
+        subtitle: 'Foundation & Specs',
         color: '#4facfe',
-        tags: ['UX/UI Overhaul', 'SEO Strategy', 'CRM Setup'],
+        tags: ['UX/UI Overhaul', 'SEO Strategy', 'B2B Catalogs'],
         icon: '🔧',
         strategies: [
             {
                 icon: '🎨',
-                name: 'UX/UI Overhaul',
-                desc: 'Redesign the storefront with conversion-focused layouts, strong CTAs ("Request Sample"), and mobile-first responsive design.',
-                kpi: 'Target: Decrease bounce rate by 30%'
+                name: 'UX/UI & B2B Catalogs',
+                desc: 'Redesign the storefront with conversion-focused layouts. Integrate downloadable B2B catalogs with technical specs.',
+                kpi: 'Target: Support 500+ high-value prospects'
             },
             {
                 icon: '🔍',
@@ -42,23 +42,23 @@ const STRATEGY_DETAILS = [
     {
         num: '02',
         label: 'DAYS 31-60',
-        title: 'Automation & CRM',
-        subtitle: 'Turning on the faucet',
+        title: 'Campaign Outreach',
+        subtitle: 'Churchwin Origins',
         color: '#ff6a00',
-        tags: ['Apollo.io Mining', 'Instantly.ai', 'Asset Production'],
+        tags: ['Origins Campaign', 'Instantly.ai', 'Sample Requests'],
         icon: '⚡',
         strategies: [
             {
                 icon: '🎯',
-                name: 'Apollo.io Prospecting',
-                desc: 'Mine 30,000+ verified contacts — R&D Directors, Formulators, and Procurement Managers at top cosmetic & personal care firms globally.',
-                kpi: 'Target: 5,000 qualified leads'
+                name: 'Origins Landing Pages',
+                desc: 'Create targeted landing pages for the "Churchwin Origins" campaign to highlight ethical sourcing and on-demand freshness.',
+                kpi: 'Target: 15% conversion rate'
             },
             {
                 icon: '📧',
-                name: 'Instantly.ai Cold Outreach',
-                desc: 'Build 3 automated email sequences: Introduction → Value Proposition → Case Study → Meeting CTA. A/B test subject lines for 40%+ open rate.',
-                kpi: 'Target: 50 automated B2B sample requests'
+                name: 'Automated Sample Forms',
+                desc: 'Implement professional digital sample request forms to facilitate the dispatch of pre-qualified sample kits.',
+                kpi: 'Target: 20+ pre-qualified sample kits'
             },
             {
                 icon: '🎬',
@@ -77,17 +77,17 @@ const STRATEGY_DETAILS = [
     {
         num: '03',
         label: 'DAYS 61-90',
-        title: 'Scaling & Portals',
+        title: 'Scaling & Authority',
         subtitle: 'Full amplification',
         color: '#27c93f',
-        tags: ['UGC Campaign', 'Retargeting', 'Wholesale Portal'],
+        tags: ['SEO Authority', 'Retargeting', 'Organic Moat'],
         icon: '🚀',
         strategies: [
             {
                 icon: '📱',
-                name: 'UGC Campaign',
-                desc: 'Partner with 10 micro-influencers in the clean beauty space. Collect and feature user-generated testimonials, unboxing videos, and reviews.',
-                kpi: 'Target: 50+ authentic content pieces'
+                name: 'SEO Benefits Authority',
+                desc: 'Digital rollout of SEO-targeted articles specifically on the benefits of Baobab and Moringa to build organic authority.',
+                kpi: 'Target: Break reliance on paid ads'
             },
             {
                 icon: '🔄',

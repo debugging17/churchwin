@@ -15,13 +15,13 @@ export default function CurrentRealitySlide() {
                     The Hard Truth: <br /><span className="highlight">We Are Invisible</span>
                 </h1>
                 <p className="body-xl">
-                    While competitors dominate organic search, Churchwin Trading remains a "best-kept secret."
+                    churchwin.com generates only 200 monthly visits, a 40.22% bounce rate, and a 1m58s duration.
                     <br /><br />
                     <strong>The Data Speaks:</strong><br />
-                    We have <strong>0.3%</strong> of the market leader's traffic. Check the breakdown.
+                    Baraka Shea Butter dominates with <strong>52,931</strong> monthly visits and 3m27s duration. Fairtale captures 2,186.
                     <br /><br />
                     <span style={{ fontSize: '0.9em', color: 'var(--accent)' }}>
-                        Our entire traffic volume is nothing compared to Baraka Shea.
+                        100% of our traffic relies on paid search. We have zero organic moat against an estimated $150k+ monthly revenue gap.
                     </span>
                 </p>
             </div>

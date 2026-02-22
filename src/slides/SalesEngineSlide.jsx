@@ -13,12 +13,16 @@ export default function SalesEngineSlide() {
                     Stop Waiting. <br /><span className="highlight">Go Get Them.</span>
                 </h1>
                 <p className="body-xl">
-                    Implementing <strong>Apollo.io</strong> and <strong>Instantly.ai</strong> for Precision Targeting.
+                    Implementing Judith's <strong>5-Step Sales Pipeline</strong> for absolute precision targeting.
                     <br /><br />
-                    <strong>The Shift:</strong><br />
-                    From Shotgun (Mass Ads) to Sniper (Direct Email).
+                    <strong>1. Automated Fulfillment:</strong><br />
+                    Instant dispatch of a &quot;B2B Starter Package&quot; (Catalogs, COAs, Tiered Pricing) upon lead capture.
                     <br /><br />
-                    We target the exact <strong>R&amp;D Directors</strong> and <strong>Formulators</strong> at top Cosmetic firms.
+                    <strong>2. High-Frequency Follow-Up:</strong><br />
+                    Automating Day 2, Day 7, and Day 14 email sequences to push conversions by over 40%.
+                    <br /><br />
+                    <strong>3. Digital Incentives:</strong><br />
+                    Lowering barriers to entry for bulk buyers via &quot;First-Order Incentives&quot; (5% off or free shipping discounts).
                 </p>
             </div>
 
