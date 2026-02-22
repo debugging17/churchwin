@@ -100,7 +100,7 @@ export default function TableOfContentsSlide() {
             className="toc-heading"
             style={{
               marginTop: 0, // ensure no extra margin cuts it off
-              fontSize: "clamp(1.8rem, 4vh, 2.5rem)",
+              fontSize: "clamp(2rem, 3.5vh, 2.5rem)",
               fontWeight: 800,
               color: "#012787",
               lineHeight: 1.15,
@@ -115,7 +115,7 @@ export default function TableOfContentsSlide() {
           {/* Summary Paragraph */}
           <p
             style={{
-              fontSize: "clamp(0.85rem, 1.5vh, 0.95rem)",
+              fontSize: "clamp(0.9rem, 1.5vh, 1rem)",
               color: "#444",
               lineHeight: 1.4,
               marginBottom: "clamp(0.5rem, 1.2vh, 0.8rem)",
@@ -135,7 +135,7 @@ export default function TableOfContentsSlide() {
 
           {/* TOC Items */}
           <div
-            style={{ display: "flex", flexDirection: "column", gap: "clamp(0.25rem, 0.6vh, 0.4rem)" }}
+            style={{ display: "flex", flexDirection: "column", gap: "clamp(0.35rem, 0.8vh, 0.4rem)" }}
           >
             {TOC_ITEMS.map((item, i) => (
               <div
@@ -143,8 +143,8 @@ export default function TableOfContentsSlide() {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  gap: "clamp(0.8rem, 1.5vw, 1.2rem)",
-                  padding: "clamp(0.5rem, 1vh, 0.75rem) clamp(0.75rem, 1.5vw, 1.25rem)",
+                  gap: "clamp(1rem, 1.5vw, 1.2rem)",
+                  padding: "clamp(0.6rem, 1.2vh, 0.75rem) clamp(1rem, 1.5vw, 1.25rem)",
                   borderRadius: "12px",
                   background: "#f8f9fb",
                   border: "1px solid rgba(1,39,135,0.06)",
@@ -164,7 +164,7 @@ export default function TableOfContentsSlide() {
               >
                 <span
                   style={{
-                    fontSize: "clamp(1.1rem, 2.5vh, 1.4rem)",
+                    fontSize: "clamp(1.25rem, 2vh, 1.4rem)",
                     fontWeight: 800,
                     color: "#ff6a00",
                     minWidth: "2.2rem",
@@ -176,7 +176,7 @@ export default function TableOfContentsSlide() {
                 <div style={{ flex: 1 }}>
                   <div
                     style={{
-                      fontSize: "clamp(0.85rem, 1.8vh, 1rem)",
+                      fontSize: "clamp(0.95rem, 1.5vh, 1.05rem)",
                       fontWeight: 700,
                       color: "#012787",
                       marginBottom: "0.1rem",
@@ -186,7 +186,7 @@ export default function TableOfContentsSlide() {
                   </div>
                   <div
                     style={{
-                      fontSize: "clamp(0.75rem, 1.5vh, 0.85rem)",
+                      fontSize: "clamp(0.8rem, 1.2vh, 0.9rem)",
                       color: "#666",
                       lineHeight: 1.2,
                     }}
