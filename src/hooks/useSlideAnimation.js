@@ -79,7 +79,7 @@ export function useSlideAnimation(slideRef, slideIndex) {
             const productStamp = slide.querySelector('.section-cover-product-stamp');
             const logoStamp = slide.querySelector('.section-cover-logo-stamp');
 
-            gsap.set([numEl, titleEl, productStamp, logoStamp].filter(Boolean), { clearProps: "all" });
+            gsap.set([numEl, titleEl, productStamp, logoStamp].filter(Boolean), { clearProps: "transform,opacity" });
 
             const dirSign = direction === 'next' ? 1 : -1;
 
