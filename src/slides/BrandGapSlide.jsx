@@ -7,7 +7,7 @@ export default function BrandGapSlide() {
 
   return (
     <section className="slide slide-light" id="slide-3" ref={slideRef}>
-      <div className="narrative-pane" style={{ paddingTop: "3rem" }}>
+      <div className="narrative-pane" style={{ paddingTop: "3rem", width: "42%" }}>
         <span
           className="label"
           style={{ marginBottom: "0.25rem", display: "inline-block" }}
@@ -45,32 +45,30 @@ export default function BrandGapSlide() {
         </p>
       </div>
 
-      <div className="visual-pane">
+      <div className="visual-pane" style={{ width: "58%" }}>
         {/* Split Screen Comparison */}
         <div
           className="split-comparison"
           style={{
             display: "flex",
-            gap: "1rem",
+            gap: "1.5rem",
             width: "100%",
             height: "auto",
             flexWrap: "wrap",
             minHeight: "400px",
-            maxWidth: "800px",
+            maxWidth: "1000px",
             padding: "1rem 0",
           }}
         >
           {/* Left: Current (Boring) */}
           <div
             style={{
-              flex: 0.9,
+              flex: 1.1,
               background: "#e0e7ff",
               border: "1px dashed #999",
               borderRadius: "12px",
               position: "relative",
-              opacity: 0.9,
-              transform: "scale(0.95)",
-              transformOrigin: "left center",
+              opacity: 0.95,
               overflow: "hidden",
               display: "flex",
               flexDirection: "column",
@@ -122,7 +120,7 @@ export default function BrandGapSlide() {
           {/* Right: Future (Dynamic Prototype - Separated) */}
           <div
             style={{
-              flex: 1.2,
+              flex: 1.1,
               position: "relative",
               display: "flex",
               flexDirection: "column",
@@ -135,7 +133,7 @@ export default function BrandGapSlide() {
               style={{
                 width: "100%",
                 flex: 1,
-                minHeight: "220px",
+                minHeight: "280px",
                 background: "#000",
                 borderRadius: "12px",
                 overflow: "hidden",
