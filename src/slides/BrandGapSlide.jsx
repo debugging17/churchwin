@@ -8,8 +8,8 @@ export default function BrandGapSlide() {
     return (
         <section className="slide slide-light" id="slide-3" ref={slideRef}>
             <div className="narrative-pane" style={{ paddingTop: '3rem' }}>
-                <span className="label">The Brand Gap</span>
-                <h1 className="headline-xl">
+                <span className="label" style={{ marginBottom: '0.25rem', display: 'inline-block' }}>The Brand Gap</span>
+                <h1 className="headline-xl" style={{ marginTop: 0 }}>
                     Great Product, <br /><span className="highlight">Outdated Presence</span>
                 </h1>
                 <p className="body-xl" style={{ fontSize: 'clamp(0.85rem, 1.1vw, 1.15rem)' }}>
