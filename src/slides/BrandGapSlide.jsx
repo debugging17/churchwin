@@ -68,9 +68,12 @@ export default function BrandGapSlide() {
               border: "1px dashed #999",
               borderRadius: "12px",
               position: "relative",
-              opacity: 0.8,
-              transform: "scale(0.9)",
+              opacity: 0.9,
+              transform: "scale(0.95)",
               overflow: "hidden",
+              display: "flex",
+              flexDirection: "column",
+              boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
             }}
           >
             {/* MacOS-style header for the screenshot */}
@@ -124,7 +127,8 @@ export default function BrandGapSlide() {
               alt="Current Static Catalog Dashboard"
               style={{
                 width: "100%",
-                height: "calc(100% - 25px)",
+                flex: 1,
+                minHeight: 0,
                 objectFit: "cover",
                 objectPosition: "top center",
               }}
