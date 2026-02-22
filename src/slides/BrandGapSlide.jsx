@@ -63,18 +63,19 @@ export default function BrandGapSlide() {
           {/* Left: Current (Boring) */}
           <div
             style={{
-              flex: 1.4,
+              flex: 0.9,
               background: "#e0e7ff",
               border: "1px dashed #999",
               borderRadius: "12px",
               position: "relative",
               opacity: 0.9,
-              transform: "scale(1)",
+              transform: "scale(0.95)",
+              transformOrigin: "left center",
               overflow: "hidden",
               display: "flex",
               flexDirection: "column",
               boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-              minWidth: "320px",
+              minWidth: "280px",
             }}
           >
             {/* MacOS-style header for the screenshot */}
@@ -109,19 +110,20 @@ export default function BrandGapSlide() {
           {/* Right: Future (Dynamic Prototype - Separated) */}
           <div
             style={{
-              flex: 1,
+              flex: 1.2,
               position: "relative",
               display: "flex",
               flexDirection: "column",
-              gap: "1rem",
-              minWidth: "250px",
+              gap: "2rem",
+              minWidth: "300px",
             }}
           >
             {/* Immersive Sourcing Hero Video (Separated Layer) */}
             <div
               style={{
                 width: "100%",
-                height: "180px",
+                flex: 1,
+                minHeight: "220px",
                 background: "#000",
                 borderRadius: "12px",
                 overflow: "hidden",
@@ -152,21 +154,14 @@ export default function BrandGapSlide() {
               </div>
             </div>
 
-            {/* Premium Shea Butter Image Blended */}
+            {/* Premium Shea Butter Image Blended (Floating 3D Effect) */}
             <div
               style={{
-                flex: 1,
                 position: "relative",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "2rem 1rem",
-                background: "linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%)",
-                borderRadius: "12px",
-                border: "1px solid rgba(255,255,255,0.6)",
-                boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
-                backdropFilter: "blur(10px)",
               }}
             >
               <img
@@ -175,19 +170,19 @@ export default function BrandGapSlide() {
                 loading="lazy"
                 style={{
                   width: "100%",
-                  maxWidth: "280px",
+                  maxWidth: "260px",
                   objectFit: "contain",
-                  filter: "drop-shadow(0 25px 35px rgba(0,0,0,0.1))",
+                  filter: "drop-shadow(0 30px 40px rgba(0,0,0,0.2))",
                   mixBlendMode: "multiply" /* Blends nicely with the transparent/light background */
                 }}
               />
               <div style={{
                 textAlign: "center",
                 color: "#111",
-                fontSize: "1.25rem",
-                fontWeight: 800,
-                marginTop: "1.5rem",
-                letterSpacing: "-0.01em"
+                fontSize: "1.4rem",
+                fontWeight: 900,
+                marginTop: "0.5rem",
+                letterSpacing: "-0.02em"
               }}>
                 Premium Bulk Shea Butter
               </div>
