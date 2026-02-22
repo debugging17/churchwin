@@ -15,13 +15,13 @@ export default function CurrentRealitySlide() {
                     The Hard Truth: <br /><span className="highlight">We Are Invisible</span>
                 </h1>
                 <p className="body-xl">
-                    churchwin.com generates only 200 monthly visits, a 40.22% bounce rate, and a 1m58s duration.
+                    While our retail site (churchwin.com) exists, our high-margin B2B arm (<strong style={{ color: '#ff6a00' }}>Churchwin Trading</strong>) has zero digital pipeline.
                     <br /><br />
                     <strong>The Data Speaks:</strong><br />
-                    Baraka Shea Butter dominates with <strong>52,931</strong> monthly visits and 3m27s duration. Fairtale captures 2,186.
+                    Baraka Shea Butter dominates organic search with <strong>52,931</strong> monthly visits. We are entirely absent from the B2B conversation.
                     <br /><br />
                     <span style={{ fontSize: '0.9em', color: 'var(--accent)' }}>
-                        100% of our traffic relies on paid search. We have zero organic moat against an estimated $150k+ monthly revenue gap.
+                        Relying 100% on paid retail traffic while ignoring organic B2B leads creates an estimated $150k+ monthly revenue gap.
                     </span>
                 </p>
             </div>
