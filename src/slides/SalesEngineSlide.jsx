@@ -36,10 +36,10 @@ export default function SalesEngineSlide() {
 
                         {/* 1. Apollo.io */}
                         <div style={{
-                            background: '#0d1117', border: '1px solid #30363d', borderRadius: '16px',
+                            background: '#0d1117', border: '2px solid #30363d', borderRadius: '16px',
                             overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', display: 'flex', flexDirection: 'column'
                         }}>
-                            <div style={{ background: '#161b22', padding: '12px 16px', borderBottom: '1px solid #30363d', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                            <div style={{ background: '#161b22', padding: '12px 16px', borderBottom: '2px solid #30363d', display: 'flex', alignItems: 'center', gap: '12px' }}>
                                 <div style={{ display: 'flex', gap: '6px' }}>
                                     <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ff5f56' }} />
                                     <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ffbd2e' }} />
@@ -48,14 +48,29 @@ export default function SalesEngineSlide() {
                                 <img src="https://logo.clearbit.com/apollo.io" alt="Apollo.io" style={{ height: '16px', marginLeft: '12px', borderRadius: '2px' }} onError={(e) => e.target.style.display = 'none'} />
                                 <div style={{ fontSize: '0.8rem', color: '#8b949e', marginLeft: 'auto', fontWeight: 600 }}>apollo.io/search</div>
                             </div>
-                            <div style={{ position: 'relative', flex: 1, display: 'flex', flexDirection: 'column', padding: '0', minHeight: '220px' }}>
-                                <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3, position: 'absolute' }}>
-                                    <source src="/assets/videos/vid-6.mp4" type="video/mp4" />
-                                </video>
-                                <div style={{ position: 'relative', zIndex: 1, padding: '2rem', textAlign: 'center', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                                    <div style={{ background: 'rgba(0,0,0,0.6)', padding: '1.5rem', borderRadius: '12px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                                        <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--accent)', lineHeight: 1 }}>34,218</div>
-                                        <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#c9d1d9', marginTop: '0.6rem' }}>VERIFIED B2B LEADS</div>
+                            <div style={{ position: 'relative', flex: 1, display: 'flex', flexDirection: 'column', padding: '1.5rem', background: '#0d1117', minHeight: '220px' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', borderBottom: '1px solid #30363d', paddingBottom: '0.5rem' }}>
+                                    <div style={{ fontSize: '0.8rem', color: '#c9d1d9', fontWeight: 600 }}>Total Leads</div>
+                                    <div style={{ fontSize: '1.2rem', color: 'var(--accent)', fontWeight: 800 }}>34,218</div>
+                                </div>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                                    {/* Mock Table Row 1 */}
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: '#8b949e', background: '#161b22', padding: '6px 10px', borderRadius: '4px' }}>
+                                        <span>R&amp;D Director</span>
+                                        <span style={{ color: '#27c93f' }}>✓ Verified</span>
+                                        <span>Cosmetics</span>
+                                    </div>
+                                    {/* Mock Table Row 2 */}
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: '#8b949e', background: '#161b22', padding: '6px 10px', borderRadius: '4px' }}>
+                                        <span>Head Formulator</span>
+                                        <span style={{ color: '#27c93f' }}>✓ Verified</span>
+                                        <span>Skincare</span>
+                                    </div>
+                                    {/* Mock Table Row 3 */}
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: '#8b949e', background: '#161b22', padding: '6px 10px', borderRadius: '4px' }}>
+                                        <span>VP Procurement</span>
+                                        <span style={{ color: '#27c93f' }}>✓ Verified</span>
+                                        <span>Beauty</span>
                                     </div>
                                 </div>
                             </div>
@@ -63,10 +78,10 @@ export default function SalesEngineSlide() {
 
                         {/* 2. Instantly.ai */}
                         <div style={{
-                            background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '16px',
+                            background: '#ffffff', border: '2px solid #e2e8f0', borderRadius: '16px',
                             overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', display: 'flex', flexDirection: 'column'
                         }}>
-                            <div style={{ background: '#f8fafc', padding: '12px 16px', borderBottom: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                            <div style={{ background: '#f8fafc', padding: '12px 16px', borderBottom: '2px solid #e2e8f0', display: 'flex', alignItems: 'center', gap: '12px' }}>
                                 <div style={{ display: 'flex', gap: '6px' }}>
                                     <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#cbd5e1' }} />
                                     <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#cbd5e1' }} />
@@ -97,10 +112,10 @@ export default function SalesEngineSlide() {
 
                         {/* 3. Mailchimp */}
                         <div style={{
-                            background: '#ffe01b', border: '1px solid #e6c813', borderRadius: '16px',
+                            background: '#ffe01b', border: '2px solid #e6c813', borderRadius: '16px',
                             overflow: 'hidden', boxShadow: '0 20px 40px rgba(255,224,27,0.2)', display: 'flex', flexDirection: 'column'
                         }}>
-                            <div style={{ background: 'rgba(255,255,255,0.4)', padding: '12px 16px', borderBottom: '1px solid rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                            <div style={{ background: 'rgba(255,255,255,0.4)', padding: '12px 16px', borderBottom: '2px solid rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', gap: '12px' }}>
                                 <div style={{ display: 'flex', gap: '6px' }}>
                                     <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'rgba(0,0,0,0.2)' }} />
                                     <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'rgba(0,0,0,0.2)' }} />
@@ -131,10 +146,10 @@ export default function SalesEngineSlide() {
 
                         {/* 4. LinkedIn */}
                         <div style={{
-                            background: '#ffffff', border: '1px solid #e1e9ee', borderRadius: '16px',
+                            background: '#ffffff', border: '2px solid #e1e9ee', borderRadius: '16px',
                             overflow: 'hidden', boxShadow: '0 20px 40px rgba(10,102,194,0.1)', display: 'flex', flexDirection: 'column'
                         }}>
-                            <div style={{ background: '#f3f2ef', padding: '12px 16px', borderBottom: '1px solid #e1e9ee', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                            <div style={{ background: '#f3f2ef', padding: '12px 16px', borderBottom: '2px solid #e1e9ee', display: 'flex', alignItems: 'center', gap: '12px' }}>
                                 <div style={{ display: 'flex', gap: '6px' }}>
                                     <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#c8c6c4' }} />
                                     <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#c8c6c4' }} />
@@ -159,35 +174,8 @@ export default function SalesEngineSlide() {
                         </div>
                     </div>
 
-                    {/* The Leave-Behind CTA */}
-                    <div style={{
-                        background: 'linear-gradient(135deg, rgba(255,106,0,0.1) 0%, rgba(255,106,0,0.05) 100%)',
-                        border: '1px solid rgba(255,106,0,0.3)', borderRadius: '12px',
-                        padding: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between'
-                    }}>
-                        <div>
-                            <div style={{ color: '#fff', fontWeight: 700, fontSize: '1.1rem', marginBottom: '0.2rem' }}>
-                                B2B Growth Kit
-                            </div>
-                            <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem' }}>
-                                Includes the exact 3-step converting Sequence.
-                            </div>
-                        </div>
-                        <button style={{
-                            background: 'var(--accent)', color: '#000', border: 'none',
-                            padding: '0.7rem 1.2rem', borderRadius: '6px', fontWeight: 800,
-                            cursor: 'pointer', transition: 'transform 0.2s', fontSize: '0.85rem',
-                            boxShadow: '0 5px 15px rgba(255,106,0,0.3)'
-                        }}
-                            onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-                            onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                            title="Download sample email sequences and target lists"
-                        >
-                            DOWNLOAD ASSETS ⬇
-                        </button>
-                    </div>
-
                 </div>
+
             </div>
         </section>
     );
