@@ -66,57 +66,69 @@ export default function BrandGapSlide() {
               flex: 1,
               background: "#e0e7ff",
               border: "1px dashed #999",
-              borderRadius: "8px",
+              borderRadius: "12px",
               position: "relative",
               opacity: 0.8,
               transform: "scale(0.9)",
+              overflow: "hidden",
             }}
           >
-            <div style={{ padding: "1rem", color: "#333" }}>
+            {/* MacOS-style header for the screenshot */}
+            <div
+              style={{
+                background: "#f3f4f6",
+                padding: "8px 12px",
+                borderBottom: "1px solid #e5e7eb",
+                display: "flex",
+                alignItems: "center",
+                gap: "6px",
+              }}
+            >
               <div
                 style={{
-                  height: "10px",
-                  width: "40%",
-                  background: "#bdc3c7",
-                  marginBottom: "1rem",
+                  width: "8px",
+                  height: "8px",
+                  borderRadius: "50%",
+                  background: "#ff5f56",
                 }}
               />
               <div
                 style={{
-                  height: "2px",
-                  width: "80%",
-                  background: "#d1d5db",
-                  marginBottom: "0.5rem",
+                  width: "8px",
+                  height: "8px",
+                  borderRadius: "50%",
+                  background: "#ffbd2e",
                 }}
               />
               <div
                 style={{
-                  height: "2px",
-                  width: "80%",
-                  background: "#d1d5db",
-                  marginBottom: "0.5rem",
+                  width: "8px",
+                  height: "8px",
+                  borderRadius: "50%",
+                  background: "#27c93f",
                 }}
               />
               <div
                 style={{
-                  height: "2px",
-                  width: "80%",
-                  background: "#d1d5db",
-                  marginBottom: "0.5rem",
-                }}
-              />
-              <div
-                style={{
-                  marginTop: "2rem",
-                  textAlign: "center",
-                  fontFamily: "'Montserrat'",
-                  fontWeight: 700,
-                  color: "#999",
+                  fontSize: "0.6rem",
+                  color: "#9ca3af",
+                  marginLeft: "auto",
+                  fontWeight: 600,
                 }}
               >
-                STATIC CATALOG
+                churchwin.com/products
               </div>
             </div>
+            <img
+              src="/assets/images/productcatalogue.png"
+              alt="Current Static Catalog Dashboard"
+              style={{
+                width: "100%",
+                height: "calc(100% - 25px)",
+                objectFit: "cover",
+                objectPosition: "top center",
+              }}
+            />
           </div>
 
           {/* Right: Future (Dynamic Prototype) */}
