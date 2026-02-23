@@ -273,9 +273,9 @@ export default function SalesEngineSlide() {
                 zIndex: 1,
                 overflow: "hidden",
                 background: "#ffffff",
-                border: "1px solid rgba(0,0,0,0.05)",
+                border: "1px solid rgba(0,0,0,0.12)",
                 borderRadius: "16px",
-                boxShadow: "0 10px 30px rgba(0,0,0,0.06)",
+                boxShadow: "0 15px 35px rgba(0,0,0,0.1)",
                 display: "flex",
                 flexDirection: "column",
                 transform: "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)",
@@ -290,7 +290,7 @@ export default function SalesEngineSlide() {
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.zIndex = "1";
-                e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.06)";
+                e.currentTarget.style.boxShadow = "0 15px 35px rgba(0,0,0,0.1)";
                 e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)";
               }}
             >
@@ -676,9 +676,9 @@ export default function SalesEngineSlide() {
                 zIndex: 1,
                 overflow: "hidden",
                 background: "#ffffff",
-                border: "1px solid rgba(0,0,0,0.05)",
+                border: "1px solid rgba(0,0,0,0.12)",
                 borderRadius: "16px",
-                boxShadow: "0 10px 30px rgba(10,102,194,0.1)",
+                boxShadow: "0 15px 35px rgba(10,102,194,0.15)",
                 display: "flex",
                 flexDirection: "column",
                 transform: "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)",
@@ -693,7 +693,7 @@ export default function SalesEngineSlide() {
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.zIndex = "1";
-                e.currentTarget.style.boxShadow = "0 10px 30px rgba(10,102,194,0.1)";
+                e.currentTarget.style.boxShadow = "0 15px 35px rgba(10,102,194,0.15)";
                 e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)";
               }}
             >
