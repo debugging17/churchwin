@@ -1,15 +1,8 @@
 import { useRef } from "react";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
-import { useTilt } from "../hooks/useTilt";
-
 export default function SalesEngineSlide() {
   const slideRef = useRef(null);
   useSlideAnimation(slideRef, 9);
-
-  const apolloRef = useTilt({ scale: 1.05, max: 15 });
-  const instantlyRef = useTilt({ scale: 1.05, max: 15 });
-  const mailchimpRef = useTilt({ scale: 1.05, max: 15 });
-  const linkedinRef = useTilt({ scale: 1.05, max: 15 });
 
   return (
     <section className="slide slide-light" id="slide-5" ref={slideRef}>
@@ -24,28 +17,48 @@ export default function SalesEngineSlide() {
           Stop Waiting. <br />
           <span className="highlight">Go Get Them.</span>
         </h1>
-        <p className="body-xl">
-          Implementing a proven <strong>5-Step Sales Pipeline</strong> for
+        <p className="body-xl" style={{ marginBottom: "2rem" }}>
+          Implementing a proven <strong style={{ color: "#012787" }}>5-Step Sales Pipeline</strong> for
           absolute precision targeting.
-          <br />
-          <br />
-          <strong>1. Automated Fulfillment:</strong>
-          <br />
-          Instant dispatch of a &quot;B2B Starter Package&quot; (Catalogs, COAs,
-          Tiered Pricing) upon lead capture.
-          <br />
-          <br />
-          <strong>2. High-Frequency Follow-Up:</strong>
-          <br />
-          Automating Day 2, Day 7, and Day 14 email sequences to push
-          conversions by over 40%.
-          <br />
-          <br />
-          <strong>3. Digital Incentives:</strong>
-          <br />
-          Lowering barriers to entry for bulk buyers via &quot;First-Order
-          Incentives&quot; (5% off or free shipping discounts).
         </p>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+          {/* Item 1 */}
+          <div style={{ display: "flex", gap: "1rem" }}>
+            <div style={{ fontWeight: 900, fontSize: "1.25rem", color: "#ff6a00", fontFamily: "Montserrat, sans-serif" }}>01.</div>
+            <div>
+              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, margin: "0 0 0.25rem 0", color: "#012787" }}>Automated Fulfillment</h3>
+              <p style={{ margin: 0, fontSize: "0.95rem", color: "#555", lineHeight: 1.4 }}>
+                Instant dispatch of a "B2B Starter Package" (Catalogs, COAs,
+                Tiered Pricing) upon lead capture.
+              </p>
+            </div>
+          </div>
+
+          {/* Item 2 */}
+          <div style={{ display: "flex", gap: "1rem" }}>
+            <div style={{ fontWeight: 900, fontSize: "1.25rem", color: "#ff6a00", fontFamily: "Montserrat, sans-serif" }}>02.</div>
+            <div>
+              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, margin: "0 0 0.25rem 0", color: "#012787" }}>High-Frequency Follow-Up</h3>
+              <p style={{ margin: 0, fontSize: "0.95rem", color: "#555", lineHeight: 1.4 }}>
+                Automating Day 2, Day 7, and Day 14 email sequences to push
+                conversions by over <strong style={{ color: "#ff6a00" }}>40%</strong>.
+              </p>
+            </div>
+          </div>
+
+          {/* Item 3 */}
+          <div style={{ display: "flex", gap: "1rem" }}>
+            <div style={{ fontWeight: 900, fontSize: "1.25rem", color: "#ff6a00", fontFamily: "Montserrat, sans-serif" }}>03.</div>
+            <div>
+              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, margin: "0 0 0.25rem 0", color: "#012787" }}>Digital Incentives</h3>
+              <p style={{ margin: 0, fontSize: "0.95rem", color: "#555", lineHeight: 1.4 }}>
+                Lowering barriers to entry for bulk buyers via "First-Order
+                Incentives" (5% off or free shipping discounts).
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="visual-pane" style={{ overflow: "visible" }}>
@@ -71,26 +84,25 @@ export default function SalesEngineSlide() {
           >
             {/* 1. Apollo.io */}
             <div
-              ref={apolloRef}
               style={{
                 background: "#0d1117",
-                border: "none",
+                border: "1px solid rgba(0,0,0,0.05)",
                 borderRadius: "16px",
-                boxShadow: "-10px 20px 40px rgba(0,0,0,0.5)",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
                 display: "flex",
                 flexDirection: "column",
-                transform: "rotateY(-10deg) rotateX(5deg) scale(0.9)",
+                transform: "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)",
                 transformStyle: "preserve-3d",
-                transition: "transform 0.4s ease, box-shadow 0.4s ease",
+                transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                 cursor: "pointer",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = "-15px 25px 50px rgba(0,0,0,0.7)";
-                e.currentTarget.style.transform = "rotateY(-5deg) rotateX(2deg) scale(0.95) translateZ(20px)";
+                e.currentTarget.style.boxShadow = "-20px 30px 60px rgba(0,0,0,0.3)";
+                e.currentTarget.style.transform = "perspective(1200px) rotateY(-12deg) rotateX(6deg) scale(1.05) translateZ(20px)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = "-10px 20px 40px rgba(0,0,0,0.5)";
-                e.currentTarget.style.transform = "rotateY(-10deg) rotateX(5deg) scale(0.9)";
+                e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.08)";
+                e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)";
               }}
             >
               <div
@@ -251,26 +263,25 @@ export default function SalesEngineSlide() {
 
             {/* 2. Instantly.ai */}
             <div
-              ref={instantlyRef}
               style={{
                 background: "#ffffff",
-                border: "none",
+                border: "1px solid rgba(0,0,0,0.05)",
                 borderRadius: "16px",
-                boxShadow: "-10px 20px 40px rgba(0,0,0,0.15)",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.06)",
                 display: "flex",
                 flexDirection: "column",
-                transform: "rotateY(-10deg) rotateX(5deg) scale(0.9) translateZ(20px)",
+                transform: "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)",
                 transformStyle: "preserve-3d",
-                transition: "transform 0.4s ease, box-shadow 0.4s ease",
+                transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                 cursor: "pointer",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = "-15px 25px 50px rgba(0,0,0,0.25)";
-                e.currentTarget.style.transform = "rotateY(-5deg) rotateX(2deg) scale(0.95) translateZ(40px)";
+                e.currentTarget.style.boxShadow = "-20px 30px 60px rgba(0,0,0,0.15)";
+                e.currentTarget.style.transform = "perspective(1200px) rotateY(-12deg) rotateX(6deg) scale(1.05) translateZ(30px)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = "-10px 20px 40px rgba(0,0,0,0.15)";
-                e.currentTarget.style.transform = "rotateY(-10deg) rotateX(5deg) scale(0.9) translateZ(20px)";
+                e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.06)";
+                e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)";
               }}
             >
               <div
@@ -459,26 +470,25 @@ export default function SalesEngineSlide() {
 
             {/* 3. Mailchimp */}
             <div
-              ref={mailchimpRef}
               style={{
                 background: "#ffe01b",
-                border: "none",
+                border: "1px solid rgba(0,0,0,0.05)",
                 borderRadius: "16px",
-                boxShadow: "-10px 20px 40px rgba(255,224,27,0.3)",
+                boxShadow: "0 10px 30px rgba(255,224,27,0.2)",
                 display: "flex",
                 flexDirection: "column",
-                transform: "rotateY(-10deg) rotateX(5deg) scale(0.9)",
+                transform: "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)",
                 transformStyle: "preserve-3d",
-                transition: "transform 0.4s ease, box-shadow 0.4s ease",
+                transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                 cursor: "pointer",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = "-15px 25px 50px rgba(255,224,27,0.5)";
-                e.currentTarget.style.transform = "rotateY(-5deg) rotateX(2deg) scale(0.95) translateZ(20px)";
+                e.currentTarget.style.boxShadow = "-20px 30px 60px rgba(255,224,27,0.4)";
+                e.currentTarget.style.transform = "perspective(1200px) rotateY(-12deg) rotateX(6deg) scale(1.05) translateZ(20px)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = "-10px 20px 40px rgba(255,224,27,0.3)";
-                e.currentTarget.style.transform = "rotateY(-10deg) rotateX(5deg) scale(0.9)";
+                e.currentTarget.style.boxShadow = "0 10px 30px rgba(255,224,27,0.2)";
+                e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)";
               }}
             >
               <div
@@ -646,26 +656,25 @@ export default function SalesEngineSlide() {
 
             {/* 4. LinkedIn */}
             <div
-              ref={linkedinRef}
               style={{
                 background: "#ffffff",
-                border: "none",
+                border: "1px solid rgba(0,0,0,0.05)",
                 borderRadius: "16px",
-                boxShadow: "-10px 20px 40px rgba(10,102,194,0.15)",
+                boxShadow: "0 10px 30px rgba(10,102,194,0.1)",
                 display: "flex",
                 flexDirection: "column",
-                transform: "rotateY(-10deg) rotateX(5deg) scale(0.9) translateZ(20px)",
+                transform: "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)",
                 transformStyle: "preserve-3d",
-                transition: "transform 0.4s ease, box-shadow 0.4s ease",
+                transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                 cursor: "pointer",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = "-15px 25px 50px rgba(10,102,194,0.3)";
-                e.currentTarget.style.transform = "rotateY(-5deg) rotateX(2deg) scale(0.95) translateZ(40px)";
+                e.currentTarget.style.boxShadow = "-20px 30px 60px rgba(10,102,194,0.25)";
+                e.currentTarget.style.transform = "perspective(1200px) rotateY(-12deg) rotateX(6deg) scale(1.05) translateZ(30px)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = "-10px 20px 40px rgba(10,102,194,0.15)";
-                e.currentTarget.style.transform = "rotateY(-10deg) rotateX(5deg) scale(0.9) translateZ(20px)";
+                e.currentTarget.style.boxShadow = "0 10px 30px rgba(10,102,194,0.1)";
+                e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)";
               }}
             >
               <div
