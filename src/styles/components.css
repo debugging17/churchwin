@@ -353,8 +353,8 @@
 .masonry-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(0.5rem, 2vw, 1rem);
-  /* responsive gap */
+  gap: 0;
+  /* no gaps for full edge-to-edge */
   width: 100%;
 }
 
@@ -367,24 +367,25 @@
 .masonry-col {
   display: flex;
   flex-direction: column;
-  gap: clamp(0.5rem, 2vw, 1rem);
+  gap: 0;
 }
 
 .masonry-item {
   width: 100%;
   height: auto;
-  border-radius: 0.75rem;
-  object-fit: contain;
-  /* Prevents blur from zooming/cropping */
+  border-radius: 0;
+  /* remove rounding for seamless edge-to-edge */
+  object-fit: cover;
+  /* Cover is better here to avoid grey borders on transparent sizes */
   image-rendering: optimizeQuality;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  /* softer shadow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: #f8f9fa;
-  /* light grey placeholder background to keep proportions nice if transparent */
+  box-shadow: none;
+  /* remove shadow for flush look */
+  transition: transform 0.3s ease;
+  background-color: transparent;
 }
 
 .masonry-item:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+  position: relative;
 }

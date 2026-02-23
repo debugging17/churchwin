@@ -18,10 +18,10 @@ export default function MasonryGallerySlide() {
                 position: "relative",
                 overflowY: "auto",
                 overflowX: "hidden",
-                padding: "4rem 2rem"
+                padding: "0" /* Removed padding for edge-to-edge */
             }}
         >
-            <div style={{ width: "100%", maxWidth: "1200px" }}>
+            <div style={{ width: "100%" }}>
                 <div className="masonry-grid">
                     <div className="masonry-col">
                         <div>
