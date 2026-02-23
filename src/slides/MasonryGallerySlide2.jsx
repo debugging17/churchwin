@@ -18,12 +18,11 @@ export default function MasonryGallerySlide2() {
             }}
         >
             <div style={{ width: "100%", height: "100%" }}>
-                <div className="premium-bento-grid">
-                    <img className="premium-bento-item" style={{ flex: "1 1 48%", height: "48%", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image(19).png" alt="African Black Soap Ingredients" />
-                    <img className="premium-bento-item" style={{ flex: "1 1 24%", height: "48%", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image.png" alt="African Black Soap Counter" />
-                    <img className="premium-bento-item" style={{ flex: "1 1 24%", height: "48%", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image(6).png" alt="Moringa Powder Scoop" />
-                    <img className="premium-bento-item" style={{ flex: "1 1 48%", height: "48%", objectPosition: "center top" }} src="/assets/images/mansory/pomelli-image(9).png" alt="Moringa Powder Family" />
-                    <img className="premium-bento-item" style={{ flex: "1 1 48%", height: "48%", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image(8).png" alt="Moringa Powder Surface" />
+                <div className="premium-bento-grid" style={{ gridTemplateColumns: "1.12fr 1fr 1.12fr", gridTemplateRows: "1fr 1fr" }}>
+                    <img className="premium-bento-item" style={{ gridColumn: "span 1", gridRow: "span 2", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image.png" alt="African Black Soap Counter" />
+                    <img className="premium-bento-item" style={{ gridColumn: "span 1", gridRow: "span 1", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image(19).png" alt="African Black Soap Ingredients" />
+                    <img className="premium-bento-item" style={{ gridColumn: "span 1", gridRow: "span 2", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image(6).png" alt="Moringa Powder Scoop" />
+                    <img className="premium-bento-item" style={{ gridColumn: "span 1", gridRow: "span 1", objectPosition: "center top" }} src="/assets/images/mansory/pomelli-image(9).png" alt="Moringa Powder Family" />
                 </div>
             </div>
         </section>
