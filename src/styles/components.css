@@ -367,7 +367,6 @@
 
 .masonry-item {
   width: 100%;
-  height: auto;
   border-radius: 20px;
   object-fit: cover;
   image-rendering: optimizeQuality;
@@ -380,6 +379,19 @@
   background-color: #f8f9fa;
   break-inside: avoid;
   /* Prevent items from breaking across columns */
+}
+
+/* Pinterest style height variations */
+.masonry-item.h-short {
+  height: 250px;
+}
+
+.masonry-item.h-medium {
+  height: 380px;
+}
+
+.masonry-item.h-tall {
+  height: 500px;
 }
 
 .masonry-item:hover {
