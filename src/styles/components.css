@@ -356,14 +356,25 @@
   display: flex;
   margin-left: -15px;
   /* gutter size offset */
-  width: auto;
-  max-width: 100%;
+  width: calc(100% + 15px);
 }
 
 .my-masonry-grid_column {
   padding-left: 15px;
   /* gutter size */
   background-clip: padding-box;
+}
+
+/* Hide scrollbar for cleanly scrolling masonry */
+.masonry-scroller {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.masonry-scroller::-webkit-scrollbar {
+  display: none;
 }
 
 .premium-gallery-img {
