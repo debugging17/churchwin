@@ -16,8 +16,9 @@ export default function MasonryGallerySlide() {
                 justifyContent: "center",
                 background: "#ffffff",
                 position: "relative",
-                overflow: "hidden",
-                padding: "2rem"
+                overflowY: "auto",
+                overflowX: "hidden",
+                padding: "4rem 2rem"
             }}
         >
             <div style={{ width: "100%", maxWidth: "1200px" }}>

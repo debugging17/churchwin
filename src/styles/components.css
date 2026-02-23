@@ -353,25 +353,38 @@
 .masonry-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  /* responsive gap */
   width: 100%;
+}
+
+@media (min-width: 768px) {
+  .masonry-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .masonry-col {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: clamp(0.5rem, 2vw, 1rem);
 }
 
 .masonry-item {
   width: 100%;
   height: auto;
   border-radius: 0.75rem;
-  object-fit: cover;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  object-fit: contain;
+  /* Prevents blur from zooming/cropping */
+  image-rendering: optimizeQuality;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  /* softer shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f8f9fa;
+  /* light grey placeholder background to keep proportions nice if transparent */
 }
 
 .masonry-item:hover {
-  transform: scale(1.02);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
