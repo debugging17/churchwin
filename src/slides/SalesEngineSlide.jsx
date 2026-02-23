@@ -154,6 +154,7 @@ export default function SalesEngineSlide() {
                     height: "16px",
                     marginLeft: "12px",
                     borderRadius: "2px",
+                    filter: "brightness(0) invert(1)"
                   }}
                   onError={(e) => (e.target.style.display = "none")}
                 />
