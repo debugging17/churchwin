@@ -151,10 +151,11 @@ export default function SalesEngineSlide() {
                   src="/assets/images/Sales Engine/apollo.png"
                   alt="Apollo.io"
                   style={{
-                    height: "16px",
-                    marginLeft: "12px",
+                    height: "28px",
+                    marginLeft: "auto", // Align logo to center/right
+                    marginRight: "auto",
                     borderRadius: "2px",
-                    filter: "brightness(0) invert(1)"
+                    filter: "brightness(0) invert(1)",
                   }}
                   onError={(e) => (e.target.style.display = "none")}
                 />
@@ -336,8 +337,9 @@ export default function SalesEngineSlide() {
                   src="/assets/images/Sales Engine/instantly.png"
                   alt="Instantly.ai"
                   style={{
-                    height: "16px",
-                    marginLeft: "12px",
+                    height: "28px",
+                    marginLeft: "auto",
+                    marginRight: "auto",
                     borderRadius: "2px",
                   }}
                   onError={(e) => (e.target.style.display = "none")}
@@ -548,8 +550,9 @@ export default function SalesEngineSlide() {
                   src="/assets/images/Sales Engine/mailchimp.png"
                   alt="Mailchimp"
                   style={{
-                    height: "16px",
-                    marginLeft: "12px",
+                    height: "28px",
+                    marginLeft: "auto",
+                    marginRight: "auto",
                     borderRadius: "2px",
                   }}
                   onError={(e) => (e.target.style.display = "none")}
@@ -739,8 +742,9 @@ export default function SalesEngineSlide() {
                   src="/assets/images/Sales Engine/linkedin.png"
                   alt="LinkedIn"
                   style={{
-                    height: "16px",
-                    marginLeft: "12px",
+                    height: "28px",
+                    marginLeft: "auto",
+                    marginRight: "auto",
                     borderRadius: "2px",
                   }}
                   onError={(e) => (e.target.style.display = "none")}
