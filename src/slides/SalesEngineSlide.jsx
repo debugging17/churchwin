@@ -1,9 +1,15 @@
 import { useRef } from "react";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
+import { useTilt } from "../hooks/useTilt";
 
 export default function SalesEngineSlide() {
   const slideRef = useRef(null);
   useSlideAnimation(slideRef, 9);
+
+  const apolloRef = useTilt({ scale: 1.05, max: 15 });
+  const instantlyRef = useTilt({ scale: 1.05, max: 15 });
+  const mailchimpRef = useTilt({ scale: 1.05, max: 15 });
+  const linkedinRef = useTilt({ scale: 1.05, max: 15 });
 
   return (
     <section className="slide slide-light" id="slide-5" ref={slideRef}>
@@ -60,21 +66,33 @@ export default function SalesEngineSlide() {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: "1.5rem",
+              gap: "2rem",
               width: "100%",
               height: "100%",
+              perspective: "1000px", /* Adding perspective for 3D */
             }}
           >
             {/* 1. Apollo.io */}
             <div
+              ref={apolloRef}
               style={{
                 background: "#0d1117",
-                border: "2px solid #30363d",
+                border: "1px solid rgba(255,255,255,0.1)",
                 borderRadius: "16px",
                 overflow: "hidden",
-                boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
+                boxShadow: "-15px 25px 50px rgba(0,0,0,0.5)",
                 display: "flex",
                 flexDirection: "column",
+                transform: "rotateY(-15deg) rotateX(5deg) scale(0.95)",
+                transformStyle: "preserve-3d",
+                transition: "transform 0.4s ease, box-shadow 0.4s ease",
+                cursor: "pointer",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "-20px 30px 60px rgba(0,0,0,0.6)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "-15px 25px 50px rgba(0,0,0,0.5)";
               }}
             >
               <div
@@ -235,14 +253,25 @@ export default function SalesEngineSlide() {
 
             {/* 2. Instantly.ai */}
             <div
+              ref={instantlyRef}
               style={{
                 background: "#ffffff",
-                border: "2px solid #e2e8f0",
+                border: "1px solid rgba(0,0,0,0.05)",
                 borderRadius: "16px",
                 overflow: "hidden",
-                boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+                boxShadow: "-15px 25px 50px rgba(0,0,0,0.15)",
                 display: "flex",
                 flexDirection: "column",
+                transform: "rotateY(-15deg) rotateX(5deg) scale(0.95) translateZ(30px)",
+                transformStyle: "preserve-3d",
+                transition: "transform 0.4s ease, box-shadow 0.4s ease",
+                cursor: "pointer",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "-20px 30px 60px rgba(0,0,0,0.2)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "-15px 25px 50px rgba(0,0,0,0.15)";
               }}
             >
               <div
@@ -431,14 +460,25 @@ export default function SalesEngineSlide() {
 
             {/* 3. Mailchimp */}
             <div
+              ref={mailchimpRef}
               style={{
                 background: "#ffe01b",
-                border: "2px solid #e6c813",
+                border: "1px solid rgba(0,0,0,0.05)",
                 borderRadius: "16px",
                 overflow: "hidden",
-                boxShadow: "0 20px 40px rgba(255,224,27,0.2)",
+                boxShadow: "-15px 25px 50px rgba(255,224,27,0.4)",
                 display: "flex",
                 flexDirection: "column",
+                transform: "rotateY(-15deg) rotateX(5deg) scale(0.95)",
+                transformStyle: "preserve-3d",
+                transition: "transform 0.4s ease, box-shadow 0.4s ease",
+                cursor: "pointer",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "-20px 30px 60px rgba(255,224,27,0.5)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "-15px 25px 50px rgba(255,224,27,0.4)";
               }}
             >
               <div
@@ -606,14 +646,25 @@ export default function SalesEngineSlide() {
 
             {/* 4. LinkedIn */}
             <div
+              ref={linkedinRef}
               style={{
                 background: "#ffffff",
-                border: "2px solid #e1e9ee",
+                border: "1px solid rgba(0,0,0,0.05)",
                 borderRadius: "16px",
                 overflow: "hidden",
-                boxShadow: "0 20px 40px rgba(10,102,194,0.1)",
+                boxShadow: "-15px 25px 50px rgba(10,102,194,0.2)",
                 display: "flex",
                 flexDirection: "column",
+                transform: "rotateY(-15deg) rotateX(5deg) scale(0.95) translateZ(30px)",
+                transformStyle: "preserve-3d",
+                transition: "transform 0.4s ease, box-shadow 0.4s ease",
+                cursor: "pointer",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "-20px 30px 60px rgba(10,102,194,0.3)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "-15px 25px 50px rgba(10,102,194,0.2)";
               }}
             >
               <div
