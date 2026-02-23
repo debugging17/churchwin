@@ -85,6 +85,9 @@ export default function SalesEngineSlide() {
             {/* 1. Apollo.io */}
             <div
               style={{
+                position: "relative",
+                zIndex: 1,
+                overflow: "hidden",
                 background: "#0d1117",
                 border: "1px solid rgba(0,0,0,0.05)",
                 borderRadius: "16px",
@@ -97,10 +100,12 @@ export default function SalesEngineSlide() {
                 cursor: "pointer",
               }}
               onMouseEnter={(e) => {
+                e.currentTarget.style.zIndex = "10";
                 e.currentTarget.style.boxShadow = "-20px 30px 60px rgba(0,0,0,0.3)";
                 e.currentTarget.style.transform = "perspective(1200px) rotateY(-12deg) rotateX(6deg) scale(1.05) translateZ(20px)";
               }}
               onMouseLeave={(e) => {
+                e.currentTarget.style.zIndex = "1";
                 e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.08)";
                 e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)";
               }}
@@ -264,6 +269,9 @@ export default function SalesEngineSlide() {
             {/* 2. Instantly.ai */}
             <div
               style={{
+                position: "relative",
+                zIndex: 1,
+                overflow: "hidden",
                 background: "#ffffff",
                 border: "1px solid rgba(0,0,0,0.05)",
                 borderRadius: "16px",
@@ -276,10 +284,12 @@ export default function SalesEngineSlide() {
                 cursor: "pointer",
               }}
               onMouseEnter={(e) => {
+                e.currentTarget.style.zIndex = "10";
                 e.currentTarget.style.boxShadow = "-20px 30px 60px rgba(0,0,0,0.15)";
                 e.currentTarget.style.transform = "perspective(1200px) rotateY(-12deg) rotateX(6deg) scale(1.05) translateZ(30px)";
               }}
               onMouseLeave={(e) => {
+                e.currentTarget.style.zIndex = "1";
                 e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.06)";
                 e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)";
               }}
@@ -471,6 +481,9 @@ export default function SalesEngineSlide() {
             {/* 3. Mailchimp */}
             <div
               style={{
+                position: "relative",
+                zIndex: 1,
+                overflow: "hidden",
                 background: "#ffe01b",
                 border: "1px solid rgba(0,0,0,0.05)",
                 borderRadius: "16px",
@@ -483,10 +496,12 @@ export default function SalesEngineSlide() {
                 cursor: "pointer",
               }}
               onMouseEnter={(e) => {
+                e.currentTarget.style.zIndex = "10";
                 e.currentTarget.style.boxShadow = "-20px 30px 60px rgba(255,224,27,0.4)";
                 e.currentTarget.style.transform = "perspective(1200px) rotateY(-12deg) rotateX(6deg) scale(1.05) translateZ(20px)";
               }}
               onMouseLeave={(e) => {
+                e.currentTarget.style.zIndex = "1";
                 e.currentTarget.style.boxShadow = "0 10px 30px rgba(255,224,27,0.2)";
                 e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)";
               }}
@@ -657,6 +672,9 @@ export default function SalesEngineSlide() {
             {/* 4. LinkedIn */}
             <div
               style={{
+                position: "relative",
+                zIndex: 1,
+                overflow: "hidden",
                 background: "#ffffff",
                 border: "1px solid rgba(0,0,0,0.05)",
                 borderRadius: "16px",
@@ -669,10 +687,12 @@ export default function SalesEngineSlide() {
                 cursor: "pointer",
               }}
               onMouseEnter={(e) => {
+                e.currentTarget.style.zIndex = "10";
                 e.currentTarget.style.boxShadow = "-20px 30px 60px rgba(10,102,194,0.25)";
                 e.currentTarget.style.transform = "perspective(1200px) rotateY(-12deg) rotateX(6deg) scale(1.05) translateZ(30px)";
               }}
               onMouseLeave={(e) => {
+                e.currentTarget.style.zIndex = "1";
                 e.currentTarget.style.boxShadow = "0 10px 30px rgba(10,102,194,0.1)";
                 e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)";
               }}
