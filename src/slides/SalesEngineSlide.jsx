@@ -70,6 +70,7 @@ export default function SalesEngineSlide() {
             width: "100%",
             maxWidth: "800px",
             margin: "0 auto",
+            transform: "translateX(-2.5rem)",
           }}
         >
           <div
