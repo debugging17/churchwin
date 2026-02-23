@@ -351,32 +351,28 @@
 /* Responsive rules consolidated in responsive.css */
 /* Premium Bento Gallery Grid */
 .premium-bento-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-template-rows: repeat(3, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.25rem;
   width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 768px) {
   .premium-bento-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: repeat(6, minmax(0, 1fr));
-    gap: 0;
+    flex-direction: column;
   }
 }
 
 
 .premium-bento-item {
-  width: 100%;
-  height: 100%;
   border-radius: 8px;
   object-fit: cover;
-  object-position: center top;
   image-rendering: optimizeQuality;
   box-shadow: none;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
