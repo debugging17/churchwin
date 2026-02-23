@@ -1,10 +1,23 @@
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Mousewheel, Keyboard } from "swiper/modules";
 import { useDeck } from "../hooks/useDeck";
 import Particles from "./Particles";
+
+// Import Swiper styles
+import "swiper/css";
+
 const TOTAL_SLIDES = 17;
 
 export default function DeckContainer({ children }) {
-  const { containerRef, progressRef, pageNumRef, pageIndicatorRef, bgTextRef } =
-    useDeck(TOTAL_SLIDES);
+  const {
+    progressRef,
+    pageNumRef,
+    pageIndicatorRef,
+    bgTextRef,
+    onSwiper,
+    onSlideChange
+  } = useDeck(TOTAL_SLIDES);
 
   return (
     <>
@@ -20,9 +33,32 @@ export default function DeckContainer({ children }) {
       </div>
 
       {/* Main Deck */}
-      <main className="deck-container" ref={containerRef}>
-        {children}
-      </main>
+      <Swiper
+        direction="horizontal"
+        slidesPerView={1}
+        spaceBetween={0}
+        mousewheel={{
+          forceToAxis: true,
+          sensitivity: 1,
+          releaseOnEdges: true,
+        }}
+        keyboard={{
+          enabled: true,
+        }}
+        modules={[Mousewheel, Keyboard]}
+        className="deck-container"
+        onSwiper={onSwiper}
+        onSlideChange={onSlideChange}
+        speed={1000}
+        resistance={true}
+        resistanceRatio={0.5}
+      >
+        {React.Children.map(children, (child, index) => (
+          <SwiperSlide key={index}>
+            {child}
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
       {/* UI Elements */}
       <div className="progress-bar">

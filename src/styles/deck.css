@@ -56,10 +56,15 @@ h4 {
 
 /* Layout */
 .deck-container {
-  display: flex;
-  width: max-content;
+  width: 100vw;
   height: 100vh;
-  will-change: transform;
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  width: 100vw !important;
+  height: 100vh !important;
 }
 
 .slide {
@@ -212,7 +217,7 @@ h4 {
   -webkit-text-stroke: 1px var(--bg-dark);
 }
 
-.slide-light ~ .bg-text {
+.slide-light~.bg-text {
   color: rgba(8, 41, 88, 0.03);
 }
 
