@@ -3,7 +3,9 @@ import { useSlideAnimation } from "../hooks/useSlideAnimation";
 
 export default function ConclusionSlide() {
   const slideRef = useRef(null);
-  useSlideAnimation(slideRef, 15);
+  const elementsRef = useRef([]);
+
+  useSlideAnimation(slideRef, 16);
 
   return (
     <section className="slide" id="slide-7" ref={slideRef}>

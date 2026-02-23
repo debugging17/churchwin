@@ -66,7 +66,7 @@ const VERTICALS = [
 
 export default function NarrativeSlide() {
   const slideRef = useRef(null);
-  useSlideAnimation(slideRef, 13);
+  useSlideAnimation(slideRef, 14);
   const [activeTab, setActiveTab] = useState(0);
 
   const v = VERTICALS[activeTab];
