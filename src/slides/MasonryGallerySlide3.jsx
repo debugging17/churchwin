@@ -19,11 +19,11 @@ export default function MasonryGallerySlide3() {
         >
             <div style={{ width: "100%", height: "100%" }}>
                 <div className="premium-bento-grid">
-                    <img className="premium-bento-item" style={{ flex: "1 1 48%", height: "48%" }} src="/assets/images/mansory/pomelli-image(19).png" alt="Gallery Image 12" />
-                    <img className="premium-bento-item" style={{ flex: "1 1 24%", height: "48%" }} src="/assets/images/mansory/pomelli-image(6).png" alt="Gallery Image 13" />
-                    <img className="premium-bento-item" style={{ flex: "1 1 24%", height: "48%" }} src="/assets/images/mansory/pomelli-image(8).png" alt="Gallery Image 14" />
-                    <img className="premium-bento-item" style={{ flex: "1 1 48%", height: "48%" }} src="/assets/images/mansory/9d63CUgb8OZ71v4sh7AOvn.png" alt="Gallery Image 15" />
-                    <img className="premium-bento-item" style={{ flex: "1 1 48%", height: "48%" }} src="/assets/images/mansory/bVungMUNZ9z3OJdh5woONe.png" alt="Gallery Image 16" />
+                    <img className="premium-bento-item" style={{ flex: "1 1 32%", height: "48%", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image(1).png" alt="Baobab Powder Water" />
+                    <img className="premium-bento-item" style={{ flex: "1 1 32%", height: "48%", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image(2).png" alt="Baobab Powder Kitchen" />
+                    <img className="premium-bento-item" style={{ flex: "1 1 32%", height: "48%", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image(4).png" alt="Baobab Powder Juice" />
+                    <img className="premium-bento-item" style={{ flex: "1 1 48%", height: "48%", objectPosition: "center" }} src="/assets/images/PhotoshopExtension_Image (5).png" alt="African Black Soap" />
+                    <img className="premium-bento-item" style={{ flex: "1 1 48%", height: "48%", objectPosition: "center" }} src="/assets/images/baobab.png" alt="Baobab Box" />
                 </div>
             </div>
         </section>
