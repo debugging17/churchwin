@@ -14,7 +14,7 @@ export default function MasonryGallerySlide3() {
                 background: "#ffffff",
                 position: "relative",
                 overflow: "hidden",
-                padding: "2rem 4rem 6rem 4rem"
+                padding: "0"
             }}
         >
             <div style={{ width: "100%", height: "100%" }}>
