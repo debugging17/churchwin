@@ -77,8 +77,7 @@
   max-width: 800px;
   z-index: 10;
   position: relative;
-  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.6))
-    drop-shadow(0 50px 80px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.6)) drop-shadow(0 50px 80px rgba(0, 0, 0, 0.4));
   overflow: hidden;
 }
 
@@ -97,12 +96,10 @@
   left: -100%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.3) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%);
   transform: skewX(-25deg);
   z-index: 12;
   animation: glintAnim 6s infinite ease-in-out;
@@ -110,6 +107,7 @@
 }
 
 @keyframes glintAnim {
+
   0%,
   40% {
     left: -100%;
@@ -132,8 +130,7 @@
   max-width: 550px;
   z-index: 5;
   transform: translateX(-35%) rotate(-15deg) translateZ(-50px);
-  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5))
-    drop-shadow(0 30px 50px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5)) drop-shadow(0 30px 50px rgba(0, 0, 0, 0.3));
 }
 
 .product-hero-item.right {
@@ -141,8 +138,7 @@
   max-width: 520px;
   z-index: 8;
   transform: translateX(35%) rotate(15deg) translateZ(20px);
-  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.5))
-    drop-shadow(0 40px 60px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.5)) drop-shadow(0 40px 60px rgba(0, 0, 0, 0.3));
 }
 
 /* KPI Card Styling */
@@ -248,11 +244,9 @@
 .card-leader {
   grid-column: span 2;
   grid-row: span 2;
-  background: linear-gradient(
-    135deg,
-    rgba(39, 201, 63, 0.1),
-    rgba(39, 201, 63, 0.05)
-  );
+  background: linear-gradient(135deg,
+      rgba(39, 201, 63, 0.1),
+      rgba(39, 201, 63, 0.05));
   border-color: rgba(39, 201, 63, 0.3);
 }
 
@@ -263,11 +257,9 @@
 .card-client {
   grid-column: span 1;
   grid-row: span 1;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 68, 0, 0.1),
-    rgba(255, 68, 0, 0.05)
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 68, 0, 0.1),
+      rgba(255, 68, 0, 0.05));
   border-color: rgba(255, 68, 0, 0.3);
 }
 
@@ -354,12 +346,6 @@
 .browser-frame:hover {
   transform: translateY(-5px);
   box-shadow: 0 40px 80px -12px rgba(0, 0, 0, 0.7);
-}
-
-/* Slide 5 Light Mode Funnel Adjustment */
-#slide-5.slide-light .visual-pane div:first-child > div:nth-child(1) {
-  border: 1px solid #ccc;
-  background: #fdfdfd !important;
 }
 
 /* Responsive rules consolidated in responsive.css */

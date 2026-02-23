@@ -48,15 +48,12 @@ export default function SalesEngineSlide() {
         </p>
       </div>
 
-      <div className="visual-pane">
+      <div className="visual-pane" style={{ overflow: "visible" }}>
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            height: "100%",
-            gap: "1.5rem",
-            padding: "1rem",
             width: "100%",
             maxWidth: "800px",
             margin: "0 auto",
@@ -66,11 +63,10 @@ export default function SalesEngineSlide() {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-              gap: "2.5rem",
+              gap: "2rem",
               width: "100%",
-              height: "100%",
-              perspective: "1200px", /* Adding perspective for 3D */
-              padding: "2rem", /* Extra padding to prevent clipping */
+              perspective: "1200px",
+              padding: "1rem", /* Gentle padding */
             }}
           >
             {/* 1. Apollo.io */}
@@ -162,7 +158,7 @@ export default function SalesEngineSlide() {
                   flexDirection: "column",
                   padding: "1.5rem",
                   background: "#0d1117",
-                  minHeight: "220px",
+                  minHeight: "180px",
                 }}
               >
                 <div
@@ -343,7 +339,7 @@ export default function SalesEngineSlide() {
                   justifyContent: "center",
                   gap: "1rem",
                   background: "#f8fafc",
-                  minHeight: "220px",
+                  minHeight: "180px",
                 }}
               >
                 <div
@@ -551,7 +547,7 @@ export default function SalesEngineSlide() {
                   flexDirection: "column",
                   justifyContent: "center",
                   alignItems: "center",
-                  minHeight: "220px",
+                  minHeight: "180px",
                 }}
               >
                 <div
@@ -739,7 +735,7 @@ export default function SalesEngineSlide() {
                   alignItems: "center",
                   textAlign: "center",
                   background: "#f3f2ef",
-                  minHeight: "220px",
+                  minHeight: "180px",
                 }}
               >
                 <div
