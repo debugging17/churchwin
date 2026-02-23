@@ -21,7 +21,7 @@ export default function MasonryGallerySlide2() {
                 padding: "0" /* Removed padding for edge-to-edge */
             }}
         >
-            <div style={{ width: "100%", height: "100%" }}>
+            <div style={{ width: "100%", height: "100vh" }}>
                 <div className="bento-grid">
                     <img className="bento-item bento-wide" src="/assets/images/mansory/pomelli-image(4).png" alt="Gallery Image 6" />
                     <img className="bento-item bento-regular" src="/assets/images/mansory/pomelli-image(9).png" alt="Gallery Image 7" />

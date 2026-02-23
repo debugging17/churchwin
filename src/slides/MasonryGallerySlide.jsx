@@ -21,7 +21,7 @@ export default function MasonryGallerySlide() {
                 padding: "0" /* Removed padding for edge-to-edge */
             }}
         >
-            <div style={{ width: "100%" }}>
+            <div style={{ width: "100%", height: "100vh" }}>
                 <div className="bento-grid">
                     <video className="bento-item bento-wide" src="/assets/images/mansory/grok-video-7864786d-3736-496a-abd9-5b4b705fd073.mp4" autoPlay loop muted playsInline />
                     <img className="bento-item bento-regular" src="/assets/images/mansory/8NONlPs-Ack6oO4nyCgOxL.png" alt="Gallery Image 1" />
