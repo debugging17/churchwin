@@ -407,7 +407,7 @@ function StrategyModal({ month, onClose }) {
 export default function RoadmapSlide() {
   const slideRef = useRef(null);
   useSlideAnimation(slideRef, 10);
-  const [activeModal, setActiveModal] = useState(null);
+  const [activeMonth, setActiveMonth] = useState(null);
 
   return (
     <section className="slide" id="slide-4" ref={slideRef}>
