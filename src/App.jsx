@@ -9,6 +9,7 @@ import TableOfContentsSlide from "./slides/TableOfContentsSlide";
 import SectionCoverSlide from "./slides/SectionCoverSlide";
 import CurrentRealitySlide from "./slides/CurrentRealitySlide";
 import BrandGapSlide from "./slides/BrandGapSlide";
+import MasonryGallerySlide from "./slides/MasonryGallerySlide";
 import RoadmapSlide from "./slides/RoadmapSlide";
 import SalesEngineSlide from "./slides/SalesEngineSlide";
 import NarrativeSlide from "./slides/NarrativeSlide";
@@ -36,11 +37,13 @@ function App() {
       />
       <BrandGapSlide />
 
+      <MasonryGallerySlide />
+
       <SectionCoverSlide
         num="03"
         title="90-Day Roadmap"
         theme="dark"
-        slideIndex={6}
+        slideIndex={7}
       />
       <RoadmapSlide />
 
@@ -48,7 +51,7 @@ function App() {
         num="04"
         title="The Sales Engine"
         theme="light"
-        slideIndex={8}
+        slideIndex={9}
       />
       <SalesEngineSlide />
 
@@ -56,7 +59,7 @@ function App() {
         num="05"
         title="Digital Architecture"
         theme="dark"
-        slideIndex={10}
+        slideIndex={11}
       />
       <NarrativeSlide />
 
@@ -64,7 +67,7 @@ function App() {
         num="06"
         title="Next Steps"
         theme="light"
-        slideIndex={12}
+        slideIndex={13}
       />
       <ConclusionSlide />
     </DeckContainer>
