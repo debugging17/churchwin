@@ -273,9 +273,9 @@ export default function SalesEngineSlide() {
                 zIndex: 1,
                 overflow: "hidden",
                 background: "#ffffff",
-                border: "1px solid rgba(0,0,0,0.12)",
+                border: "1px solid rgba(0,0,0,0.35)",
                 borderRadius: "16px",
-                boxShadow: "0 15px 35px rgba(0,0,0,0.1)",
+                boxShadow: "0 15px 35px rgba(0,0,0,0.25)",
                 display: "flex",
                 flexDirection: "column",
                 transform: "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)",
@@ -290,7 +290,7 @@ export default function SalesEngineSlide() {
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.zIndex = "1";
-                e.currentTarget.style.boxShadow = "0 15px 35px rgba(0,0,0,0.1)";
+                e.currentTarget.style.boxShadow = "0 15px 35px rgba(0,0,0,0.25)";
                 e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)";
               }}
             >
@@ -485,9 +485,9 @@ export default function SalesEngineSlide() {
                 zIndex: 1,
                 overflow: "hidden",
                 background: "#ffe01b",
-                border: "1px solid rgba(0,0,0,0.05)",
+                border: "1px solid rgba(0,0,0,0.2)",
                 borderRadius: "16px",
-                boxShadow: "0 10px 30px rgba(255,224,27,0.2)",
+                boxShadow: "0 15px 35px rgba(220,180,0,0.4)",
                 display: "flex",
                 flexDirection: "column",
                 transform: "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)",
@@ -502,7 +502,7 @@ export default function SalesEngineSlide() {
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.zIndex = "1";
-                e.currentTarget.style.boxShadow = "0 10px 30px rgba(255,224,27,0.2)";
+                e.currentTarget.style.boxShadow = "0 15px 35px rgba(220,180,0,0.4)";
                 e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)";
               }}
             >
@@ -676,9 +676,9 @@ export default function SalesEngineSlide() {
                 zIndex: 1,
                 overflow: "hidden",
                 background: "#ffffff",
-                border: "1px solid rgba(0,0,0,0.12)",
+                border: "1px solid rgba(0,0,0,0.35)",
                 borderRadius: "16px",
-                boxShadow: "0 15px 35px rgba(10,102,194,0.15)",
+                boxShadow: "0 15px 35px rgba(0,0,0,0.25)",
                 display: "flex",
                 flexDirection: "column",
                 transform: "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)",
@@ -693,7 +693,7 @@ export default function SalesEngineSlide() {
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.zIndex = "1";
-                e.currentTarget.style.boxShadow = "0 15px 35px rgba(10,102,194,0.15)";
+                e.currentTarget.style.boxShadow = "0 15px 35px rgba(0,0,0,0.25)";
                 e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)";
               }}
             >
