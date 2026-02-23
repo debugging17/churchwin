@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import Masonry from "react-masonry-css";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
 
 export default function MasonryGallerySlide2() {
@@ -18,12 +19,18 @@ export default function MasonryGallerySlide2() {
             }}
         >
             <div style={{ width: "100%", height: "100%" }}>
-                <div className="premium-bento-grid" style={{ gridTemplateColumns: "1.12fr 1fr 1.12fr", gridTemplateRows: "1fr 1fr" }}>
-                    <img className="premium-bento-item" style={{ gridColumn: "span 1", gridRow: "span 2", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image.png" alt="African Black Soap Counter" />
-                    <img className="premium-bento-item" style={{ gridColumn: "span 1", gridRow: "span 1", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image(19).png" alt="African Black Soap Ingredients" />
-                    <img className="premium-bento-item" style={{ gridColumn: "span 1", gridRow: "span 2", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image(6).png" alt="Moringa Powder Scoop" />
-                    <img className="premium-bento-item" style={{ gridColumn: "span 1", gridRow: "span 1", objectPosition: "center top" }} src="/assets/images/mansory/pomelli-image(9).png" alt="Moringa Powder Family" />
-                </div>
+                <Masonry
+                    breakpointCols={{ default: 3, 1100: 2, 700: 1 }}
+                    className="my-masonry-grid"
+                    columnClassName="my-masonry-grid_column"
+                >
+                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image.png" alt="African Black Soap Counter" />
+                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(19).png" alt="African Black Soap Ingredients" />
+                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(6).png" alt="Moringa Powder Scoop" />
+                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(9).png" alt="Moringa Powder Family" />
+                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(17).png" alt="African Black Soap Woman Setup" />
+                    <img className="premium-gallery-img" src="/assets/images/mansory/8NONlPs-Ack6oO4nyCgOxL.png" alt="Baobab Oil Dropper" />
+                </Masonry>
             </div>
         </section>
     );

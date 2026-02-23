@@ -349,41 +349,35 @@
 }
 
 /* Responsive rules consolidated in responsive.css */
-/* Premium Bento Gallery Grid */
-.premium-bento-grid {
-  display: grid;
-  gap: 0.25rem;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+/* Premium React Masonry Gallery */
+.my-masonry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -15px;
+  /* gutter size offset */
+  width: auto;
+  max-width: 100%;
 }
 
-@media (max-width: 768px) {
-  .premium-bento-grid {
-    display: flex;
-    flex-direction: column;
-  }
+.my-masonry-grid_column {
+  padding-left: 15px;
+  /* gutter size */
+  background-clip: padding-box;
 }
 
-
-.premium-bento-item {
+.premium-gallery-img {
   width: 100%;
-  height: 100%;
   border-radius: 8px;
+  margin-bottom: 15px;
+  display: block;
   object-fit: cover;
   image-rendering: optimizeQuality;
-  box-shadow: none;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
   background-color: #f8f9fa;
-  margin: 0;
-  display: block;
-  border: none;
-  box-sizing: border-box;
 }
 
-.premium-bento-item:hover {
+.premium-gallery-img:hover {
   transform: translateY(-5px) scale(1.02);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   z-index: 10;

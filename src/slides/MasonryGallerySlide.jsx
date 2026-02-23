@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import Masonry from "react-masonry-css";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
 
 export default function MasonryGallerySlide() {
@@ -18,13 +19,18 @@ export default function MasonryGallerySlide() {
             }}
         >
             <div style={{ width: "100%", height: "100%" }}>
-                <div className="premium-bento-grid" style={{ gridTemplateColumns: "1fr 1fr 1.12fr", gridTemplateRows: "1fr 1fr" }}>
-                    <video className="premium-bento-item" style={{ gridColumn: "span 1", gridRow: "span 1", objectPosition: "center" }} src="/assets/images/mansory/grok-video-7864786d-3736-496a-abd9-5b4b705fd073.mp4" autoPlay loop muted playsInline />
-                    <img className="premium-bento-item" style={{ gridColumn: "span 1", gridRow: "span 1", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image(16).png" alt="African Black Soap Handheld" />
-                    <img className="premium-bento-item" style={{ gridColumn: "span 1", gridRow: "span 2", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image(13).png" alt="ChurchWin Shea Butter Tin" />
-                    <img className="premium-bento-item" style={{ gridColumn: "span 1", gridRow: "span 1", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image(17).png" alt="African Black Soap Woman" />
-                    <img className="premium-bento-item" style={{ gridColumn: "span 1", gridRow: "span 1", objectPosition: "center", objectFit: "cover" }} src="/assets/images/mansory/pomelli-image(18).png" alt="African Black Soap Floating" />
-                </div>
+                <Masonry
+                    breakpointCols={{ default: 3, 1100: 2, 700: 1 }}
+                    className="my-masonry-grid"
+                    columnClassName="my-masonry-grid_column"
+                >
+                    <video className="premium-gallery-img" src="/assets/images/mansory/grok-video-7864786d-3736-496a-abd9-5b4b705fd073.mp4" autoPlay loop muted playsInline />
+                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(16).png" alt="African Black Soap Handheld" />
+                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(13).png" alt="ChurchWin Shea Butter" />
+                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(18).png" alt="African Black Soap Floating" />
+                    <img className="premium-gallery-img" src="/assets/images/mansory/9d63CUgb8OZ71v4sh7AOvn.png" alt="African Black Soap Square" />
+                    <img className="premium-gallery-img" src="/assets/images/mansory/aUolXP5nNuu85KUmIIL_3H.png" alt="African Black Soap Holding" />
+                </Masonry>
             </div>
         </section>
     );

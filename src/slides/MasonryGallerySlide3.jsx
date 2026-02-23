@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import Masonry from "react-masonry-css";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
 
 export default function MasonryGallerySlide3() {
@@ -18,11 +19,17 @@ export default function MasonryGallerySlide3() {
             }}
         >
             <div style={{ width: "100%", height: "100%" }}>
-                <div className="premium-bento-grid" style={{ gridTemplateColumns: "1fr 1fr 1fr", gridTemplateRows: "1fr" }}>
-                    <img className="premium-bento-item" style={{ gridColumn: "span 1", gridRow: "span 1", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image(1).png" alt="Baobab Powder Water" />
-                    <img className="premium-bento-item" style={{ gridColumn: "span 1", gridRow: "span 1", objectPosition: "center" }} src="/assets/images/mansory/9d63CUgb8OZ71v4sh7AOvn.png" alt="African Black Soap Display" />
-                    <img className="premium-bento-item" style={{ gridColumn: "span 1", gridRow: "span 1", objectPosition: "center" }} src="/assets/images/mansory/pomelli-image(8).png" alt="Moringa Powder Surface" />
-                </div>
+                <Masonry
+                    breakpointCols={{ default: 3, 1100: 2, 700: 1 }}
+                    className="my-masonry-grid"
+                    columnClassName="my-masonry-grid_column"
+                >
+                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(1).png" alt="Baobab Powder Water" />
+                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(2).png" alt="Baobab Powder Kitchen" />
+                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(4).png" alt="Baobab Powder Juice" />
+                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(8).png" alt="Moringa Powder Surface" />
+                    <img className="premium-gallery-img" src="/assets/images/mansory/bVungMUNZ9z3OJdh5woONe.png" alt="Baobab Oil Product Shot" />
+                </Masonry>
             </div>
         </section>
     );
