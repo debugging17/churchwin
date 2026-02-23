@@ -354,9 +354,9 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-rows: repeat(3, minmax(0, 1fr));
-  gap: 0;
-  width: 100vw;
-  height: 100vh;
+  gap: 0.25rem;
+  width: 100%;
+  height: 100%;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -374,9 +374,9 @@
 .premium-bento-item {
   width: 100%;
   height: 100%;
-  border-radius: 0;
+  border-radius: 8px;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
   image-rendering: optimizeQuality;
   box-shadow: none;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
