@@ -226,8 +226,14 @@ export function useDeck(totalSlides) {
     [totalSlides, performSlideTransition],
   );
 
+  const lastBoundaryHitRef = useRef(0);
+
   // Helper to detect internal scroll areas and interactive elements
-  const isInternalScroll = useCallback((target, isVerticalSwipe = false) => {
+  // Returns:
+  // - false: NOT an internal scroll, ALLOW slide transition
+  // - true: IS an internal scroll, BLOCK slide transition
+  // - "boundary": Is at the boundary of an internal scroll, apply cooldown before allowing transition
+  const isInternalScroll = useCallback((target, isVerticalSwipe = false, scrollDir = 0) => {
     // If a modal is open, don't allow slide navigation
     if (document.querySelector("[data-modal-overlay]")) return true;
 
@@ -239,14 +245,57 @@ export function useDeck(totalSlides) {
     )
       return true;
 
+    // 1. Detect inner scrollable containers (e.g., masonry galleries)
+    let el = target;
+    let innerScrollContainer = null;
+    while (el && el !== document.body && !el.classList?.contains("slide")) {
+      const style = window.getComputedStyle(el);
+      if (
+        style.overflow === "auto" ||
+        style.overflow === "scroll" ||
+        style.overflowY === "auto" ||
+        style.overflowY === "scroll"
+      ) {
+        if (el.scrollHeight > el.clientHeight + 2) {
+          innerScrollContainer = el;
+          break;
+        }
+      }
+      el = el.parentElement;
+    }
+
+    if (innerScrollContainer && isVerticalSwipe) {
+      const atTop = innerScrollContainer.scrollTop <= 1;
+      const atBottom =
+        Math.ceil(innerScrollContainer.scrollTop + innerScrollContainer.clientHeight) >=
+        innerScrollContainer.scrollHeight - 1;
+
+      if (scrollDir === -1 && !atTop) return true; // Scrolling up, but not at top
+      if (scrollDir === 1 && !atBottom) return true; // Scrolling down, but not at bottom
+      if (scrollDir === 0) return true; // Strict block if no dir provided
+
+      // If we are EXACTLY at the boundary trying to scroll past it, 
+      // return a special flag to apply a time-based cooldown resistance
+      return "boundary";
+    }
+
     const scrollable = target.closest(".slide");
     if (!scrollable) return false;
 
-    // On mobile/tablet, block ONLY vertical swipe navigation if there is vertical overflow
+    // 2. On mobile/tablet, block ONLY vertical swipe navigation if there is vertical overflow on the slide itself
     if (isVerticalSwipe && window.innerWidth <= 1024) {
       // Give a 5px threshold to avoid false positives on perfectly fit elements
       if (scrollable.scrollHeight > scrollable.clientHeight + 5) {
-        return true;
+        const atTop = scrollable.scrollTop <= 1;
+        const atBottom =
+          Math.ceil(scrollable.scrollTop + scrollable.clientHeight) >=
+          scrollable.scrollHeight - 1;
+
+        if (scrollDir === -1 && !atTop) return true; // Scrolling up, not at top
+        if (scrollDir === 1 && !atBottom) return true; // Scrolling down, not at bottom
+        if (scrollDir === 0) return true; // strict block
+
+        return "boundary"; // At boundary, apply cooldown
       }
     }
 
@@ -258,29 +307,56 @@ export function useDeck(totalSlides) {
 
   // Setup Observer and keyboard listeners
   useEffect(() => {
+
+    const handleObserverScroll = (self, isVertical, scrollDir, gotoOffset) => {
+      const scrollStatus = isInternalScroll(self.event.target, isVertical, scrollDir);
+
+      if (scrollStatus === true) {
+        // Actively scrolling inside a valid container. 
+        // Reset boundary timer so they have to start pushing again when they hit the end.
+        lastBoundaryHitRef.current = Date.now();
+        return;
+      }
+
+      if (scrollStatus === "boundary") {
+        // They are pushing *against* the edge of a scrollable container.
+        const now = Date.now();
+        const timeSinceHit = now - lastBoundaryHitRef.current;
+
+        if (timeSinceHit < 400) {
+          // Cooldown active. Block the slide transition.
+          // We don't update lastBoundaryHitRef here so the 400ms eventually expires
+          // if they keep pushing.
+          return;
+        } else {
+          // Cooldown over! They pushed intentionally hard enough.
+          // Reset it for the next slide.
+          lastBoundaryHitRef.current = Date.now();
+        }
+      }
+
+      gotoSlide(currentIndexRef.current + gotoOffset);
+    };
+
     // Observer handles trackpad, wheel, and pointer down/up (including touch)
     const observer = Observer.create({
       target: window,
       type: "wheel,touch,pointer",
       onUp: (self) => {
         // Wheel scrolled UP, or User swiped vertically Downwards (moving content up organically)
-        if (isInternalScroll(self.event.target, true)) return;
-        gotoSlide(currentIndexRef.current - 1);
+        handleObserverScroll(self, true, -1, -1);
       },
       onDown: (self) => {
         // Wheel scrolled DOWN, or User swiped vertically Upwards
-        if (isInternalScroll(self.event.target, true)) return;
-        gotoSlide(currentIndexRef.current + 1);
+        handleObserverScroll(self, true, 1, 1);
       },
       onLeft: (self) => {
         // User swiped horizontally Left (wanting next page on the right)
-        if (isInternalScroll(self.event.target, false)) return;
-        gotoSlide(currentIndexRef.current + 1);
+        handleObserverScroll(self, false, 0, 1);
       },
       onRight: (self) => {
         // User swiped horizontally Right (wanting prev page on the left)
-        if (isInternalScroll(self.event.target, false)) return;
-        gotoSlide(currentIndexRef.current - 1);
+        handleObserverScroll(self, false, 0, -1);
       },
       wheelSpeed: -1,
       tolerance: 30, // Increased tolerance to prevent micro-jitters from firing
