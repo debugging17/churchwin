@@ -22,15 +22,16 @@ export default function MasonryGallerySlide() {
             }}
         >
             <div style={{ width: "100%" }}>
-                <div className="masonry-grid" style={{ height: "100vh" }}>
-                    <img className="masonry-item h-tall" src="/assets/images/mansory/8NONlPs-Ack6oO4nyCgOxL.png" alt="Masonry Slide 1" />
-                    <video className="masonry-item h-short" src="/assets/images/mansory/grok-video-7864786d-3736-496a-abd9-5b4b705fd073.mp4" autoPlay loop muted playsInline />
-                    <img className="masonry-item h-medium" src="/assets/images/mansory/aUolXP5nNuu85KUmIIL_3H.png" alt="Masonry Slide 3" />
-                    <img className="masonry-item h-tall" src="/assets/images/mansory/pomelli-image(1).png" alt="Pomelli Image 1" />
-                    <img className="masonry-item h-medium" src="/assets/images/mansory/pomelli-image(13).png" alt="Pomelli Image 13" />
-                    <img className="masonry-item h-tall" src="/assets/images/mansory/pomelli-image(16).png" alt="Pomelli Image 16" />
-                    <img className="masonry-item h-medium" src="/assets/images/mansory/pomelli-image(4).png" alt="Pomelli Image 4" />
-                    <img className="masonry-item h-short" src="/assets/images/mansory/pomelli-image(9).png" alt="Pomelli Image 9" />
+                <div className="bento-grid">
+                    <img className="bento-item bento-regular" src="/assets/images/mansory/8NONlPs-Ack6oO4nyCgOxL.png" alt="Gallery Image 1" />
+                    <video className="bento-item bento-large" src="/assets/images/mansory/grok-video-7864786d-3736-496a-abd9-5b4b705fd073.mp4" autoPlay loop muted playsInline />
+                    <img className="bento-item bento-wide" src="/assets/images/mansory/aUolXP5nNuu85KUmIIL_3H.png" alt="Gallery Image 2" />
+                    <img className="bento-item bento-tall" src="/assets/images/mansory/pomelli-image(1).png" alt="Gallery Image 3" />
+                    <img className="bento-item bento-wide" src="/assets/images/mansory/pomelli-image(13).png" alt="Gallery Image 4" />
+                    <img className="bento-item bento-tall" src="/assets/images/mansory/pomelli-image(16).png" alt="Gallery Image 5" />
+                    <img className="bento-item bento-regular" src="/assets/images/mansory/pomelli-image(4).png" alt="Gallery Image 6" />
+                    <img className="bento-item bento-regular" src="/assets/images/mansory/pomelli-image(9).png" alt="Gallery Image 7" />
+                    <img className="bento-item bento-regular" src="/assets/images/mansory/pomelli-image.png" alt="Gallery Image 8" />
                 </div>
             </div>
         </section>
