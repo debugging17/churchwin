@@ -148,7 +148,7 @@ export default function SalesEngineSlide() {
                   />
                 </div>
                 <img
-                  src="https://logo.clearbit.com/apollo.io"
+                  src="/assets/images/Sales Engine/apollo.png"
                   alt="Apollo.io"
                   style={{
                     height: "16px",
@@ -332,7 +332,7 @@ export default function SalesEngineSlide() {
                   />
                 </div>
                 <img
-                  src="https://logo.clearbit.com/instantly.ai"
+                  src="/assets/images/Sales Engine/instantly.png"
                   alt="Instantly.ai"
                   style={{
                     height: "16px",
@@ -544,7 +544,7 @@ export default function SalesEngineSlide() {
                   />
                 </div>
                 <img
-                  src="https://logo.clearbit.com/mailchimp.com"
+                  src="/assets/images/Sales Engine/mailchimp.png"
                   alt="Mailchimp"
                   style={{
                     height: "16px",
@@ -735,7 +735,7 @@ export default function SalesEngineSlide() {
                   />
                 </div>
                 <img
-                  src="https://logo.clearbit.com/linkedin.com"
+                  src="/assets/images/Sales Engine/linkedin.png"
                   alt="LinkedIn"
                   style={{
                     height: "16px",
