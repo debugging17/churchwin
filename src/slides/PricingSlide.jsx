@@ -244,8 +244,8 @@ export default function PricingSlide() {
                                     className="pricing-kpi"
                                     style={{
                                         background: active.isDark ? "rgba(255,255,255,0.06)" : "#fff",
-                                        border: `1.5px solid ${active.isDark ? "rgba(255,255,255,0.12)" : "#d0d5dd"}`,
-                                        boxShadow: active.isDark ? "none" : "0 2px 8px rgba(0,0,0,0.07)",
+                                        border: `1.5px solid ${active.isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.15)"}`,
+                                        boxShadow: active.isDark ? "0 4px 12px rgba(0,0,0,0.3)" : "0 4px 16px rgba(0,0,0,0.08)",
                                     }}
                                 >
                                     <span className="pricing-kpi__icon">{item.icon}</span>
@@ -262,8 +262,8 @@ export default function PricingSlide() {
                             className="pricing-bars"
                             style={{
                                 background: active.isDark ? "rgba(255,255,255,0.04)" : "#fff",
-                                border: `1.5px solid ${active.isDark ? "rgba(255,255,255,0.08)" : "#d0d5dd"}`,
-                                boxShadow: active.isDark ? "none" : "0 2px 8px rgba(0,0,0,0.07)",
+                                border: `1.5px solid ${active.isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.15)"}`,
+                                boxShadow: active.isDark ? "0 4px 12px rgba(0,0,0,0.3)" : "0 4px 16px rgba(0,0,0,0.08)",
                             }}
                         >
                             <div className="pricing-bars__title" style={{ color: active.isDark ? "rgba(255,255,255,0.5)" : "#999" }}>
