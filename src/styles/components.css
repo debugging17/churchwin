@@ -459,7 +459,7 @@
 #slide-pricing {
   flex-direction: column;
   overflow: hidden;
-  padding-bottom: 3.5rem !important;
+  padding-bottom: 5rem !important;
   /* clear fixed footer at bottom: 2.5rem */
 }
 
@@ -489,7 +489,7 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 0.85rem;
-  padding: 0.5rem 0 0 0 !important;
+  padding: 0 !important;
   margin-left: 0 !important;
   overflow-y: auto;
   scrollbar-width: none;
