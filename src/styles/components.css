@@ -450,3 +450,481 @@
   grid-column: span 1;
   grid-row: span 1;
 }
+
+/* ═══════════════════════════════════════════════
+   PRICING SLIDE
+═══════════════════════════════════════════════ */
+
+/* Slide layout: header + body stacked */
+#slide-pricing {
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header */
+.pricing-header {
+  padding: 2rem 3rem 1.25rem;
+  flex-shrink: 0;
+}
+
+/* Body = sidebar + panel side by side */
+.pricing-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  gap: 0;
+}
+
+/* ─── Sidebar ─── */
+.pricing-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0 1rem 5rem 2rem;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.pricing-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tab button */
+.pricing-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  outline: none;
+}
+
+.pricing-tab:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(3px);
+}
+
+.pricing-tab--active {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--tab-accent, var(--accent));
+  box-shadow: inset 3px 0 0 var(--tab-accent, var(--accent));
+}
+
+/* Logo wrap */
+.pricing-tab__logo-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.pricing-tab__logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.pricing-tab__logo-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #fff;
+}
+
+/* Tab text */
+.pricing-tab__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.pricing-tab__name {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pricing-tab__url {
+  display: block;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Price pill on tab */
+.pricing-tab__price {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.45);
+  flex-shrink: 0;
+  text-align: right;
+  transition: color 0.2s;
+}
+
+.pricing-tab__price span {
+  font-weight: 400;
+  font-size: 0.65rem;
+}
+
+/* Sidebar total */
+.pricing-total {
+  margin-top: auto;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.pricing-total__mo {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-align: right;
+}
+
+.pricing-total__mo span {
+  font-weight: 400;
+  font-size: 0.7rem;
+}
+
+.pricing-total__ann {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.35);
+  text-align: right;
+  margin-top: 2px;
+}
+
+/* ─── Right Panel ─── */
+.pricing-panel {
+  flex: 1;
+  min-width: 0;
+  border-radius: 20px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: none;
+  animation: panelSlide 0.3s ease;
+}
+
+.pricing-panel::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes panelSlide {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Panel header bar */
+.pricing-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  border-radius: 20px 0 0 0;
+  flex-shrink: 0;
+}
+
+.pricing-panel__header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pricing-panel__logo {
+  height: 36px;
+  object-fit: contain;
+}
+
+.pricing-panel__platform-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+}
+
+.pricing-panel__platform-tier {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.pricing-panel__header-right {
+  text-align: right;
+}
+
+.pricing-panel__price-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 99px;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 900;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1;
+}
+
+.pricing-panel__price-badge small {
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.pricing-panel__annual {
+  font-size: 0.7rem;
+  margin-top: 4px;
+}
+
+/* Panel body */
+.pricing-panel__body {
+  padding: 1.5rem 2rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.pricing-panel__purpose {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* 3-card breakdown row */
+.pricing-breakdown-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.pricing-kpi {
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.pricing-kpi:hover {
+  transform: translateY(-3px);
+}
+
+.pricing-kpi__icon {
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.pricing-kpi__value {
+  font-size: 1.1rem;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+}
+
+.pricing-kpi__label {
+  font-size: 0.7rem;
+  margin-top: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Bar section */
+.pricing-bars {
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pricing-bars__title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+}
+
+.pricing-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pricing-bar-row__label {
+  width: 72px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.pricing-bar-row__track {
+  flex: 1;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.pricing-bar-row__fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pricing-bar-row__pct {
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: 36px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Features list */
+.pricing-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem 1rem;
+}
+
+.pricing-features li {
+  font-size: 0.82rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  line-height: 1.4;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  .pricing-header {
+    padding: 1.5rem 2rem 1rem;
+  }
+
+  .pricing-sidebar {
+    width: 220px;
+    padding-left: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #slide-pricing {
+    overflow-y: auto;
+    padding-bottom: 5rem;
+  }
+
+  .pricing-body {
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .pricing-header {
+    padding: 1.25rem 1.25rem 0.75rem;
+  }
+
+  .pricing-sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: visible;
+    gap: 0.5rem;
+    padding: 0 1rem 0.75rem;
+    scrollbar-width: none;
+  }
+
+  .pricing-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pricing-tab {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.6rem 0.75rem;
+    min-width: 80px;
+    text-align: center;
+    gap: 0.35rem;
+  }
+
+  .pricing-tab:hover {
+    transform: none;
+  }
+
+  .pricing-tab__text {
+    display: none;
+  }
+
+  .pricing-tab__price {
+    display: none;
+  }
+
+  .pricing-total {
+    display: none;
+  }
+
+  .pricing-panel {
+    border-radius: 16px;
+    margin: 0 1rem;
+  }
+
+  .pricing-panel__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .pricing-breakdown-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .pricing-features {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-panel__body {
+    padding: 1rem 1rem 2rem;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-breakdown-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}

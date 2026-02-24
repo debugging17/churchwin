@@ -15,6 +15,7 @@ import MasonryGallerySlide3 from "./slides/MasonryGallerySlide3";
 import RoadmapSlide from "./slides/RoadmapSlide";
 import SalesEngineSlide from "./slides/SalesEngineSlide";
 import NarrativeSlide from "./slides/NarrativeSlide";
+import PricingSlide from "./slides/PricingSlide";
 import ConclusionSlide from "./slides/ConclusionSlide";
 
 function App() {
@@ -67,11 +68,13 @@ function App() {
       />
       <NarrativeSlide />
 
+      <PricingSlide />
+
       <SectionCoverSlide
         num="06"
         title="Next Steps"
         theme="light"
-        slideIndex={15}
+        slideIndex={16}
       />
       <ConclusionSlide />
     </DeckContainer>
