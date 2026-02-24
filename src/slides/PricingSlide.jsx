@@ -7,6 +7,7 @@ const PLATFORMS = [
         name: "Apollo.io",
         url: "apollo.io",
         logo: "/assets/images/Sales Engine/apollo.png",
+        logoFilter: "brightness(0) invert(1)",
         accentColor: "#ff6a00",
         panelBg: "#0d1117",
         panelHeaderBg: "#161b22",
@@ -32,6 +33,7 @@ const PLATFORMS = [
         name: "Mailchimp",
         url: "mailchimp.com",
         logo: "/assets/images/Sales Engine/mailchimp.png",
+        logoFilter: "none",
         accentColor: "#c8a200",
         panelBg: "#fffdf0",
         panelHeaderBg: "#fff8d0",
@@ -57,6 +59,7 @@ const PLATFORMS = [
         name: "Instantly.ai",
         url: "instantly.ai",
         logo: "/assets/images/Sales Engine/instantly.png",
+        logoFilter: "none",
         accentColor: "#6366f1",
         panelBg: "#f8f9ff",
         panelHeaderBg: "#eef0ff",
@@ -82,6 +85,7 @@ const PLATFORMS = [
         name: "LinkedIn",
         url: "linkedin.com",
         logo: "/assets/images/Sales Engine/linkedin.png",
+        logoFilter: "none",
         accentColor: "#0a66c2",
         panelBg: "#f3f7fb",
         panelHeaderBg: "#dceaf7",
@@ -170,16 +174,6 @@ export default function PricingSlide() {
                         </button>
                     ))}
 
-                    {/* Stack Total */}
-                    <div className="pricing-total pricing-total--light">
-                        <span>Total Stack</span>
-                        <div>
-                            <div className="pricing-total__mo" style={{ color: "#ff6a00" }}>
-                                ${TOTAL_MO}<span>/mo</span>
-                            </div>
-                            <div className="pricing-total__ann">${TOTAL_ANN}/mo billed annually</div>
-                        </div>
-                    </div>
                 </aside>
 
                 {/* Right Panel */}
@@ -195,6 +189,7 @@ export default function PricingSlide() {
                                 src={active.logo}
                                 alt={active.name}
                                 className="pricing-panel__logo"
+                                style={{ filter: active.logoFilter }}
                                 onError={(e) => (e.target.style.display = "none")}
                             />
                             <div>
