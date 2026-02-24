@@ -127,7 +127,7 @@ export default function PricingSlide() {
         >
             {/* ── Header ── */}
             <div className="pricing-header">
-                <span className="label" style={{ color: "#ff6a00", opacity: 1, display: "block", fontSize: "0.65rem" }}>
+                <span className="label" style={{ color: "#ff6a00", opacity: 1, display: "block", fontSize: "0.65rem", marginBottom: "0.35rem" }}>
                     Investment Breakdown
                 </span>
                 <h1 style={{ margin: 0, color: "#012787", fontSize: "clamp(1.6rem, 4vw, 2.6rem)", fontWeight: 900, fontFamily: "'Montserrat', sans-serif", lineHeight: 1.1 }}>
