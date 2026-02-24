@@ -174,6 +174,26 @@ export default function PricingSlide() {
                         </button>
                     ))}
 
+                    {/* Compact Total */}
+                    <div style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        padding: "0.5rem 0.85rem",
+                        borderRadius: "10px",
+                        background: "#fff",
+                        border: "1px solid #e5e7eb",
+                        fontSize: "0.72rem",
+                        color: "#888",
+                        fontWeight: 600,
+                        letterSpacing: "0.3px",
+                        textTransform: "uppercase",
+                    }}>
+                        <span>Total</span>
+                        <span style={{ color: "#ff6a00", fontSize: "0.95rem", fontWeight: 800 }}>
+                            ${TOTAL_MO}<span style={{ fontWeight: 400, fontSize: "0.65rem" }}>/mo</span>
+                        </span>
+                    </div>
                 </aside>
 
                 {/* Right Panel */}
