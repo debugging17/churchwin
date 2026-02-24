@@ -127,15 +127,12 @@ export default function PricingSlide() {
         >
             {/* ── Header ── */}
             <div className="pricing-header">
-                <span className="label" style={{ color: "#ff6a00", opacity: 1, marginBottom: "0.2rem", display: "block" }}>
+                <span className="label" style={{ color: "#ff6a00", opacity: 1, display: "block", fontSize: "0.65rem" }}>
                     Investment Breakdown
                 </span>
-                <h1 className="headline-xl" style={{ margin: 0, color: "#012787" }}>
-                    How much will it <span className="highlight">Cost?</span>
+                <h1 style={{ margin: 0, color: "#012787", fontSize: "clamp(1.6rem, 4vw, 2.6rem)", fontWeight: 900, fontFamily: "'Montserrat', sans-serif", lineHeight: 1.1 }}>
+                    How much will it Cost?
                 </h1>
-                <p style={{ color: "#666", fontSize: "0.88rem", marginTop: "0.3rem", fontWeight: 400 }}>
-                    Monthly subscription costs for each platform in our sales technology stack
-                </p>
             </div>
 
             {/* ── Body: sidebar + panel ── */}
