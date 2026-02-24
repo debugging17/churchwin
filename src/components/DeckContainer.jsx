@@ -62,6 +62,9 @@ export default function DeckContainer({ children }) {
         ))}
       </Swiper>
 
+      {/* Footer Backdrop — frosted glass behind progress bar */}
+      <div className="footer-backdrop" />
+
       {/* UI Elements */}
       <div className="progress-bar">
         <div className="progress-fill" ref={progressRef} />

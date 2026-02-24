@@ -1,5 +1,6 @@
 /* ========== TABLET (1024px and below) ========== */
 @media (max-width: 1024px) {
+
   /* --- Layout & Deck --- */
   .slide {
     flex-direction: column;
@@ -13,8 +14,8 @@
     overscroll-behavior: none;
   }
 
-  .slide > .visual-pane,
-  .slide > .narrative-pane {
+  .slide>.visual-pane,
+  .slide>.narrative-pane {
     width: 100%;
     height: auto;
     padding: 2rem;
@@ -108,6 +109,7 @@
 
 /* ========== SMALL TABLET & MOBILE (768px and below) ========== */
 @media (max-width: 768px) {
+
   /* --- Layout & Deck --- */
   .slide {
     padding: 1rem 1rem 4rem;
@@ -318,7 +320,7 @@
   }
 
   #slide-3 .split-comparison,
-  #slide-3 .visual-pane > div {
+  #slide-3 .visual-pane>div {
     flex-direction: row;
     min-height: 200px;
     height: auto;
@@ -326,7 +328,7 @@
     gap: 0.5rem;
   }
 
-  #slide-3 .visual-pane > div > div {
+  #slide-3 .visual-pane>div>div {
     transform: none;
     opacity: 1;
     flex: 1;
@@ -337,19 +339,19 @@
     width: 100%;
   }
 
-  #slide-4 .visual-pane > div {
+  #slide-4 .visual-pane>div {
     flex-direction: column;
     width: 100%;
     gap: 0.75rem;
   }
 
-  #slide-4 .visual-pane > div > div {
+  #slide-4 .visual-pane>div>div {
     margin-left: 0;
     padding: 1rem;
     width: 100%;
   }
 
-  #slide-5 .visual-pane > div {
+  #slide-5 .visual-pane>div {
     gap: 0.4rem;
   }
 
@@ -375,7 +377,7 @@
     max-height: 250px;
   }
 
-  #slide-6 .visual-pane > div {
+  #slide-6 .visual-pane>div {
     height: 100%;
   }
 
@@ -395,12 +397,68 @@
   #slide-7 .growth-text {
     font-size: 8vw;
   }
+
+  /* --- Footer Clearance Fixes for content-heavy slides --- */
+  /* TOC slide: prevent Executive Summary text from bleeding into footer */
+  #slide-toc {
+    padding-bottom: 5.5rem;
+  }
+
+  #slide-toc .narrative-pane {
+    padding-bottom: 3rem;
+    overflow-y: auto;
+    max-height: calc(100vh - 6rem);
+  }
+
+  /* Roadmap slide (id=slide-4): prevent timeline cards from overlapping footer */
+  #slide-4 {
+    padding-bottom: 0;
+  }
+
+  #slide-4 .narrative-pane {
+    padding-bottom: 4rem;
+  }
+
+  /* Sales Engine slide (id=slide-5): prevent Apollo.io mockup from clipping footer */
+  #slide-5 {
+    padding-bottom: 0;
+  }
+
+  #slide-5 .narrative-pane {
+    padding-bottom: 4rem;
+  }
+
+  /* Narrative/Architecture slide (id=slide-6): prevent tab card from being cut off */
+  #slide-6 {
+    padding-bottom: 0;
+  }
+
+  #slide-6 .narrative-pane {
+    padding-bottom: 4rem;
+  }
+
+  /* Gallery slides: ensure footer clearance on mobile */
+  #slide-masonry,
+  #slide-masonry-2,
+  #slide-masonry-3 {
+    padding-bottom: 4rem;
+  }
+
+  /* Touch optimization: prevent overscroll bounce */
+  .slide {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .masonry-scroller {
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
 }
 
 /* ========== SMALL MOBILE (480px and below) ========== */
 @media (max-width: 480px) {
   .slide {
-    padding: 0.5rem 1rem 3.5rem;
+    padding: 0.5rem 1rem 5rem;
   }
 
   .headline-xl {
@@ -431,14 +489,31 @@
     grid-column: span 1;
   }
 
-  .bento-grid > .bento-card:last-child {
+  .bento-grid>.bento-card:last-child {
     grid-column: span 1;
   }
 
   #slide-3 .split-comparison,
-  #slide-3 .visual-pane > div {
+  #slide-3 .visual-pane>div {
     flex-direction: column;
     min-height: auto;
+  }
+
+  /* Footer clearance overrides for content-heavy slides */
+  #slide-toc {
+    padding-bottom: 5.5rem;
+  }
+
+  #slide-4,
+  #slide-5,
+  #slide-6 {
+    padding-bottom: 5rem;
+  }
+
+  #slide-masonry,
+  #slide-masonry-2,
+  #slide-masonry-3 {
+    padding-bottom: 4.5rem;
   }
 }
 

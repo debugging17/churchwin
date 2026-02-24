@@ -115,17 +115,8 @@ export function useDeck(totalSlides) {
     [swiper],
   );
 
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeydown = (e) => {
-      if (!swiper) return;
-      if (document.querySelector("[data-modal-overlay]")) return;
-      if (e.key === "ArrowRight" || e.key === "ArrowDown") swiper.slideNext();
-      if (e.key === "ArrowLeft" || e.key === "ArrowUp") swiper.slidePrev();
-    };
-    window.addEventListener("keydown", handleKeydown);
-    return () => window.removeEventListener("keydown", handleKeydown);
-  }, [swiper]);
+  // NOTE: Keyboard navigation is handled by Swiper's built-in Keyboard module.
+  // Do NOT add a separate keydown handler here or slides will double-advance.
 
   // Sync slidesRef
   useEffect(() => {
