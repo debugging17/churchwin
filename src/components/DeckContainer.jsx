@@ -38,9 +38,10 @@ export default function DeckContainer({ children }) {
         slidesPerView={1}
         spaceBetween={0}
         mousewheel={{
-          forceToAxis: true,
+          forceToAxis: false,
           sensitivity: 1,
-          releaseOnEdges: true,
+          thresholdDelta: 50,
+          thresholdTime: 60,
         }}
         keyboard={{
           enabled: true,
