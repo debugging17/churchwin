@@ -42,6 +42,7 @@ export default function DeckContainer({ children }) {
           sensitivity: 1,
           thresholdDelta: 50,
           thresholdTime: 60,
+          noMousewheelClass: "swiper-no-mousewheel",
         }}
         keyboard={{
           enabled: true,

@@ -1,10 +1,13 @@
 import { useRef } from "react";
 import Masonry from "react-masonry-css";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
+import { useNestedScroll } from "../hooks/useNestedScroll";
 
 export default function MasonryGallerySlide3() {
     const slideRef = useRef(null);
-    useSlideAnimation(slideRef, 8); // Slide index 8
+    const scrollerRef = useRef(null);
+    useSlideAnimation(slideRef, 8);
+    useNestedScroll(scrollerRef);
 
     return (
         <section
@@ -18,7 +21,11 @@ export default function MasonryGallerySlide3() {
                 padding: "0 0 5.5rem 0"
             }}
         >
-            <div className="masonry-scroller" style={{ width: "100%", height: "100%", overflowY: "auto", overflowX: "hidden", paddingTop: "1.5rem", paddingBottom: "1.5rem" }}>
+            <div
+                ref={scrollerRef}
+                className="masonry-scroller"
+                style={{ width: "100%", height: "100%", overflowY: "auto", overflowX: "hidden", paddingTop: "1.5rem", paddingBottom: "1.5rem" }}
+            >
                 <Masonry
                     breakpointCols={{ default: 3, 1100: 2, 700: 1 }}
                     className="my-masonry-grid"
