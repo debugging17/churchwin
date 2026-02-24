@@ -928,3 +928,53 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ─── Light-mode sidebar overrides ─── */
+.pricing-sidebar--light {
+  background: #f7f8fa;
+  border-right: 1px solid #e5e7eb;
+}
+
+.pricing-tab--light {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  color: #012787;
+}
+
+.pricing-tab--light:hover {
+  background: #f0f4ff;
+  border-color: #c7d2fe;
+}
+
+.pricing-tab--active-light {
+  background: #f0f4ff;
+  border-color: var(--tab-accent, #012787);
+  box-shadow: inset 3px 0 0 var(--tab-accent, #012787);
+}
+
+.pricing-tab__logo-wrap--light {
+  background: #f1f5f9;
+}
+
+.pricing-tab__name--light {
+  color: #012787;
+}
+
+.pricing-tab__url--light {
+  color: #94a3b8;
+}
+
+.pricing-total--light {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  color: #666;
+}
+
+.pricing-total--light .pricing-total__ann {
+  color: #aaa;
+}
+
+/* Ensure panel body never bleeds past footer */
+.pricing-panel__body {
+  padding-bottom: 5.5rem !important;
+}

@@ -60,15 +60,15 @@ function App() {
       />
       <SalesEngineSlide />
 
+      <PricingSlide />
+
       <SectionCoverSlide
         num="05"
         title="Digital Architecture"
         theme="dark"
-        slideIndex={13}
+        slideIndex={14}
       />
       <NarrativeSlide />
-
-      <PricingSlide />
 
       <SectionCoverSlide
         num="06"
