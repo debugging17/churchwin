@@ -1,0 +1,10 @@
+# Disable caching for all image assets so updated files always serve fresh
+/assets/images/*
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
+
+/assets/images/mansory/*
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
