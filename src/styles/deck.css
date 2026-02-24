@@ -172,18 +172,21 @@ h4 {
   z-index: 100;
 }
 
-/* Frosted glass footer backdrop — ensures footer is readable over scrollable content */
+/* Frosted glass backdrop — scoped to the progress bar + page indicator area ONLY.
+   Full-width would blur the logo at bottom-right. Keep this narrow. */
 .footer-backdrop {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 320px;
+  /* covers progress-bar (left:3rem / ~48px + 200px) + page indicator + gap */
   height: 4rem;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   background: linear-gradient(to top, rgba(0, 0, 0, 0.08), transparent);
   z-index: 99;
   pointer-events: none;
+  border-radius: 0 12px 0 0;
   transition: background 0.5s ease;
 }
 
