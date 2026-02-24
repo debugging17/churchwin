@@ -170,24 +170,7 @@ h4 {
   height: 2px;
   background: rgba(255, 255, 255, 0.5);
   z-index: 100;
-}
-
-/* Frosted glass backdrop — scoped to the progress bar + page indicator area ONLY.
-   Full-width would blur the logo at bottom-right. Keep this narrow. */
-.footer-backdrop {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 320px;
-  /* covers progress-bar (left:3rem / ~48px + 200px) + page indicator + gap */
-  height: 4rem;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.08), transparent);
-  z-index: 99;
-  pointer-events: none;
-  border-radius: 0 12px 0 0;
-  transition: background 0.5s ease;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.3));
 }
 
 .progress-fill {
@@ -204,6 +187,8 @@ h4 {
   color: #fff;
   font-size: 0.9rem;
   z-index: 100;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.05em;
 }
 
 .current-page {
