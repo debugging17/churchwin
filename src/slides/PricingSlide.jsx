@@ -171,27 +171,17 @@ export default function PricingSlide() {
                         </button>
                     ))}
 
-                    {/* Compact Total */}
-                    <div style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        width: "100%",
-                        padding: "1rem 1.25rem",
-                        borderRadius: "16px 0 0 16px",
-                        background: "linear-gradient(135deg, #012787, #0141b0)",
-                        border: "2px solid #ff6a00",
-                        color: "rgba(255,255,255,0.85)",
-                        fontWeight: 700,
-                        letterSpacing: "0.5px",
-                        textTransform: "uppercase",
-                        boxShadow: "0 4px 16px rgba(1,39,135,0.3)",
-                        marginTop: "auto",
-                    }}>
-                        <span style={{ fontSize: "0.85rem", letterSpacing: "1px" }}>Total Stack</span>
-                        <span style={{ color: "#ff6a00", fontSize: "1.85rem", fontWeight: 900, fontFamily: "'Montserrat', sans-serif" }}>
-                            ${TOTAL_MO}<span style={{ fontWeight: 400, fontSize: "0.95rem", color: "rgba(255,255,255,0.6)" }}>/mo</span>
-                        </span>
+                    {/* Total Stack Card */}
+                    <div className="pricing-total-stack">
+                        <div className="pricing-total-stack__inner">
+                            <div className="pricing-total-stack__label">Total Stack</div>
+                            <div className="pricing-total-stack__price">
+                                <span className="pricing-total-stack__dollar">$</span>
+                                <span className="pricing-total-stack__amount">{TOTAL_MO}</span>
+                                <span className="pricing-total-stack__period">/mo</span>
+                            </div>
+
+                        </div>
                     </div>
                 </aside>
 

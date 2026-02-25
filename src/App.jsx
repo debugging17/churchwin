@@ -16,6 +16,7 @@ import RoadmapSlide from "./slides/RoadmapSlide";
 import SalesEngineSlide from "./slides/SalesEngineSlide";
 import NarrativeSlide from "./slides/NarrativeSlide";
 import PricingSlide from "./slides/PricingSlide";
+import RevenueDashboardSlide from "./slides/RevenueDashboardSlide";
 import ConclusionSlide from "./slides/ConclusionSlide";
 
 function App() {
@@ -61,12 +62,13 @@ function App() {
       <SalesEngineSlide />
 
       <PricingSlide />
+      <RevenueDashboardSlide />
 
       <SectionCoverSlide
         num="05"
         title="Digital Architecture"
         theme="dark"
-        slideIndex={14}
+        slideIndex={15}
       />
       <NarrativeSlide />
 
@@ -74,7 +76,7 @@ function App() {
         num="06"
         title="Next Steps"
         theme="light"
-        slideIndex={16}
+        slideIndex={17}
       />
       <ConclusionSlide />
     </DeckContainer>

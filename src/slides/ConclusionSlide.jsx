@@ -5,7 +5,7 @@ export default function ConclusionSlide() {
   const slideRef = useRef(null);
   const elementsRef = useRef([]);
 
-  useSlideAnimation(slideRef, 16);
+  useSlideAnimation(slideRef, 18);
 
   return (
     <section className="slide" id="slide-7" ref={slideRef}>

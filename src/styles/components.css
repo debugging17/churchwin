@@ -595,40 +595,103 @@
   font-size: 0.75rem;
 }
 
-/* Sidebar total */
-.pricing-total {
+/* Sidebar total stack card */
+.pricing-total-stack {
   margin-top: auto;
-  padding: 0.85rem 1rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+  padding: 0;
+  flex-shrink: 0;
 }
 
-.pricing-total__mo {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--accent);
-  text-align: right;
+.pricing-total-stack__inner {
+  position: relative;
+  padding: 0.9rem 1.15rem;
+  border-radius: 16px 0 0 16px;
+  background: linear-gradient(135deg, #012787 0%, #0141b0 60%, #0153d4 100%);
+  border: 2px solid #ff6a00;
+  border-right: none;
+  box-shadow:
+    0 4px 20px rgba(1, 39, 135, 0.35),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+  text-align: center;
+  overflow: hidden;
 }
 
-.pricing-total__mo span {
-  font-weight: 400;
-  font-size: 0.7rem;
+/* Subtle shimmer sweep */
+.pricing-total-stack__inner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.06),
+      transparent);
+  animation: totalShimmer 4s ease-in-out infinite;
+  pointer-events: none;
 }
 
-.pricing-total__ann {
+@keyframes totalShimmer {
+
+  0%,
+  100% {
+    left: -100%;
+  }
+
+  50% {
+    left: 150%;
+  }
+}
+
+.pricing-total-stack__label {
   font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.35);
-  text-align: right;
-  margin-top: 2px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.2rem;
+}
+
+.pricing-total-stack__price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 1px;
+  line-height: 1;
+}
+
+.pricing-total-stack__dollar {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ff6a00;
+  font-family: "Montserrat", sans-serif;
+}
+
+.pricing-total-stack__amount {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ff6a00;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -1px;
+}
+
+.pricing-total-stack__period {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: 2px;
+}
+
+.pricing-total-stack__savings {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 0.3rem;
+  line-height: 1.3;
+}
+
+.pricing-total-stack__savings strong {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* ─── Right Panel ─── */
@@ -908,7 +971,7 @@
     display: none;
   }
 
-  .pricing-total {
+  .pricing-total-stack {
     display: none;
   }
 
@@ -982,17 +1045,496 @@
   color: #94a3b8;
 }
 
-.pricing-total--light {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  color: #666;
-}
 
-.pricing-total--light .pricing-total__ann {
-  color: #aaa;
-}
 
 /* Ensure panel body never bleeds past footer */
 .pricing-panel__body {
   padding-bottom: 4rem !important;
+}
+
+/* ═══════════════════════════════════════════════
+   REVENUE DASHBOARD SLIDE
+═══════════════════════════════════════════════ */
+
+#slide-revenue-dashboard {
+  padding: 0 !important;
+  padding-bottom: 2.5rem !important;
+}
+
+.rdash {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Inter", "Montserrat", sans-serif;
+}
+
+/* ── Sidebar ── */
+.rdash-sidebar {
+  width: 210px;
+  flex-shrink: 0;
+  background: #f8f9fb;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.rdash-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.rdash-sidebar__logo {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rdash-sidebar__logo-img {
+  height: 28px;
+  object-fit: contain;
+}
+
+.rdash-sidebar__nav {
+  padding: 0.5rem 0.5rem;
+  flex: 1;
+}
+
+.rdash-sidebar__group-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #94a3b8;
+  padding: 0.5rem 0.6rem 0.25rem;
+}
+
+.rdash-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  color: #64748b;
+  cursor: default;
+  transition: background 0.15s, color 0.15s;
+  position: relative;
+}
+
+.rdash-nav-item--active {
+  background: rgba(1, 39, 135, 0.08);
+  color: #012787;
+  font-weight: 600;
+}
+
+.rdash-nav-item__icon {
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+}
+
+.rdash-nav-item__label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rdash-nav-item__badge {
+  font-size: 0.58rem;
+  font-weight: 700;
+  background: rgba(1, 39, 135, 0.1);
+  color: #012787;
+  padding: 0.1rem 0.4rem;
+  border-radius: 99px;
+  line-height: 1.4;
+}
+
+/* ── Main area ── */
+.rdash-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Top bar */
+.rdash-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 1.25rem;
+  border-bottom: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+
+.rdash-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+}
+
+.rdash-topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rdash-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #012787, #0141b0);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+/* Content area */
+.rdash-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0.85rem 1.25rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  scrollbar-width: none;
+}
+
+.rdash-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Stat cards ── */
+.rdash-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.rdash-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 0.85rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.rdash-stat-card__icon {
+  font-size: 1.3rem;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background: rgba(1, 39, 135, 0.06);
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.rdash-stat-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.rdash-stat-card__value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #012787;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.1;
+}
+
+.rdash-stat-card__label {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  margin-top: 1px;
+}
+
+.rdash-stat-card__change {
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Middle row: chart + product ── */
+.rdash-middle-row {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 0.65rem;
+}
+
+/* Chart card */
+.rdash-chart-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.rdash-chart-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.rdash-chart-card__title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #012787;
+}
+
+.rdash-chart-card__subtitle {
+  font-size: 0.62rem;
+  color: #94a3b8;
+  margin-top: 1px;
+}
+
+.rdash-chart-card__legend {
+  font-size: 0.62rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.rdash-legend-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.rdash-chart-area {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 1;
+}
+
+.rdash-chart-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.rdash-chart-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.58rem;
+  color: #94a3b8;
+  padding-top: 0.25rem;
+}
+
+/* Product insights card */
+.rdash-product-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.rdash-product-card__title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #012787;
+}
+
+.rdash-product-card__subtitle {
+  font-size: 0.62rem;
+  color: #94a3b8;
+}
+
+.rdash-product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: 0.25rem;
+}
+
+.rdash-product-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rdash-product-row__name {
+  font-size: 0.68rem;
+  color: #334155;
+  width: 75px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rdash-product-row__bar-track {
+  flex: 1;
+  height: 5px;
+  background: #f1f5f9;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.rdash-product-row__bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+.rdash-product-row__pct {
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 30px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Earning summary */
+.rdash-earning-summary {
+  margin-top: auto;
+  padding: 0.6rem 0.75rem;
+  background: rgba(1, 39, 135, 0.04);
+  border-radius: 10px;
+  border: 1px solid rgba(1, 39, 135, 0.08);
+}
+
+.rdash-earning-summary__label {
+  font-size: 0.6rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.rdash-earning-summary__value {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #012787;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.2;
+}
+
+.rdash-earning-summary__change {
+  font-size: 0.6rem;
+  color: #64748b;
+}
+
+/* ── Transaction table ── */
+.rdash-table-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.rdash-table-card__header {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.rdash-table-card__title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #012787;
+}
+
+.rdash-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.7rem;
+}
+
+.rdash-table thead th {
+  text-align: left;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.4rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.rdash-table tbody tr {
+  border-bottom: 1px solid #f8f9fb;
+}
+
+.rdash-table tbody td {
+  padding: 0.4rem 1rem;
+  color: #334155;
+}
+
+.rdash-table__customer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rdash-table__avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #012787, #0141b0);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 0.55rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.rdash-table__amount {
+  font-weight: 700;
+  color: #012787;
+  font-family: "Montserrat", sans-serif;
+}
+
+.rdash-table__status {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 99px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.rdash-table__method {
+  color: #94a3b8;
+}
+
+/* ── Responsive: dashboard slide ── */
+@media (max-width: 768px) {
+  .rdash-sidebar {
+    display: none;
+  }
+
+  .rdash-stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .rdash-middle-row {
+    grid-template-columns: 1fr;
+  }
+
+  .rdash-content {
+    padding: 0.75rem 0.75rem 3rem;
+  }
 }
