@@ -1099,7 +1099,7 @@
 }
 
 .rdash-sidebar__nav {
-  padding: 0.6rem 0.6rem 5rem;
+  padding: 0.6rem 0.6rem 10rem;
   flex: 1;
   display: flex;
   flex-direction: column;
