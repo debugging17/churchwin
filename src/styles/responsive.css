@@ -45,11 +45,13 @@
   }
 
   .headline-xl {
-    font-size: clamp(2rem, 7vw, 2.5rem);
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    /* reduced upper bound on vw for iPad */
+    line-height: 1.2;
   }
 
   .body-xl {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2vw, 1.15rem);
     max-width: 100%;
   }
 
@@ -114,6 +116,27 @@
   .product-hero-item.right {
     width: 55vmin;
     transform: translateX(25%) rotate(10deg) translateZ(20px);
+  }
+
+  /* ── Sales Engine Slide (iPad Pro / 1024px) ── */
+  #slide-5 .visual-pane>div {
+    transform: none !important;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  #slide-5 .visual-pane>div>div {
+    grid-template-columns: repeat(2, 1fr) !important;
+    /* 2 cols earlier for breathing room */
+    gap: 1.5rem !important;
+  }
+
+  /* ── Narrative Slide (iPad Pro / 1024px) ── */
+  #slide-6 .visual-pane>div {
+    max-width: 100% !important;
+    width: 100%;
   }
 }
 
@@ -317,13 +340,15 @@
 
   /* --- Specific Slides --- */
   #slide-1 {
-    padding-top: 1rem;
+    padding-top: 2rem;
     overflow: hidden;
-    justify-content: center;
+    justify-content: flex-start;
+    /* prevent squishing */
   }
 
   #slide-1 .headline-xl {
-    font-size: 1.5rem;
+    font-size: clamp(1.6rem, 5vw, 2rem);
+    /* smoother scaling on iPad Mini */
   }
 
   #slide-1 div[style*="top: 5vh"] {
