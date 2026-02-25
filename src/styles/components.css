@@ -506,8 +506,7 @@
   align-items: center;
   gap: 0.85rem;
   padding: 1rem 1.25rem;
-  border-radius: 0 16px 16px 0;
-  border-left: none !important;
+  border-radius: 16px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
@@ -583,8 +582,8 @@
 
 /* Price pill on tab */
 .pricing-tab__price {
-  font-size: 0.8rem;
-  font-weight: 800;
+  font-size: 1.25rem;
+  font-weight: 900;
   color: rgba(255, 255, 255, 0.45);
   flex-shrink: 0;
   text-align: right;
@@ -592,8 +591,8 @@
 }
 
 .pricing-tab__price span {
-  font-weight: 400;
-  font-size: 0.65rem;
+  font-weight: 600;
+  font-size: 0.75rem;
 }
 
 /* Sidebar total */

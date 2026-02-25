@@ -178,10 +178,9 @@ export default function PricingSlide() {
                         alignItems: "center",
                         width: "100%",
                         padding: "1rem 1.25rem",
-                        borderRadius: "0 16px 16px 0",
+                        borderRadius: "16px",
                         background: "linear-gradient(135deg, #012787, #0141b0)",
                         border: "2px solid #ff6a00",
-                        borderLeft: "none",
                         color: "rgba(255,255,255,0.85)",
                         fontWeight: 700,
                         letterSpacing: "0.5px",
@@ -190,8 +189,8 @@ export default function PricingSlide() {
                         marginTop: "auto",
                     }}>
                         <span style={{ fontSize: "0.8rem", letterSpacing: "1px" }}>Total Stack</span>
-                        <span style={{ color: "#ff6a00", fontSize: "1.25rem", fontWeight: 900, fontFamily: "'Montserrat', sans-serif" }}>
-                            ${TOTAL_MO}<span style={{ fontWeight: 400, fontSize: "0.7rem", color: "rgba(255,255,255,0.6)" }}>/mo</span>
+                        <span style={{ color: "#ff6a00", fontSize: "1.45rem", fontWeight: 900, fontFamily: "'Montserrat', sans-serif" }}>
+                            ${TOTAL_MO}<span style={{ fontWeight: 400, fontSize: "0.8rem", color: "rgba(255,255,255,0.6)" }}>/mo</span>
                         </span>
                     </div>
                 </aside>
