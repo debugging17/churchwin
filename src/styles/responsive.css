@@ -1,3 +1,13 @@
+/* ═══════════════════════════════════════════════════════
+   CHURCHWIN — RESPONSIVE BREAKPOINTS
+   Targeting: Desktop → Tablet → Mobile → iPhone/Samsung
+   Key devices:
+     iPhone 14 Pro:  393 × 852
+     iPhone SE 3rd:  375 × 667
+     Samsung S23:    360 × 780
+     Samsung S24+:   412 × 915
+   ═══════════════════════════════════════════════════════ */
+
 /* ========== TABLET (1024px and below) ========== */
 @media (max-width: 1024px) {
 
@@ -112,8 +122,7 @@
 
   /* --- Layout & Deck --- */
   .slide {
-    padding: 1rem 1rem 4rem;
-    padding-bottom: 5rem;
+    padding: 1rem 1rem 5rem;
   }
 
   .visual-pane,
@@ -158,14 +167,14 @@
   }
 
   .progress-bar {
-    bottom: 0.75rem;
+    bottom: max(0.75rem, env(safe-area-inset-bottom, 0.75rem));
     left: 1rem;
     width: 100px;
     height: 3px;
   }
 
   .page-indicator {
-    bottom: 0.75rem;
+    bottom: max(0.75rem, env(safe-area-inset-bottom, 0.75rem));
     left: 120px;
     font-size: 0.75rem;
   }
@@ -258,6 +267,52 @@
   .toc-heading {
     font-size: 2rem;
     white-space: normal;
+  }
+
+  /* ── Sales Engine Slide: fix the horizontal translate + 4-col grid ── */
+  #slide-5 .visual-pane>div {
+    transform: none !important;
+    /* Remove translateX(-4.5rem) offset */
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  #slide-5 .visual-pane>div>div {
+    grid-template-columns: repeat(2, 1fr) !important;
+    /* 2 columns on tablet */
+    gap: 1rem !important;
+  }
+
+  /* ── Revenue Dashboard: stack layout vertically on mobile ── */
+  .rdash {
+    flex-direction: column;
+  }
+
+  .rdash-sidebar {
+    display: none;
+    /* already hidden via CSS, belt-and-suspenders */
+  }
+
+  .rdash-main {
+    width: 100%;
+  }
+
+  #slide-revenue-dashboard {
+    overflow-y: auto !important;
+  }
+
+  .rdash-content {
+    padding-bottom: 6rem !important;
+    /* ensure footer clearance on mobile */
+  }
+
+  /* ── Narrative Slide: tab overflow fix ── */
+  #slide-6 .visual-pane>div>div:first-child {
+    /* tab bar container */
+    gap: 1rem;
+    font-size: 0.85rem;
   }
 
   /* --- Specific Slides --- */
@@ -374,7 +429,7 @@
   }
 
   #slide-6 .visual-pane {
-    max-height: 250px;
+    max-height: 280px;
   }
 
   #slide-6 .visual-pane>div {
@@ -399,7 +454,6 @@
   }
 
   /* --- Footer Clearance Fixes for content-heavy slides --- */
-  /* TOC slide: prevent Executive Summary text from bleeding into footer */
   #slide-toc {
     padding-bottom: 5.5rem;
   }
@@ -407,10 +461,9 @@
   #slide-toc .narrative-pane {
     padding-bottom: 3rem;
     overflow-y: auto;
-    max-height: calc(100vh - 6rem);
+    max-height: calc(100dvh - 6rem);
   }
 
-  /* Roadmap slide (id=slide-4): prevent timeline cards from overlapping footer */
   #slide-4 {
     padding-bottom: 0;
   }
@@ -419,7 +472,6 @@
     padding-bottom: 4rem;
   }
 
-  /* Sales Engine slide (id=slide-5): prevent Apollo.io mockup from clipping footer */
   #slide-5 {
     padding-bottom: 0;
   }
@@ -428,7 +480,6 @@
     padding-bottom: 4rem;
   }
 
-  /* Narrative/Architecture slide (id=slide-6): prevent tab card from being cut off */
   #slide-6 {
     padding-bottom: 0;
   }
@@ -437,14 +488,14 @@
     padding-bottom: 4rem;
   }
 
-  /* Gallery slides: ensure footer clearance on mobile */
+  /* Gallery slides: footer clearance + scroll isolation */
   #slide-masonry,
   #slide-masonry-2,
   #slide-masonry-3 {
     padding-bottom: 4rem;
   }
 
-  /* Touch optimization: prevent overscroll bounce */
+  /* Touch optimization */
   .slide {
     -webkit-overflow-scrolling: touch;
   }
@@ -452,11 +503,18 @@
   .masonry-scroller {
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
+    /* Prevent inner scroll from leaking up to Swiper */
+    overscroll-behavior: contain;
   }
 }
 
-/* ========== SMALL MOBILE (480px and below) ========== */
+/* ═══════════════════════════════════════════════════════
+   IPHONE & SAMSUNG PHONES (480px and below)
+   Covers: iPhone SE, iPhone 14/15, Samsung S23 base
+   ═══════════════════════════════════════════════════════ */
 @media (max-width: 480px) {
+
+  /* --- Global layout --- */
   .slide {
     padding: 0.5rem 1rem 5rem;
   }
@@ -469,14 +527,52 @@
     font-size: 0.85rem;
   }
 
+  /* --- Cover Slide (Slide 1) --- */
   #slide-1 .headline-xl {
     font-size: 1.3rem;
   }
 
+  /* Logo: shrink from 220px to 160px on phones */
   #slide-1 div[style*="top: 5vh"] img {
     width: 110px;
   }
 
+  /* Cover main content: reduce padding so badge fits on screen */
+  #slide-1>div[style] {
+    padding: 1rem 1.25rem !important;
+  }
+
+  /* Cover logo card: reduce internal padding */
+  #slide-1 div[style*="padding: 1rem 3rem"] {
+    padding: 0.75rem 1.5rem !important;
+  }
+
+  /* Cover subtitle: allow wrap */
+  #slide-1 .body-xl br {
+    display: none;
+  }
+
+  /* Cover badge: compact on small screens */
+  #slide-1 div[style*="backdropFilter"] {
+    padding: 0.85rem 1.25rem !important;
+    margin-top: 1.5rem !important;
+    font-size: 0.82rem;
+  }
+
+  #slide-1 div[style*="backdropFilter"]>div:first-child {
+    font-size: 0.72rem !important;
+    letter-spacing: 1px !important;
+  }
+
+  #slide-1 div[style*="backdropFilter"]>div:nth-child(2) {
+    font-size: 1rem !important;
+  }
+
+  #slide-1 div[style*="backdropFilter"]>div:last-child {
+    font-size: 0.75rem !important;
+  }
+
+  /* --- Bento grid: 1 column --- */
   .bento-grid {
     grid-template-columns: 1fr;
     gap: 0.4rem;
@@ -493,13 +589,26 @@
     grid-column: span 1;
   }
 
+  /* --- Slide 3: stack vertically --- */
   #slide-3 .split-comparison,
   #slide-3 .visual-pane>div {
     flex-direction: column;
     min-height: auto;
   }
 
-  /* Footer clearance overrides for content-heavy slides */
+  /* --- Sales Engine: 1 column on phones --- */
+  #slide-5 .visual-pane>div>div {
+    grid-template-columns: 1fr !important;
+    /* single-column stack */
+    gap: 0.75rem !important;
+  }
+
+  /* --- Narrative Slide: tabs compact --- */
+  #slide-6 .visual-pane {
+    max-height: 260px;
+  }
+
+  /* --- Footer clearance overrides --- */
   #slide-toc {
     padding-bottom: 5.5rem;
   }
@@ -514,6 +623,112 @@
   #slide-masonry-2,
   #slide-masonry-3 {
     padding-bottom: 4.5rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   SMALLEST PHONES — Samsung S23 base / iPhone SE
+   Samsung Galaxy S23: 360px wide
+   iPhone SE 3rd gen:  375px wide
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 390px) {
+
+  .slide {
+    padding: 0.25rem 0.75rem 5rem;
+  }
+
+  /* Tighter typography */
+  .headline-xl {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .body-xl {
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .label {
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+  }
+
+  /* Bento grid: tighter */
+  .bento-card {
+    padding: 0.75rem;
+  }
+
+  .bento-big-num {
+    font-size: 1.3rem;
+  }
+
+  .bento-sub,
+  .bento-card h4 {
+    font-size: 0.58rem;
+  }
+
+  /* Footer: closer to bottom edge on smaller screens */
+  .progress-bar {
+    bottom: max(0.5rem, env(safe-area-inset-bottom, 0.5rem));
+    left: 0.75rem;
+    width: 80px;
+  }
+
+  .page-indicator {
+    bottom: max(0.5rem, env(safe-area-inset-bottom, 0.5rem));
+    left: 100px;
+    font-size: 0.7rem;
+  }
+
+  /* Section product stamp: smaller */
+  .section-product-stamp {
+    width: 38vw;
+    height: 28vw;
+    min-width: 110px;
+    min-height: 85px;
+  }
+
+  /* Revenue Dashboard: full-width content */
+  .rdash-grid-top,
+  .rdash-grid-middle,
+  .rdash-grid-bottom {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* TOC: no overflow */
+  #slide-toc .narrative-pane {
+    padding: 0.75rem 1rem 5rem;
+  }
+
+  .toc-heading {
+    font-size: 1.5rem;
+  }
+
+  /* Sales Engine: reduce card padding */
+  #slide-5 .visual-pane>div>div>div {
+    padding: 0.75rem !important;
+    border-radius: 10px !important;
+    min-height: auto !important;
+  }
+
+  /* Narrative slide portal tabs: horizontal scroll as last resort */
+  #slide-6 .visual-pane>div>div:first-child {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    padding-bottom: 0.5rem;
+  }
+
+  /* Masonry: 1 column on tiny phones */
+  .my-masonry-grid {
+    display: block !important;
+  }
+
+  .my-masonry-grid_column {
+    width: 100% !important;
+    padding-left: 0 !important;
   }
 }
 

@@ -75,13 +75,21 @@ h4 {
 .deck-container {
   width: 100vw;
   height: 100vh;
+  /* fallback for older Android */
+  height: 100dvh;
+  /* dynamic viewport height — fixes iOS Safari URL bar */
   position: relative;
   overflow: hidden;
+  /* iPhone safe area: pad top for Dynamic Island / notch */
+  padding-top: env(safe-area-inset-top);
 }
 
 .swiper-slide {
   width: 100vw !important;
   height: 100vh !important;
+  /* fallback */
+  height: 100dvh !important;
+  /* dynamic viewport height */
   /* Hint the browser to composite slides as GPU layers for faster transitions */
   will-change: transform;
 }
@@ -90,12 +98,15 @@ h4 {
   width: 100vw;
   min-width: 100vw;
   height: 100vh;
+  /* fallback */
+  height: 100dvh;
+  /* dynamic viewport height */
   display: flex;
   overflow: hidden;
   position: relative;
   flex-shrink: 0;
-  /* Safe zone: prevent content from touching the fixed footer UI */
-  padding-bottom: 5rem;
+  /* Safe zone: clears footer UI + iPhone home indicator */
+  padding-bottom: max(5rem, env(safe-area-inset-bottom, 5rem));
   /* Performance: isolate layout/paint per slide */
   contain: layout style;
 }
