@@ -196,7 +196,7 @@ export default function RevenueDashboardSlide() {
                             </div>
                         ))}
 
-                        <div className="rdash-sidebar__group-label" style={{ marginTop: "1rem" }}>
+                        <div className="rdash-sidebar__group-label" style={{ marginTop: "auto" }}>
                             Supporting Features
                         </div>
                         {NAV_SUPPORT.map((item) => (
@@ -216,9 +216,7 @@ export default function RevenueDashboardSlide() {
                             <LayoutDashboard size={14} color="#94a3b8" />
                             <span style={{ color: "#94a3b8" }}>Home</span>
                             <span style={{ color: "#cbd5e1" }}>/</span>
-                            <span style={{ color: "#94a3b8" }}>Dashboard</span>
-                            <span style={{ color: "#cbd5e1" }}>/</span>
-                            <span style={{ color: "#012787", fontWeight: 600 }}>Free</span>
+                            <span style={{ color: "#012787", fontWeight: 600 }}>Dashboard</span>
                         </div>
                         <div className="rdash-topbar__right">
                             <div className="rdash-avatar">
@@ -255,9 +253,6 @@ export default function RevenueDashboardSlide() {
                                         <h3 className="rdash-h3">Product insight</h3>
                                         <p className="rdash-p">Published on 12 MAY 2025</p>
                                     </div>
-                                    <div className="rdash-product-thumb">
-                                        <img src="/assets/images/churchwin_logo_new.png" alt="product obj" style={{ height: '24px', objectFit: 'contain' }} />
-                                    </div>
                                 </div>
 
                                 <div className="rdash-product-stats">
@@ -273,7 +268,7 @@ export default function RevenueDashboardSlide() {
 
                                 <div className="rdash-barchart-wrap">
                                     <ResponsiveContainer width="100%" height={120}>
-                                        <BarChart data={PRODUCT_DATA} layout="vertical" margin={{ top: 0, right: 0, bottom: 0, left: -20 }}>
+                                        <BarChart data={PRODUCT_DATA} layout="vertical" margin={{ top: 0, right: 0, bottom: 0, left: 15 }}>
                                             <XAxis type="number" hide />
                                             <YAxis dataKey="name" type="category" axisLine={false} tickLine={false} tick={{ fontSize: 10, fill: '#64748b' }} />
                                             <Tooltip cursor={{ fill: '#f8f9fb' }} />
