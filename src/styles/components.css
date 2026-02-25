@@ -1099,7 +1099,7 @@
 }
 
 .rdash-sidebar__nav {
-  padding: 0.6rem 0.6rem;
+  padding: 0.6rem 0.6rem 5rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -1583,6 +1583,6 @@
   }
 
   .rdash-content {
-    padding: 1.2rem;
+    padding: 1.2rem 1.2rem 12rem;
   }
 }
