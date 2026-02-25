@@ -1,4 +1,5 @@
-import { useRef } from "react";
+import { memo, useRef } from "react";
+
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
 import { useNestedScroll } from "../hooks/useNestedScroll";
 import {
@@ -155,7 +156,8 @@ const getMethodIcon = (method) => {
     }
 };
 
-export default function RevenueDashboardSlide() {
+const RevenueDashboardSlide = memo(function RevenueDashboardSlide() {
+
     const slideRef = useRef(null);
     useSlideAnimation(slideRef, 14);
 
@@ -182,29 +184,31 @@ export default function RevenueDashboardSlide() {
                     </div>
 
                     <nav className="rdash-sidebar__nav">
-                        <div className="rdash-sidebar__group-label">Pages</div>
-                        {NAV_MAIN.map((item) => (
-                            <div
-                                key={item.label}
-                                className={`rdash-nav-item ${item.active ? "rdash-nav-item--active" : ""}`}
-                            >
-                                <span className="rdash-nav-item__icon">{item.icon}</span>
-                                <span className="rdash-nav-item__label">{item.label}</span>
-                                {item.badge && (
-                                    <span className="rdash-nav-item__badge">{item.badge}</span>
-                                )}
-                            </div>
-                        ))}
-
-                        <div className="rdash-sidebar__group-label" style={{ marginTop: "auto" }}>
-                            Supporting Features
+                        <div className="rdash-sidebar__top-group">
+                            <div className="rdash-sidebar__group-label">Pages</div>
+                            {NAV_MAIN.map((item) => (
+                                <div
+                                    key={item.label}
+                                    className={`rdash-nav-item ${item.active ? "rdash-nav-item--active" : ""}`}
+                                >
+                                    <span className="rdash-nav-item__icon">{item.icon}</span>
+                                    <span className="rdash-nav-item__label">{item.label}</span>
+                                    {item.badge && (
+                                        <span className="rdash-nav-item__badge">{item.badge}</span>
+                                    )}
+                                </div>
+                            ))}
                         </div>
-                        {NAV_SUPPORT.map((item) => (
-                            <div key={item.label} className="rdash-nav-item">
-                                <span className="rdash-nav-item__icon">{item.icon}</span>
-                                <span className="rdash-nav-item__label">{item.label}</span>
-                            </div>
-                        ))}
+
+                        <div className="rdash-sidebar__bottom-group">
+                            <div className="rdash-sidebar__group-label">Supporting Features</div>
+                            {NAV_SUPPORT.map((item) => (
+                                <div key={item.label} className="rdash-nav-item">
+                                    <span className="rdash-nav-item__icon">{item.icon}</span>
+                                    <span className="rdash-nav-item__label">{item.label}</span>
+                                </div>
+                            ))}
+                        </div>
                     </nav>
                 </aside>
 
@@ -450,4 +454,6 @@ export default function RevenueDashboardSlide() {
             </div>
         </section>
     );
-}
+});
+
+export default RevenueDashboardSlide;

@@ -1,9 +1,9 @@
-import { useRef } from "react";
+import { memo, useRef } from "react";
 import Masonry from "react-masonry-css";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
 import { useNestedScroll } from "../hooks/useNestedScroll";
 
-export default function MasonryGallerySlide3() {
+const MasonryGallerySlide3 = memo(function MasonryGallerySlide3() {
     const slideRef = useRef(null);
     const scrollerRef = useRef(null);
     useSlideAnimation(slideRef, 8);
@@ -32,14 +32,16 @@ export default function MasonryGallerySlide3() {
                     columnClassName="my-masonry-grid_column"
                 >
                     {/* ?v=2 busts browser cache for this updated image */}
-                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(1).png?v=2" alt="Baobab Powder Water" />
-                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(2).png" alt="Baobab Powder Kitchen" />
-                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(4).png" alt="Baobab Powder Juice" />
-                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(8).png" alt="Moringa Powder Surface" />
+                    <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/pomelli-image(1).png?v=2" alt="Baobab Powder Water" />
+                    <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/pomelli-image(2).png" alt="Baobab Powder Kitchen" />
+                    <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/pomelli-image(4).png" alt="Baobab Powder Juice" />
+                    <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/pomelli-image(8).png" alt="Moringa Powder Surface" />
                     {/* ?v=2 busts browser cache for this updated image */}
-                    <img className="premium-gallery-img" src="/assets/images/mansory/bVungMUNZ9z3OJdh5woONe.png?v=2" alt="Baobab Oil Product Shot" />
+                    <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/bVungMUNZ9z3OJdh5woONe.png?v=2" alt="Baobab Oil Product Shot" />
                 </Masonry>
             </div>
         </section>
     );
-}
+});
+
+export default MasonryGallerySlide3;

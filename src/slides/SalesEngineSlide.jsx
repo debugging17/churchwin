@@ -1,6 +1,6 @@
-import { useRef } from "react";
+import { memo, useRef } from "react";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
-export default function SalesEngineSlide() {
+const SalesEngineSlide = memo(function SalesEngineSlide() {
   const slideRef = useRef(null);
   useSlideAnimation(slideRef, 12);
 
@@ -150,6 +150,8 @@ export default function SalesEngineSlide() {
                 <img
                   src="/assets/images/Sales Engine/apollo.png"
                   alt="Apollo.io"
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     height: "28px",
                     marginLeft: "auto", // Align logo to center/right
@@ -336,6 +338,8 @@ export default function SalesEngineSlide() {
                 <img
                   src="/assets/images/Sales Engine/instantly.png"
                   alt="Instantly.ai"
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     height: "28px",
                     marginLeft: "auto",
@@ -549,6 +553,8 @@ export default function SalesEngineSlide() {
                 <img
                   src="/assets/images/Sales Engine/mailchimp.png"
                   alt="Mailchimp"
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     height: "28px",
                     marginLeft: "auto",
@@ -741,6 +747,8 @@ export default function SalesEngineSlide() {
                 <img
                   src="/assets/images/Sales Engine/linkedin.png"
                   alt="LinkedIn"
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     height: "28px",
                     marginLeft: "auto",
@@ -863,4 +871,6 @@ export default function SalesEngineSlide() {
       </div>
     </section>
   );
-}
+});
+
+export default SalesEngineSlide;

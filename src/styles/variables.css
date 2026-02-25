@@ -6,4 +6,10 @@
   --text-mute: #f0f4f8;
   --accent: #ff6a00;
   --spacing-container: 6vw;
+
+  /* Shared Tokens */
+  --border-radius-card: 14px;
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --transition-base: 0.2s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }

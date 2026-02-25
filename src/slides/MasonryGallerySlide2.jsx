@@ -1,9 +1,9 @@
-import { useRef } from "react";
+import { memo, useRef } from "react";
 import Masonry from "react-masonry-css";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
 import { useNestedScroll } from "../hooks/useNestedScroll";
 
-export default function MasonryGallerySlide2() {
+const MasonryGallerySlide2 = memo(function MasonryGallerySlide2() {
     const slideRef = useRef(null);
     const scrollerRef = useRef(null);
     useSlideAnimation(slideRef, 7);
@@ -31,15 +31,17 @@ export default function MasonryGallerySlide2() {
                     className="my-masonry-grid"
                     columnClassName="my-masonry-grid_column"
                 >
-                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image.png" alt="African Black Soap Counter" />
-                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(19).png" alt="African Black Soap Ingredients" />
-                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(6).png" alt="Moringa Powder Scoop" />
-                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(9).png" alt="Moringa Powder Family" />
-                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(17).png" alt="African Black Soap Woman Setup" />
+                    <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/pomelli-image.png" alt="African Black Soap Counter" />
+                    <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/pomelli-image(19).png" alt="African Black Soap Ingredients" />
+                    <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/pomelli-image(6).png" alt="Moringa Powder Scoop" />
+                    <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/pomelli-image(9).png" alt="Moringa Powder Family" />
+                    <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/pomelli-image(17).png" alt="African Black Soap Woman Setup" />
                     {/* ?v=2 busts browser cache for this updated image */}
-                    <img className="premium-gallery-img" src="/assets/images/mansory/8NONlPs-Ack6oO4nyCgOxL.png?v=2" alt="Baobab Oil Dropper" />
+                    <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/8NONlPs-Ack6oO4nyCgOxL.png?v=2" alt="Baobab Oil Dropper" />
                 </Masonry>
             </div>
         </section>
     );
-}
+});
+
+export default MasonryGallerySlide2;

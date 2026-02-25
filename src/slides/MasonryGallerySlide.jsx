@@ -1,9 +1,9 @@
-import { useRef } from "react";
+import { memo, useRef } from "react";
 import Masonry from "react-masonry-css";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
 import { useNestedScroll } from "../hooks/useNestedScroll";
 
-export default function MasonryGallerySlide() {
+const MasonryGallerySlide = memo(function MasonryGallerySlide() {
     const slideRef = useRef(null);
     const scrollerRef = useRef(null);
     useSlideAnimation(slideRef, 6);
@@ -32,13 +32,15 @@ export default function MasonryGallerySlide() {
                     columnClassName="my-masonry-grid_column"
                 >
                     <video className="premium-gallery-img" src="/assets/images/mansory/grok-video-7864786d-3736-496a-abd9-5b4b705fd073.mp4" autoPlay loop muted playsInline />
-                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(16).png" alt="African Black Soap Handheld" />
-                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(13).png" alt="ChurchWin Shea Butter" />
-                    <img className="premium-gallery-img" src="/assets/images/mansory/pomelli-image(18).png" alt="African Black Soap Floating" />
-                    <img className="premium-gallery-img" src="/assets/images/mansory/9d63CUgb8OZ71v4sh7AOvn.png" alt="African Black Soap Square" />
-                    <img className="premium-gallery-img" src="/assets/images/mansory/aUolXP5nNuu85KUmIIL_3H.png" alt="African Black Soap Holding" />
+                    <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/pomelli-image(16).png" alt="African Black Soap Handheld" />
+                    <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/pomelli-image(13).png" alt="ChurchWin Shea Butter" />
+                    <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/pomelli-image(18).png" alt="African Black Soap Floating" />
+                    <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/9d63CUgb8OZ71v4sh7AOvn.png" alt="African Black Soap Square" />
+                    <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/aUolXP5nNuu85KUmIIL_3H.png" alt="African Black Soap Holding" />
                 </Masonry>
             </div>
         </section>
     );
-}
+});
+
+export default MasonryGallerySlide;

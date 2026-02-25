@@ -5,6 +5,23 @@
   box-sizing: border-box;
 }
 
+/* Brand focus / selection colour */
+::selection {
+  background: rgba(255, 106, 0, 0.35);
+  color: #fff;
+}
+
+::-moz-selection {
+  background: rgba(255, 106, 0, 0.35);
+  color: #fff;
+}
+
+/* Smooth focus outline using accent colour */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   background-color: var(--bg-dark);
@@ -65,6 +82,8 @@ h4 {
 .swiper-slide {
   width: 100vw !important;
   height: 100vh !important;
+  /* Hint the browser to composite slides as GPU layers for faster transitions */
+  will-change: transform;
 }
 
 .slide {

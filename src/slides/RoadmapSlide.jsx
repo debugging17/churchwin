@@ -1,4 +1,5 @@
-import { useRef, useState, useEffect, useCallback } from "react";
+import { memo, useRef, useState, useEffect, useCallback } from "react";
+
 import { createPortal } from "react-dom";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
 import gsap from "gsap";
@@ -404,7 +405,8 @@ function StrategyModal({ month, onClose }) {
   );
 }
 
-export default function RoadmapSlide() {
+const RoadmapSlide = memo(function RoadmapSlide() {
+
   const slideRef = useRef(null);
   useSlideAnimation(slideRef, 10);
   const [activeMonth, setActiveMonth] = useState(null);
@@ -611,4 +613,6 @@ export default function RoadmapSlide() {
         )}
     </section>
   );
-}
+});
+
+export default RoadmapSlide;

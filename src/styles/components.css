@@ -1103,7 +1103,21 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  min-height: 0;
 }
+
+.rdash-sidebar__top-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.rdash-sidebar__bottom-group {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+
 
 .rdash-sidebar__group-label {
   font-size: 0.72rem;

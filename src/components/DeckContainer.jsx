@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Keyboard } from "swiper/modules";
 import { useDeck } from "../hooks/useDeck";
@@ -9,7 +9,7 @@ import "swiper/css";
 
 const TOTAL_SLIDES = 19;
 
-export default function DeckContainer({ children }) {
+const DeckContainer = memo(function DeckContainer({ children }) {
   const {
     progressRef,
     pageNumRef,
@@ -74,4 +74,6 @@ export default function DeckContainer({ children }) {
       </div>
     </>
   );
-}
+});
+
+export default DeckContainer;
