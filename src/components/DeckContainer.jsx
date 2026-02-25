@@ -7,7 +7,7 @@ import Particles from "./Particles";
 // Import Swiper styles
 import "swiper/css";
 
-const TOTAL_SLIDES = 18;
+const TOTAL_SLIDES = 19;
 
 export default function DeckContainer({ children }) {
   const {
