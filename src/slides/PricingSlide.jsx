@@ -11,8 +11,8 @@ const PLATFORMS = [
         logo: "/assets/images/Sales Engine/apollo.png",
         logoFilter: "brightness(0) invert(1)",
         accentColor: "#ff6a00",
-        panelBg: "#0d1117",
-        panelHeaderBg: "#161b22",
+        panelBg: "linear-gradient(145deg, #1e293b 0%, #0f172a 100%)",
+        panelHeaderBg: "rgba(15, 23, 42, 0.6)",
         purpose: "Lead Intelligence & Prospecting",
         tier: "Basic Plan",
         monthlyPrice: 49,
@@ -191,10 +191,14 @@ export default function PricingSlide() {
                 <div
                     key={activeId}
                     className="pricing-panel"
-                    style={{ background: active.panelBg }}
+                    style={{
+                        background: active.panelBg,
+                        border: active.isDark ? "1px solid rgba(255, 255, 255, 0.1)" : "none",
+                        boxShadow: active.isDark ? "0 20px 40px rgba(0, 0, 0, 0.2)" : "var(--shadow-lg)"
+                    }}
                 >
                     {/* Panel header */}
-                    <div className="pricing-panel__header" style={{ background: active.panelHeaderBg }}>
+                    <div className="pricing-panel__header" style={{ background: active.panelHeaderBg, borderBottom: active.isDark ? "1px solid rgba(255, 255, 255, 0.05)" : "none" }}>
                         <div className="pricing-panel__header-left">
                             <img
                                 src={active.logo}
