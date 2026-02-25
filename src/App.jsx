@@ -3,6 +3,7 @@ import "./styles/deck.css";
 import "./styles/components.css";
 import "./styles/responsive.css";
 
+import { useFluidScale } from "./hooks/useFluidScale";
 import DeckContainer from "./components/DeckContainer";
 import CoverSlide from "./slides/CoverSlide";
 import TableOfContentsSlide from "./slides/TableOfContentsSlide";
@@ -20,6 +21,9 @@ import RevenueDashboardSlide from "./slides/RevenueDashboardSlide";
 import ConclusionSlide from "./slides/ConclusionSlide";
 
 function App() {
+  // Initialize the root REM dynamic scaler (Desktop 100% immersive fit logic)
+  useFluidScale();
+
   return (
     <div className="app-wrapper">
       <DeckContainer>

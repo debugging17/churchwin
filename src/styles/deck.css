@@ -168,7 +168,7 @@ h4 {
   font-size: clamp(0.95rem, 1.2vw, 1.25rem);
   line-height: 1.55;
   color: var(--text-mute);
-  max-width: 600px;
+  max-width: 37.5rem;
   font-weight: 400;
 }
 
@@ -196,7 +196,7 @@ h4 {
   position: fixed;
   bottom: 2.5rem;
   left: 3rem;
-  width: 200px;
+  width: 12.5rem;
   height: 2px;
   background: rgba(255, 255, 255, 0.5);
   z-index: 100;
