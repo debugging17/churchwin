@@ -138,6 +138,61 @@
     max-width: 100% !important;
     width: 100%;
   }
+
+  /* ═══ TABLET INLINE-STYLE OVERRIDES FOR SAMSUNG / MEDIUM SCREENS ═══ */
+  /* Many slides (TOC, Brand Gap, Sales Engine, Pricing) hardcode `width: 45%` inline for desktop.
+     On a 800px-1024px tablet, 45% is too narrow and crushes the text layout.
+     We must explicitly break out of these inline styles for the tablet view. */
+  .slide>.narrative-pane,
+  .slide>.visual-pane {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  /* Slide-Specific Overrides to fix the user's tablet screenshots */
+
+  /* Brand Gap (Slide 3) - Fix the split screen comparison squish */
+  #slide-3 .narrative-pane,
+  #slide-3 .visual-pane {
+    width: 100% !important;
+    padding-right: 2rem !important;
+  }
+
+  #slide-3 .split-comparison {
+    flex-wrap: wrap !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  #slide-3 .split-comparison>div {
+    min-height: 250px !important;
+  }
+
+  /* Table of Contents (Slide 2) */
+  #slide-toc .narrative-pane {
+    width: 100% !important;
+  }
+
+  /* Sales Engine (Slide 5) - Fix Apollo/Mailchimp 3D transform squish */
+  #slide-5 .visual-pane>div {
+    transform: none !important;
+    margin: 2rem auto 0 !important;
+  }
+
+  #slide-5 .visual-pane>div>div {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+  }
+
+  /* Pricing Slide (Slide 14) - Fix the LinkedIn Sales Nav squish */
+  #slide-14>.narrative-pane,
+  #slide-14>.visual-pane {
+    width: 100% !important;
+    position: relative !important;
+    left: 0 !important;
+    max-width: none !important;
+  }
 }
 
 /* ========== SMALL TABLET & MOBILE (768px and below) ========== */
