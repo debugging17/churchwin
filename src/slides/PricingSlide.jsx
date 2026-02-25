@@ -11,13 +11,13 @@ const PLATFORMS = [
         logo: "/assets/images/Sales Engine/apollo.png",
         logoFilter: "brightness(0) invert(1)",
         accentColor: "#ff6a00",
-        panelBg: "linear-gradient(145deg, #1e293b 0%, #0f172a 100%)",
-        panelHeaderBg: "rgba(15, 23, 42, 0.6)",
+        panelBg: "#ffffff",
+        panelHeaderBg: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
         purpose: "Lead Intelligence & Prospecting",
         tier: "Basic Plan",
         monthlyPrice: 49,
         annualMonthly: 39,
-        isDark: true,
+        isDark: false,
         breakdown: [
             { label: "Contacts Exported", value: "10,000", icon: <Users size={20} /> },
             { label: "Email Sequences", value: "Unlimited", icon: <Mail size={20} /> },
@@ -147,7 +147,13 @@ export default function PricingSlide() {
                             key={p.id}
                             className={`pricing-tab pricing-tab--light ${activeId === p.id ? "pricing-tab--active-light" : ""}`}
                             onClick={() => setActiveId(p.id)}
-                            style={{ "--tab-accent": p.accentColor }}
+                            style={{
+                                "--tab-accent": p.accentColor,
+                                background: activeId === p.id ? `${p.accentColor}0A` : "transparent",
+                                borderLeft: activeId === p.id ? `4px solid ${p.accentColor}` : "4px solid transparent",
+                                paddingLeft: activeId === p.id ? "1.25rem" : "1.5rem",
+                                transition: "all 0.3s ease"
+                            }}
                         >
                             <div className="pricing-tab__logo-wrap pricing-tab__logo-wrap--light">
                                 <img
@@ -233,20 +239,62 @@ export default function PricingSlide() {
                         </p>
 
                         {/* KPI cards */}
-                        <div className="pricing-breakdown-row">
+                        <div className="pricing-breakdown-row" style={{ marginTop: "1.5rem", marginBottom: "1.5rem" }}>
                             {active.breakdown.map((item) => (
                                 <div
                                     key={item.label}
                                     className="pricing-kpi"
                                     style={{
-                                        background: active.isDark ? "rgba(255,255,255,0.06)" : "#fff",
-                                        border: `1.5px solid ${active.isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.15)"}`,
-                                        boxShadow: active.isDark ? "0 4px 12px rgba(0,0,0,0.3)" : "0 4px 16px rgba(0,0,0,0.08)",
+                                        background: active.isDark ? "rgba(255,255,255,0.06)" : "#ffffff",
+                                        border: `1px solid ${active.isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)"}`,
+                                        boxShadow: active.isDark ? "0 8px 24px rgba(0,0,0,0.4)" : "0 8px 24px rgba(0,0,0,0.04)",
+                                        borderRadius: "16px",
+                                        padding: "1.25rem 1rem",
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                                        cursor: "default"
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.transform = "translateY(-4px)";
+                                        e.currentTarget.style.boxShadow = active.isDark ? "0 12px 32px rgba(0,0,0,0.5)" : `0 12px 32px ${active.accentColor}20`;
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.transform = "translateY(0)";
+                                        e.currentTarget.style.boxShadow = active.isDark ? "0 8px 24px rgba(0,0,0,0.4)" : "0 8px 24px rgba(0,0,0,0.04)";
                                     }}
                                 >
-                                    <span className="pricing-kpi__icon">{item.icon}</span>
-                                    <div className="pricing-kpi__value" style={{ color: active.accentColor }}>{item.value}</div>
-                                    <div className="pricing-kpi__label" style={{ color: active.isDark ? "rgba(255,255,255,0.45)" : "#888" }}>
+                                    <div style={{
+                                        background: `${active.accentColor}15`,
+                                        color: active.accentColor,
+                                        width: "48px",
+                                        height: "48px",
+                                        borderRadius: "14px",
+                                        display: "grid",
+                                        placeItems: "center",
+                                        marginBottom: "0.75rem"
+                                    }}>
+                                        {item.icon}
+                                    </div>
+                                    <div style={{
+                                        color: active.isDark ? "#fff" : "#111",
+                                        fontSize: "1.4rem",
+                                        fontWeight: 800,
+                                        lineHeight: 1.1,
+                                        marginBottom: "0.25rem"
+                                    }}>
+                                        {item.value}
+                                    </div>
+                                    <div style={{
+                                        color: active.isDark ? "rgba(255,255,255,0.6)" : "#64748b",
+                                        fontSize: "0.7rem",
+                                        fontWeight: 600,
+                                        textTransform: "uppercase",
+                                        letterSpacing: "0.5px",
+                                        textAlign: "center"
+                                    }}>
                                         {item.label}
                                     </div>
                                 </div>
