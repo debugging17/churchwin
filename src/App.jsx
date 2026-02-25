@@ -3,7 +3,6 @@ import "./styles/deck.css";
 import "./styles/components.css";
 import "./styles/responsive.css";
 
-import { useViewportScale } from "./hooks/useViewportScale";
 import DeckContainer from "./components/DeckContainer";
 import CoverSlide from "./slides/CoverSlide";
 import TableOfContentsSlide from "./slides/TableOfContentsSlide";
@@ -21,8 +20,6 @@ import RevenueDashboardSlide from "./slides/RevenueDashboardSlide";
 import ConclusionSlide from "./slides/ConclusionSlide";
 
 function App() {
-  useViewportScale(true);
-
   return (
     <div className="app-wrapper">
       <DeckContainer>
