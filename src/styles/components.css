@@ -1099,10 +1099,13 @@
 }
 
 .rdash-sidebar__nav {
-  padding: 0.6rem 0.6rem 10rem;
+  padding: 0.6rem 0.6rem 8rem;
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  position: relative;
+  z-index: 10;
 }
 
 .rdash-sidebar__group-label {
