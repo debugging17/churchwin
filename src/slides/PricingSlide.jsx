@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
+import { Users, Mail, Link, ClipboardList, Send, Zap, Target, Inbox, Rocket, MessageCircle, BarChart2 } from "lucide-react";
 
 const PLATFORMS = [
     {
@@ -17,9 +19,9 @@ const PLATFORMS = [
         annualMonthly: 39,
         isDark: true,
         breakdown: [
-            { label: "Contacts Exported", value: "10,000", icon: "👥" },
-            { label: "Email Sequences", value: "Unlimited", icon: "📧" },
-            { label: "CRM Sync", value: "Yes", icon: "🔗" },
+            { label: "Contacts Exported", value: "10,000", icon: <Users size={20} /> },
+            { label: "Email Sequences", value: "Unlimited", icon: <Mail size={20} /> },
+            { label: "CRM Sync", value: "Yes", icon: <Link size={20} /> },
         ],
         barData: [
             { label: "Leads", pct: 85, color: "#ff6a00" },
@@ -43,9 +45,9 @@ const PLATFORMS = [
         annualMonthly: 17,
         isDark: false,
         breakdown: [
-            { label: "Contacts", value: "500", icon: "📋" },
-            { label: "Emails/mo", value: "6,000", icon: "✉️" },
-            { label: "Automations", value: "Unlimited", icon: "⚡" },
+            { label: "Contacts", value: "500", icon: <ClipboardList size={20} /> },
+            { label: "Emails/mo", value: "6,000", icon: <Send size={20} /> },
+            { label: "Automations", value: "Unlimited", icon: <Zap size={20} /> },
         ],
         barData: [
             { label: "Contacts", pct: 30, color: "#c8a200" },
@@ -69,9 +71,9 @@ const PLATFORMS = [
         annualMonthly: 30,
         isDark: false,
         breakdown: [
-            { label: "Active Leads", value: "5,000", icon: "🎯" },
-            { label: "Email Accounts", value: "Unlimited", icon: "📬" },
-            { label: "Campaigns", value: "Unlimited", icon: "🚀" },
+            { label: "Active Leads", value: "5,000", icon: <Target size={20} /> },
+            { label: "Email Accounts", value: "Unlimited", icon: <Inbox size={20} /> },
+            { label: "Campaigns", value: "Unlimited", icon: <Rocket size={20} /> },
         ],
         barData: [
             { label: "Leads", pct: 75, color: "#6366f1" },
@@ -95,9 +97,9 @@ const PLATFORMS = [
         annualMonthly: 79,
         isDark: false,
         breakdown: [
-            { label: "InMail Credits", value: "50/mo", icon: "💬" },
-            { label: "Lead Lists", value: "Unlimited", icon: "📊" },
-            { label: "CRM Sync", value: "Yes", icon: "🔗" },
+            { label: "InMail Credits", value: "50/mo", icon: <MessageCircle size={20} /> },
+            { label: "Lead Lists", value: "Unlimited", icon: <BarChart2 size={20} /> },
+            { label: "CRM Sync", value: "Yes", icon: <Link size={20} /> },
         ],
         barData: [
             { label: "Reach", pct: 95, color: "#0a66c2" },
@@ -254,22 +256,50 @@ export default function PricingSlide() {
                                 background: active.isDark ? "rgba(255,255,255,0.04)" : "#fff",
                                 border: `1.5px solid ${active.isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.15)"}`,
                                 boxShadow: active.isDark ? "0 4px 12px rgba(0,0,0,0.3)" : "0 4px 16px rgba(0,0,0,0.08)",
+                                padding: "1.25rem",
+                                borderRadius: "12px",
+                                marginTop: "1.5rem"
                             }}
                         >
-                            <div className="pricing-bars__title" style={{ color: active.isDark ? "rgba(255,255,255,0.5)" : "#999" }}>
+                            <div className="pricing-bars__title" style={{ color: active.isDark ? "rgba(255,255,255,0.5)" : "#999", marginBottom: "1rem", fontWeight: 700, fontSize: "0.80rem", letterSpacing: "1px", textTransform: "uppercase" }}>
                                 Usage Allocation
                             </div>
-                            {active.barData.map((bar) => (
-                                <div key={bar.label} className="pricing-bar-row">
-                                    <span className="pricing-bar-row__label" style={{ color: active.isDark ? "rgba(255,255,255,0.7)" : "#555" }}>
-                                        {bar.label}
-                                    </span>
-                                    <div className="pricing-bar-row__track" style={{ background: active.isDark ? "rgba(255,255,255,0.08)" : "#f0f0f0" }}>
-                                        <div className="pricing-bar-row__fill" style={{ width: `${bar.pct}%`, background: bar.color }} />
-                                    </div>
-                                    <span className="pricing-bar-row__pct" style={{ color: bar.color }}>{bar.pct}%</span>
-                                </div>
-                            ))}
+                            <div style={{ width: "100%", height: 120 }}>
+                                <ResponsiveContainer width="100%" height="100%">
+                                    <BarChart
+                                        layout="vertical"
+                                        data={active.barData}
+                                        margin={{ top: 0, right: 30, left: 0, bottom: 0 }}
+                                        barSize={10}
+                                    >
+                                        <XAxis type="number" hide domain={[0, 100]} />
+                                        <YAxis
+                                            dataKey="label"
+                                            type="category"
+                                            axisLine={false}
+                                            tickLine={false}
+                                            tick={{ fill: active.isDark ? 'rgba(255,255,255,0.7)' : '#555', fontSize: 13, fontWeight: 600 }}
+                                            width={65}
+                                        />
+                                        <Tooltip
+                                            cursor={{ fill: active.isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.03)' }}
+                                            contentStyle={{
+                                                borderRadius: "8px",
+                                                border: "none",
+                                                boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+                                                background: active.isDark ? "#1f2937" : "#fff",
+                                                color: active.isDark ? "#fff" : "#111"
+                                            }}
+                                            formatter={(value) => [`${value}% allocated`, 'Usage']}
+                                        />
+                                        <Bar dataKey="pct" radius={[0, 4, 4, 0]} background={{ fill: active.isDark ? 'rgba(255,255,255,0.05)' : '#f3f4f6', radius: [0, 4, 4, 0] }}>
+                                            {active.barData.map((entry, index) => (
+                                                <Cell key={`cell-${index}`} fill={entry.color} />
+                                            ))}
+                                        </Bar>
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            </div>
                         </div>
 
                         {/* Features */}
