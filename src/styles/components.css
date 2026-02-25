@@ -1094,7 +1094,7 @@
 }
 
 .rdash-sidebar__logo-img {
-  height: 28px;
+  height: 48px;
   object-fit: contain;
 }
 
@@ -1118,7 +1118,8 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.48rem 0.72rem;
+  padding: 0.55rem 0.72rem;
+  margin-bottom: 0.8rem;
   border-radius: 8px;
   font-size: 0.864rem;
   color: #64748b;
@@ -1206,7 +1207,7 @@
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 1.2rem 1.5rem 6.5rem;
+  padding: 1.2rem 1.5rem 12rem;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
