@@ -230,7 +230,67 @@ export default function RevenueDashboardSlide() {
                         className="rdash-content swiper-no-mousewheel"
                         ref={contentRef}
                     >
-                        {/* ── Top Row: 3 Stat Cards ── */}
+                        {/* ── Top Row: Goal & Earning ── */}
+                        <div className="rdash-grid-bottom">
+                            {/* Revenue Goal (Donut) */}
+                            <div className="rdash-card rdash-card--goal">
+                                <h3 className="rdash-h3">Revenue goal</h3>
+                                <div className="rdash-pie-wrapper">
+                                    <ResponsiveContainer width="100%" height={160}>
+                                        <PieChart>
+                                            <Pie
+                                                data={GOAL_DATA}
+                                                cx="50%"
+                                                cy="50%"
+                                                innerRadius={50}
+                                                outerRadius={70}
+                                                paddingAngle={2}
+                                                dataKey="value"
+                                                stroke="none"
+                                            >
+                                                {GOAL_DATA.map((entry, index) => (
+                                                    <Cell key={`cell-${index}`} fill={entry.fill} />
+                                                ))}
+                                            </Pie>
+                                        </PieChart>
+                                    </ResponsiveContainer>
+                                    <div className="rdash-pie-center">
+                                        <strong>256.24</strong>
+                                        <span>Total Profit</span>
+                                    </div>
+                                </div>
+                                <div className="rdash-goal-label">
+                                    <span>Plan completed</span>
+                                    <strong>56%</strong>
+                                </div>
+                            </div>
+
+                            {/* Total Earning */}
+                            <div className="rdash-card rdash-card--earning">
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                    <h3 className="rdash-h3">Total Earning</h3>
+                                    <MoreVertical size={16} color="#94a3b8" />
+                                </div>
+                                <div className="rdash-earning-val">
+                                    <strong>$55,458</strong>
+                                    <span className="rdash-earning-badge">^ 60%</span>
+                                </div>
+                                <p className="rdash-p">Compare to last year ($34,661)</p>
+
+                                <div className="rdash-sales-plan" style={{ marginTop: '2rem' }}>
+                                    <h3 className="rdash-h3">Sales plan</h3>
+                                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '0.5rem' }}>
+                                        <strong style={{ fontSize: '2.5rem', color: '#012787', lineHeight: 1 }}>54%</strong>
+                                        <p className="rdash-p" style={{ fontSize: '0.65rem' }}>
+                                            <strong>Cohort analysis indicators</strong><br />
+                                            Analyzes the behaviour of a group of users who joined a product/service at the same time. over a certain period.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* ── Second Row: 3 Stat Cards ── */}
                         <div className="rdash-grid-top">
                             {STAT_CARDS.map((s) => (
                                 <div key={s.title} className="rdash-card">
@@ -341,65 +401,7 @@ export default function RevenueDashboardSlide() {
                             </div>
                         </div>
 
-                        {/* ── Bottom Row: Goal & Table ── */}
-                        <div className="rdash-grid-bottom">
-                            {/* Revenue Goal (Donut) */}
-                            <div className="rdash-card rdash-card--goal">
-                                <h3 className="rdash-h3">Revenue goal</h3>
-                                <div className="rdash-pie-wrapper">
-                                    <ResponsiveContainer width="100%" height={160}>
-                                        <PieChart>
-                                            <Pie
-                                                data={GOAL_DATA}
-                                                cx="50%"
-                                                cy="50%"
-                                                innerRadius={50}
-                                                outerRadius={70}
-                                                paddingAngle={2}
-                                                dataKey="value"
-                                                stroke="none"
-                                            >
-                                                {GOAL_DATA.map((entry, index) => (
-                                                    <Cell key={`cell-${index}`} fill={entry.fill} />
-                                                ))}
-                                            </Pie>
-                                        </PieChart>
-                                    </ResponsiveContainer>
-                                    <div className="rdash-pie-center">
-                                        <strong>256.24</strong>
-                                        <span>Total Profit</span>
-                                    </div>
-                                </div>
-                                <div className="rdash-goal-label">
-                                    <span>Plan completed</span>
-                                    <strong>56%</strong>
-                                </div>
-                            </div>
 
-                            {/* Total Earning */}
-                            <div className="rdash-card rdash-card--earning">
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                    <h3 className="rdash-h3">Total Earning</h3>
-                                    <MoreVertical size={16} color="#94a3b8" />
-                                </div>
-                                <div className="rdash-earning-val">
-                                    <strong>$24,650</strong>
-                                    <span className="rdash-earning-badge">^ 10%</span>
-                                </div>
-                                <p className="rdash-p">Compare to last year ($84,325)</p>
-
-                                <div className="rdash-sales-plan" style={{ marginTop: '2rem' }}>
-                                    <h3 className="rdash-h3">Sales plan</h3>
-                                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '0.5rem' }}>
-                                        <strong style={{ fontSize: '2.5rem', color: '#012787', lineHeight: 1 }}>54%</strong>
-                                        <p className="rdash-p" style={{ fontSize: '0.65rem' }}>
-                                            <strong>Cohort analysis indicators</strong><br />
-                                            Analyzes the behaviour of a group of users who joined a product/service at the same time. over a certain period.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         {/* ── Transaction Table ── */}
                         <div className="rdash-card rdash-table-wrap">
