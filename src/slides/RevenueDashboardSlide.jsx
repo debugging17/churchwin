@@ -1,101 +1,165 @@
 import { useRef } from "react";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
+import { useNestedScroll } from "../hooks/useNestedScroll";
+import {
+    AreaChart,
+    Area,
+    BarChart,
+    Bar,
+    PieChart,
+    Pie,
+    Cell,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    ResponsiveContainer,
+    Legend
+} from "recharts";
+import {
+    LayoutDashboard,
+    BarChart2,
+    Users,
+    Activity,
+    Hash,
+    GitCompare,
+    Clock,
+    Radio,
+    Calendar,
+    Download,
+    Settings,
+    Package,
+    AlertTriangle,
+    CalendarX,
+    TrendingUp,
+    BadgePercent,
+    ShoppingBag,
+    MoreVertical
+} from "lucide-react";
 
-/* ── Stat card data ── */
-const STATS = [
-    {
-        icon: "📦",
-        value: "1,248",
-        label: "Shipped Orders",
-        change: "+18.2%",
-        up: true,
-    },
-    {
-        icon: "📈",
-        value: "$84.3K",
-        label: "Revenue Growth",
-        change: "+24.6%",
-        up: true,
-    },
-    {
-        icon: "🎯",
-        value: "36",
-        label: "Active Campaigns",
-        change: "+4.3%",
-        up: true,
-    },
-];
+/* ── Custom Payment Icons ── */
+const MastercardIcon = () => (
+    <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="16" rx="2" fill="#1A1F36" />
+        <circle cx="9" cy="8" r="4.5" fill="#EB001B" />
+        <circle cx="15" cy="8" r="4.5" fill="#F79E1B" />
+        <path d="M12 11.53c-1.12-1-1.78-2.43-1.78-4.03S10.88 4.47 12 3.47c1.12 1 1.78 2.43 1.78 4.03S13.12 10.53 12 11.53z" fill="#FF5F00" />
+    </svg>
+);
 
-/* ── Sidebar nav items ── */
+const VisaIcon = () => (
+    <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="16" rx="2" fill="#1A1F36" />
+        <path d="M10.58 12.35L12.15 6h1.5l-1.57 6.35h-1.5zm8.56-6.1c-.24-.1-.85-.32-1.84-.32-1.63 0-2.78.89-2.8 2.14-.02 1.05.9 1.57 1.59 1.95.7.35 1.05.58 1.05.94 0 .52-.61.78-1.16.78-.66 0-1.03-.1-1.4-.29L14.35 13c.4.19 1.15.35 1.94.35 1.74 0 2.87-.85 2.89-2.17.02-.92-.56-1.54-1.51-2.02-.64-.32-1.03-.52-1.03-.85 0-.41.44-.73 1.1-.73.57 0 .97.13 1.25.26l.15 1.11zm-5.61 6.1H11.6l-1.07-5.02c-.1-.4-.68-.53-.88-.58l-1.57-.49.12-.66h3c.36 0 .68.25.76.66l.57 6.09zm-8.83 0h1.61L8.2 6H6.84c-.32 0-.6.18-.72.46L3.48 12.35h1.65l.33-.94h2.02l.19.94zm-1.87-2.31l1-2.82.52 2.82H5.53z" fill="#fff" />
+    </svg>
+);
+
+const DiscoverIcon = () => (
+    <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="16" rx="2" fill="#1A1F36" />
+        <path d="M4 6h3.5c1.5 0 2.5 1 2.5 2.5v0c0 1.5-1 2.5-2.5 2.5H4V6z" fill="#FF6000" />
+        <circle cx="15" cy="8.5" r="2.5" fill="#E4E4E4" />
+        <path d="M19.5 11l-2-5M21 11l-2-5" stroke="#FF6000" strokeWidth="1.5" />
+    </svg>
+);
+
+/* ── Data Configs ── */
 const NAV_MAIN = [
-    { icon: "📊", label: "Dashboard", active: true, badge: 5 },
-    { icon: "📈", label: "Content Performance" },
-    { icon: "👥", label: "Audience Insight" },
-    { icon: "🎯", label: "Engagement Metrics" },
-    { icon: "#️⃣", label: "Hashtag Performance", badge: 3 },
-    { icon: "🔄", label: "Competitor Analysis" },
-    { icon: "⏱️", label: "Campaign Tracking" },
+    { icon: <LayoutDashboard size={16} />, label: "Dashboard", active: true, badge: 5 },
+    { icon: <BarChart2 size={16} />, label: "Content Performance" },
+    { icon: <Users size={16} />, label: "Audience Insight" },
+    { icon: <Activity size={16} />, label: "Engagement Metrics" },
+    { icon: <Hash size={16} />, label: "Hashtag Performance", badge: 3 },
+    { icon: <GitCompare size={16} />, label: "Competitor Analysis" },
+    { icon: <Clock size={16} />, label: "Campaign Tracking" },
 ];
 
 const NAV_SUPPORT = [
-    { icon: "📡", label: "Real Time Monitoring" },
-    { icon: "📅", label: "Schedule & Calendar" },
-    { icon: "📤", label: "Report & Export" },
-    { icon: "⚙️", label: "Settings" },
+    { icon: <Radio size={16} />, label: "Real Time Monitoring" },
+    { icon: <Calendar size={16} />, label: "Schedule & Calendar" },
+    { icon: <Download size={16} />, label: "Report & Export" },
+    { icon: <Settings size={16} />, label: "Settings" },
 ];
 
-/* ── Chart data (7-month sparkline) ── */
-const CHART_MONTHS = ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan"];
-const CHART_REVENUE = [32, 45, 38, 52, 48, 65, 72]; // in thousands
-const CHART_ORDERS = [18, 28, 22, 35, 30, 42, 55];
+/* ── Top Row Cards Data ── */
+const STAT_CARDS = [
+    {
+        title: "Shipped Orders",
+        value: "42",
+        change: "+18.2% than last week",
+        icon: <Package size={20} color="#012787" />,
+        up: true
+    },
+    {
+        title: "Refunds/Returns",
+        value: "8",
+        change: "-8.7% than last week",
+        icon: <AlertTriangle size={20} color="#f59e0b" />,
+        up: false
+    },
+    {
+        title: "Missed Deliveries",
+        value: "27",
+        change: "+4.3% than last week",
+        icon: <CalendarX size={20} color="#ef4444" />,
+        up: false
+    }
+];
 
-/* ── Product insights ── */
-const PRODUCTS = [
-    { name: "Shea Butter", pct: 78, color: "#ff6a00" },
-    { name: "Neem Oil", pct: 62, color: "#012787" },
-    { name: "Baobab Oil", pct: 45, color: "#0141b0" },
-    { name: "Cocoa Butter", pct: 38, color: "#ff8c3a" },
+/* ── Chart Data ── */
+const SALES_DATA = [
+    { month: "Jan", revenue: 4000, orders: 2400 },
+    { month: "Feb", revenue: 3000, orders: 1398 },
+    { month: "Mar", revenue: 2000, orders: 9800 },
+    { month: "Apr", revenue: 2780, orders: 3908 },
+    { month: "May", revenue: 1890, orders: 4800 },
+    { month: "Jun", revenue: 2390, orders: 3800 },
+    { month: "Jul", revenue: 3490, orders: 4300 },
+];
+
+const PRODUCT_DATA = [
+    { name: "Shea Butter", value: 78, fill: "#ff6a00" },
+    { name: "Neem Oil", value: 62, fill: "#012787" },
+    { name: "Baobab Oil", value: 45, fill: "#0141b0" },
+    { name: "Cocoa Butter", value: 38, fill: "#f59e0b" },
+];
+
+const GOAL_DATA = [
+    { name: "Completed", value: 56, fill: "#012787" },
+    { name: "Remaining", value: 44, fill: "#e2e8f0" }
 ];
 
 /* ── Transactions ── */
 const TRANSACTIONS = [
-    { initials: "JA", name: "Jack Alfredo", amount: 316.0, status: "paid", method: "Mastercard" },
-    { initials: "MG", name: "Maria Gonzalez", amount: 253.4, status: "pending", method: "Visa" },
-    { initials: "JD", name: "John Doe", amount: 852.0, status: "paid", method: "Mastercard" },
-    { initials: "EC", name: "Emily Carter", amount: 889.0, status: "pending", method: "Visa" },
-    { initials: "DL", name: "David Lee", amount: 723.16, status: "paid", method: "Mastercard" },
-    { initials: "SP", name: "Sophia Patel", amount: 612.0, status: "failed", method: "Visa" },
+    { initials: "JA", name: "Jack Alfredo", amount: 316.0, status: "Paid", method: "Mastercard" },
+    { initials: "MG", name: "Maria Gonzalez", amount: 253.4, status: "Pending", method: "Visa" },
+    { initials: "JD", name: "John Doe", amount: 852.0, status: "Paid", method: "Discover" },
+    { initials: "EC", name: "Emily Carter", amount: 889.0, status: "Pending", method: "Visa" },
+    { initials: "DL", name: "David Lee", amount: 723.16, status: "Paid", method: "Mastercard" },
 ];
 
-/* ── Helpers ── */
 const statusColor = (s) => {
-    if (s === "paid") return "#27c93f";
-    if (s === "pending") return "#f59e0b";
+    if (s === "Paid") return "#27c93f";
+    if (s === "Pending") return "#f59e0b";
     return "#ef4444";
 };
 
-/* Build SVG path from values (normalised to viewBox 0-100) */
-function sparkPath(values, maxVal) {
-    const stepX = 100 / (values.length - 1);
-    return values
-        .map((v, i) => {
-            const x = i * stepX;
-            const y = 100 - (v / maxVal) * 80 - 10; // 10-90 range
-            return `${i === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`;
-        })
-        .join(" ");
-}
-
-function sparkArea(values, maxVal) {
-    const line = sparkPath(values, maxVal);
-    return `${line} L100,100 L0,100 Z`;
-}
+const getMethodIcon = (method) => {
+    switch (method) {
+        case "Mastercard": return <MastercardIcon />;
+        case "Visa": return <VisaIcon />;
+        case "Discover": return <DiscoverIcon />;
+        default: return <MastercardIcon />;
+    }
+};
 
 export default function RevenueDashboardSlide() {
     const slideRef = useRef(null);
     useSlideAnimation(slideRef, 14);
 
-    const maxChart = Math.max(...CHART_REVENUE, ...CHART_ORDERS);
+    // Apply the nested scroll hook to the main content area
+    const contentRef = useRef(null);
+    useNestedScroll(contentRef, null); // Pass ref to hook (swiperRef is optional globally)
 
     return (
         <section
@@ -116,7 +180,7 @@ export default function RevenueDashboardSlide() {
                     </div>
 
                     <nav className="rdash-sidebar__nav">
-                        <div className="rdash-sidebar__group-label">Main</div>
+                        <div className="rdash-sidebar__group-label">Pages</div>
                         {NAV_MAIN.map((item) => (
                             <div
                                 key={item.label}
@@ -130,8 +194,8 @@ export default function RevenueDashboardSlide() {
                             </div>
                         ))}
 
-                        <div className="rdash-sidebar__group-label" style={{ marginTop: "0.75rem" }}>
-                            Support
+                        <div className="rdash-sidebar__group-label" style={{ marginTop: "1rem" }}>
+                            Supporting Features
                         </div>
                         {NAV_SUPPORT.map((item) => (
                             <div key={item.label} className="rdash-nav-item">
@@ -146,12 +210,13 @@ export default function RevenueDashboardSlide() {
                 <div className="rdash-main">
                     {/* Top bar */}
                     <header className="rdash-topbar">
-                        <div className="rdash-breadcrumb">
+                        <div className="rdash-breadcrumb" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                            <LayoutDashboard size={14} color="#94a3b8" />
                             <span style={{ color: "#94a3b8" }}>Home</span>
                             <span style={{ color: "#cbd5e1" }}>/</span>
                             <span style={{ color: "#94a3b8" }}>Dashboard</span>
                             <span style={{ color: "#cbd5e1" }}>/</span>
-                            <span style={{ color: "#012787", fontWeight: 600 }}>Revenue</span>
+                            <span style={{ color: "#012787", fontWeight: 600 }}>Free</span>
                         </div>
                         <div className="rdash-topbar__right">
                             <div className="rdash-avatar">
@@ -160,105 +225,188 @@ export default function RevenueDashboardSlide() {
                         </div>
                     </header>
 
-                    {/* Content grid */}
-                    <div className="rdash-content">
-                        {/* Stat cards row */}
-                        <div className="rdash-stats-row">
-                            {STATS.map((s) => (
-                                <div key={s.label} className="rdash-stat-card">
-                                    <div className="rdash-stat-card__icon">{s.icon}</div>
-                                    <div className="rdash-stat-card__body">
-                                        <div className="rdash-stat-card__value">{s.value}</div>
-                                        <div className="rdash-stat-card__label">{s.label}</div>
+                    {/* Scrollable Content grid */}
+                    <div
+                        className="rdash-content swiper-no-mousewheel"
+                        ref={contentRef}
+                    >
+                        {/* ── Top Row: 3 Stat Cards ── */}
+                        <div className="rdash-grid-top">
+                            {STAT_CARDS.map((s) => (
+                                <div key={s.title} className="rdash-card">
+                                    <div className="rdash-card__header">
+                                        <div className="rdash-card__icon-box">{s.icon}</div>
+                                        <div className="rdash-card__number">{s.value}</div>
                                     </div>
-                                    <div
-                                        className="rdash-stat-card__change"
-                                        style={{ color: s.up ? "#27c93f" : "#ef4444" }}
-                                    >
-                                        {s.change}
-                                    </div>
+                                    <div className="rdash-card__title">{s.title}</div>
+                                    <div className="rdash-card__change">{s.change}</div>
                                 </div>
                             ))}
                         </div>
 
-                        {/* Middle row: chart + product insights */}
-                        <div className="rdash-middle-row">
-                            {/* Sales chart */}
-                            <div className="rdash-chart-card">
-                                <div className="rdash-chart-card__header">
+                        {/* ── Middle Row: Product vs Sales ── */}
+                        <div className="rdash-grid-middle">
+                            {/* Product Insight */}
+                            <div className="rdash-card rdash-card--product">
+                                <div className="rdash-card__topwrap">
                                     <div>
-                                        <div className="rdash-chart-card__title">Sales Metrics</div>
-                                        <div className="rdash-chart-card__subtitle">Revenue & orders overview</div>
+                                        <h3 className="rdash-h3">Product insight</h3>
+                                        <p className="rdash-p">Published on 12 MAY 2025</p>
                                     </div>
-                                    <div className="rdash-chart-card__legend">
-                                        <span className="rdash-legend-dot" style={{ background: "#ff6a00" }} /> Revenue
-                                        <span className="rdash-legend-dot" style={{ background: "#012787", marginLeft: "0.75rem" }} /> Orders
+                                    <div className="rdash-product-thumb">
+                                        <img src="/assets/images/churchwin_logo_new.png" alt="product obj" style={{ height: '24px', objectFit: 'contain' }} />
                                     </div>
                                 </div>
-                                <div className="rdash-chart-area">
-                                    <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="rdash-chart-svg">
-                                        {/* Grid lines */}
-                                        {[20, 40, 60, 80].map((y) => (
-                                            <line key={y} x1="0" y1={y} x2="100" y2={y} stroke="#f1f5f9" strokeWidth="0.5" />
-                                        ))}
-                                        {/* Revenue area */}
-                                        <path d={sparkArea(CHART_REVENUE, maxChart)} fill="rgba(255,106,0,0.1)" />
-                                        <path d={sparkPath(CHART_REVENUE, maxChart)} fill="none" stroke="#ff6a00" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        {/* Orders area */}
-                                        <path d={sparkArea(CHART_ORDERS, maxChart)} fill="rgba(1,39,135,0.08)" />
-                                        <path d={sparkPath(CHART_ORDERS, maxChart)} fill="none" stroke="#012787" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        {/* Dots on revenue */}
-                                        {CHART_REVENUE.map((v, i) => {
-                                            const x = (i * 100) / (CHART_REVENUE.length - 1);
-                                            const y = 100 - (v / maxChart) * 80 - 10;
-                                            return <circle key={i} cx={x} cy={y} r="1.5" fill="#ff6a00" />;
-                                        })}
-                                    </svg>
-                                    <div className="rdash-chart-labels">
-                                        {CHART_MONTHS.map((m) => (
-                                            <span key={m}>{m}</span>
-                                        ))}
+
+                                <div className="rdash-product-stats">
+                                    <div className="rdash-pstat">
+                                        <span>Product reached</span>
+                                        <strong>21,153</strong>
                                     </div>
+                                    <div className="rdash-pstat">
+                                        <span>Order placed</span>
+                                        <strong>2,123</strong>
+                                    </div>
+                                </div>
+
+                                <div className="rdash-barchart-wrap">
+                                    <ResponsiveContainer width="100%" height={120}>
+                                        <BarChart data={PRODUCT_DATA} layout="vertical" margin={{ top: 0, right: 0, bottom: 0, left: -20 }}>
+                                            <XAxis type="number" hide />
+                                            <YAxis dataKey="name" type="category" axisLine={false} tickLine={false} tick={{ fontSize: 10, fill: '#64748b' }} />
+                                            <Tooltip cursor={{ fill: '#f8f9fb' }} />
+                                            <Bar dataKey="value" barSize={8} radius={[0, 4, 4, 0]} />
+                                        </BarChart>
+                                    </ResponsiveContainer>
                                 </div>
                             </div>
 
-                            {/* Product insights */}
-                            <div className="rdash-product-card">
-                                <div className="rdash-product-card__title">Product Insights</div>
-                                <div className="rdash-product-card__subtitle">Top performing products</div>
-                                <div className="rdash-product-list">
-                                    {PRODUCTS.map((p) => (
-                                        <div key={p.name} className="rdash-product-row">
-                                            <span className="rdash-product-row__name">{p.name}</span>
-                                            <div className="rdash-product-row__bar-track">
-                                                <div
-                                                    className="rdash-product-row__bar-fill"
-                                                    style={{ width: `${p.pct}%`, background: p.color }}
-                                                />
-                                            </div>
-                                            <span className="rdash-product-row__pct" style={{ color: p.color }}>
-                                                {p.pct}%
-                                            </span>
-                                        </div>
-                                    ))}
+                            {/* Sales Metrics & Goal */}
+                            <div className="rdash-card rdash-card--sales">
+                                <h3 className="rdash-h3" style={{ marginBottom: '1rem' }}>Sales metrics</h3>
+
+                                {/* Area Chart Section */}
+                                <div style={{ height: '260px', width: '100%' }}>
+                                    <ResponsiveContainer width="100%" height="100%">
+                                        <AreaChart data={SALES_DATA} margin={{ top: 10, right: 10, left: -25, bottom: 0 }}>
+                                            <defs>
+                                                <linearGradient id="colorRev" x1="0" y1="0" x2="0" y2="1">
+                                                    <stop offset="5%" stopColor="#ff6a00" stopOpacity={0.8} />
+                                                    <stop offset="95%" stopColor="#ff6a00" stopOpacity={0} />
+                                                </linearGradient>
+                                                <linearGradient id="colorOrd" x1="0" y1="0" x2="0" y2="1">
+                                                    <stop offset="5%" stopColor="#012787" stopOpacity={0.3} />
+                                                    <stop offset="95%" stopColor="#012787" stopOpacity={0} />
+                                                </linearGradient>
+                                            </defs>
+                                            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
+                                            <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8' }} dy={10} />
+                                            <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8' }} />
+                                            <Tooltip />
+                                            <Legend iconType="circle" wrapperStyle={{ fontSize: '12px' }} />
+                                            <Area type="monotone" dataKey="revenue" stroke="#ff6a00" strokeWidth={3} fillOpacity={1} fill="url(#colorRev)" />
+                                            <Area type="monotone" dataKey="orders" stroke="#012787" strokeWidth={3} fillOpacity={1} fill="url(#colorOrd)" />
+                                        </AreaChart>
+                                    </ResponsiveContainer>
                                 </div>
 
-                                {/* Earning summary */}
-                                <div className="rdash-earning-summary">
-                                    <div className="rdash-earning-summary__label">Total Earning</div>
-                                    <div className="rdash-earning-summary__value">$24,650</div>
-                                    <div className="rdash-earning-summary__change">
-                                        <span style={{ color: "#27c93f" }}>↑ 10%</span> vs last year
+                                {/* Mini metric cards below chart */}
+                                <div className="rdash-mini-grid">
+                                    <div className="rdash-mini-card">
+                                        <TrendingUp size={16} color="#64748b" />
+                                        <div>
+                                            <span>Sales trend</span>
+                                            <strong>$11,548</strong>
+                                        </div>
+                                    </div>
+                                    <div className="rdash-mini-card">
+                                        <BadgePercent size={16} color="#64748b" />
+                                        <div>
+                                            <span>Discount offers</span>
+                                            <strong>$1,326</strong>
+                                        </div>
+                                    </div>
+                                    <div className="rdash-mini-card">
+                                        <ShoppingBag size={16} color="#64748b" />
+                                        <div>
+                                            <span>Net profit</span>
+                                            <strong>$17,356</strong>
+                                        </div>
+                                    </div>
+                                    <div className="rdash-mini-card">
+                                        <Package size={16} color="#64748b" />
+                                        <div>
+                                            <span>Total orders</span>
+                                            <strong>248</strong>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Transaction table */}
-                        <div className="rdash-table-card">
-                            <div className="rdash-table-card__header">
-                                <span className="rdash-table-card__title">Recent Transactions</span>
+                        {/* ── Bottom Row: Goal & Table ── */}
+                        <div className="rdash-grid-bottom">
+                            {/* Revenue Goal (Donut) */}
+                            <div className="rdash-card rdash-card--goal">
+                                <h3 className="rdash-h3">Revenue goal</h3>
+                                <div className="rdash-pie-wrapper">
+                                    <ResponsiveContainer width="100%" height={160}>
+                                        <PieChart>
+                                            <Pie
+                                                data={GOAL_DATA}
+                                                cx="50%"
+                                                cy="50%"
+                                                innerRadius={50}
+                                                outerRadius={70}
+                                                paddingAngle={2}
+                                                dataKey="value"
+                                                stroke="none"
+                                            >
+                                                {GOAL_DATA.map((entry, index) => (
+                                                    <Cell key={`cell-${index}`} fill={entry.fill} />
+                                                ))}
+                                            </Pie>
+                                        </PieChart>
+                                    </ResponsiveContainer>
+                                    <div className="rdash-pie-center">
+                                        <strong>256.24</strong>
+                                        <span>Total Profit</span>
+                                    </div>
+                                </div>
+                                <div className="rdash-goal-label">
+                                    <span>Plan completed</span>
+                                    <strong>56%</strong>
+                                </div>
                             </div>
+
+                            {/* Total Earning */}
+                            <div className="rdash-card rdash-card--earning">
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                    <h3 className="rdash-h3">Total Earning</h3>
+                                    <MoreVertical size={16} color="#94a3b8" />
+                                </div>
+                                <div className="rdash-earning-val">
+                                    <strong>$24,650</strong>
+                                    <span className="rdash-earning-badge">^ 10%</span>
+                                </div>
+                                <p className="rdash-p">Compare to last year ($84,325)</p>
+
+                                <div className="rdash-sales-plan" style={{ marginTop: '2rem' }}>
+                                    <h3 className="rdash-h3">Sales plan</h3>
+                                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '0.5rem' }}>
+                                        <strong style={{ fontSize: '2.5rem', color: '#012787', lineHeight: 1 }}>54%</strong>
+                                        <p className="rdash-p" style={{ fontSize: '0.65rem' }}>
+                                            <strong>Cohort analysis indicators</strong><br />
+                                            Analyzes the behaviour of a group of users who joined a product/service at the same time. over a certain period.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* ── Transaction Table ── */}
+                        <div className="rdash-card rdash-table-wrap">
+                            <h3 className="rdash-h3" style={{ marginBottom: '1rem' }}>Recent Transactions</h3>
                             <table className="rdash-table">
                                 <thead>
                                     <tr>
@@ -281,20 +429,23 @@ export default function RevenueDashboardSlide() {
                                             <td>
                                                 <span
                                                     className="rdash-table__status"
-                                                    style={{
-                                                        color: statusColor(t.status),
-                                                        background: `${statusColor(t.status)}18`,
-                                                    }}
+                                                    style={{ color: statusColor(t.status), background: `${statusColor(t.status)}15` }}
                                                 >
                                                     {t.status}
                                                 </span>
                                             </td>
-                                            <td className="rdash-table__method">{t.method}</td>
+                                            <td>
+                                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#64748b' }}>
+                                                    {getMethodIcon(t.method)}
+                                                    {t.method}
+                                                </div>
+                                            </td>
                                         </tr>
                                     ))}
                                 </tbody>
                             </table>
                         </div>
+
                     </div>
                 </div>
             </div>
