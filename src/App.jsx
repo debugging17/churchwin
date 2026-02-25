@@ -3,6 +3,7 @@ import "./styles/deck.css";
 import "./styles/components.css";
 import "./styles/responsive.css";
 
+import { useViewportScale } from "./hooks/useViewportScale";
 import DeckContainer from "./components/DeckContainer";
 import CoverSlide from "./slides/CoverSlide";
 import TableOfContentsSlide from "./slides/TableOfContentsSlide";
@@ -20,66 +21,70 @@ import RevenueDashboardSlide from "./slides/RevenueDashboardSlide";
 import ConclusionSlide from "./slides/ConclusionSlide";
 
 function App() {
+  useViewportScale(true);
+
   return (
-    <DeckContainer>
-      <CoverSlide />
-      <TableOfContentsSlide />
+    <div className="app-wrapper">
+      <DeckContainer>
+        <CoverSlide />
+        <TableOfContentsSlide />
 
-      <SectionCoverSlide
-        num="01"
-        title="The Current Reality"
-        theme="dark"
-        slideIndex={2}
-      />
-      <CurrentRealitySlide />
+        <SectionCoverSlide
+          num="01"
+          title="The Current Reality"
+          theme="dark"
+          slideIndex={2}
+        />
+        <CurrentRealitySlide />
 
-      <SectionCoverSlide
-        num="02"
-        title="The Brand Gap"
-        theme="light"
-        slideIndex={4}
-      />
-      <BrandGapSlide />
+        <SectionCoverSlide
+          num="02"
+          title="The Brand Gap"
+          theme="light"
+          slideIndex={4}
+        />
+        <BrandGapSlide />
 
-      <MasonryGallerySlide />
-      <MasonryGallerySlide2 />
-      <MasonryGallerySlide3 />
+        <MasonryGallerySlide />
+        <MasonryGallerySlide2 />
+        <MasonryGallerySlide3 />
 
-      <SectionCoverSlide
-        num="03"
-        title="90-Day Roadmap"
-        theme="dark"
-        slideIndex={9}
-      />
-      <RoadmapSlide />
+        <SectionCoverSlide
+          num="03"
+          title="90-Day Roadmap"
+          theme="dark"
+          slideIndex={9}
+        />
+        <RoadmapSlide />
 
-      <SectionCoverSlide
-        num="04"
-        title="The Sales Engine"
-        theme="light"
-        slideIndex={11}
-      />
-      <SalesEngineSlide />
+        <SectionCoverSlide
+          num="04"
+          title="The Sales Engine"
+          theme="light"
+          slideIndex={11}
+        />
+        <SalesEngineSlide />
 
-      <PricingSlide />
-      <RevenueDashboardSlide />
+        <PricingSlide />
+        <RevenueDashboardSlide />
 
-      <SectionCoverSlide
-        num="05"
-        title="Digital Architecture"
-        theme="dark"
-        slideIndex={15}
-      />
-      <NarrativeSlide />
+        <SectionCoverSlide
+          num="05"
+          title="Digital Architecture"
+          theme="dark"
+          slideIndex={15}
+        />
+        <NarrativeSlide />
 
-      <SectionCoverSlide
-        num="06"
-        title="Next Steps"
-        theme="light"
-        slideIndex={17}
-      />
-      <ConclusionSlide />
-    </DeckContainer>
+        <SectionCoverSlide
+          num="06"
+          title="Next Steps"
+          theme="light"
+          slideIndex={17}
+        />
+        <ConclusionSlide />
+      </DeckContainer>
+    </div>
   );
 }
 
