@@ -1279,6 +1279,8 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+  align-items: center;
 }
 
 .rdash-card:hover {
@@ -1296,8 +1298,10 @@
 .rdash-card__header {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.9rem;
   margin-bottom: 0.6rem;
+  width: 100%;
 }
 
 .rdash-card__icon-box {
@@ -1469,7 +1473,8 @@
 
 .rdash-goal-label {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1rem;
   align-items: center;
   padding: 0 1.2rem;
 }
@@ -1487,12 +1492,14 @@
 
 /* Total Earning */
 .rdash-card--earning {
-  justify-content: flex-start;
+  text-align: center;
+  width: 100%;
 }
 
 .rdash-earning-val {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.9rem;
   margin-top: 0.6rem;
   margin-bottom: 0.24rem;
@@ -1512,6 +1519,12 @@
   background: #dcfce7;
   padding: 0.18rem 0.48rem;
   border-radius: 4px;
+}
+
+.rdash-sales-plan>div {
+  justify-content: center;
+  flex-direction: column !important;
+  text-align: center;
 }
 
 /* ── Transaction Table ── */
