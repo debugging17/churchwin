@@ -357,6 +357,8 @@
   margin-left: -15px;
   /* gutter size offset */
   width: calc(100% + 15px);
+  padding: 5px 15px 15px 5px;
+  /* Added internal padding to prevent outer edges from clipping shadows tightly */
 }
 
 .my-masonry-grid_column {
@@ -384,15 +386,18 @@
   display: block;
   object-fit: cover;
   image-rendering: optimizeQuality;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
   background-color: #f8f9fa;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .premium-gallery-img:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  z-index: 10;
-  position: relative;
+  transform: translateY(-4px) scale(1.02) translateZ(0);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25), 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 20;
 }
 
 /* Grid Spans for Custom Layouts */
