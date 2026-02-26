@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
 import { useTilt } from "../hooks/useTilt";
-import { AreaChart, Area, ResponsiveContainer, YAxis } from "recharts";
+import { AreaChart, Area, ResponsiveContainer, YAxis, Tooltip } from "recharts";
 
 const TREND_BARAKA = [
   { month: "Jan", visits: 40000 },
@@ -141,6 +141,14 @@ export default function CurrentRealitySlide() {
                       </linearGradient>
                     </defs>
                     <YAxis domain={['auto', 'auto']} hide />
+                    <Tooltip
+                      contentStyle={{ backgroundColor: "rgba(0,0,0,0.8)", borderColor: "rgba(255,255,255,0.1)", borderRadius: "8px", backdropFilter: "blur(10px)", color: "#fff", padding: "8px" }}
+                      itemStyle={{ color: "#27c93f", fontWeight: 700 }}
+                      labelStyle={{ color: "#9ca3af", fontSize: "0.75rem", marginBottom: "4px" }}
+                      cursor={{ stroke: "rgba(255,255,255,0.15)", strokeWidth: 1, strokeDasharray: "4 4" }}
+                      formatter={(value) => [value.toLocaleString(), "Visits"]}
+                      labelFormatter={(label) => `${label}`}
+                    />
                     <Area type="monotone" dataKey="visits" stroke="#27c93f" strokeWidth={2} fillOpacity={1} fill="url(#colorBaraka)" isAnimationActive={true} animationDuration={1500} />
                   </AreaChart>
                 </ResponsiveContainer>
@@ -192,9 +200,13 @@ export default function CurrentRealitySlide() {
             </div>
             <h4
               style={{
-                fontSize: "0.85rem",
+                fontSize: "clamp(0.7rem, 2vw, 0.85rem)",
                 color: "rgba(255,255,255,0.8)",
                 letterSpacing: "1px",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                paddingRight: "2.5rem"
               }}
             >
               Churchwin Trading Co.
@@ -221,6 +233,14 @@ export default function CurrentRealitySlide() {
                       </linearGradient>
                     </defs>
                     <YAxis domain={[0, 100]} hide />
+                    <Tooltip
+                      contentStyle={{ backgroundColor: "rgba(0,0,0,0.8)", borderColor: "rgba(255,255,255,0.1)", borderRadius: "8px", backdropFilter: "blur(10px)", color: "#fff", padding: "8px" }}
+                      itemStyle={{ color: "var(--accent)", fontWeight: 700 }}
+                      labelStyle={{ color: "#9ca3af", fontSize: "0.75rem", marginBottom: "4px" }}
+                      cursor={{ stroke: "rgba(255,255,255,0.15)", strokeWidth: 1, strokeDasharray: "4 4" }}
+                      formatter={(value) => [value.toLocaleString(), "Visits"]}
+                      labelFormatter={(label) => `${label}`}
+                    />
                     <Area type="monotone" dataKey="visits" stroke="var(--accent)" strokeWidth={2} fillOpacity={1} fill="url(#colorChurchwin)" isAnimationActive={true} animationDuration={1500} />
                   </AreaChart>
                 </ResponsiveContainer>
@@ -280,6 +300,14 @@ export default function CurrentRealitySlide() {
                     </linearGradient>
                   </defs>
                   <YAxis domain={[0, 'auto']} hide />
+                  <Tooltip
+                    contentStyle={{ backgroundColor: "rgba(0,0,0,0.8)", borderColor: "rgba(255,255,255,0.1)", borderRadius: "8px", backdropFilter: "blur(10px)", color: "#fff", padding: "8px" }}
+                    itemStyle={{ color: "#fff", fontWeight: 700 }}
+                    labelStyle={{ color: "#9ca3af", fontSize: "0.75rem", marginBottom: "4px" }}
+                    cursor={{ stroke: "rgba(255,255,255,0.15)", strokeWidth: 1, strokeDasharray: "4 4" }}
+                    formatter={(value) => [value.toLocaleString(), "Visits"]}
+                    labelFormatter={(label) => `${label}`}
+                  />
                   <Area type="monotone" dataKey="visits" stroke="rgba(255,255,255,0.6)" strokeWidth={2} fillOpacity={1} fill="url(#colorRetail)" isAnimationActive={true} animationDuration={1500} />
                 </AreaChart>
               </ResponsiveContainer>
@@ -315,6 +343,14 @@ export default function CurrentRealitySlide() {
                     </linearGradient>
                   </defs>
                   <YAxis domain={[0, 'auto']} hide />
+                  <Tooltip
+                    contentStyle={{ backgroundColor: "rgba(0,0,0,0.8)", borderColor: "rgba(255,255,255,0.1)", borderRadius: "8px", backdropFilter: "blur(10px)", color: "#fff", padding: "8px" }}
+                    itemStyle={{ color: "#f1c40f", fontWeight: 700 }}
+                    labelStyle={{ color: "#9ca3af", fontSize: "0.75rem", marginBottom: "4px" }}
+                    cursor={{ stroke: "rgba(255,255,255,0.15)", strokeWidth: 1, strokeDasharray: "4 4" }}
+                    formatter={(value) => [value.toLocaleString(), "Visits"]}
+                    labelFormatter={(label) => `${label}`}
+                  />
                   <Area type="monotone" dataKey="visits" stroke="#f1c40f" strokeWidth={2} fillOpacity={1} fill="url(#colorFairtale)" isAnimationActive={true} animationDuration={1500} />
                 </AreaChart>
               </ResponsiveContainer>
@@ -329,6 +365,21 @@ export default function CurrentRealitySlide() {
                 "linear-gradient(135deg, rgba(255,0,0,0.15), rgba(255,68,0,0.08))",
               border: "1px solid rgba(255,68,68,0.4)",
               padding: "1.5rem",
+              cursor: "pointer",
+              transition: "transform 0.2s, box-shadow 0.2s, background 0.3s",
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = "scale(1.02) translateY(-2px)";
+              e.currentTarget.style.boxShadow =
+                "0 15px 40px rgba(255, 68, 68, 0.2)";
+              e.currentTarget.style.background =
+                "linear-gradient(135deg, rgba(255,0,0,0.2), rgba(255,68,0,0.12))";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = "scale(1) translateY(0)";
+              e.currentTarget.style.boxShadow = "none";
+              e.currentTarget.style.background =
+                "linear-gradient(135deg, rgba(255,0,0,0.15), rgba(255,68,0,0.08))";
             }}
           >
             <div
