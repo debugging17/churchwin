@@ -52,7 +52,7 @@ export default function CoverSlide() {
           height: "100%",
           zIndex: 2,
           background:
-            "linear-gradient(to bottom, rgba(1,39,135,0.45) 0%, rgba(1,39,135,0.80) 100%)",
+            "linear-gradient(to bottom, rgba(1,39,135,0.25) 0%, rgba(1,39,135,0.65) 100%)",
         }}
       />
 
@@ -74,11 +74,10 @@ export default function CoverSlide() {
           style={{
             marginTop: "3vh",
             marginBottom: "clamp(1.5rem, 3vh, 2.5rem)",
-            width: "fit-content",
-            maxWidth: "90vw",
+            width: "100%",
             boxSizing: "border-box",
-            display: "flex",
-            justifyContent: "center",
+            display: "block",
+            textAlign: "center",
           }}
         >
           <img
@@ -87,6 +86,7 @@ export default function CoverSlide() {
               width: "100%",
               maxWidth: "260px",
               display: "block",
+              margin: "0 auto",
               height: "auto",
               objectFit: "contain",
               filter: "brightness(0) invert(1)", /* Renders the logo pure white on the dark background */
