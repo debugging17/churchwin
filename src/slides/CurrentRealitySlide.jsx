@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
 import { useTilt } from "../hooks/useTilt";
 import { AreaChart, Area, ResponsiveContainer, YAxis, Tooltip } from "recharts";
+import { TrendingDown } from "lucide-react";
 
 const TREND_BARAKA = [
   { month: "Jan", visits: 40000 },
@@ -142,9 +143,9 @@ export default function CurrentRealitySlide() {
                     </defs>
                     <YAxis domain={['auto', 'auto']} hide />
                     <Tooltip
-                      contentStyle={{ backgroundColor: "rgba(0,0,0,0.8)", borderColor: "rgba(255,255,255,0.1)", borderRadius: "8px", backdropFilter: "blur(10px)", color: "#fff", padding: "8px" }}
-                      itemStyle={{ color: "#27c93f", fontWeight: 700 }}
-                      labelStyle={{ color: "#9ca3af", fontSize: "0.75rem", marginBottom: "4px" }}
+                      contentStyle={{ backgroundColor: "rgba(0,0,0,0.85)", borderColor: "rgba(255,255,255,0.08)", borderRadius: "6px", backdropFilter: "blur(10px)", color: "#fff", padding: "4px 8px" }}
+                      itemStyle={{ color: "#27c93f", fontWeight: 700, fontSize: "0.75rem" }}
+                      labelStyle={{ color: "#9ca3af", fontSize: "0.6rem", marginBottom: "2px" }}
                       cursor={{ stroke: "rgba(255,255,255,0.15)", strokeWidth: 1, strokeDasharray: "4 4" }}
                       formatter={(value) => [value.toLocaleString(), "Visits"]}
                       labelFormatter={(label) => `${label}`}
@@ -234,9 +235,9 @@ export default function CurrentRealitySlide() {
                     </defs>
                     <YAxis domain={[0, 100]} hide />
                     <Tooltip
-                      contentStyle={{ backgroundColor: "rgba(0,0,0,0.8)", borderColor: "rgba(255,255,255,0.1)", borderRadius: "8px", backdropFilter: "blur(10px)", color: "#fff", padding: "8px" }}
-                      itemStyle={{ color: "var(--accent)", fontWeight: 700 }}
-                      labelStyle={{ color: "#9ca3af", fontSize: "0.75rem", marginBottom: "4px" }}
+                      contentStyle={{ backgroundColor: "rgba(0,0,0,0.85)", borderColor: "rgba(255,255,255,0.08)", borderRadius: "6px", backdropFilter: "blur(10px)", color: "#fff", padding: "4px 8px" }}
+                      itemStyle={{ color: "var(--accent)", fontWeight: 700, fontSize: "0.75rem" }}
+                      labelStyle={{ color: "#9ca3af", fontSize: "0.6rem", marginBottom: "2px" }}
                       cursor={{ stroke: "rgba(255,255,255,0.15)", strokeWidth: 1, strokeDasharray: "4 4" }}
                       formatter={(value) => [value.toLocaleString(), "Visits"]}
                       labelFormatter={(label) => `${label}`}
@@ -301,9 +302,9 @@ export default function CurrentRealitySlide() {
                   </defs>
                   <YAxis domain={[0, 'auto']} hide />
                   <Tooltip
-                    contentStyle={{ backgroundColor: "rgba(0,0,0,0.8)", borderColor: "rgba(255,255,255,0.1)", borderRadius: "8px", backdropFilter: "blur(10px)", color: "#fff", padding: "8px" }}
-                    itemStyle={{ color: "#fff", fontWeight: 700 }}
-                    labelStyle={{ color: "#9ca3af", fontSize: "0.75rem", marginBottom: "4px" }}
+                    contentStyle={{ backgroundColor: "rgba(0,0,0,0.85)", borderColor: "rgba(255,255,255,0.08)", borderRadius: "6px", backdropFilter: "blur(10px)", color: "#fff", padding: "4px 8px" }}
+                    itemStyle={{ color: "#fff", fontWeight: 700, fontSize: "0.75rem" }}
+                    labelStyle={{ color: "#9ca3af", fontSize: "0.6rem", marginBottom: "2px" }}
                     cursor={{ stroke: "rgba(255,255,255,0.15)", strokeWidth: 1, strokeDasharray: "4 4" }}
                     formatter={(value) => [value.toLocaleString(), "Visits"]}
                     labelFormatter={(label) => `${label}`}
@@ -344,9 +345,9 @@ export default function CurrentRealitySlide() {
                   </defs>
                   <YAxis domain={[0, 'auto']} hide />
                   <Tooltip
-                    contentStyle={{ backgroundColor: "rgba(0,0,0,0.8)", borderColor: "rgba(255,255,255,0.1)", borderRadius: "8px", backdropFilter: "blur(10px)", color: "#fff", padding: "8px" }}
-                    itemStyle={{ color: "#f1c40f", fontWeight: 700 }}
-                    labelStyle={{ color: "#9ca3af", fontSize: "0.75rem", marginBottom: "4px" }}
+                    contentStyle={{ backgroundColor: "rgba(0,0,0,0.85)", borderColor: "rgba(255,255,255,0.08)", borderRadius: "6px", backdropFilter: "blur(10px)", color: "#fff", padding: "4px 8px" }}
+                    itemStyle={{ color: "#f1c40f", fontWeight: 700, fontSize: "0.75rem" }}
+                    labelStyle={{ color: "#9ca3af", fontSize: "0.6rem", marginBottom: "2px" }}
                     cursor={{ stroke: "rgba(255,255,255,0.15)", strokeWidth: 1, strokeDasharray: "4 4" }}
                     formatter={(value) => [value.toLocaleString(), "Visits"]}
                     labelFormatter={(label) => `${label}`}
@@ -392,7 +393,8 @@ export default function CurrentRealitySlide() {
                 flexWrap: "wrap",
               }}
             >
-              <div style={{ textAlign: "center" }}>
+              <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <TrendingDown size={32} color="#ff4444" style={{ marginBottom: "0.5rem" }} />
                 <div
                   style={{
                     fontSize: "3rem",
