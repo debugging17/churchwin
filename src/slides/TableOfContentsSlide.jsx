@@ -99,12 +99,12 @@ export default function TableOfContentsSlide() {
           <h1
             className="toc-heading"
             style={{
-              marginTop: 0, // ensure no extra margin cuts it off
-              fontSize: "clamp(2rem, 4vh + 1vw, 2.5rem)",
+              marginTop: 0,
+              fontSize: "clamp(2rem, 5vh + 1vw, 3rem)",
               fontWeight: 800,
               color: "#012787",
               lineHeight: 1.15,
-              marginBottom: "clamp(0.5rem, 1vh, 0.75rem)",
+              marginBottom: "clamp(0.8rem, 1.5vh, 1.2rem)",
               letterSpacing: "-0.02em",
             }}
           >
@@ -115,11 +115,11 @@ export default function TableOfContentsSlide() {
           {/* Summary Paragraph */}
           <p
             style={{
-              fontSize: "clamp(0.95rem, 1.8vh + 0.2vw, 1.05rem)",
+              fontSize: "clamp(1.05rem, 2vh + 0.2vw, 1.2rem)",
               color: "#444",
-              lineHeight: 1.4,
-              marginBottom: "clamp(0.6rem, 1.5vh, 1rem)",
-              maxWidth: "520px",
+              lineHeight: 1.5,
+              marginBottom: "clamp(1rem, 2vh, 1.5rem)",
+              maxWidth: "600px",
             }}
           >
             Churchwin Trading Co. produces world-class natural products — but
@@ -143,9 +143,9 @@ export default function TableOfContentsSlide() {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  gap: "clamp(0.9rem, 1.5vw, 1.25rem)",
-                  padding: "clamp(0.5rem, 1.2vh, 0.8rem) clamp(0.9rem, 1.5vw, 1.25rem)",
-                  borderRadius: "12px",
+                  gap: "clamp(1.2rem, 2vw, 1.8rem)",
+                  padding: "clamp(0.8rem, 1.5vh, 1.2rem) clamp(1rem, 2vw, 1.5rem)",
+                  borderRadius: "14px",
                   background: "#f8f9fb",
                   border: "1px solid rgba(1,39,135,0.06)",
                   transition: "all 0.3s ease",
@@ -164,10 +164,10 @@ export default function TableOfContentsSlide() {
               >
                 <span
                   style={{
-                    fontSize: "clamp(1.2rem, 2.5vh, 1.45rem)",
+                    fontSize: "clamp(1.4rem, 3vh, 1.8rem)",
                     fontWeight: 800,
                     color: "#ff6a00",
-                    minWidth: "2.2rem",
+                    minWidth: "2.8rem",
                     fontFamily: "Montserrat, sans-serif",
                   }}
                 >
@@ -176,19 +176,19 @@ export default function TableOfContentsSlide() {
                 <div style={{ flex: 1 }}>
                   <div
                     style={{
-                      fontSize: "clamp(0.95rem, 1.8vh, 1.05rem)",
-                      fontWeight: 700,
+                      fontSize: "clamp(1.05rem, 2.2vh, 1.2rem)",
+                      fontWeight: 800,
                       color: "#012787",
-                      marginBottom: "0.1rem",
+                      marginBottom: "0.2rem",
                     }}
                   >
                     {item.title}
                   </div>
                   <div
                     style={{
-                      fontSize: "clamp(0.8rem, 1.5vh, 0.9rem)",
-                      color: "#666",
-                      lineHeight: 1.3,
+                      fontSize: "clamp(0.85rem, 1.8vh, 1rem)",
+                      color: "#555",
+                      lineHeight: 1.4,
                     }}
                   >
                     {item.desc}

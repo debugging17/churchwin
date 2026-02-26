@@ -65,12 +65,12 @@ export default function BrandGapSlide() {
           className="split-comparison"
           style={{
             display: "flex",
-            gap: "1.5rem",
+            gap: "2rem",
             width: "100%",
             height: "100%",
-            maxHeight: "680px", /* Constrain vertical height so it doesn't cut off */
+            maxHeight: "750px", /* Constrain vertical height so it doesn't cut off */
             flexWrap: "nowrap",
-            maxWidth: "950px", /* Keep it within the screen bounds so the right edge isn't cut off */
+            maxWidth: "1100px", /* Keep it within the screen bounds so the right edge isn't cut off */
             padding: "1rem 2rem 1rem 0",
             alignItems: "stretch" /* Make columns equal height */
           }}
@@ -88,7 +88,7 @@ export default function BrandGapSlide() {
               display: "flex",
               flexDirection: "column",
               boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-              minWidth: "clamp(200px, 25vw, 300px)",
+              minWidth: "clamp(250px, 35vw, 420px)",
             }}
           >
             {/* MacOS-style header for the screenshot */}
@@ -113,10 +113,10 @@ export default function BrandGapSlide() {
                 alt="Current Static Catalog Dashboard"
                 style={{
                   width: "100%",
-                  height: "100%",
-                  objectFit: "contain",
+                  height: "auto",
+                  display: "block",
+                  objectFit: "cover",
                   objectPosition: "top center",
-                  background: "#fff",
                 }}
               />
               <div
@@ -141,8 +141,8 @@ export default function BrandGapSlide() {
               position: "relative",
               display: "flex",
               flexDirection: "column",
-              gap: "1.5rem",
-              minWidth: "clamp(180px, 22vw, 280px)",
+              gap: "2rem",
+              minWidth: "clamp(200px, 25vw, 340px)",
             }}
           >
             {/* Immersive Sourcing Hero Video (Separated Layer) */}

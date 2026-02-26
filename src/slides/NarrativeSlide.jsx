@@ -102,9 +102,9 @@ export default function NarrativeSlide() {
         <div
           style={{
             width: "100%",
-            maxWidth: "520px",
+            maxWidth: "750px",
             background: "#fff",
-            borderRadius: "16px",
+            borderRadius: "20px",
             display: "flex",
             flexDirection: "column",
             position: "relative",
@@ -115,12 +115,12 @@ export default function NarrativeSlide() {
           <div
             style={{
               background: "#f8f9fa",
-              padding: "1.2rem 1.5rem 0 1.5rem",
+              padding: "1.5rem 2rem 0 2rem",
               borderBottom: "1px solid #ddd",
               display: "flex",
-              gap: "2rem",
-              fontSize: "0.9rem",
-              fontWeight: 700,
+              gap: "2.5rem",
+              fontSize: "1rem",
+              fontWeight: 800,
             }}
           >
             {VERTICALS.map((vt, i) => (
@@ -157,11 +157,11 @@ export default function NarrativeSlide() {
           {/* Portal Content */}
           <div
             style={{
-              padding: "2rem 2rem 2.5rem",
+              padding: "2.5rem 2.5rem 3rem",
               flex: 1,
               display: "flex",
               flexDirection: "column",
-              gap: "1.5rem",
+              gap: "2rem",
             }}
           >
             <div
@@ -176,8 +176,8 @@ export default function NarrativeSlide() {
                   style={{
                     margin: 0,
                     color: "#1a1a2e",
-                    fontSize: "1.4rem",
-                    fontWeight: 800,
+                    fontSize: "1.8rem",
+                    fontWeight: 900,
                   }}
                 >
                   {v.heading}
@@ -185,8 +185,8 @@ export default function NarrativeSlide() {
                 <div
                   style={{
                     color: "#666",
-                    fontSize: "0.85rem",
-                    marginTop: "0.3rem",
+                    fontSize: "1.05rem",
+                    marginTop: "0.4rem",
                   }}
                 >
                   {v.tier}
@@ -196,10 +196,10 @@ export default function NarrativeSlide() {
                 style={{
                   background: v.badgeBg,
                   color: v.badgeColor,
-                  padding: "0.4rem 0.8rem",
+                  padding: "0.6rem 1rem",
                   borderRadius: "20px",
-                  fontSize: "0.75rem",
-                  fontWeight: 700,
+                  fontSize: "0.85rem",
+                  fontWeight: 800,
                   whiteSpace: "nowrap",
                 }}
               >
@@ -219,7 +219,7 @@ export default function NarrativeSlide() {
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(2, 1fr)",
-                gap: "1rem",
+                gap: "1.5rem",
                 flex: 1,
               }}
             >
@@ -245,7 +245,7 @@ export default function NarrativeSlide() {
                     e.currentTarget.style.transform = "translateY(0)";
                   }}
                 >
-                  <div style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>
+                  <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>
                     {f.icon}
                   </div>
                   <div

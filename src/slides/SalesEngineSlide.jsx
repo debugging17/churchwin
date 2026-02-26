@@ -89,9 +89,9 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
             flexDirection: "column",
             justifyContent: "center",
             width: "100%",
-            maxWidth: "800px",
+            maxWidth: "1000px",
             margin: "0 auto",
-            transform: "translate(-4.5rem, 2rem)",
+            transform: "translate(-1rem, 1rem)",
           }}
         >
           <div
