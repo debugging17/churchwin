@@ -154,9 +154,7 @@ export default function CurrentRealitySlide() {
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
-              <div className="bento-sub" style={{ marginTop: "0.8rem" }}>
-                3:27 Avg Duration • 2.02 Pages/Visit
-              </div>
+
               <div
                 style={{
                   fontSize: "0.65rem",
@@ -250,16 +248,7 @@ export default function CurrentRealitySlide() {
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
-              <div
-                style={{
-                  fontSize: "0.8rem",
-                  color: "#ff6a00",
-                  fontWeight: 600,
-                  marginTop: "0.5rem",
-                }}
-              >
-                Invisible Online — Zero Organic Traffic
-              </div>
+
             </div>
           </div>
 
