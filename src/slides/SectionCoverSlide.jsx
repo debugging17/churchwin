@@ -51,8 +51,7 @@ export default function SectionCoverSlide({
           right: "clamp(1rem, 3vw, 3rem)",
           width: "clamp(140px, 30vw, 240px)",
           height: "clamp(110px, 20vw, 180px)",
-          background: isLight ? "#ffffff" : "rgba(255,255,255,0.05)",
-          backdropFilter: isLight ? "none" : "blur(10px)",
+          background: "#ffffff",
           borderRadius: "16px",
           display: "flex",
           alignItems: "center",
@@ -62,7 +61,7 @@ export default function SectionCoverSlide({
             : "0 10px 30px rgba(0,0,0,0.2)",
           zIndex: 20,
           padding: "0.5rem",
-          border: isLight ? "none" : "1px solid rgba(255,255,255,0.1)",
+          border: "none",
           outline: isLight ? "6px solid #ff6a00" : "none",
           outlineOffset: "0px",
         }}
