@@ -739,7 +739,18 @@
   #slide-masonry,
   #slide-masonry-2,
   #slide-masonry-3 {
-    padding-bottom: 4.5rem;
+    padding-bottom: 5rem !important;
+  }
+
+  /* Global catch-all to prevent bleeding off right edge on extremely narrow screens */
+  .slide {
+    overflow-x: hidden;
+  }
+
+  .visual-pane,
+  .narrative-pane {
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
   }
 }
 
