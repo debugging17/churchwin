@@ -72,20 +72,26 @@ export default function CoverSlide() {
         {/* Brand Logo - In Normal Flow to Prevent Overlap */}
         <div
           style={{
-            background: "rgba(255, 255, 255, 0.95)",
-            padding: "clamp(0.5rem, 3vw, 1rem) clamp(1rem, 5vw, 3rem)",
-            borderRadius: "8px",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
             marginTop: "3vh",
             marginBottom: "clamp(1.5rem, 3vh, 2.5rem)",
             width: "fit-content",
             maxWidth: "90vw",
             boxSizing: "border-box",
+            display: "flex",
+            justifyContent: "center",
           }}
         >
           <img
             src="/assets/images/churchwin_logo_new.png"
-            style={{ width: "100%", maxWidth: "220px", display: "block", height: "auto", objectFit: "contain" }}
+            style={{
+              width: "100%",
+              maxWidth: "260px",
+              display: "block",
+              height: "auto",
+              objectFit: "contain",
+              filter: "brightness(0) invert(1)", /* Renders the logo pure white on the dark background */
+              opacity: 0.95
+            }}
             alt="Churchwin Trading Co."
           />
         </div>
