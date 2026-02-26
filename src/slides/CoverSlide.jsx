@@ -21,10 +21,10 @@ export default function CoverSlide() {
     >
       {/* Background Video (Phase 1: Hook) */}
       <video
-        autoPlay
-        loop
-        muted
-        playsInline
+        autoPlay={true}
+        loop={true}
+        muted={true}
+        playsInline={true}
         preload="metadata"
         style={{
           position: "absolute",

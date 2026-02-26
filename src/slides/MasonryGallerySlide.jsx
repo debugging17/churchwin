@@ -31,7 +31,7 @@ const MasonryGallerySlide = memo(function MasonryGallerySlide() {
                     className="my-masonry-grid"
                     columnClassName="my-masonry-grid_column"
                 >
-                    <video className="premium-gallery-img" src="/assets/images/mansory/grok-video-7864786d-3736-496a-abd9-5b4b705fd073.mp4" autoPlay loop muted playsInline />
+                    <video className="premium-gallery-img" src="/assets/images/mansory/grok-video-7864786d-3736-496a-abd9-5b4b705fd073.mp4" autoPlay={true} loop={true} muted={true} playsInline={true} />
                     <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/pomelli-image(16).png" alt="African Black Soap Handheld" />
                     <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/pomelli-image(13).png" alt="ChurchWin Shea Butter" />
                     <img className="premium-gallery-img" loading="lazy" decoding="async" src="/assets/images/mansory/pomelli-image(18).png" alt="African Black Soap Floating" />

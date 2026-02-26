@@ -142,15 +142,15 @@ export default function BrandGapSlide() {
               display: "flex",
               flexDirection: "column",
               gap: "2rem",
-              minWidth: "clamp(200px, 25vw, 340px)",
+              minWidth: "200px",
+              maxWidth: "400px",
             }}
           >
             {/* Immersive Sourcing Hero Video (Separated Layer) */}
             <div
               style={{
                 width: "100%",
-                flex: 1, /* Lets the video container expand to fill vertical space */
-                minHeight: "240px",
+                aspectRatio: "16/9",
                 background: "#000",
                 borderRadius: "12px",
                 overflow: "hidden",
@@ -160,10 +160,10 @@ export default function BrandGapSlide() {
               }}
             >
               <video
-                autoPlay
-                loop
-                muted
-                playsInline
+                autoPlay={true}
+                loop={true}
+                muted={true}
+                playsInline={true}
                 preload="metadata"
                 style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.8 }}
               >
@@ -189,7 +189,7 @@ export default function BrandGapSlide() {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                flexShrink: 0 /* Prevents product image from squashing */
+                flex: 1
               }}
             >
               <img
