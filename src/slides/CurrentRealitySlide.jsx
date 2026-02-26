@@ -1,6 +1,43 @@
 import { useRef } from "react";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
 import { useTilt } from "../hooks/useTilt";
+import { AreaChart, Area, ResponsiveContainer, YAxis } from "recharts";
+
+const TREND_BARAKA = [
+  { month: "Jan", visits: 40000 },
+  { month: "Feb", visits: 44000 },
+  { month: "Mar", visits: 48000 },
+  { month: "Apr", visits: 49500 },
+  { month: "May", visits: 51000 },
+  { month: "Jun", visits: 52931 },
+];
+
+const TREND_CHURCHWIN = [
+  { month: "Jan", visits: 0 },
+  { month: "Feb", visits: 0 },
+  { month: "Mar", visits: 0 },
+  { month: "Apr", visits: 0 },
+  { month: "May", visits: 0 },
+  { month: "Jun", visits: 0 },
+];
+
+const TREND_RETAIL = [
+  { month: "Jan", visits: 150 },
+  { month: "Feb", visits: 180 },
+  { month: "Mar", visits: 140 },
+  { month: "Apr", visits: 210 },
+  { month: "May", visits: 190 },
+  { month: "Jun", visits: 200 },
+];
+
+const TREND_FAIRTALE = [
+  { month: "Jan", visits: 1800 },
+  { month: "Feb", visits: 1900 },
+  { month: "Mar", visits: 1850 },
+  { month: "Apr", visits: 2050 },
+  { month: "May", visits: 2100 },
+  { month: "Jun", visits: 2186 },
+];
 
 export default function CurrentRealitySlide() {
   const slideRef = useRef(null);
@@ -94,11 +131,19 @@ export default function CurrentRealitySlide() {
                 <span>Organic Sources</span>
                 <span>High</span>
               </div>
-              <div className="stat-bar">
-                <div
-                  className="stat-fill"
-                  style={{ width: "100%", background: "#27c93f" }}
-                />
+              <div style={{ height: "45px", width: "100%", marginTop: "0.2rem" }}>
+                <ResponsiveContainer width="100%" height="100%">
+                  <AreaChart data={TREND_BARAKA}>
+                    <defs>
+                      <linearGradient id="colorBaraka" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="#27c93f" stopOpacity={0.8} />
+                        <stop offset="95%" stopColor="#27c93f" stopOpacity={0} />
+                      </linearGradient>
+                    </defs>
+                    <YAxis domain={['auto', 'auto']} hide />
+                    <Area type="monotone" dataKey="visits" stroke="#27c93f" strokeWidth={2} fillOpacity={1} fill="url(#colorBaraka)" isAnimationActive={true} animationDuration={1500} />
+                  </AreaChart>
+                </ResponsiveContainer>
               </div>
               <div className="bento-sub" style={{ marginTop: "0.8rem" }}>
                 3:27 Avg Duration • 2.02 Pages/Visit
@@ -166,11 +211,19 @@ export default function CurrentRealitySlide() {
               No Digital Presence
             </div>
             <div style={{ marginTop: "auto" }}>
-              <div className="stat-bar">
-                <div
-                  className="stat-fill"
-                  style={{ width: "0%", background: "var(--accent)" }}
-                />
+              <div style={{ height: "40px", width: "100%", marginTop: "0.5rem" }}>
+                <ResponsiveContainer width="100%" height="100%">
+                  <AreaChart data={TREND_CHURCHWIN}>
+                    <defs>
+                      <linearGradient id="colorChurchwin" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="var(--accent)" stopOpacity={0.8} />
+                        <stop offset="95%" stopColor="var(--accent)" stopOpacity={0} />
+                      </linearGradient>
+                    </defs>
+                    <YAxis domain={[0, 100]} hide />
+                    <Area type="monotone" dataKey="visits" stroke="var(--accent)" strokeWidth={2} fillOpacity={1} fill="url(#colorChurchwin)" isAnimationActive={true} animationDuration={1500} />
+                  </AreaChart>
+                </ResponsiveContainer>
               </div>
               <div
                 style={{
@@ -217,11 +270,19 @@ export default function CurrentRealitySlide() {
             >
               Monthly Visits
             </div>
-            <div className="stat-bar">
-              <div
-                className="stat-fill"
-                style={{ width: "1%", background: "#888" }}
-              />
+            <div style={{ height: "35px", width: "100%", marginTop: "0.5rem" }}>
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={TREND_RETAIL}>
+                  <defs>
+                    <linearGradient id="colorRetail" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#fff" stopOpacity={0.4} />
+                      <stop offset="95%" stopColor="#fff" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <YAxis domain={[0, 'auto']} hide />
+                  <Area type="monotone" dataKey="visits" stroke="rgba(255,255,255,0.6)" strokeWidth={2} fillOpacity={1} fill="url(#colorRetail)" isAnimationActive={true} animationDuration={1500} />
+                </AreaChart>
+              </ResponsiveContainer>
             </div>
             <div
               className="bento-sub"
@@ -244,11 +305,19 @@ export default function CurrentRealitySlide() {
             <h4>FairTale Ghana</h4>
             <div className="bento-big-num">2,186</div>
             <div className="bento-sub">Monthly Visits</div>
-            <div className="stat-bar">
-              <div
-                className="stat-fill"
-                style={{ width: "5%", background: "#f1c40f" }}
-              />
+            <div style={{ height: "35px", width: "100%", marginTop: "0.5rem" }}>
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={TREND_FAIRTALE}>
+                  <defs>
+                    <linearGradient id="colorFairtale" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#f1c40f" stopOpacity={0.6} />
+                      <stop offset="95%" stopColor="#f1c40f" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <YAxis domain={[0, 'auto']} hide />
+                  <Area type="monotone" dataKey="visits" stroke="#f1c40f" strokeWidth={2} fillOpacity={1} fill="url(#colorFairtale)" isAnimationActive={true} animationDuration={1500} />
+                </AreaChart>
+              </ResponsiveContainer>
             </div>
           </div>
 
