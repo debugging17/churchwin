@@ -47,8 +47,8 @@ export default function SectionCoverSlide({
         className="section-product-stamp section-cover-product-stamp"
         style={{
           position: "absolute",
-          top: "4vh",
-          right: "3vw",
+          top: "clamp(1.5rem, 4vh, 3rem)",
+          right: "clamp(1.5rem, 3vw, 3rem)",
           width: "26vh",
           height: "20vh",
           minWidth: "180px",

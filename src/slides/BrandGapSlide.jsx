@@ -88,7 +88,7 @@ export default function BrandGapSlide() {
               display: "flex",
               flexDirection: "column",
               boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-              minWidth: "300px",
+              minWidth: "clamp(200px, 25vw, 300px)",
             }}
           >
             {/* MacOS-style header for the screenshot */}
@@ -114,17 +114,19 @@ export default function BrandGapSlide() {
                 style={{
                   width: "100%",
                   height: "100%",
-                  objectFit: "cover",
+                  objectFit: "contain",
                   objectPosition: "top center",
+                  background: "#fff",
                 }}
               />
               <div
                 style={{
-                  position: "absolute", top: "10px", right: "10px",
+                  position: "absolute", top: "14px", right: "14px",
                   background: "rgba(0,0,0,0.75)", color: "#fff", padding: "6px 10px",
                   borderRadius: "6px", fontSize: "0.7rem", fontWeight: 800,
                   backdropFilter: "blur(4px)", border: "1px solid rgba(255,255,255,0.15)",
                   letterSpacing: "0.05em",
+                  zIndex: 10,
                 }}
               >
                 STATIC CATALOGUE
@@ -140,7 +142,7 @@ export default function BrandGapSlide() {
               display: "flex",
               flexDirection: "column",
               gap: "1.5rem",
-              minWidth: "280px",
+              minWidth: "clamp(180px, 22vw, 280px)",
             }}
           >
             {/* Immersive Sourcing Hero Video (Separated Layer) */}
