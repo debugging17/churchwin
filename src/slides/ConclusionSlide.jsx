@@ -36,7 +36,7 @@ export default function ConclusionSlide() {
           <img
             src="/assets/images/churchwin_logo_new.png"
             style={{
-              width: "300px",
+              width: "clamp(300px, 35vw, 600px)",
               display: "block",
               position: "relative",
               zIndex: 2,
@@ -52,7 +52,7 @@ export default function ConclusionSlide() {
           Zero-Risk <br />
           <span className="highlight">Next Step</span>
         </h1>
-        <p className="body-xl" style={{ fontSize: "1.2rem" }}>
+        <p className="body-xl">
           We aren't building a catalog.
           <br />
           We are building an{" "}
@@ -74,14 +74,14 @@ export default function ConclusionSlide() {
               background: "var(--accent)",
               color: "#000",
               border: "none",
-              padding: "1rem 2rem",
-              borderRadius: "4px",
+              padding: "clamp(1rem, 2vw, 1.25rem) clamp(2rem, 4vw, 3rem)",
+              borderRadius: "6px",
               fontWeight: 800,
               cursor: "pointer",
               transition: "transform 0.2s",
-              fontSize: "1rem",
-              boxShadow: "0 10px 20px rgba(255,106,0,0.3)",
-              marginTop: "1rem",
+              fontSize: "clamp(1rem, 2vw, 1.2rem)",
+              boxShadow: "0 15px 30px rgba(255,106,0,0.3)",
+              marginTop: "clamp(1rem, 2vw, 2rem)",
             }}
             onMouseOver={(e) =>
               (e.currentTarget.style.transform = "scale(1.05)")

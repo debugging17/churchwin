@@ -101,8 +101,7 @@ export default function NarrativeSlide() {
         {/* B2B Portal UI Mockup */}
         <div
           style={{
-            width: "100%",
-            maxWidth: "750px",
+            width: "clamp(300px, 90%, 800px)",
             background: "#fff",
             borderRadius: "20px",
             display: "flex",
