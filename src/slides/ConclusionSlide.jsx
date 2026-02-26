@@ -42,6 +42,7 @@ export default function ConclusionSlide() {
               display: "block",
               position: "relative",
               zIndex: 2,
+              borderRadius: "1rem",
             }}
             alt="Churchwin Logo"
           />
@@ -63,8 +64,8 @@ export default function ConclusionSlide() {
           <br />
           <strong>Proposal Action Item:</strong>
           <br />
-          Let's schedule a zero-risk 30-minute working session to review the UX
-          wireframes and how they digitally support capturing{" "}
+          Let's schedule a zero-risk 30-minute working session to discuss how this
+          digital foundation will directly support capturing{" "}
           <strong>
             1,000+ qualified global prospects, 50+ sample shipments, and 10-20
             high-volume bulk clients.

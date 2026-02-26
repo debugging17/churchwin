@@ -30,7 +30,7 @@ const TOC_ITEMS = [
   {
     num: "06",
     title: "Next Steps",
-    desc: "Zero-risk 30-minute working session with wireframes.",
+    desc: "Zero-risk 30-minute strategic working session.",
   },
 ];
 
