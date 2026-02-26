@@ -205,8 +205,8 @@ function StrategyModal({ month, onClose }) {
             : isTablet
               ? "1.5rem 1.75rem"
               : "2rem 2.5rem",
-          width: isMobile ? "100%" : "85vw",
-          maxWidth: isMobile ? "100%" : isTablet ? "750px" : "900px",
+          width: isMobile ? "100%" : "90vw",
+          maxWidth: isMobile ? "100%" : isTablet ? "900px" : "1050px",
           maxHeight: isMobile ? "95vh" : "92vh",
           overflowY: "auto",
           cursor: "default",
@@ -240,7 +240,7 @@ function StrategyModal({ month, onClose }) {
             </div>
             <h2
               style={{
-                fontSize: isMobile ? "1.3rem" : "1.6rem",
+                fontSize: isMobile ? "1.4rem" : "2.2rem",
                 fontWeight: 800,
                 color: "#012787",
                 display: "flex",
@@ -257,7 +257,7 @@ function StrategyModal({ month, onClose }) {
                 opacity: 0.8,
                 fontStyle: "italic",
                 margin: "0.25rem 0 0",
-                fontSize: isMobile ? "0.8rem" : "0.95rem",
+                fontSize: isMobile ? "0.85rem" : "1.1rem",
               }}
             >
               {month.subtitle}
@@ -315,7 +315,7 @@ function StrategyModal({ month, onClose }) {
                 background: "#f8f9fa",
                 border: "1px solid rgba(1,39,135,0.1)",
                 borderRadius: "14px",
-                padding: isMobile ? "1rem" : "1.25rem",
+                padding: isMobile ? "1rem" : "1.5rem",
                 transition:
                   "border-color 0.3s, transform 0.3s, box-shadow 0.3s",
                 cursor: "default",
@@ -333,8 +333,8 @@ function StrategyModal({ month, onClose }) {
             >
               <div
                 style={{
-                  fontSize: isMobile ? "1.4rem" : "1.8rem",
-                  marginBottom: "0.4rem",
+                  fontSize: isMobile ? "1.6rem" : "2.2rem",
+                  marginBottom: "0.5rem",
                 }}
               >
                 {s.icon}
@@ -342,9 +342,9 @@ function StrategyModal({ month, onClose }) {
               <h4
                 style={{
                   color: "#012787",
-                  fontSize: isMobile ? "0.85rem" : "0.95rem",
+                  fontSize: isMobile ? "0.95rem" : "1.2rem",
                   fontWeight: 700,
-                  marginBottom: "0.3rem",
+                  marginBottom: "0.4rem",
                   letterSpacing: "-0.01em",
                 }}
               >
@@ -353,20 +353,20 @@ function StrategyModal({ month, onClose }) {
               <p
                 style={{
                   color: "#333",
-                  fontSize: isMobile ? "0.75rem" : "0.8rem",
+                  fontSize: isMobile ? "0.85rem" : "1.05rem",
                   lineHeight: 1.5,
-                  marginBottom: "0.6rem",
+                  marginBottom: "0.8rem",
                 }}
               >
                 {s.desc}
               </p>
               <div
                 style={{
-                  fontSize: "0.7rem",
+                  fontSize: isMobile ? "0.75rem" : "0.9rem",
                   fontWeight: 600,
                   color: "#ff6a00",
                   background: `rgba(255,106,0,0.1)`,
-                  padding: "4px 10px",
+                  padding: "6px 12px",
                   borderRadius: "6px",
                   display: "inline-block",
                   letterSpacing: "0.3px",
