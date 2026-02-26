@@ -12,7 +12,7 @@ const PLATFORMS = [
         logoFilter: "brightness(0) invert(1)",
         accentColor: "#ff6a00",
         panelBg: "#ffffff",
-        panelHeaderBg: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
+        panelHeaderBg: "#fff5f0",
         purpose: "Lead Intelligence & Prospecting",
         tier: "Basic Plan",
         monthlyPrice: 49,
@@ -199,166 +199,146 @@ export default function PricingSlide() {
                     className="pricing-panel"
                     style={{
                         background: active.panelBg,
-                        border: active.isDark ? "1px solid rgba(255, 255, 255, 0.1)" : "none",
-                        boxShadow: active.isDark ? "0 20px 40px rgba(0, 0, 0, 0.2)" : "var(--shadow-lg)"
+                        border: "1px solid rgba(0,0,0,0.06)",
+                        boxShadow: "0 24px 48px rgba(0, 0, 0, 0.08)",
+                        borderRadius: "16px",
+                        display: "flex",
+                        flexDirection: "column",
+                        overflow: "hidden"
                     }}
                 >
-                    {/* Panel header */}
-                    <div className="pricing-panel__header" style={{ background: active.panelHeaderBg, borderBottom: active.isDark ? "1px solid rgba(255, 255, 255, 0.05)" : "none" }}>
-                        <div className="pricing-panel__header-left">
+                    {/* Panel header (macOS style) */}
+                    <div style={{
+                        padding: "1rem 1.5rem",
+                        background: active.panelHeaderBg,
+                        display: "flex",
+                        alignItems: "center",
+                        borderBottom: "1px solid rgba(0,0,0,0.05)"
+                    }}>
+                        <div style={{ display: "flex", gap: "6px", width: "120px" }}>
+                            <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#ff5f56" }} />
+                            <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#ffbd2e" }} />
+                            <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#27c93f" }} />
+                        </div>
+                        <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
                             <img
                                 src={active.logo}
                                 alt={active.name}
-                                className="pricing-panel__logo"
-                                style={{ filter: active.logoFilter }}
+                                style={{ height: "24px", filter: active.logoFilter, objectFit: "contain" }}
                                 onError={(e) => (e.target.style.display = "none")}
                             />
-                            <div>
-                                <div className="pricing-panel__platform-name" style={{ color: active.isDark ? "#fff" : "#111" }}>
-                                    {active.name}
-                                </div>
-                                <div className="pricing-panel__platform-tier" style={{ color: active.accentColor }}>
-                                    {active.tier}
-                                </div>
-                            </div>
                         </div>
-                        <div className="pricing-panel__header-right">
-                            <div className="pricing-panel__price-badge" style={{ background: active.accentColor }}>
-                                ${active.monthlyPrice}<small>/mo</small>
-                            </div>
-                            <div className="pricing-panel__annual" style={{ color: active.isDark ? "rgba(255,255,255,0.5)" : "#888" }}>
-                                ${active.annualMonthly}/mo on annual plan
-                            </div>
+                        <div style={{ width: "120px", textAlign: "right", fontSize: "0.85rem", color: "#94a3b8", fontWeight: 600 }}>
+                            {active.url}
                         </div>
                     </div>
 
                     {/* Panel body */}
-                    <div className="pricing-panel__body">
-                        <p className="pricing-panel__purpose" style={{ color: active.isDark ? "rgba(255,255,255,0.65)" : "#555" }}>
-                            {active.purpose}
-                        </p>
+                    <div className="pricing-panel__body" style={{ padding: "2rem", display: "flex", flexDirection: "column", flex: 1 }}>
 
-                        {/* KPI cards */}
-                        <div className="pricing-breakdown-row" style={{ marginTop: "1.5rem", marginBottom: "1.5rem" }}>
-                            {active.breakdown.map((item) => (
+                        {/* Title & Price Row */}
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "1rem" }}>
+                            <div>
+                                <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: "1.5px", marginBottom: "0.4rem" }}>
+                                    {active.purpose}
+                                </div>
+                                <div style={{ fontSize: "1.85rem", fontWeight: 800, color: "#0f172a", lineHeight: 1 }}>
+                                    {active.tier}
+                                </div>
+                            </div>
+                            <div style={{ textAlign: "right" }}>
+                                <div style={{ fontSize: "2.5rem", fontWeight: 900, color: active.accentColor, lineHeight: 1 }}>
+                                    ${active.monthlyPrice}
+                                </div>
+                                <div style={{ fontSize: "0.8rem", fontWeight: 600, color: "#94a3b8", marginTop: "0.5rem" }}>
+                                    ${active.annualMonthly}/mo annually
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Usage Bars / Chart */}
+                        <div style={{ width: "100%", height: "120px", marginBottom: "2rem", marginTop: "1rem" }}>
+                            <ResponsiveContainer width="100%" height="100%">
+                                <BarChart
+                                    layout="vertical"
+                                    data={active.barData}
+                                    margin={{ top: 0, right: 30, left: 0, bottom: 0 }}
+                                    barSize={10}
+                                >
+                                    <XAxis type="number" hide domain={[0, 100]} />
+                                    <YAxis
+                                        dataKey="label"
+                                        type="category"
+                                        axisLine={false}
+                                        tickLine={false}
+                                        tick={{ fill: '#64748b', fontSize: 13, fontWeight: 700 }}
+                                        width={75}
+                                    />
+                                    <Tooltip
+                                        cursor={{ fill: 'rgba(0,0,0,0.03)' }}
+                                        contentStyle={{
+                                            borderRadius: "8px",
+                                            border: "none",
+                                            boxShadow: "0 10px 20px rgba(0,0,0,0.08)",
+                                            background: "#fff",
+                                            color: "#111",
+                                            fontWeight: 600,
+                                            fontSize: "0.85rem"
+                                        }}
+                                        formatter={(value) => [`${value}% allocated`, 'Usage']}
+                                    />
+                                    <Bar dataKey="pct" radius={[0, 4, 4, 0]} background={{ fill: '#f1f5f9', radius: [0, 4, 4, 0] }}>
+                                        {active.barData.map((entry, index) => (
+                                            <Cell key={`cell-${index}`} fill={entry.color} />
+                                        ))}
+                                    </Bar>
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </div>
+
+                        {/* Breakdown Pills */}
+                        <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
+                            {active.breakdown.map((item, idx) => (
                                 <div
-                                    key={item.label}
-                                    className="pricing-kpi"
+                                    key={idx}
                                     style={{
-                                        background: active.isDark ? "rgba(255,255,255,0.06)" : "#ffffff",
-                                        border: `1px solid ${active.isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)"}`,
-                                        boxShadow: active.isDark ? "0 8px 24px rgba(0,0,0,0.4)" : "0 8px 24px rgba(0,0,0,0.04)",
-                                        borderRadius: "16px",
-                                        padding: "1.25rem 1rem",
                                         display: "flex",
-                                        flexDirection: "column",
+                                        justifyContent: "space-between",
                                         alignItems: "center",
-                                        justifyContent: "center",
-                                        transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                                        cursor: "default"
-                                    }}
-                                    onMouseEnter={(e) => {
-                                        e.currentTarget.style.transform = "translateY(-4px)";
-                                        e.currentTarget.style.boxShadow = active.isDark ? "0 12px 32px rgba(0,0,0,0.5)" : `0 12px 32px ${active.accentColor}20`;
-                                    }}
-                                    onMouseLeave={(e) => {
-                                        e.currentTarget.style.transform = "translateY(0)";
-                                        e.currentTarget.style.boxShadow = active.isDark ? "0 8px 24px rgba(0,0,0,0.4)" : "0 8px 24px rgba(0,0,0,0.04)";
+                                        padding: "1rem 1.5rem",
+                                        background: `${active.accentColor}08`,
+                                        borderRadius: "14px",
+                                        border: `1px solid ${active.accentColor}1A`
                                     }}
                                 >
-                                    <div style={{
-                                        background: `${active.accentColor}15`,
-                                        color: active.accentColor,
-                                        width: "48px",
-                                        height: "48px",
-                                        borderRadius: "14px",
-                                        display: "grid",
-                                        placeItems: "center",
-                                        marginBottom: "0.75rem"
-                                    }}>
-                                        {item.icon}
-                                    </div>
-                                    <div style={{
-                                        color: active.isDark ? "#fff" : "#111",
-                                        fontSize: "1.4rem",
-                                        fontWeight: 800,
-                                        lineHeight: 1.1,
-                                        marginBottom: "0.25rem"
-                                    }}>
-                                        {item.value}
-                                    </div>
-                                    <div style={{
-                                        color: active.isDark ? "rgba(255,255,255,0.6)" : "#64748b",
-                                        fontSize: "0.7rem",
-                                        fontWeight: 600,
-                                        textTransform: "uppercase",
-                                        letterSpacing: "0.5px",
-                                        textAlign: "center"
-                                    }}>
+                                    <div style={{ fontSize: "1rem", fontWeight: 700, color: "#334155", flex: 1 }}>
                                         {item.label}
+                                    </div>
+                                    <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#10b981", fontWeight: 700, flex: 1, justifyContent: "center" }}>
+                                        {item.icon}
+                                        <span style={{ fontSize: "0.95rem" }}>Included</span>
+                                    </div>
+                                    <div style={{ fontSize: "1.1rem", fontWeight: 800, color: active.accentColor, flex: 1, textAlign: "right" }}>
+                                        {item.value}
                                     </div>
                                 </div>
                             ))}
                         </div>
 
-                        {/* Usage bars */}
-                        <div
-                            className="pricing-bars"
-                            style={{
-                                background: active.isDark ? "rgba(255,255,255,0.04)" : "#fff",
-                                border: `1.5px solid ${active.isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.15)"}`,
-                                boxShadow: active.isDark ? "0 4px 12px rgba(0,0,0,0.3)" : "0 4px 16px rgba(0,0,0,0.08)",
-                                padding: "1.25rem",
-                                borderRadius: "12px",
-                                marginTop: "1.5rem"
-                            }}
-                        >
-                            <div className="pricing-bars__title" style={{ color: active.isDark ? "rgba(255,255,255,0.5)" : "#999", marginBottom: "1rem", fontWeight: 700, fontSize: "0.80rem", letterSpacing: "1px", textTransform: "uppercase" }}>
-                                Usage Allocation
-                            </div>
-                            <div style={{ width: "100%", height: 120 }}>
-                                <ResponsiveContainer width="100%" height="100%">
-                                    <BarChart
-                                        layout="vertical"
-                                        data={active.barData}
-                                        margin={{ top: 0, right: 30, left: 0, bottom: 0 }}
-                                        barSize={10}
-                                    >
-                                        <XAxis type="number" hide domain={[0, 100]} />
-                                        <YAxis
-                                            dataKey="label"
-                                            type="category"
-                                            axisLine={false}
-                                            tickLine={false}
-                                            tick={{ fill: active.isDark ? 'rgba(255,255,255,0.7)' : '#555', fontSize: 13, fontWeight: 600 }}
-                                            width={65}
-                                        />
-                                        <Tooltip
-                                            cursor={{ fill: active.isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.03)' }}
-                                            contentStyle={{
-                                                borderRadius: "8px",
-                                                border: "none",
-                                                boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
-                                                background: active.isDark ? "#1f2937" : "#fff",
-                                                color: active.isDark ? "#fff" : "#111"
-                                            }}
-                                            formatter={(value) => [`${value}% allocated`, 'Usage']}
-                                        />
-                                        <Bar dataKey="pct" radius={[0, 4, 4, 0]} background={{ fill: active.isDark ? 'rgba(255,255,255,0.05)' : '#f3f4f6', radius: [0, 4, 4, 0] }}>
-                                            {active.barData.map((entry, index) => (
-                                                <Cell key={`cell-${index}`} fill={entry.color} />
-                                            ))}
-                                        </Bar>
-                                    </BarChart>
-                                </ResponsiveContainer>
-                            </div>
-                        </div>
-
-                        {/* Features */}
-                        <ul className="pricing-features">
-                            {active.features.map((f) => (
-                                <li key={f} style={{ color: active.isDark ? "rgba(255,255,255,0.75)" : "#444" }}>
-                                    <span style={{ color: active.accentColor }}>✓</span> {f}
+                        {/* Features List */}
+                        <ul style={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                            gap: "0.85rem",
+                            listStyle: "none",
+                            margin: 0,
+                            padding: 0,
+                            marginTop: "auto"
+                        }}>
+                            {active.features.map((f, idx) => (
+                                <li key={idx} style={{ color: "#64748b", fontSize: "0.85rem", fontWeight: 600, display: "flex", alignItems: "center", gap: "6px" }}>
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={active.accentColor} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    {f}
                                 </li>
                             ))}
                         </ul>
