@@ -15,8 +15,10 @@ export default function ConclusionSlide() {
             width: "100%",
             height: "100%",
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
+            paddingBottom: "5vh",
             position: "relative",
           }}
         >
