@@ -1280,7 +1280,6 @@
   flex-direction: column;
   transition: transform 0.2s, box-shadow 0.2s;
   text-align: center;
-  align-items: center;
 }
 
 .rdash-card:hover {
@@ -1347,8 +1346,9 @@
 
 .rdash-card__topwrap {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .rdash-product-thumb {
@@ -1364,12 +1364,15 @@
 .rdash-product-stats {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 0.9rem;
 }
 
 .rdash-pstat {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .rdash-pstat span {
@@ -1403,6 +1406,9 @@
 
 .rdash-mini-card {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
   align-items: center;
   gap: 0.6rem;
   padding: 0.78rem;
@@ -1414,6 +1420,7 @@
 .rdash-mini-card>div {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .rdash-mini-card span {
