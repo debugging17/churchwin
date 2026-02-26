@@ -89,8 +89,8 @@ export default function CoverSlide() {
               margin: "0 auto",
               height: "auto",
               objectFit: "contain",
-              filter: "brightness(0) invert(1)", /* Renders the logo pure white on the dark background */
-              opacity: 0.95
+              opacity: 0.95,
+              borderRadius: "1rem",
             }}
             alt="Churchwin Trading Co."
           />
