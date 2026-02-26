@@ -143,9 +143,10 @@ export default function CurrentRealitySlide() {
                     </defs>
                     <YAxis domain={['auto', 'auto']} hide />
                     <Tooltip
+                      wrapperStyle={{ outline: "none", transform: "scale(0.82)", transformOrigin: "bottom center" }}
                       contentStyle={{ backgroundColor: "rgba(0,0,0,0.85)", borderColor: "rgba(255,255,255,0.08)", borderRadius: "6px", backdropFilter: "blur(10px)", color: "#fff", padding: "2px 6px" }}
-                      itemStyle={{ color: "#27c93f", fontWeight: 700, fontSize: "0.75rem" }}
-                      labelStyle={{ color: "#9ca3af", fontSize: "0.6rem", marginBottom: "2px" }}
+                      itemStyle={{ color: "#27c93f", fontWeight: 700, fontSize: "0.7rem" }}
+                      labelStyle={{ color: "#9ca3af", fontSize: "0.55rem", marginBottom: "0px" }}
                       cursor={{ stroke: "rgba(255,255,255,0.15)", strokeWidth: 1, strokeDasharray: "4 4" }}
                       formatter={(value) => [value.toLocaleString(), "Visits"]}
                       labelFormatter={(label) => `${label}`}
@@ -204,10 +205,11 @@ export default function CurrentRealitySlide() {
                 fontSize: "clamp(0.7rem, 2vw, 0.85rem)",
                 color: "rgba(255,255,255,0.8)",
                 letterSpacing: "1px",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                paddingRight: "2.5rem"
+                width: "100%",
+                paddingRight: "2.5rem",
+                boxSizing: "border-box",
+                whiteSpace: "normal",
+                lineHeight: 1.2
               }}
             >
               Churchwin Trading Co.
@@ -235,9 +237,10 @@ export default function CurrentRealitySlide() {
                     </defs>
                     <YAxis domain={[0, 100]} hide />
                     <Tooltip
+                      wrapperStyle={{ outline: "none", transform: "scale(0.82)", transformOrigin: "bottom center" }}
                       contentStyle={{ backgroundColor: "rgba(0,0,0,0.85)", borderColor: "rgba(255,255,255,0.08)", borderRadius: "6px", backdropFilter: "blur(10px)", color: "#fff", padding: "2px 6px" }}
-                      itemStyle={{ color: "var(--accent)", fontWeight: 700 }}
-                      labelStyle={{ color: "#9ca3af", fontSize: "0.6rem", marginBottom: "2px" }}
+                      itemStyle={{ color: "var(--accent)", fontWeight: 700, fontSize: "0.7rem" }}
+                      labelStyle={{ color: "#9ca3af", fontSize: "0.55rem", marginBottom: "0px" }}
                       cursor={{ stroke: "rgba(255,255,255,0.15)", strokeWidth: 1, strokeDasharray: "4 4" }}
                       formatter={(value) => [value.toLocaleString(), "Visits"]}
                       labelFormatter={(label) => `${label}`}
@@ -302,9 +305,10 @@ export default function CurrentRealitySlide() {
                   </defs>
                   <YAxis domain={[0, 'auto']} hide />
                   <Tooltip
+                    wrapperStyle={{ outline: "none", transform: "scale(0.82)", transformOrigin: "bottom center" }}
                     contentStyle={{ backgroundColor: "rgba(0,0,0,0.85)", borderColor: "rgba(255,255,255,0.08)", borderRadius: "6px", backdropFilter: "blur(10px)", color: "#fff", padding: "2px 6px" }}
-                    itemStyle={{ color: "#fff", fontWeight: 700 }}
-                    labelStyle={{ color: "#9ca3af", fontSize: "0.6rem", marginBottom: "2px" }}
+                    itemStyle={{ color: "#fff", fontWeight: 700, fontSize: "0.7rem" }}
+                    labelStyle={{ color: "#9ca3af", fontSize: "0.55rem", marginBottom: "0px" }}
                     cursor={{ stroke: "rgba(255,255,255,0.15)", strokeWidth: 1, strokeDasharray: "4 4" }}
                     formatter={(value) => [value.toLocaleString(), "Visits"]}
                     labelFormatter={(label) => `${label}`}
@@ -345,9 +349,10 @@ export default function CurrentRealitySlide() {
                   </defs>
                   <YAxis domain={[0, 'auto']} hide />
                   <Tooltip
+                    wrapperStyle={{ outline: "none", transform: "scale(0.82)", transformOrigin: "bottom center" }}
                     contentStyle={{ backgroundColor: "rgba(0,0,0,0.85)", borderColor: "rgba(255,255,255,0.08)", borderRadius: "6px", backdropFilter: "blur(10px)", color: "#fff", padding: "2px 6px" }}
-                    itemStyle={{ color: "#f1c40f", fontWeight: 700 }}
-                    labelStyle={{ color: "#9ca3af", fontSize: "0.6rem", marginBottom: "2px" }}
+                    itemStyle={{ color: "#f1c40f", fontWeight: 700, fontSize: "0.7rem" }}
+                    labelStyle={{ color: "#9ca3af", fontSize: "0.55rem", marginBottom: "0px" }}
                     cursor={{ stroke: "rgba(255,255,255,0.15)", strokeWidth: 1, strokeDasharray: "4 4" }}
                     formatter={(value) => [value.toLocaleString(), "Visits"]}
                     labelFormatter={(label) => `${label}`}
