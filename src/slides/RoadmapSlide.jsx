@@ -117,13 +117,18 @@ function StrategyModal({ month, onClose }) {
   const modalRef = useRef(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [isTablet, setIsTablet] = useState(
-    window.innerWidth > 768 && window.innerWidth <= 1024,
+    window.innerWidth > 768 && window.innerWidth <= 1200,
   );
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-      setIsTablet(window.innerWidth > 768 && window.innerWidth <= 1024);
+      const mobile = window.innerWidth <= 768;
+      const tablet = window.innerWidth > 768 && window.innerWidth <= 1200;
+      setIsMobile(mobile);
+      setIsTablet(tablet);
+      if (modalRef.current) {
+        gsap.set(modalRef.current, { scale: tablet ? 0.75 : 1 });
+      }
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -137,9 +142,9 @@ function StrategyModal({ month, onClose }) {
     );
     gsap.fromTo(
       modalRef.current,
-      { scale: 0.9, opacity: 0, y: 30 },
+      { scale: isTablet ? 0.65 : 0.9, opacity: 0, y: 30 },
       {
-        scale: 1,
+        scale: isTablet ? 0.75 : 1,
         opacity: 1,
         y: 0,
         duration: 0.4,
@@ -152,7 +157,7 @@ function StrategyModal({ month, onClose }) {
   const handleClose = useCallback(() => {
     gsap.to(overlayRef.current, { opacity: 0, duration: 0.2 });
     gsap.to(modalRef.current, {
-      scale: 0.95,
+      scale: isTablet ? 0.7 : 0.95,
       opacity: 0,
       y: 20,
       duration: 0.25,
