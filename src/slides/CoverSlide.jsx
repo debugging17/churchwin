@@ -73,16 +73,19 @@ export default function CoverSlide() {
         <div
           style={{
             background: "rgba(255, 255, 255, 0.95)",
-            padding: "1rem 3rem",
+            padding: "clamp(0.5rem, 3vw, 1rem) clamp(1rem, 5vw, 3rem)",
             borderRadius: "8px",
             boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
             marginTop: "3vh",
-            marginBottom: "2.5rem",
+            marginBottom: "clamp(1.5rem, 3vh, 2.5rem)",
+            width: "fit-content",
+            maxWidth: "90vw",
+            boxSizing: "border-box",
           }}
         >
           <img
             src="/assets/images/churchwin_logo_new.png"
-            style={{ width: "220px", display: "block" }}
+            style={{ width: "100%", maxWidth: "220px", display: "block", height: "auto", objectFit: "contain" }}
             alt="Churchwin Trading Co."
           />
         </div>

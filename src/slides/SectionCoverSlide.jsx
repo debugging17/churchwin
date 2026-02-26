@@ -47,13 +47,12 @@ export default function SectionCoverSlide({
         className="section-product-stamp section-cover-product-stamp"
         style={{
           position: "absolute",
-          top: "clamp(1.5rem, 4vh, 3rem)",
-          right: "clamp(1.5rem, 3vw, 3rem)",
-          width: "26vh",
-          height: "20vh",
-          minWidth: "180px",
-          minHeight: "140px",
-          background: "#ffffff",
+          top: "clamp(1rem, 4vh, 3rem)",
+          right: "clamp(1rem, 3vw, 3rem)",
+          width: "clamp(140px, 30vw, 240px)",
+          height: "clamp(110px, 20vw, 180px)",
+          background: isLight ? "#ffffff" : "rgba(255,255,255,0.05)",
+          backdropFilter: isLight ? "none" : "blur(10px)",
           borderRadius: "16px",
           display: "flex",
           alignItems: "center",
@@ -63,7 +62,7 @@ export default function SectionCoverSlide({
             : "0 10px 30px rgba(0,0,0,0.2)",
           zIndex: 20,
           padding: "0.5rem",
-          border: "none",
+          border: isLight ? "none" : "1px solid rgba(255,255,255,0.1)",
           outline: isLight ? "6px solid #ff6a00" : "none",
           outlineOffset: "0px",
         }}
@@ -223,32 +222,29 @@ export default function SectionCoverSlide({
         </h1>
       </div>
 
-      {/* Bottom Right Logo Stamp */}
+      {/* Bottom Left Logo Stamp */}
       <div
         className="section-cover-logo-stamp"
         style={{
           position: "absolute",
-          bottom: "4vh",
-          right: "3vw",
-          background: "#ffffff",
+          bottom: "max(1.5rem, env(safe-area-inset-bottom, 1.5rem))",
+          left: "clamp(1rem, 4vw, 3rem)",
+          background: "rgba(255, 255, 255, 0.95)",
           borderRadius: "12px",
-          padding: "0.8rem 1.2rem",
+          padding: "clamp(0.5rem, 2vw, 0.8rem) clamp(1rem, 4vw, 1.5rem)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          boxShadow: isLight
-            ? "0 10px 40px rgba(0,0,0,0.1)"
-            : "0 10px 30px rgba(0,0,0,0.2)",
+          boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
           zIndex: 20,
           border: "none",
-          outline: isLight ? "6px solid #ff6a00" : "none",
-          outlineOffset: "0px",
+          maxWidth: "70vw",
         }}
       >
         <img
           src="/assets/images/churchwin_logo_new.png"
           alt="Churchwin Trading Co."
-          style={{ height: "5vh", minHeight: "40px", objectFit: "contain" }}
+          style={{ width: "100%", maxWidth: "160px", height: "auto", objectFit: "contain" }}
         />
       </div>
     </section>
