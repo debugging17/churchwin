@@ -222,13 +222,13 @@ export default function SectionCoverSlide({
         </h1>
       </div>
 
-      {/* Bottom Left Logo Stamp */}
+      {/* Bottom Right Logo Stamp */}
       <div
         className="section-cover-logo-stamp"
         style={{
           position: "absolute",
           bottom: "max(1.5rem, env(safe-area-inset-bottom, 1.5rem))",
-          left: "clamp(1rem, 4vw, 3rem)",
+          right: "clamp(1rem, 4vw, 3rem)",
           background: "rgba(255, 255, 255, 0.95)",
           borderRadius: "12px",
           padding: "clamp(0.5rem, 2vw, 0.8rem) clamp(1rem, 4vw, 1.5rem)",
@@ -238,6 +238,8 @@ export default function SectionCoverSlide({
           boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
           zIndex: 20,
           border: "none",
+          outline: isLight ? "6px solid #ff6a00" : "none",
+          outlineOffset: "0px",
           maxWidth: "70vw",
         }}
       >

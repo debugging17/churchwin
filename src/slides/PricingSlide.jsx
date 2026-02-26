@@ -125,7 +125,7 @@ export default function PricingSlide() {
             className="slide slide-light"
             id="slide-pricing"
             ref={slideRef}
-            style={{ flexDirection: "column", padding: 0, overflow: "hidden", background: "#ffffff" }}
+            style={{ flexDirection: "column", padding: 0, background: "#ffffff" }}
         >
             {/* ── Header ── */}
             <div className="pricing-header">

@@ -509,7 +509,7 @@
   }
 
   #slide-6 .visual-pane {
-    max-height: 280px;
+    max-height: none;
   }
 
   #slide-6 .visual-pane>div {
@@ -676,16 +676,52 @@
     min-height: auto;
   }
 
-  /* --- Sales Engine: 1 column on phones --- */
+  /* --- Sales Engine: Swipeable row on phones --- */
   #slide-5 .visual-pane>div>div {
-    grid-template-columns: 1fr !important;
-    /* single-column stack */
-    gap: 0.75rem !important;
+    display: flex !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem !important;
+    padding-bottom: 2rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 106, 0, 0.4) transparent;
   }
 
-  /* --- Narrative Slide: tabs compact --- */
+  #slide-5 .visual-pane>div>div::-webkit-scrollbar {
+    height: 4px;
+    background: transparent;
+  }
+
+  #slide-5 .visual-pane>div>div::-webkit-scrollbar-thumb {
+    background: rgba(255, 106, 0, 0.4);
+    border-radius: 4px;
+  }
+
+  #slide-5 .visual-pane>div>div>div {
+    min-width: 85vw;
+    /* Almost full width, peeks next card */
+    scroll-snap-align: center;
+  }
+
+  /* --- Narrative Slide: allow full height --- */
   #slide-6 .visual-pane {
-    max-height: 260px;
+    max-height: none;
+    overflow-x: auto;
+  }
+
+  /* --- Pricing Slide: horizontal tab scroll --- */
+  .pricing-sidebar {
+    overflow-x: auto;
+    display: flex;
+    scrollbar-width: none;
+  }
+
+  .pricing-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pricing-tab {
+    flex-shrink: 0;
   }
 
   /* --- Footer clearance overrides --- */
@@ -693,6 +729,7 @@
     padding-bottom: 5.5rem;
   }
 
+  #slide-3,
   #slide-4,
   #slide-5,
   #slide-6 {

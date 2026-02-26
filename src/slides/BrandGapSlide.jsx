@@ -113,7 +113,7 @@ export default function BrandGapSlide() {
                 alt="Current Static Catalog Dashboard"
                 style={{
                   width: "100%",
-                  height: "auto",
+                  height: "100%",
                   display: "block",
                   objectFit: "cover",
                   objectPosition: "top center",
@@ -164,7 +164,7 @@ export default function BrandGapSlide() {
                 loop
                 muted
                 playsInline
-                preload="none"
+                preload="metadata"
                 style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.8 }}
               >
                 <source src="/assets/videos/vid-4.mp4" type="video/mp4" />
