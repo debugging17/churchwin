@@ -386,6 +386,49 @@
     /* ensure footer clearance on mobile */
   }
 
+  /* Center Revenue Dashboard cards on mobile */
+  .rdash-card {
+    padding: 1rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .rdash-card__header {
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+
+  .rdash-earning-val {
+    justify-content: center;
+  }
+
+  .rdash-card--earning .rdash-h3 {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Hide the vertical dots icon on mobile if centering the header */
+  .rdash-card--earning>div:first-child svg {
+    display: none;
+  }
+
+  .rdash-sales-plan>div {
+    justify-content: center;
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  /* Top Stat cards (e.g. Shipped Orders, Missed Deliveries) */
+  .rdash-grid-top .rdash-card {
+    align-items: center;
+    text-align: center;
+  }
+
+  .rdash-grid-top .rdash-card__header {
+    justify-content: center;
+  }
+
   /* ── Narrative Slide: tab overflow fix ── */
   #slide-6 .visual-pane>div>div:first-child {
     /* tab bar container */
