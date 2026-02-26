@@ -1341,7 +1341,7 @@
 
 /* Product Insight */
 .rdash-card--product {
-  gap: 1.5rem;
+  gap: 0.5rem;
 }
 
 .rdash-card__topwrap {
@@ -1387,7 +1387,7 @@
 }
 
 .rdash-barchart-wrap {
-  margin-top: auto;
+  margin-top: 1rem;
   margin-left: -5px;
 }
 

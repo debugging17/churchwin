@@ -331,8 +331,8 @@ const RevenueDashboardSlide = memo(function RevenueDashboardSlide() {
                                 </div>
 
                                 <div className="rdash-barchart-wrap">
-                                    <ResponsiveContainer width="100%" height={120}>
-                                        <BarChart data={PRODUCT_DATA} layout="vertical" margin={{ top: 0, right: 0, bottom: 0, left: 15 }}>
+                                    <ResponsiveContainer width="100%" height={100}>
+                                        <BarChart data={PRODUCT_DATA} layout="vertical" margin={{ top: 10, right: 0, bottom: 0, left: 15 }}>
                                             <XAxis type="number" hide />
                                             <YAxis dataKey="name" type="category" axisLine={false} tickLine={false} tick={{ fontSize: 10, fill: '#64748b' }} />
                                             <Tooltip cursor={{ fill: '#f8f9fb' }} />
