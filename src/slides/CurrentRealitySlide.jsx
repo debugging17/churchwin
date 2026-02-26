@@ -199,20 +199,23 @@ export default function CurrentRealitySlide() {
             >
               YOU
             </div>
-            <h4
+            <div
               style={{
-                fontSize: "clamp(0.7rem, 2vw, 0.85rem)",
-                color: "rgba(255,255,255,0.8)",
-                letterSpacing: "1px",
+                fontSize: "0.85rem",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.7)",
+                marginBottom: "0.5rem",
+                fontWeight: 600,
                 width: "100%",
-                paddingRight: "2.5rem",
+                paddingRight: "3.5rem",
                 boxSizing: "border-box",
                 whiteSpace: "normal",
-                lineHeight: 1.2
+                lineHeight: 1.3
               }}
             >
               Churchwin Trading Co.
-            </h4>
+            </div>
             <div
               className="bento-big-num"
               style={{ color: "#ff6a00", fontSize: "2.8rem" }}
