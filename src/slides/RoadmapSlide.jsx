@@ -463,145 +463,141 @@ const RoadmapSlide = memo(function RoadmapSlide() {
             maxWidth: "500px",
           }}
         >
-          {STRATEGY_DETAILS.map((m, i) => (
-            <div
-              key={i}
-              data-interactive
-              onClick={(e) => {
-                e.stopPropagation();
-                setActiveMonth(m);
-              }}
-              style={{
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                borderLeft: `4px solid ${m.color}`,
-                borderRadius: "12px",
-                padding: "1.25rem 1.5rem",
-                position: "relative",
-                backdropFilter: "blur(8px)",
-                transition: "all 0.3s ease",
-                cursor: "pointer",
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.08)";
-                e.currentTarget.style.transform = "translateX(4px)";
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.04)";
-                e.currentTarget.style.transform = "translateX(0)";
-              }}
-            >
-              {/* Phase badge */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "-10px",
-                  left: "12px",
-                  background: m.color,
-                  color: i === 1 ? "#000" : "#fff",
-                  padding: "3px 10px",
-                  borderRadius: "20px",
-                  fontSize: "0.65rem",
-                  fontWeight: 800,
-                  letterSpacing: "1px",
-                }}
-              >
-                {m.label}
-              </div>
+          {STRATEGY_DETAILS.map((m, i) => {
+            const cardBgs = ["#e7ecd6", "#fbe8cd", "#e0f2fe"];
+            const bgStr = cardBgs[i] || "#ffffff";
 
-              {/* Card header */}
+            return (
               <div
+                key={i}
+                data-interactive
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveMonth(m);
+                }}
                 style={{
+                  background: bgStr,
+                  borderRadius: "16px",
+                  padding: "2.5rem 2rem",
+                  position: "relative",
+                  transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
+                  cursor: "pointer",
+                  boxShadow: "0 15px 35px rgba(0,0,0,0.15)",
                   display: "flex",
-                  alignItems: "center",
-                  gap: "0.6rem",
-                  marginTop: "0.25rem",
-                  marginBottom: "0.75rem",
+                  flexDirection: "column",
+                  gap: "1.2rem",
+                  border: "1px solid rgba(0,0,0,0.05)"
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "translateY(-4px)";
+                  e.currentTarget.style.boxShadow = "0 25px 50px rgba(0,0,0,0.2)";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 15px 35px rgba(0,0,0,0.15)";
                 }}
               >
-                <span style={{ fontSize: "1.3rem" }}>{m.icon}</span>
-                <h3
-                  style={{
-                    color: "#fff",
-                    fontSize: "1.1rem",
-                    fontWeight: 700,
-                    margin: 0,
-                    letterSpacing: "-0.01em",
-                  }}
-                >
-                  {m.title}
-                </h3>
-              </div>
-
-              {/* Subtitle */}
-              <div
-                style={{
-                  fontSize: "0.8rem",
-                  color: "var(--text-mute)",
-                  marginBottom: "0.75rem",
-                  fontStyle: "italic",
-                }}
-              >
-                {m.subtitle}
-              </div>
-
-              {/* Tags */}
-              <div
-                style={{
-                  display: "flex",
-                  gap: "0.4rem",
-                  flexWrap: "wrap",
-                  alignItems: "center",
-                }}
-              >
-                {m.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    style={{
-                      fontSize: "0.7rem",
-                      fontWeight: 600,
-                      background: `${m.color}22`,
-                      color: m.color,
-                      padding: "4px 10px",
-                      borderRadius: "20px",
-                      border: `1px solid ${m.color}33`,
-                      letterSpacing: "0.3px",
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-                {/* Click hint */}
-                <span
-                  style={{
-                    fontSize: "0.72rem",
-                    color: "#ff6a00",
-                    marginLeft: "auto",
-                    fontWeight: 600,
-                    opacity: 0.9,
-                    letterSpacing: "0.3px",
-                  }}
-                >
-                  Click to explore →
-                </span>
-              </div>
-
-              {/* Connecting line */}
-              {i < 2 && (
+                {/* Card header */}
                 <div
                   style={{
-                    position: "absolute",
-                    bottom: "-1.25rem",
-                    left: "28px",
-                    width: "2px",
-                    height: "1.25rem",
-                    background: `linear-gradient(to bottom, ${m.color}66, transparent)`,
-                    zIndex: 1,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.75rem",
                   }}
-                />
-              )}
-            </div>
-          ))}
+                >
+                  <div style={{ fontSize: "1.8rem", width: "36px", textAlign: "center", display: "inline-block" }}>{m.icon}</div>
+                  <div>
+                    <div
+                      style={{
+                        display: "block",
+                        color: m.color,
+                        fontSize: "0.7rem",
+                        fontWeight: 800,
+                        letterSpacing: "1.5px",
+                        textTransform: "uppercase",
+                        marginBottom: "0.35rem"
+                      }}
+                    >
+                      {m.label}
+                    </div>
+                    <h3
+                      style={{
+                        color: "#012787",
+                        fontSize: "clamp(1.2rem, 3vw, 1.8rem)",
+                        fontWeight: 800,
+                        margin: 0,
+                        letterSpacing: "-0.02em",
+                        fontFamily: "'Montserrat', sans-serif"
+                      }}
+                    >
+                      {m.title}
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Subtitle / Description like "Examples" */}
+                <div
+                  style={{
+                    fontSize: "1rem",
+                    color: "#334155",
+                    fontWeight: 500,
+                    lineHeight: "1.5",
+                    paddingLeft: "calc(36px + 0.75rem)", // Align with text
+                  }}
+                >
+                  {m.subtitle} <br />
+                  <span style={{ fontSize: "0.85rem", color: "#64748b", fontWeight: 600 }}>
+                    {m.tags.join(" • ")}
+                  </span>
+                </div>
+
+                {/* Action Link resembling BUY NOW */}
+                <div style={{ marginTop: "0.5rem", paddingLeft: "calc(36px + 0.75rem)" }}>
+                  <div
+                    style={{
+                      position: "relative",
+                      display: "inline-block",
+                      color: "#df5a1a",
+                      fontWeight: 800,
+                      fontSize: "0.95rem",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.5px",
+                      paddingBottom: "8px",
+                    }}
+                  >
+                    Click to explore ➔
+                    {/* The extending line */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: 0,
+                        left: 0,
+                        width: "140%",
+                        maxWidth: "200px",
+                        height: "1px",
+                        background: "#df5a1a",
+                      }}
+                    />
+                  </div>
+                </div>
+
+                {/* Connecting line between cards */}
+                {i < 2 && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: "-1.25rem",
+                      left: "2.5rem",
+                      width: "2px",
+                      height: "1.25rem",
+                      background: `linear-gradient(to bottom, #cfd3be, transparent)`,
+                      zIndex: 1,
+                    }}
+                  />
+                )}
+              </div>
+            )
+          })}
         </div>
       </div>
       {/* Strategy Detail Modal — portaled to body to avoid GSAP transform */}
