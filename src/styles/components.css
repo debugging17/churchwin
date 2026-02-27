@@ -960,6 +960,8 @@
     align-items: center;
     padding: 0.6rem 0.75rem;
     min-width: 80px;
+    width: auto !important;
+    flex: 0 0 auto !important;
     text-align: center;
     gap: 0.35rem;
   }

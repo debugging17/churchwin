@@ -185,9 +185,8 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
   }
 
-  /* Pricing Slide (Slide 14) - Fix the LinkedIn Sales Nav squish */
-  #slide-14>.narrative-pane,
-  #slide-14>.visual-pane {
+  /* Pricing Slide - Fix the squish */
+  #slide-pricing .pricing-body {
     width: 100% !important;
     position: relative !important;
     left: 0 !important;
@@ -351,7 +350,7 @@
   #slide-5 .visual-pane>div {
     transform: none !important;
     /* Remove translateX(-4.5rem) offset */
-    overflow: hidden;
+    overflow: visible !important;
     width: 100%;
     max-width: 100%;
     padding: 0 0.5rem;
@@ -510,6 +509,8 @@
 
   #slide-6 .visual-pane {
     max-height: none;
+    min-height: 480px !important;
+    overflow: visible !important;
   }
 
   #slide-6 .visual-pane>div {
@@ -597,6 +598,14 @@
   /* --- Global layout --- */
   .slide {
     padding: 0.5rem 1rem 5rem;
+  }
+
+  #slide-3 .split-comparison>div {
+    min-height: 380px !important;
+  }
+
+  #slide-5 .visual-pane>div>div {
+    grid-template-columns: 1fr !important;
   }
 
   .headline-xl {

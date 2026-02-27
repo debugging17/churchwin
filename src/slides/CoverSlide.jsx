@@ -33,7 +33,6 @@ export default function CoverSlide() {
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          objectFit: "cover",
           opacity: 0.85,
           zIndex: 1,
           pointerEvents: "none",
