@@ -284,9 +284,9 @@ const RevenueDashboardSlide = memo(function RevenueDashboardSlide() {
 
                                 <div className="rdash-sales-plan" style={{ marginTop: '2rem' }}>
                                     <h3 className="rdash-h3">Sales plan</h3>
-                                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '0.5rem' }}>
-                                        <strong style={{ fontSize: '2.5rem', color: '#012787', lineHeight: 1 }}>54%</strong>
-                                        <p className="rdash-p" style={{ fontSize: '0.65rem' }}>
+                                    <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'center', marginTop: '0.6rem' }}>
+                                        <strong style={{ fontSize: '2.8rem', color: '#012787', lineHeight: 1 }}>54%</strong>
+                                        <p className="rdash-p" style={{ fontSize: '0.75rem', textAlign: 'left' }}>
                                             <strong>Cohort analysis indicators</strong><br />
                                             Analyzes the behaviour of a group of users who joined a product/service at the same time. over a certain period.
                                         </p>

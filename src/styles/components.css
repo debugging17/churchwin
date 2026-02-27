@@ -1101,7 +1101,9 @@
 }
 
 .rdash-sidebar__logo {
-  padding: 1.02rem 1.2rem;
+  height: 85px;
+  box-sizing: border-box;
+  padding: 0 1.2rem;
   border-bottom: 1px solid #e5e7eb;
   display: flex;
   align-items: center;
@@ -1135,22 +1137,22 @@
 
 
 .rdash-sidebar__group-label {
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   color: #94a3b8;
-  padding: 0.6rem 0.72rem 0.3rem;
+  padding: 0.6rem 0.72rem 0.4rem;
 }
 
 .rdash-nav-item {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.45rem 0.72rem;
+  gap: 0.7rem;
+  padding: 0.5rem 0.72rem;
   margin-bottom: 0.2rem;
   border-radius: 8px;
-  font-size: 0.864rem;
+  font-size: 0.95rem;
   color: #64748b;
   cursor: pointer;
   transition: background 0.15s, color 0.15s, transform 0.15s;
@@ -1170,7 +1172,7 @@
 }
 
 .rdash-nav-item__icon {
-  font-size: 1.02rem;
+  font-size: 1.15rem;
   flex-shrink: 0;
   width: 20px;
   text-align: center;
@@ -1184,11 +1186,11 @@
 }
 
 .rdash-nav-item__badge {
-  font-size: 0.696rem;
+  font-size: 0.76rem;
   font-weight: 700;
   background: rgba(1, 39, 135, 0.1);
   color: #012787;
-  padding: 0.12rem 0.48rem;
+  padding: 0.15rem 0.55rem;
   border-radius: 99px;
   line-height: 1.4;
 }
@@ -1202,12 +1204,13 @@
   overflow: hidden;
 }
 
-/* Top bar */
 .rdash-topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.66rem 1.5rem;
+  height: 85px;
+  box-sizing: border-box;
+  padding: 0 1.5rem;
   border-bottom: 1px solid #e5e7eb;
   flex-shrink: 0;
 }
@@ -1215,8 +1218,8 @@
 .rdash-breadcrumb {
   display: flex;
   align-items: center;
-  gap: 0.48rem;
-  font-size: 0.864rem;
+  gap: 0.55rem;
+  font-size: 0.95rem;
 }
 
 .rdash-topbar__right {
@@ -1226,14 +1229,14 @@
 }
 
 .rdash-avatar {
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
   border-radius: 8px;
   background: linear-gradient(135deg, #012787, #0141b0);
   display: grid;
   place-items: center;
   color: #fff;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 700;
 }
 
@@ -1266,7 +1269,7 @@
 
 /* ── Typography Resets ── */
 .rdash-h3 {
-  font-size: 1.02rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: #0f172a;
   margin: 0;
@@ -1274,7 +1277,7 @@
 }
 
 .rdash-p {
-  font-size: 0.78rem;
+  font-size: 0.86rem;
   color: #64748b;
   margin: 0;
 }
@@ -1324,21 +1327,21 @@
 }
 
 .rdash-card__number {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #0f172a;
   letter-spacing: -0.5px;
 }
 
 .rdash-card__title {
-  font-size: 0.9rem;
+  font-size: 0.98rem;
   font-weight: 600;
   color: #334155;
-  margin-bottom: 0.24rem;
+  margin-bottom: 0.3rem;
 }
 
 .rdash-card__change {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   color: #64748b;
 }
 
@@ -1386,12 +1389,12 @@
 }
 
 .rdash-pstat span {
-  font-size: 0.78rem;
+  font-size: 0.86rem;
   color: #64748b;
 }
 
 .rdash-pstat strong {
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   font-weight: 700;
   color: #0f172a;
 }
@@ -1434,12 +1437,12 @@
 }
 
 .rdash-mini-card span {
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   color: #64748b;
 }
 
 .rdash-mini-card strong {
-  font-size: 1.02rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: #0f172a;
 }
@@ -1483,7 +1486,7 @@
 }
 
 .rdash-pie-center span {
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   color: #64748b;
   margin-top: 2px;
 }
@@ -1497,12 +1500,12 @@
 }
 
 .rdash-goal-label span {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #334155;
 }
 
 .rdash-goal-label strong {
-  font-size: 1.38rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #0f172a;
 }
@@ -1523,18 +1526,18 @@
 }
 
 .rdash-earning-val strong {
-  font-size: 2.4rem;
+  font-size: 2.7rem;
   font-weight: 800;
   color: #0f172a;
   letter-spacing: -1px;
 }
 
 .rdash-earning-badge {
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: #16a34a;
   background: #dcfce7;
-  padding: 0.18rem 0.48rem;
+  padding: 0.22rem 0.58rem;
   border-radius: 4px;
 }
 
@@ -1552,17 +1555,17 @@
 .rdash-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.9rem;
+  font-size: 0.98rem;
 }
 
 .rdash-table thead th {
   text-align: left;
-  font-size: 0.78rem;
+  font-size: 0.86rem;
   font-weight: 600;
   color: #94a3b8;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  padding: 0.72rem 1.2rem;
+  padding: 0.8rem 1.2rem;
   border-bottom: 1px solid #f1f5f9;
 }
 
@@ -1576,7 +1579,7 @@
 }
 
 .rdash-table tbody td {
-  padding: 0.72rem 1.2rem;
+  padding: 0.8rem 1.2rem;
   color: #334155;
 }
 
@@ -1587,14 +1590,14 @@
 }
 
 .rdash-table__avatar {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: linear-gradient(135deg, #012787, #0141b0);
   color: #fff;
   display: grid;
   place-items: center;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -1606,9 +1609,9 @@
 
 .rdash-table__status {
   display: inline-block;
-  padding: 0.24rem 0.72rem;
+  padding: 0.28rem 0.82rem;
   border-radius: 99px;
-  font-size: 0.78rem;
+  font-size: 0.86rem;
   font-weight: 600;
 }
 
