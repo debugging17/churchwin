@@ -264,7 +264,14 @@ export default function TableOfContentsSlide() {
                 top: "8%",
                 zIndex: 10,
               };
-            if (i === 2) positionStyles = { position: "relative", zIndex: 15 }; // Centered naturally
+            if (i === 2)
+              positionStyles = {
+                position: "absolute",
+                top: "50%",
+                left: "48%", // slightly offset left to visually center
+                transform: "translate(-50%, -50%)",
+                zIndex: 15,
+              }; // Centered to form true 'X'
             if (i === 3)
               positionStyles = {
                 position: "absolute",
