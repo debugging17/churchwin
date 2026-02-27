@@ -71,7 +71,9 @@ export default function BrandGapSlide() {
             maxHeight: "800px", /* Constrain vertical height so it doesn't cut off */
             flexWrap: "nowrap",
             maxWidth: "100%", /* Remove hard constraints */
-            padding: "3.2rem 1rem 1rem 0", /* Aligned exactly with 'Great Product' header */
+            paddingTop: "4.5rem", /* Precisely aligning top edge of catalog to 'Great Product' H1 */
+            paddingRight: "1rem",
+            paddingBottom: "1rem",
             alignItems: "stretch"
           }}
         >
