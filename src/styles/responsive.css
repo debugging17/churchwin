@@ -879,12 +879,17 @@
 
 /* ========== LARGE DESKTOP (1440px+) ========== */
 @media (min-width: 1440px) {
+  :root {
+    /* Scale the base REM up proportionally — all clamp() values respect this */
+    font-size: 17px;
+  }
+
   .headline-xl {
-    font-size: 4.5rem;
+    font-size: clamp(3rem, 4.5vw, 5rem);
   }
 
   .body-xl {
-    font-size: 1.3rem;
+    font-size: clamp(1.15rem, 1.4vw, 1.4rem);
   }
 
   .bento-grid {
@@ -899,5 +904,108 @@
 
   .bento-big-num {
     font-size: 2.5rem;
+  }
+
+  /* Sales Engine: give cards room to tilt without clipping */
+  #slide-5 .visual-pane {
+    overflow: visible;
+  }
+
+  #slide-5 .visual-pane>div>div {
+    overflow: visible !important;
+    padding-bottom: 1rem;
+  }
+}
+
+/* ========== WIDE DESKTOP / 1080p TV (1920px+) ========== */
+@media (min-width: 1920px) {
+  :root {
+    /* Scale up REM so all clamp()/rem values feel proportionate on 1080p displays */
+    font-size: 20px;
+  }
+
+  .headline-xl {
+    font-size: clamp(3.5rem, 4vw, 5.5rem);
+  }
+
+  .body-xl {
+    font-size: clamp(1.2rem, 1.3vw, 1.6rem);
+  }
+
+  .label {
+    font-size: 1rem;
+    letter-spacing: 4px;
+  }
+
+  .progress-bar {
+    bottom: 3rem;
+    left: 4rem;
+    width: 14rem;
+    height: 3px;
+  }
+
+  .page-indicator {
+    bottom: 3rem;
+    left: 280px;
+    font-size: 1rem;
+  }
+
+  .bento-big-num {
+    font-size: 3rem;
+  }
+
+  .bento-card {
+    padding: 2rem;
+    border-radius: 20px;
+  }
+
+  /* Sales Engine: expanded perspective on large screen */
+  #slide-5 .visual-pane>div>div {
+    overflow: visible !important;
+    gap: 1.5rem !important;
+    padding-bottom: 2rem;
+  }
+}
+
+/* ========== 4K / 55–75-inch TV (3840px+) ========== */
+@media (min-width: 3840px) {
+  :root {
+    /* 4K displays — scale REM to ~2× standard so text doesn't appear microscopic */
+    font-size: 36px;
+  }
+
+  .headline-xl {
+    font-size: clamp(4rem, 3.5vw, 6rem);
+  }
+
+  .body-xl {
+    font-size: clamp(1.4rem, 1.2vw, 1.8rem);
+  }
+
+  .label {
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+  }
+
+  .progress-bar {
+    bottom: 4rem;
+    left: 5rem;
+    width: 18rem;
+    height: 4px;
+  }
+
+  .page-indicator {
+    bottom: 4rem;
+    left: 350px;
+    font-size: 1.25rem;
+  }
+
+  .bento-big-num {
+    font-size: 4rem;
+  }
+
+  .bento-card {
+    padding: 2.5rem;
+    border-radius: 24px;
   }
 }

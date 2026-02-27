@@ -126,28 +126,29 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                   zIndex: 1,
                   isolation: "isolate",
                   background: "#ffffff",
-                  border: "1px solid rgba(0,0,0,0.12)",
+                  border: "1px solid rgba(0,0,0,0.1)",
                   borderRadius: "16px",
-                  boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
+                  boxShadow: "0 4px 16px rgba(0,0,0,0.07)",
                   display: "flex",
                   flexDirection: "column",
                   transform: "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)",
                   transformStyle: "preserve-3d",
                   transformOrigin: "bottom right",
-                  transition: "transform 0.35s ease, box-shadow 0.35s ease, z-index 0s",
+                  transition: "transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease",
                   cursor: "pointer",
                   overflow: "hidden",
-                  willChange: "transform",
+                  willChange: "transform, filter",
+                  filter: "none",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.zIndex = "20";
                   e.currentTarget.style.transform = "perspective(1400px) rotateX(8deg) rotateY(-10deg) scale(1.04)";
-                  e.currentTarget.style.boxShadow = "8px 24px 60px rgba(255,106,0,0.25), 0 4px 12px rgba(0,0,0,0.12)";
+                  e.currentTarget.style.filter = "drop-shadow(8px 20px 18px rgba(255,106,0,0.22))";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.zIndex = "1";
                   e.currentTarget.style.transform = "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.08)";
+                  e.currentTarget.style.filter = "none";
                 }}
               >
                 <div
@@ -349,28 +350,29 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                   zIndex: 1,
                   isolation: "isolate",
                   background: "#ffffff",
-                  border: "1px solid rgba(0,0,0,0.12)",
+                  border: "1px solid rgba(0,0,0,0.1)",
                   borderRadius: "16px",
-                  boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
+                  boxShadow: "0 4px 16px rgba(0,0,0,0.07)",
                   display: "flex",
                   flexDirection: "column",
                   transform: "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)",
                   transformStyle: "preserve-3d",
                   transformOrigin: "bottom left",
-                  transition: "transform 0.35s ease, box-shadow 0.35s ease",
+                  transition: "transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease",
                   cursor: "pointer",
                   overflow: "hidden",
-                  willChange: "transform",
+                  willChange: "transform, filter",
+                  filter: "none",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.zIndex = "20";
                   e.currentTarget.style.transform = "perspective(1400px) rotateX(8deg) rotateY(10deg) scale(1.04)";
-                  e.currentTarget.style.boxShadow = "-8px 24px 60px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.1)";
+                  e.currentTarget.style.filter = "drop-shadow(-8px 20px 18px rgba(0,0,0,0.18))";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.zIndex = "1";
                   e.currentTarget.style.transform = "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.1)";
+                  e.currentTarget.style.filter = "none";
                 }}
               >
                 <div
@@ -567,28 +569,29 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                   zIndex: 1,
                   isolation: "isolate",
                   background: "#ffe01b",
-                  border: "1px solid rgba(0,0,0,0.15)",
+                  border: "1px solid rgba(0,0,0,0.1)",
                   borderRadius: "16px",
-                  boxShadow: "0 8px 24px rgba(220,180,0,0.35)",
+                  boxShadow: "0 4px 16px rgba(220,180,0,0.25)",
                   display: "flex",
                   flexDirection: "column",
                   transform: "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)",
                   transformStyle: "preserve-3d",
                   transformOrigin: "top right",
-                  transition: "transform 0.35s ease, box-shadow 0.35s ease",
+                  transition: "transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease",
                   cursor: "pointer",
                   overflow: "hidden",
-                  willChange: "transform",
+                  willChange: "transform, filter",
+                  filter: "none",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.zIndex = "20";
                   e.currentTarget.style.transform = "perspective(1400px) rotateX(-8deg) rotateY(-10deg) scale(1.04)";
-                  e.currentTarget.style.boxShadow = "8px -20px 60px rgba(220,180,0,0.5), 0 4px 12px rgba(0,0,0,0.1)";
+                  e.currentTarget.style.filter = "drop-shadow(8px -18px 16px rgba(220,180,0,0.45))";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.zIndex = "1";
                   e.currentTarget.style.transform = "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(220,180,0,0.35)";
+                  e.currentTarget.style.filter = "none";
                 }}
               >
                 <div
@@ -777,28 +780,29 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                   zIndex: 1,
                   isolation: "isolate",
                   background: "#ffffff",
-                  border: "1px solid rgba(0,0,0,0.12)",
+                  border: "1px solid rgba(0,0,0,0.1)",
                   borderRadius: "16px",
-                  boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
+                  boxShadow: "0 4px 16px rgba(0,0,0,0.07)",
                   display: "flex",
                   flexDirection: "column",
                   transform: "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)",
                   transformStyle: "preserve-3d",
                   transformOrigin: "top left",
-                  transition: "transform 0.35s ease, box-shadow 0.35s ease",
+                  transition: "transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease",
                   cursor: "pointer",
                   overflow: "hidden",
-                  willChange: "transform",
+                  willChange: "transform, filter",
+                  filter: "none",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.zIndex = "20";
                   e.currentTarget.style.transform = "perspective(1400px) rotateX(-8deg) rotateY(10deg) scale(1.04)";
-                  e.currentTarget.style.boxShadow = "-8px -20px 60px rgba(10,102,194,0.25), 0 4px 12px rgba(0,0,0,0.1)";
+                  e.currentTarget.style.filter = "drop-shadow(-8px -18px 16px rgba(10,102,194,0.22))";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.zIndex = "1";
                   e.currentTarget.style.transform = "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.1)";
+                  e.currentTarget.style.filter = "none";
                 }}
               >
                 <div
