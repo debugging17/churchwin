@@ -27,7 +27,7 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
 
   return (
     <section className="slide slide-light" id="slide-5" ref={slideRef}>
-      <div className="split-stretch-container" style={{ padding: "2rem 1rem", minHeight: "80vh", maxHeight: "1200px" }}>
+      <div className="split-stretch-container" style={{ padding: "1.5rem 1rem", minHeight: "65vh", maxHeight: "950px" }}>
 
         <div className="narrative-pane" style={{ width: "45%", display: "flex", flexDirection: "column", justifyContent: "space-between", paddingRight: "2rem" }}>
           <div>
@@ -110,9 +110,9 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-                gap: "2rem",
+                gap: "clamp(0.75rem, 1.5vh, 1.25rem)", /* Reduced gap */
                 width: "100%",
-                flex: 1, /* Distributes height completely to bottom */
+                flex: 1,
                 perspective: "1200px",
               }}
             >
@@ -211,9 +211,9 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                     flex: 1,
                     display: "flex",
                     flexDirection: "column",
-                    padding: "1.5rem",
+                    padding: "clamp(1rem, 2vh, 1.5rem)",
                     background: "#ffffff",
-                    minHeight: "180px",
+                    minHeight: "auto",
                   }}
                 >
                   <div
@@ -426,14 +426,14 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                 </div>
                 <div
                   style={{
-                    padding: "2rem",
+                    padding: "clamp(0.75rem, 1.5vh, 1.5rem)",
                     flex: 1,
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
-                    gap: "1rem",
+                    gap: "clamp(0.5rem, 1vh, 1rem)",
                     background: "#f8fafc",
-                    minHeight: "180px",
+                    minHeight: "auto",
                   }}
                 >
                   <div
@@ -496,9 +496,9 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "1rem",
+                      gap: "clamp(0.5rem, 1vw, 1rem)",
                       background: "#ffffff",
-                      padding: "16px 20px",
+                      padding: "clamp(10px, 1.5vh, 16px) clamp(12px, 2vw, 20px)",
                       borderRadius: "8px",
                       border: "1px solid #e2e8f0",
                       boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)",
@@ -641,14 +641,14 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                 </div>
                 <div
                   style={{
-                    padding: "2rem",
+                    padding: "clamp(1rem, 2vh, 1.5rem)",
                     textAlign: "center",
                     flex: 1,
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "center",
-                    minHeight: "180px",
+                    minHeight: "auto",
                   }}
                 >
                   <div
@@ -848,7 +848,7 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                 </div>
                 <div
                   style={{
-                    padding: "2rem",
+                    padding: "clamp(1rem, 2vh, 1.5rem)",
                     flex: 1,
                     display: "flex",
                     flexDirection: "column",
@@ -856,7 +856,7 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                     alignItems: "center",
                     textAlign: "center",
                     background: "#f3f2ef",
-                    minHeight: "180px",
+                    minHeight: "auto",
                   }}
                 >
                   <div
