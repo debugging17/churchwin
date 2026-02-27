@@ -97,7 +97,7 @@ export default function NarrativeSlide() {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            opacity: 0.25, // Increased slightly to expose the image more
+            opacity: 0.35, // Increased further to expose the image more
             mixBlendMode: 'luminosity'
           }}
         />
