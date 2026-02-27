@@ -87,17 +87,17 @@ export default function NarrativeSlide() {
         bottom: 0,
         zIndex: 0,
         pointerEvents: 'none',
-        backgroundColor: '#011533' // Base dark navy
+        backgroundColor: '#012787' // User requested #012787 base
       }}>
         {/* The target background image */}
         <img
-          src="/assets/images/women.png"
-          alt="Women"
+          src="/assets/images/shearbutter.png"
+          alt="Shea Butter Background"
           style={{
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            opacity: 0.4, // Boosted slightly so it's actually visible against the dark background
+            opacity: 0.25, // Increased slightly to expose the image more
             mixBlendMode: 'luminosity'
           }}
         />
@@ -111,7 +111,7 @@ export default function NarrativeSlide() {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'linear-gradient(to right, rgba(1,21,51,0.98) 0%, rgba(1,21,51,0.5) 100%)'
+          background: 'linear-gradient(to right, rgba(1,39,135,1) 0%, rgba(1,39,135,0.65) 100%)'
         }} />
       </div>
 
