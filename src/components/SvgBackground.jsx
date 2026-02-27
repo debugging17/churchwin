@@ -89,27 +89,26 @@ const ICONS = [
     },
 ];
 
-// Fixed layout: 14 placements with varied positions, sizes, rotations
 const PLACEMENTS = [
-    { icon: "leaf", x: 3, y: 8, size: 90, rot: -20 },
-    { icon: "drop", x: 88, y: 4, size: 70, rot: 15 },
-    { icon: "cocoa", x: 5, y: 65, size: 80, rot: 30 },
-    { icon: "jar", x: 85, y: 55, size: 75, rot: -10 },
-    { icon: "plant", x: 45, y: 5, size: 65, rot: 0 },
-    { icon: "sparkle", x: 92, y: 78, size: 55, rot: 20 },
-    { icon: "globe", x: 15, y: 80, size: 70, rot: -5 },
-    { icon: "leaf2", x: 70, y: 12, size: 80, rot: 45 },
-    { icon: "nut", x: 55, y: 82, size: 65, rot: -30 },
-    { icon: "flask", x: 30, y: 3, size: 60, rot: 10 },
-    { icon: "cocoa", x: 78, y: 35, size: 55, rot: -45 },
-    { icon: "drop", x: 20, y: 42, size: 50, rot: 25 },
-    { icon: "sparkle", x: 60, y: 60, size: 45, rot: 0 },
-    { icon: "leaf", x: 95, y: 22, size: 60, rot: 60 },
+    { icon: "leaf", x: -5, y: -5, size: 450, rot: -20 },
+    { icon: "drop", x: 80, y: -10, size: 300, rot: 15 },
+    { icon: "cocoa", x: -10, y: 65, size: 400, rot: 30 },
+    { icon: "jar", x: 85, y: 55, size: 350, rot: -10 },
+    { icon: "plant", x: 45, y: -15, size: 500, rot: 0 },
+    { icon: "sparkle", x: 95, y: 85, size: 250, rot: 20 },
+    { icon: "globe", x: 10, y: 90, size: 400, rot: -5 },
+    { icon: "leaf2", x: 65, y: 15, size: 350, rot: 45 },
+    { icon: "nut", x: 50, y: 95, size: 300, rot: -30 },
+    { icon: "flask", x: 30, y: 15, size: 250, rot: 10 },
+    { icon: "cocoa", x: 75, y: 95, size: 350, rot: -45 },
+    { icon: "drop", x: 15, y: 45, size: 250, rot: 25 },
+    { icon: "sparkle", x: 60, y: 55, size: 200, rot: 0 },
+    { icon: "leaf", x: 95, y: 30, size: 400, rot: 60 },
 ];
 
 export default function SvgBackground({
     color = "#012787",
-    opacity = 0.07,
+    opacity = 0.04,
 }) {
     const iconMap = Object.fromEntries(ICONS.map((ic) => [ic.id, ic]));
 
@@ -123,32 +122,38 @@ export default function SvgBackground({
                 height: "100%",
                 zIndex: 0,
                 pointerEvents: "none",
-                overflow: "visible",
+                overflow: "hidden",
             }}
             xmlns="http://www.w3.org/2000/svg"
         >
             {PLACEMENTS.map((p, i) => {
                 const ic = iconMap[p.icon];
                 if (!ic) return null;
-                // Translate to percent position, rotate around icon centre
                 const cx = p.size / 2;
-                const cy = p.size / 2;
                 return (
-                    <g
+                    <svg
                         key={i}
-                        transform={`translate(${p.x}%, ${p.y}%) rotate(${p.rot}, ${cx}, ${cy})`}
-                        opacity={opacity}
+                        x={`${p.x}%`}
+                        y={`${p.y}%`}
+                        width={0}
+                        height={0}
+                        style={{ overflow: "visible" }}
                     >
-                        <svg
-                            width={p.size}
-                            height={p.size}
-                            viewBox={ic.vb}
-                            fill={color}
-                            xmlns="http://www.w3.org/2000/svg"
+                        <g
+                            transform={`translate(-${cx}, -${cx}) rotate(${p.rot}, ${cx}, ${cx})`}
+                            opacity={opacity}
                         >
-                            <path d={ic.path} />
-                        </svg>
-                    </g>
+                            <svg
+                                width={p.size}
+                                height={p.size}
+                                viewBox={ic.vb}
+                                fill={color}
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path d={ic.path} />
+                            </svg>
+                        </g>
+                    </svg>
                 );
             })}
         </svg>
