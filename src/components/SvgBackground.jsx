@@ -89,24 +89,24 @@ const ICONS = [
     },
 ];
 
-const PLACEMENTS_SMALL = [
-    { icon: "leaf", x: 20, y: 30, size: 28, rot: -20 },
-    { icon: "drop", x: 140, y: 50, size: 24, rot: 15 },
-    { icon: "cocoa", x: 250, y: 20, size: 30, rot: 30 },
-    { icon: "jar", x: 350, y: 80, size: 32, rot: -10 },
+const PLACEMENTS_LARGE = [
+    { icon: "leaf", x: 60, y: 90, size: 100, rot: -20 },
+    { icon: "drop", x: 420, y: 150, size: 85, rot: 15 },
+    { icon: "cocoa", x: 750, y: 60, size: 110, rot: 30 },
+    { icon: "jar", x: 1050, y: 240, size: 115, rot: -10 },
 
-    { icon: "plant", x: 80, y: 150, size: 36, rot: 0 },
-    { icon: "sparkle", x: 200, y: 120, size: 22, rot: 20 },
-    { icon: "globe", x: 300, y: 160, size: 32, rot: -5 },
+    { icon: "plant", x: 240, y: 450, size: 130, rot: 0 },
+    { icon: "sparkle", x: 600, y: 360, size: 80, rot: 20 },
+    { icon: "globe", x: 900, y: 480, size: 115, rot: -5 },
 
-    { icon: "leaf2", x: 40, y: 250, size: 32, rot: 45 },
-    { icon: "nut", x: 150, y: 280, size: 28, rot: -30 },
-    { icon: "flask", x: 260, y: 240, size: 30, rot: 10 },
+    { icon: "leaf2", x: 120, y: 750, size: 115, rot: 45 },
+    { icon: "nut", x: 450, y: 840, size: 100, rot: -30 },
+    { icon: "flask", x: 780, y: 720, size: 110, rot: 10 },
 
-    { icon: "cocoa", x: 350, y: 300, size: 32, rot: -45 },
-    { icon: "drop", x: 100, y: 350, size: 24, rot: 25 },
-    { icon: "sparkle", x: 200, y: 360, size: 20, rot: 0 },
-    { icon: "leaf", x: 300, y: 340, size: 30, rot: 60 },
+    { icon: "cocoa", x: 1050, y: 900, size: 115, rot: -45 },
+    { icon: "drop", x: 300, y: 1050, size: 85, rot: 25 },
+    { icon: "sparkle", x: 600, y: 1080, size: 75, rot: 0 },
+    { icon: "leaf", x: 900, y: 1020, size: 110, rot: 60 },
 ];
 
 export default function SvgBackground({
@@ -131,9 +131,9 @@ export default function SvgBackground({
         >
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <pattern id="churchwin-pattern" x="0" y="0" width="400" height="400" patternUnits="userSpaceOnUse">
+                    <pattern id="churchwin-pattern" x="0" y="0" width="1200" height="1200" patternUnits="userSpaceOnUse">
                         <g fill={color} opacity={opacity}>
-                            {PLACEMENTS_SMALL.map((p, i) => {
+                            {PLACEMENTS_LARGE.map((p, i) => {
                                 const ic = iconMap[p.icon];
                                 if (!ic) return null;
                                 return (
