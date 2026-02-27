@@ -52,7 +52,7 @@ export default function CoverSlide() {
           height: "100%",
           zIndex: 2,
           background:
-            "linear-gradient(to bottom, rgba(1,39,135,0.1) 0%, rgba(1,39,135,0.4) 100%)",
+            "linear-gradient(to bottom, rgba(1,39,135,0.2) 0%, rgba(1,39,135,0.52) 100%)",
         }}
       />
 
