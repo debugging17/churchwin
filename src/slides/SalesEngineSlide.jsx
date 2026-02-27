@@ -27,7 +27,7 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
 
   return (
     <section className="slide slide-light" id="slide-5" ref={slideRef}>
-      <div className="split-stretch-container" style={{ padding: "1.5rem 1rem", minHeight: "65vh", maxHeight: "950px" }}>
+      <div className="split-stretch-container" style={{ padding: "clamp(1rem, 2.5vh, 2rem) 1rem", minHeight: "65vh", maxHeight: "950px" }}>
 
         <div className="narrative-pane" style={{ width: "45%", display: "flex", flexDirection: "column", justifyContent: "space-between", paddingRight: "2rem" }}>
           <div>
@@ -93,10 +93,7 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
             flexDirection: "column"
           }}
         >
-          {/* Invisible spacer mimicking the exact height of the label on the left, aligning the top card with the H1 */}
-          <div style={{ visibility: "hidden", marginBottom: "0.25rem", pointerEvents: "none" }}>
-            <span className="label" style={{ display: "inline-block" }}>Enhancement 01: Sales</span>
-          </div>
+          {/* Card grid — starts at the very top of the visual pane */}
 
           <div
             style={{
