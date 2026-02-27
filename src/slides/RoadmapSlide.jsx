@@ -453,12 +453,20 @@ const RoadmapSlide = memo(function RoadmapSlide() {
         </p>
       </div>
 
-      <div className="visual-pane" style={{ padding: "2rem 1.5rem" }}>
+      <div
+        className="visual-pane"
+        style={{
+          padding: "clamp(1rem, 2vh, 2rem) 1.5rem",
+          overflowY: "auto",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none"
+        }}
+      >
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: "1.25rem",
+            gap: "clamp(0.75rem, 2vh, 1.25rem)",
             width: "100%",
             maxWidth: "500px",
           }}
@@ -478,14 +486,14 @@ const RoadmapSlide = memo(function RoadmapSlide() {
                 style={{
                   background: bgStr,
                   borderRadius: "16px",
-                  padding: "2.5rem 2rem",
+                  padding: "clamp(1.5rem, 3vh, 2.5rem) clamp(1.5rem, 3vw, 2rem)",
                   position: "relative",
                   transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
                   cursor: "pointer",
                   boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
                   display: "flex",
                   flexDirection: "column",
-                  gap: "1.2rem",
+                  gap: "clamp(0.8rem, 1.5vh, 1.2rem)",
                   border: "1px solid rgba(0,0,0,0.05)"
                 }}
                 onMouseOver={(e) => {
