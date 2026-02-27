@@ -134,7 +134,7 @@ export default function CoverSlide() {
             bottom: 0,
             left: 0,
             width: "100%",
-            background: "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 100%)",
+            background: "linear-gradient(135deg, rgba(1,39,135,0.85) 0%, rgba(1,39,135,0.65) 100%)", // #012787 glassmorphism
             padding: "2rem 4rem",
             paddingBottom: "max(2rem, env(safe-area-inset-bottom, 2rem))", // Native iOS safe area blending
             borderTopLeftRadius: "32px",
@@ -156,7 +156,7 @@ export default function CoverSlide() {
                 fontSize: "0.9rem",
                 letterSpacing: "3px",
                 textTransform: "uppercase",
-                color: "#ff6a00", // Bright orange matching reference
+                color: "#ffffff", // Changed to white
                 marginBottom: "0.6rem",
                 fontWeight: 800,
                 fontFamily: "'Montserrat', sans-serif"
@@ -177,7 +177,7 @@ export default function CoverSlide() {
             <div
               style={{
                 fontSize: "0.95rem",
-                color: "rgba(255,255,255,0.75)",
+                color: "#ffffff", // Changed to pure white globally
                 marginTop: "0.2rem",
                 letterSpacing: "0.8px",
                 fontWeight: 500
