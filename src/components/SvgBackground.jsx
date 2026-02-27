@@ -122,7 +122,7 @@ const PLACEMENTS_LARGE = [
 
 export default function SvgBackground({
     color = "#012787",
-    opacity = 0.075, // Increased by 1.5x (from 0.05)
+    opacity = 0.065, // Reduced by 1 step (from 0.075)
 }) {
     const iconMap = Object.fromEntries(ICONS.map((ic) => [ic.id, ic]));
 
