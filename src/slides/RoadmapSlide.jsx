@@ -415,204 +415,224 @@ const RoadmapSlide = memo(function RoadmapSlide() {
 
   return (
     <section className="slide" id="slide-4" ref={slideRef}>
-      <div className="narrative-pane" style={{ paddingTop: "3rem" }}>
-        <span className="label">The Strategic Solution</span>
-        <h1 className="headline-xl">
-          The Fix: <br />
-          <span className="highlight">3-Month Roadmap</span>
-        </h1>
-        <p className="body-xl" style={{ marginBottom: "1.5rem" }}>
-          We don't need a year. We need{" "}
-          <strong style={{ color: "#fff" }}>90 days</strong> of aggressive,
-          focused execution.
-        </p>
+      {/* Container forcing exact vertical top & bottom alignment between columns */}
+      <div className="split-stretch-container" style={{ padding: "2rem 1rem", minHeight: "80vh", maxHeight: "1200px" }}>
 
-        <p
-          className="body-xl"
-          style={{ fontSize: "clamp(0.85rem, 1.1vw, 1.1rem)" }}
-        >
-          <strong style={{ color: "#fff" }}>
-            Days 1-30: Core Architecture
-          </strong>
-          <br />
-          UX Overhaul, SEO Foundation, CRM structure.
-          <br />
-          <br />
-          <strong style={{ color: "#fff" }}>
-            Days 31-60: Automation &amp; CRM
-          </strong>
-          <br />
-          Cold Outreach pipeline, Lead Scoring, Video Assets.
-          <br />
-          <br />
-          <strong style={{ color: "#fff" }}>
-            Days 61-90: Scaling &amp; Portals
-          </strong>
-          <br />
-          Wholesale B2B Self-Serve Portal, Retargeting.
-        </p>
-      </div>
+        <div className="narrative-pane" style={{ width: "45%", display: "flex", flexDirection: "column" }}>
+          <span className="label" style={{ marginBottom: "0.25rem", display: "inline-block" }}>The Strategic Solution</span>
+          <h1 className="headline-xl" style={{ marginTop: 0, marginBottom: "1.25rem" }}>
+            The Fix: <br />
+            <span className="highlight">3-Month Roadmap</span>
+          </h1>
 
-      <div
-        className="visual-pane"
-        style={{
-          padding: "clamp(1rem, 2vh, 2rem) 1.5rem",
-          overflowY: "auto",
-          scrollbarWidth: "none",
-          msOverflowStyle: "none"
-        }}
-      >
+          <div
+            className="body-xl"
+            style={{
+              fontSize: "clamp(1rem, 1.25vw, 1.25rem)", /* Increased text size for confident presence */
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between", /* Pushes the elements to fill the total height exactly */
+              flex: 1, /* Allow to stretch */
+              lineHeight: "1.5"
+            }}
+          >
+            <p style={{ margin: 0, marginBottom: "1.5rem", fontSize: "1.1em" }}>
+              We don't need a year. We need{" "}
+              <strong style={{ color: "#fff" }}>90 days</strong> of aggressive,
+              focused execution.
+            </p>
+
+            <p style={{ margin: 0 }}>
+              <strong style={{ color: "#fff" }}>
+                Days 1-30: Core Architecture
+              </strong>
+              <br />
+              UX Overhaul, SEO Foundation, CRM structure.
+              <br />
+              <br />
+              <strong style={{ color: "#fff" }}>
+                Days 31-60: Automation &amp; CRM
+              </strong>
+              <br />
+              Cold Outreach pipeline, Lead Scoring, Video Assets.
+              <br />
+              <br />
+              <strong style={{ color: "#fff" }}>
+                Days 61-90: Scaling &amp; Portals
+              </strong>
+              <br />
+              Wholesale B2B Self-Serve Portal, Retargeting.
+            </p>
+          </div>
+        </div>
+
         <div
+          className="visual-pane"
           style={{
+            width: "55%",
             display: "flex",
-            flexDirection: "column",
-            gap: "clamp(0.5rem, 1.5vh, 1rem)",
-            width: "100%",
-            maxWidth: "500px",
-            paddingBottom: "6rem", // Safe zone for standard scrolling
+            flexDirection: "column"
           }}
         >
-          {STRATEGY_DETAILS.map((m, i) => {
-            const cardBgs = ["#e7ecd6", "#fbe8cd", "#e0f2fe"];
-            const bgStr = cardBgs[i] || "#ffffff";
+          {/* Invisible spacer mimicking the exact height of the label on the left, aligning the top card with the H1 */}
+          <div style={{ visibility: "hidden", marginBottom: "0.25rem", pointerEvents: "none" }}>
+            <span className="label" style={{ display: "inline-block" }}>The Strategic Solution</span>
+          </div>
 
-            return (
-              <div
-                key={i}
-                data-interactive
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setActiveMonth(m);
-                }}
-                style={{
-                  background: bgStr,
-                  borderRadius: "16px",
-                  padding: "clamp(1.2rem, 2vh, 2rem) clamp(1rem, 2vw, 1.5rem)",
-                  position: "relative",
-                  transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
-                  cursor: "pointer",
-                  boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "clamp(0.6rem, 1vh, 1rem)",
-                  border: "1px solid rgba(0,0,0,0.05)",
-                  flexShrink: 0,
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.transform = "translateY(-4px)";
-                  e.currentTarget.style.boxShadow = "0 12px 32px rgba(0,0,0,0.08)";
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.06)";
-                }}
-              >
-                {/* Card header */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between", /* Stretches the cards out evenly from top to bottom */
+              flex: 1, /* Occupies all available stretched space */
+              gap: "clamp(0.75rem, 1.5vh, 1.25rem)",
+              width: "100%",
+              maxWidth: "500px",
+            }}
+          >
+            {STRATEGY_DETAILS.map((m, i) => {
+              const cardBgs = ["#e7ecd6", "#fbe8cd", "#e0f2fe"];
+              const bgStr = cardBgs[i] || "#ffffff";
+
+              return (
                 <div
+                  key={i}
+                  data-interactive
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveMonth(m);
+                  }}
                   style={{
+                    background: bgStr,
+                    borderRadius: "16px",
+                    padding: "clamp(1.2rem, 2vh, 2rem) clamp(1rem, 2vw, 1.5rem)",
+                    position: "relative",
+                    transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
+                    cursor: "pointer",
+                    boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "center",
-                    textAlign: "center",
-                    gap: "0.5rem",
+                    gap: "clamp(0.6rem, 1vh, 1rem)",
+                    border: "1px solid rgba(0,0,0,0.05)",
+                    flexShrink: 0,
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.transform = "translateY(-4px)";
+                    e.currentTarget.style.boxShadow = "0 12px 32px rgba(0,0,0,0.08)";
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.06)";
                   }}
                 >
-                  <div style={{ fontSize: "2.5rem", marginBottom: "0.25rem", display: "inline-block" }}>{m.icon}</div>
-                  <div>
-                    <div
-                      style={{
-                        display: "block",
-                        color: m.color,
-                        fontSize: "0.75rem",
-                        fontWeight: 800,
-                        letterSpacing: "1.5px",
-                        textTransform: "uppercase",
-                        marginBottom: "0.5rem"
-                      }}
-                    >
-                      {m.label}
-                    </div>
-                    <h3
-                      style={{
-                        color: "#012787",
-                        fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)",
-                        fontWeight: 800,
-                        margin: 0,
-                        letterSpacing: "-0.02em",
-                        fontFamily: "'Montserrat', sans-serif"
-                      }}
-                    >
-                      {m.title}
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Subtitle / Description like "Examples" */}
-                <div
-                  style={{
-                    fontSize: "0.95rem",
-                    color: "#334155",
-                    fontWeight: 500,
-                    lineHeight: "1.4",
-                    textAlign: "center",
-                  }}
-                >
-                  {m.subtitle} <br />
-                  <span style={{ fontSize: "0.8rem", color: "#64748b", fontWeight: 600 }}>
-                    {m.tags.join(" • ")}
-                  </span>
-                </div>
-
-                {/* Action Link resembling BUY NOW */}
-                <div style={{ marginTop: "0.5rem", display: "flex", justifyContent: "center" }}>
+                  {/* Card header */}
                   <div
                     style={{
-                      position: "relative",
-                      display: "inline-block",
-                      color: "#df5a1a",
-                      fontWeight: 800,
-                      fontSize: "0.85rem",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.5px",
-                      paddingBottom: "6px",
-                      textAlign: "center"
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      textAlign: "center",
+                      gap: "0.5rem",
                     }}
                   >
-                    Click to explore ➔
-                    {/* The extending line */}
+                    <div style={{ fontSize: "2.5rem", marginBottom: "0.25rem", display: "inline-block" }}>{m.icon}</div>
+                    <div>
+                      <div
+                        style={{
+                          display: "block",
+                          color: m.color,
+                          fontSize: "0.75rem",
+                          fontWeight: 800,
+                          letterSpacing: "1.5px",
+                          textTransform: "uppercase",
+                          marginBottom: "0.5rem"
+                        }}
+                      >
+                        {m.label}
+                      </div>
+                      <h3
+                        style={{
+                          color: "#012787",
+                          fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)",
+                          fontWeight: 800,
+                          margin: 0,
+                          letterSpacing: "-0.02em",
+                          fontFamily: "'Montserrat', sans-serif"
+                        }}
+                      >
+                        {m.title}
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Subtitle / Description like "Examples" */}
+                  <div
+                    style={{
+                      fontSize: "0.95rem",
+                      color: "#334155",
+                      fontWeight: 500,
+                      lineHeight: "1.4",
+                      textAlign: "center",
+                    }}
+                  >
+                    {m.subtitle} <br />
+                    <span style={{ fontSize: "0.8rem", color: "#64748b", fontWeight: 600 }}>
+                      {m.tags.join(" • ")}
+                    </span>
+                  </div>
+
+                  {/* Action Link resembling BUY NOW */}
+                  <div style={{ marginTop: "0.5rem", display: "flex", justifyContent: "center" }}>
+                    <div
+                      style={{
+                        position: "relative",
+                        display: "inline-block",
+                        color: "#df5a1a",
+                        fontWeight: 800,
+                        fontSize: "0.85rem",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.5px",
+                        paddingBottom: "6px",
+                        textAlign: "center"
+                      }}
+                    >
+                      Click to explore ➔
+                      {/* The extending line */}
+                      <div
+                        style={{
+                          position: "absolute",
+                          bottom: 0,
+                          left: "50%",
+                          transform: "translateX(-50%)",
+                          width: "120%",
+                          height: "1px",
+                          background: "#df5a1a",
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Connecting line between cards */}
+                  {i < 2 && (
                     <div
                       style={{
                         position: "absolute",
-                        bottom: 0,
-                        left: "50%",
-                        transform: "translateX(-50%)",
-                        width: "120%",
-                        height: "1px",
-                        background: "#df5a1a",
+                        bottom: "-1.25rem",
+                        left: "2.5rem",
+                        width: "2px",
+                        height: "1.25rem",
+                        background: `linear-gradient(to bottom, #cfd3be, transparent)`,
+                        zIndex: 1,
                       }}
                     />
-                  </div>
+                  )}
                 </div>
-
-                {/* Connecting line between cards */}
-                {i < 2 && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      bottom: "-1.25rem",
-                      left: "2.5rem",
-                      width: "2px",
-                      height: "1.25rem",
-                      background: `linear-gradient(to bottom, #cfd3be, transparent)`,
-                      zIndex: 1,
-                    }}
-                  />
-                )}
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
         </div>
-      </div>
+      </div> {/* End Stretch Container */}
+
       {/* Strategy Detail Modal — portaled to body to avoid GSAP transform */}
       {activeMonth &&
         createPortal(

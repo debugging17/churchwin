@@ -1,3 +1,11 @@
+/* Split Slide Layout (Stretches columns mathematically) */
+.split-stretch-container {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+  align-items: stretch;
+}
+
 /* Headshot Frame (Slide 1) */
 .headshot-frame {
   width: 400px;

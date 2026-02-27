@@ -8,8 +8,7 @@ export default function BrandGapSlide() {
   return (
     <section className="slide slide-light" id="slide-3" ref={slideRef}>
       {/* Container forcing exact vertical top & bottom alignment between columns */}
-      <div style={{
-        display: "flex", width: "100%", gap: "2rem", alignItems: "stretch",
+      <div className="split-stretch-container" style={{
         padding: "2rem 1rem", minHeight: "85vh", maxHeight: "1200px",
         transform: "translateY(-5vh)"
       }}>
