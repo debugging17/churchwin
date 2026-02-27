@@ -146,19 +146,24 @@ export default function TableOfContentsSlide() {
                   gap: "clamp(1.2rem, 2vw, 1.8rem)",
                   padding: "clamp(0.8rem, 1.5vh, 1.2rem) clamp(1rem, 2vw, 1.5rem)",
                   borderRadius: "14px",
-                  background: "#f8f9fb",
-                  border: "1px solid rgba(1,39,135,0.06)",
-                  transition: "all 0.3s ease",
+                  background: "linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(248,249,251,0.4) 100%)",
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,1)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  border: "1px solid rgba(1,39,135,0.08)",
+                  transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                   cursor: "default",
                 }}
                 onMouseOver={(e) => {
-                  e.currentTarget.style.background = "rgba(1,39,135,0.05)";
-                  e.currentTarget.style.borderColor = "rgba(255,106,0,0.2)";
-                  e.currentTarget.style.transform = "translateX(4px)";
+                  e.currentTarget.style.background = "linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 100%)";
+                  e.currentTarget.style.borderColor = "rgba(255,106,0,0.3)";
+                  e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,1)";
+                  e.currentTarget.style.transform = "translateX(6px)";
                 }}
                 onMouseOut={(e) => {
-                  e.currentTarget.style.background = "#f8f9fb";
-                  e.currentTarget.style.borderColor = "rgba(1,39,135,0.06)";
+                  e.currentTarget.style.background = "linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(248,249,251,0.4) 100%)";
+                  e.currentTarget.style.borderColor = "rgba(1,39,135,0.08)";
+                  e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,1)";
                   e.currentTarget.style.transform = "translateX(0)";
                 }}
               >
@@ -331,12 +336,12 @@ export default function TableOfContentsSlide() {
                   className="floor-shadow"
                   style={{
                     position: "absolute",
-                    bottom: "0",
-                    left: "10%",
-                    right: "10%",
-                    height: "24px",
+                    bottom: "-15%", // pulled down to prevent collision with container bounds
+                    left: "5%",
+                    right: "5%",
+                    height: "40px", // Increased height so the radial gradient doesn't hit its own bounds
                     background:
-                      "radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 70%)",
+                      "radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 60%)",
                     zIndex: 1,
                     transition: "all 0.4s ease",
                     pointerEvents: "none",
