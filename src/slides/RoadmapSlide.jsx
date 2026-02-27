@@ -482,7 +482,7 @@ const RoadmapSlide = memo(function RoadmapSlide() {
                   position: "relative",
                   transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
                   cursor: "pointer",
-                  boxShadow: "0 15px 35px rgba(0,0,0,0.15)",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
                   display: "flex",
                   flexDirection: "column",
                   gap: "1.2rem",
@@ -490,11 +490,11 @@ const RoadmapSlide = memo(function RoadmapSlide() {
                 }}
                 onMouseOver={(e) => {
                   e.currentTarget.style.transform = "translateY(-4px)";
-                  e.currentTarget.style.boxShadow = "0 25px 50px rgba(0,0,0,0.2)";
+                  e.currentTarget.style.boxShadow = "0 12px 32px rgba(0,0,0,0.08)";
                 }}
                 onMouseOut={(e) => {
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 15px 35px rgba(0,0,0,0.15)";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.06)";
                 }}
               >
                 {/* Card header */}
