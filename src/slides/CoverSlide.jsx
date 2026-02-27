@@ -33,7 +33,8 @@ export default function CoverSlide() {
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          opacity: 0.6,
+          objectFit: "cover",
+          opacity: 0.85,
           zIndex: 1,
           pointerEvents: "none",
           filter: "grayscale(15%)",
@@ -52,7 +53,7 @@ export default function CoverSlide() {
           height: "100%",
           zIndex: 2,
           background:
-            "linear-gradient(to bottom, rgba(1,39,135,0.25) 0%, rgba(1,39,135,0.65) 100%)",
+            "linear-gradient(to bottom, rgba(1,39,135,0.1) 0%, rgba(1,39,135,0.4) 100%)",
         }}
       />
 
