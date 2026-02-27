@@ -306,7 +306,11 @@ export default function TableOfContentsSlide() {
                   ...positionStyles,
                 }}
                 onMouseOver={(e) => {
-                  e.currentTarget.style.transform = `translateY(${hoverTranslateY}) scale(1.15)`;
+                  if (i === 2) {
+                    e.currentTarget.style.transform = `translate(-50%, calc(-50% + ${hoverTranslateY})) scale(1.15)`;
+                  } else {
+                    e.currentTarget.style.transform = `translateY(${hoverTranslateY}) scale(1.15)`;
+                  }
                   e.currentTarget.style.zIndex = 20;
                   e.currentTarget.querySelector(".floor-shadow").style.opacity =
                     "0.5";
@@ -315,7 +319,11 @@ export default function TableOfContentsSlide() {
                   ).style.transform = "scale(0.8)";
                 }}
                 onMouseOut={(e) => {
-                  e.currentTarget.style.transform = "translateY(0) scale(1)";
+                  if (i === 2) {
+                    e.currentTarget.style.transform = "translate(-50%, -50%) scale(1)";
+                  } else {
+                    e.currentTarget.style.transform = "translateY(0) scale(1)";
+                  }
                   e.currentTarget.style.zIndex = positionStyles.zIndex;
                   e.currentTarget.querySelector(".floor-shadow").style.opacity =
                     "1";
