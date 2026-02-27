@@ -73,7 +73,7 @@ export default function CurrentRealitySlide() {
         </p>
       </div>
 
-      <div className="visual-pane" ref={tiltRef} style={{ padding: "1rem" }}>
+      <div className="visual-pane" ref={tiltRef}>
         <div className="bento-grid">
           {/* Market Leader: Baraka Shea */}
           <div
