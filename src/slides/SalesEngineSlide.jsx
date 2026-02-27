@@ -109,7 +109,7 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+                gridTemplateColumns: "1fr 1fr",
                 gap: "clamp(0.75rem, 1.5vh, 1.25rem)", /* Reduced gap */
                 width: "100%",
                 flex: 1,
