@@ -416,32 +416,30 @@ const RoadmapSlide = memo(function RoadmapSlide() {
   return (
     <section className="slide" id="slide-4" ref={slideRef}>
       {/* Container forcing exact vertical top & bottom alignment between columns */}
-      <div className="split-stretch-container" style={{ padding: "2rem 1rem", minHeight: "80vh", maxHeight: "1200px" }}>
+      <div className="split-stretch-container" style={{ padding: "2rem 1rem", minHeight: "65vh", maxHeight: "1000px" }}>
 
-        <div className="narrative-pane" style={{ width: "45%", display: "flex", flexDirection: "column" }}>
-          <span className="label" style={{ marginBottom: "0.25rem", display: "inline-block" }}>The Strategic Solution</span>
-          <h1 className="headline-xl" style={{ marginTop: 0, marginBottom: "1.25rem" }}>
-            The Fix: <br />
-            <span className="highlight">3-Month Roadmap</span>
-          </h1>
+        <div className="narrative-pane" style={{ width: "45%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+
+          <div>
+            <span className="label" style={{ marginBottom: "0.25rem", display: "inline-block" }}>The Strategic Solution</span>
+            <h1 className="headline-xl" style={{ marginTop: 0, marginBottom: "1rem" }}>
+              The Fix: <br />
+              <span className="highlight">3-Month Roadmap</span>
+            </h1>
+            <p className="body-xl" style={{ margin: 0, fontSize: "clamp(1rem, 1.25vw, 1.25rem)", lineHeight: "1.5" }}>
+              We don't need a year. We need{" "}
+              <strong style={{ color: "#fff" }}>90 days</strong> of aggressive,
+              focused execution.
+            </p>
+          </div>
 
           <div
             className="body-xl"
             style={{
               fontSize: "clamp(1rem, 1.25vw, 1.25rem)", /* Increased text size for confident presence */
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between", /* Pushes the elements to fill the total height exactly */
-              flex: 1, /* Allow to stretch */
               lineHeight: "1.5"
             }}
           >
-            <p style={{ margin: 0, marginBottom: "1.5rem", fontSize: "1.1em" }}>
-              We don't need a year. We need{" "}
-              <strong style={{ color: "#fff" }}>90 days</strong> of aggressive,
-              focused execution.
-            </p>
-
             <p style={{ margin: 0 }}>
               <strong style={{ color: "#fff" }}>
                 Days 1-30: Core Architecture
@@ -485,7 +483,7 @@ const RoadmapSlide = memo(function RoadmapSlide() {
               flexDirection: "column",
               justifyContent: "space-between", /* Stretches the cards out evenly from top to bottom */
               flex: 1, /* Occupies all available stretched space */
-              gap: "clamp(0.75rem, 1.5vh, 1.25rem)",
+              gap: "clamp(0.5rem, 1.2vh, 1rem)", /* Reduced gap to prevent cutting */
               width: "100%",
               maxWidth: "500px",
             }}
@@ -505,14 +503,14 @@ const RoadmapSlide = memo(function RoadmapSlide() {
                   style={{
                     background: bgStr,
                     borderRadius: "16px",
-                    padding: "clamp(1.2rem, 2vh, 2rem) clamp(1rem, 2vw, 1.5rem)",
+                    padding: "clamp(0.8rem, 1.5vh, 1.5rem) clamp(1rem, 2vw, 1.5rem)",
                     position: "relative",
                     transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
                     cursor: "pointer",
                     boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
                     display: "flex",
                     flexDirection: "column",
-                    gap: "clamp(0.6rem, 1vh, 1rem)",
+                    gap: "clamp(0.4rem, 0.8vh, 0.75rem)",
                     border: "1px solid rgba(0,0,0,0.05)",
                     flexShrink: 0,
                   }}
@@ -532,10 +530,10 @@ const RoadmapSlide = memo(function RoadmapSlide() {
                       flexDirection: "column",
                       alignItems: "center",
                       textAlign: "center",
-                      gap: "0.5rem",
+                      gap: "0.25rem",
                     }}
                   >
-                    <div style={{ fontSize: "2.5rem", marginBottom: "0.25rem", display: "inline-block" }}>{m.icon}</div>
+                    <div style={{ fontSize: "clamp(1.5rem, 2.5vh, 2rem)", marginBottom: "0", display: "inline-block" }}>{m.icon}</div>
                     <div>
                       <div
                         style={{
@@ -568,31 +566,31 @@ const RoadmapSlide = memo(function RoadmapSlide() {
                   {/* Subtitle / Description like "Examples" */}
                   <div
                     style={{
-                      fontSize: "0.95rem",
+                      fontSize: "clamp(0.85rem, 1.2vw, 0.95rem)",
                       color: "#334155",
                       fontWeight: 500,
-                      lineHeight: "1.4",
+                      lineHeight: "1.3",
                       textAlign: "center",
                     }}
                   >
                     {m.subtitle} <br />
-                    <span style={{ fontSize: "0.8rem", color: "#64748b", fontWeight: 600 }}>
+                    <span style={{ fontSize: "clamp(0.7rem, 1vw, 0.8rem)", color: "#64748b", fontWeight: 600 }}>
                       {m.tags.join(" • ")}
                     </span>
                   </div>
 
                   {/* Action Link resembling BUY NOW */}
-                  <div style={{ marginTop: "0.5rem", display: "flex", justifyContent: "center" }}>
+                  <div style={{ marginTop: "0.25rem", display: "flex", justifyContent: "center" }}>
                     <div
                       style={{
                         position: "relative",
                         display: "inline-block",
                         color: "#df5a1a",
                         fontWeight: 800,
-                        fontSize: "0.85rem",
+                        fontSize: "clamp(0.7rem, 1vw, 0.8rem)",
                         textTransform: "uppercase",
                         letterSpacing: "0.5px",
-                        paddingBottom: "6px",
+                        paddingBottom: "4px",
                         textAlign: "center"
                       }}
                     >
