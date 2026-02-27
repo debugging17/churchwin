@@ -416,51 +416,46 @@ const RoadmapSlide = memo(function RoadmapSlide() {
   return (
     <section className="slide" id="slide-4" ref={slideRef}>
       {/* Container forcing exact vertical top & bottom alignment between columns */}
-      <div className="split-stretch-container" style={{ padding: "2rem 1rem", minHeight: "65vh", maxHeight: "1000px" }}>
+      <div className="split-stretch-container" style={{ padding: "2rem 1rem", minHeight: "80vh", maxHeight: "1200px" }}>
 
-        <div className="narrative-pane" style={{ width: "45%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+        <div className="narrative-pane" style={{ width: "45%", display: "flex", flexDirection: "column", justifyContent: "space-between", paddingRight: "2rem" }}>
 
           <div>
             <span className="label" style={{ marginBottom: "0.25rem", display: "inline-block" }}>The Strategic Solution</span>
-            <h1 className="headline-xl" style={{ marginTop: 0, marginBottom: "1rem" }}>
+            <h1 className="headline-xl" style={{ marginTop: 0, marginBottom: "0" }}>
               The Fix: <br />
               <span className="highlight">3-Month Roadmap</span>
             </h1>
-            <p className="body-xl" style={{ margin: 0, fontSize: "clamp(1rem, 1.25vw, 1.25rem)", lineHeight: "1.5" }}>
-              We don't need a year. We need{" "}
-              <strong style={{ color: "#fff" }}>90 days</strong> of aggressive,
-              focused execution.
-            </p>
           </div>
 
-          <div
-            className="body-xl"
-            style={{
-              fontSize: "clamp(1rem, 1.25vw, 1.25rem)", /* Increased text size for confident presence */
-              lineHeight: "1.5"
-            }}
-          >
-            <p style={{ margin: 0 }}>
-              <strong style={{ color: "#fff" }}>
-                Days 1-30: Core Architecture
-              </strong>
-              <br />
-              UX Overhaul, SEO Foundation, CRM structure.
-              <br />
-              <br />
-              <strong style={{ color: "#fff" }}>
-                Days 31-60: Automation &amp; CRM
-              </strong>
-              <br />
-              Cold Outreach pipeline, Lead Scoring, Video Assets.
-              <br />
-              <br />
-              <strong style={{ color: "#fff" }}>
-                Days 61-90: Scaling &amp; Portals
-              </strong>
-              <br />
-              Wholesale B2B Self-Serve Portal, Retargeting.
-            </p>
+          <p className="body-xl" style={{ margin: 0, fontSize: "clamp(1rem, 1.25vw, 1.25rem)", lineHeight: "1.5" }}>
+            We don't need a year. We need{" "}
+            <strong style={{ color: "#fff" }}>90 days</strong> of aggressive,
+            focused execution.
+          </p>
+
+          <div style={{ fontSize: "clamp(1rem, 1.25vw, 1.25rem)", lineHeight: "1.5" }}>
+            <strong style={{ color: "#fff" }}>
+              Days 1-30: Core Architecture
+            </strong>
+            <br />
+            UX Overhaul, SEO Foundation, CRM structure.
+          </div>
+
+          <div style={{ fontSize: "clamp(1rem, 1.25vw, 1.25rem)", lineHeight: "1.5" }}>
+            <strong style={{ color: "#fff" }}>
+              Days 31-60: Automation &amp; CRM
+            </strong>
+            <br />
+            Cold Outreach pipeline, Lead Scoring, Video Assets.
+          </div>
+
+          <div style={{ fontSize: "clamp(1rem, 1.25vw, 1.25rem)", lineHeight: "1.5" }}>
+            <strong style={{ color: "#fff" }}>
+              Days 61-90: Scaling &amp; Portals
+            </strong>
+            <br />
+            Wholesale B2B Self-Serve Portal, Retargeting.
           </div>
         </div>
 
