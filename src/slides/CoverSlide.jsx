@@ -150,14 +150,14 @@ export default function CoverSlide() {
             zIndex: 10,
           }}
         >
-          <div style={{ textAlign: "center" }}>
+          <div style={{ textAlign: "center", mixBlendMode: "plus-lighter" }}>
             <div
               style={{
                 fontSize: "0.9rem",
                 letterSpacing: "3px",
                 textTransform: "uppercase",
-                color: "rgba(255, 255, 255, 0.9)", // Glass-infused white
-                textShadow: "0 2px 10px rgba(0,0,0,0.2)", // Harmonizing shadow
+                color: "rgba(255, 255, 255, 0.7)", // More transparent to force reliance on glow and blend
+                textShadow: "0 0 15px rgba(255,255,255,0.4)", // Inner glow feeling
                 marginBottom: "0.6rem",
                 fontWeight: 800,
                 fontFamily: "'Montserrat', sans-serif"
@@ -167,8 +167,8 @@ export default function CoverSlide() {
             </div>
             <div style={{
               fontSize: "clamp(1.2rem, 3.5vw, 1.8rem)",
-              color: "rgba(255, 255, 255, 0.95)", // Almost fully opaque to pop inside the glass
-              textShadow: "0 0 20px rgba(255,255,255,0.3), 0 2px 10px rgba(0,0,0,0.4)", // Glow + drop shadow for embedded depth
+              color: "rgba(255, 255, 255, 0.8)", // Let the background bleed through
+              textShadow: "0 0 30px rgba(255,255,255,0.6)", // Massive frosted glass glow
               fontWeight: 800,
               fontFamily: "'Montserrat', sans-serif",
               letterSpacing: "-0.01em",
@@ -179,8 +179,8 @@ export default function CoverSlide() {
             <div
               style={{
                 fontSize: "0.95rem",
-                color: "rgba(255, 255, 255, 0.8)", // Glass-infused description
-                textShadow: "0 2px 8px rgba(0,0,0,0.25)", // Harmonizing shadow
+                color: "rgba(255, 255, 255, 0.6)", // Ghostly glass presence
+                textShadow: "0 0 10px rgba(255,255,255,0.3)",
                 marginTop: "0.2rem",
                 letterSpacing: "0.8px",
                 fontWeight: 500
