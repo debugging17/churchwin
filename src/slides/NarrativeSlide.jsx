@@ -72,8 +72,37 @@ export default function NarrativeSlide() {
   const v = VERTICALS[activeTab];
 
   return (
-    <section className="slide" id="slide-6" ref={slideRef}>
-      <div className="split-stretch-container" style={{ padding: "2rem 1rem", minHeight: "80vh", maxHeight: "1200px" }}>
+    <section className="slide" id="slide-6" ref={slideRef} style={{ position: "relative", overflow: "hidden", background: "#011533" }}>
+      {/* Background Image Container */}
+      <img
+        src="/assets/images/shearbutter.png"
+        alt="Shea Butter Background"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          opacity: 0.6,
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+      />
+      {/* Dark Navy Overlay for Text Legibility (Heavy on the left, fading to right) */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 2,
+          background: "linear-gradient(to right, rgba(1,21,51,0.98) 0%, rgba(1,21,51,0.5) 100%)",
+        }}
+      />
+
+      <div className="split-stretch-container" style={{ position: "relative", zIndex: 10, padding: "2rem 1rem", minHeight: "80vh", maxHeight: "1200px" }}>
 
         <div className="narrative-pane" style={{ width: "45%", display: "flex", flexDirection: "column", justifyContent: "space-between", paddingRight: "2rem" }}>
           <div>
