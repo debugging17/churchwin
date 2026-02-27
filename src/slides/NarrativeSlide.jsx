@@ -97,7 +97,7 @@ export default function NarrativeSlide() {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            opacity: 0.50, // Softened the overlay effect to expose the active image more prominently
+            opacity: 0.60, // Final adjustment to expose the active image even more
             mixBlendMode: 'luminosity'
           }}
         />
