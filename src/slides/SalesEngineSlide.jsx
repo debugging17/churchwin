@@ -27,7 +27,7 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
 
   return (
     <section className="slide slide-light" id="slide-5" ref={slideRef}>
-      <div className="split-stretch-container" style={{ padding: "clamp(1rem, 2.5vh, 2rem) 1rem", minHeight: "65vh", maxHeight: "950px" }}>
+      <div className="split-stretch-container" style={{ padding: "clamp(0.5rem, 1.2vh, 1rem) 1rem clamp(0.5rem, 1.5vh, 1.5rem) 1rem", minHeight: "65vh", maxHeight: "950px" }}>
 
         <div className="narrative-pane" style={{ width: "45%", display: "flex", flexDirection: "column", justifyContent: "space-between", paddingRight: "2rem" }}>
           <div>
@@ -43,17 +43,17 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
             </h1>
           </div>
 
-          <p className="body-xl" style={{ margin: 0, fontSize: "clamp(1rem, 1.25vw, 1.25rem)" }}>
+          <p className="body-xl" style={{ margin: 0, fontSize: "clamp(1.05rem, 1.4vw, 1.3rem)", lineHeight: 1.55 }}>
             Implementing a proven <strong style={{ color: "#012787" }}>5-Step Sales Pipeline</strong> for
             absolute precision targeting.
           </p>
 
           {/* Item 1 */}
           <div style={{ display: "flex", gap: "1rem" }}>
-            <div style={{ fontWeight: 900, fontSize: "1.25rem", color: "#ff6a00", fontFamily: "Montserrat, sans-serif" }}>01.</div>
+            <div style={{ fontWeight: 900, fontSize: "clamp(1.1rem, 1.5vw, 1.4rem)", color: "#ff6a00", fontFamily: "Montserrat, sans-serif", flexShrink: 0 }}>01.</div>
             <div>
-              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, margin: "0 0 0.25rem 0", color: "#012787" }}>Automated Fulfillment</h3>
-              <p style={{ margin: 0, fontSize: "0.95rem", color: "#555", lineHeight: 1.4 }}>
+              <h3 style={{ fontSize: "clamp(1rem, 1.3vw, 1.2rem)", fontWeight: 700, margin: "0 0 0.25rem 0", color: "#012787" }}>Automated Fulfillment</h3>
+              <p style={{ margin: 0, fontSize: "clamp(0.9rem, 1.05vw, 1rem)", color: "#555", lineHeight: 1.45 }}>
                 Instant dispatch of a "B2B Starter Package" (Catalogs, COAs,
                 Tiered Pricing) upon lead capture.
               </p>
@@ -62,10 +62,10 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
 
           {/* Item 2 */}
           <div style={{ display: "flex", gap: "1rem" }}>
-            <div style={{ fontWeight: 900, fontSize: "1.25rem", color: "#ff6a00", fontFamily: "Montserrat, sans-serif" }}>02.</div>
+            <div style={{ fontWeight: 900, fontSize: "clamp(1.1rem, 1.5vw, 1.4rem)", color: "#ff6a00", fontFamily: "Montserrat, sans-serif", flexShrink: 0 }}>02.</div>
             <div>
-              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, margin: "0 0 0.25rem 0", color: "#012787" }}>High-Frequency Follow-Up</h3>
-              <p style={{ margin: 0, fontSize: "0.95rem", color: "#555", lineHeight: 1.4 }}>
+              <h3 style={{ fontSize: "clamp(1rem, 1.3vw, 1.2rem)", fontWeight: 700, margin: "0 0 0.25rem 0", color: "#012787" }}>High-Frequency Follow-Up</h3>
+              <p style={{ margin: 0, fontSize: "clamp(0.9rem, 1.05vw, 1rem)", color: "#555", lineHeight: 1.45 }}>
                 Automating Day 2, Day 7, and Day 14 email sequences to push
                 conversions by over <strong style={{ color: "#ff6a00" }}>40%</strong>.
               </p>
@@ -73,11 +73,11 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
           </div>
 
           {/* Item 3 */}
-          <div style={{ display: "flex", gap: "1rem", marginBottom: "0.5rem" }}>
-            <div style={{ fontWeight: 900, fontSize: "1.25rem", color: "#ff6a00", fontFamily: "Montserrat, sans-serif" }}>03.</div>
+          <div style={{ display: "flex", gap: "1rem" }}>
+            <div style={{ fontWeight: 900, fontSize: "clamp(1.1rem, 1.5vw, 1.4rem)", color: "#ff6a00", fontFamily: "Montserrat, sans-serif", flexShrink: 0 }}>03.</div>
             <div>
-              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, margin: "0 0 0.25rem 0", color: "#012787" }}>Digital Incentives</h3>
-              <p style={{ margin: 0, fontSize: "0.95rem", color: "#555", lineHeight: 1.4 }}>
+              <h3 style={{ fontSize: "clamp(1rem, 1.3vw, 1.2rem)", fontWeight: 700, margin: "0 0 0.25rem 0", color: "#012787" }}>Digital Incentives</h3>
+              <p style={{ margin: 0, fontSize: "clamp(0.9rem, 1.05vw, 1rem)", color: "#555", lineHeight: 1.45 }}>
                 Lowering barriers to entry for bulk buyers via "First-Order
                 Incentives" (5% off or free shipping discounts).
               </p>
@@ -108,13 +108,15 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
               style={{
                 display: "grid",
                 gridTemplateColumns: "1fr 1fr",
-                gap: "clamp(0.75rem, 1.5vh, 1.25rem)", /* Reduced gap */
+                gap: "clamp(0.75rem, 1.5vh, 1.25rem)",
                 width: "100%",
                 flex: 1,
-                perspective: "1400px", /* Updated from 1200px */
-                perspectiveOrigin: "50% 50%", /* Added */
-                overflow: "visible", /* Added for cards to extend beyond bounds */
-                paddingBottom: "1.5rem", /* Added for shadow bleed */
+                /* Each card manages its own shadow — grid stays clean */
+                overflow: "visible",
+                perspective: "1400px",
+                perspectiveOrigin: "50% 50%",
+                /* Small padding so bottom shadow of lower cards isn't hard-clipped */
+                paddingBottom: "0.75rem",
               }}
             >
               {/* 1. Apollo.io */}
