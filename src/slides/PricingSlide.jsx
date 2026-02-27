@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { Users, Mail, Link, ClipboardList, Send, Zap, Target, Inbox, Rocket, MessageCircle, BarChart2 } from "lucide-react";
-import SvgBackground from "../components/SvgBackground";
 
 const PLATFORMS = [
     {
@@ -128,7 +127,6 @@ export default function PricingSlide() {
             ref={slideRef}
             style={{ flexDirection: "column", padding: 0, background: "#ffffff" }}
         >
-            <SvgBackground />
             {/* ── Header ── */}
             <div className="pricing-header">
                 <span className="label" style={{ color: "#ff6a00", opacity: 1, display: "block", fontSize: "0.65rem", marginBottom: "0.35rem", marginLeft: "-0.1rem" }}>

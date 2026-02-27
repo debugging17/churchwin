@@ -89,26 +89,29 @@ const ICONS = [
     },
 ];
 
-const PLACEMENTS = [
-    { icon: "leaf", x: -5, y: -5, size: 450, rot: -20 },
-    { icon: "drop", x: 80, y: -10, size: 300, rot: 15 },
-    { icon: "cocoa", x: -10, y: 65, size: 400, rot: 30 },
-    { icon: "jar", x: 85, y: 55, size: 350, rot: -10 },
-    { icon: "plant", x: 45, y: -15, size: 500, rot: 0 },
-    { icon: "sparkle", x: 95, y: 85, size: 250, rot: 20 },
-    { icon: "globe", x: 10, y: 90, size: 400, rot: -5 },
-    { icon: "leaf2", x: 65, y: 15, size: 350, rot: 45 },
-    { icon: "nut", x: 50, y: 95, size: 300, rot: -30 },
-    { icon: "flask", x: 30, y: 15, size: 250, rot: 10 },
-    { icon: "cocoa", x: 75, y: 95, size: 350, rot: -45 },
-    { icon: "drop", x: 15, y: 45, size: 250, rot: 25 },
-    { icon: "sparkle", x: 60, y: 55, size: 200, rot: 0 },
-    { icon: "leaf", x: 95, y: 30, size: 400, rot: 60 },
+const PLACEMENTS_SMALL = [
+    { icon: "leaf", x: 20, y: 30, size: 28, rot: -20 },
+    { icon: "drop", x: 140, y: 50, size: 24, rot: 15 },
+    { icon: "cocoa", x: 250, y: 20, size: 30, rot: 30 },
+    { icon: "jar", x: 350, y: 80, size: 32, rot: -10 },
+
+    { icon: "plant", x: 80, y: 150, size: 36, rot: 0 },
+    { icon: "sparkle", x: 200, y: 120, size: 22, rot: 20 },
+    { icon: "globe", x: 300, y: 160, size: 32, rot: -5 },
+
+    { icon: "leaf2", x: 40, y: 250, size: 32, rot: 45 },
+    { icon: "nut", x: 150, y: 280, size: 28, rot: -30 },
+    { icon: "flask", x: 260, y: 240, size: 30, rot: 10 },
+
+    { icon: "cocoa", x: 350, y: 300, size: 32, rot: -45 },
+    { icon: "drop", x: 100, y: 350, size: 24, rot: 25 },
+    { icon: "sparkle", x: 200, y: 360, size: 20, rot: 0 },
+    { icon: "leaf", x: 300, y: 340, size: 30, rot: 60 },
 ];
 
 export default function SvgBackground({
     color = "#012787",
-    opacity = 0.06,
+    opacity = 0.05,
 }) {
     const iconMap = Object.fromEntries(ICONS.map((ic) => [ic.id, ic]));
 
@@ -126,29 +129,33 @@ export default function SvgBackground({
                 overflow: "hidden",
             }}
         >
-            {PLACEMENTS.map((p, i) => {
-                const ic = iconMap[p.icon];
-                if (!ic) return null;
-                return (
-                    <svg
-                        key={i}
-                        width={p.size}
-                        height={p.size}
-                        viewBox={ic.vb}
-                        fill={color}
-                        xmlns="http://www.w3.org/2000/svg"
-                        style={{
-                            position: "absolute",
-                            left: `${p.x}%`,
-                            top: `${p.y}%`,
-                            opacity: opacity,
-                            transform: `translate(-50%, -50%) rotate(${p.rot}deg)`,
-                        }}
-                    >
-                        <path d={ic.path} />
-                    </svg>
-                );
-            })}
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="churchwin-pattern" x="0" y="0" width="400" height="400" patternUnits="userSpaceOnUse">
+                        <g fill={color} opacity={opacity}>
+                            {PLACEMENTS_SMALL.map((p, i) => {
+                                const ic = iconMap[p.icon];
+                                if (!ic) return null;
+                                return (
+                                    <svg
+                                        key={i}
+                                        x={p.x}
+                                        y={p.y}
+                                        width={p.size}
+                                        height={p.size}
+                                        viewBox={ic.vb}
+                                    >
+                                        <g transform={`rotate(${p.rot}, 12, 12)`}>
+                                            <path d={ic.path} />
+                                        </g>
+                                    </svg>
+                                );
+                            })}
+                        </g>
+                    </pattern>
+                </defs>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#churchwin-pattern)" />
+            </svg>
         </div>
     );
 }

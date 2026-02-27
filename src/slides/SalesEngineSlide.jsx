@@ -2,7 +2,6 @@ import { memo, useRef } from "react";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
 import { AreaChart, Area, ResponsiveContainer, BarChart, Bar, Cell, PieChart, Pie, Tooltip } from "recharts";
 import { UserCheck, Mail, Clock, MessageCircle, BarChart2, Link as LinkIcon, User } from "lucide-react";
-import SvgBackground from "../components/SvgBackground";
 
 const APOLLO_DATA = [
   { name: 'Mon', leads: 40 },
@@ -28,7 +27,6 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
 
   return (
     <section className="slide slide-light" id="slide-5" ref={slideRef}>
-      <SvgBackground />
       <div className="narrative-pane">
         <span
           className="label"

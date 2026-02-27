@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
-import SvgBackground from "../components/SvgBackground";
 
 const TOC_ITEMS = [
   {
@@ -65,7 +64,6 @@ export default function TableOfContentsSlide() {
         overflow: "hidden",
       }}
     >
-      <SvgBackground />
       {/* Left Pane: Executive Summary + TOC */}
       <div
         className="narrative-pane hide-scrollbar"

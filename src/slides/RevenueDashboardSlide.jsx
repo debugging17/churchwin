@@ -37,7 +37,6 @@ import {
     ShoppingBag,
     MoreVertical
 } from "lucide-react";
-import SvgBackground from "../components/SvgBackground";
 
 /* ── Custom Payment Icons ── */
 const MastercardIcon = () => (
@@ -173,7 +172,6 @@ const RevenueDashboardSlide = memo(function RevenueDashboardSlide() {
             ref={slideRef}
             style={{ padding: 0, overflow: "hidden", background: "#ffffff" }}
         >
-            <SvgBackground />
             <div className="rdash">
                 {/* ── Compact Sidebar ── */}
                 <aside className="rdash-sidebar">
