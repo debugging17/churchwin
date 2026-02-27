@@ -90,39 +90,48 @@ const ICONS = [
 ];
 
 const PLACEMENTS_LARGE = [
-    // Base icons from before
-    { icon: "leaf", x: 60, y: 90, size: 100, rot: -20 },
-    { icon: "drop", x: 420, y: 150, size: 85, rot: 15 },
-    { icon: "cocoa", x: 750, y: 60, size: 110, rot: 30 },
-    { icon: "jar", x: 1050, y: 240, size: 115, rot: -10 },
+    // Grid 1 (y: 0 - 300)
+    { icon: "leaf", x: 80, y: 90, size: 70, rot: -20 },
+    { icon: "drop", x: 380, y: 150, size: 60, rot: 15 },
+    { icon: "cocoa", x: 680, y: 70, size: 75, rot: 30 },
+    { icon: "jar", x: 980, y: 160, size: 80, rot: -10 },
 
-    { icon: "plant", x: 240, y: 450, size: 130, rot: 0 },
-    { icon: "sparkle", x: 600, y: 360, size: 80, rot: 20 },
-    { icon: "globe", x: 900, y: 480, size: 115, rot: -5 },
+    // Grid 2 (y: 300 - 600)
+    { icon: "plant", x: 150, y: 400, size: 85, rot: 0 },
+    { icon: "sparkle", x: 450, y: 340, size: 50, rot: 20 },
+    { icon: "globe", x: 750, y: 460, size: 80, rot: -5 },
+    { icon: "flask", x: 1050, y: 380, size: 75, rot: 10 },
 
-    { icon: "leaf2", x: 120, y: 750, size: 115, rot: 45 },
-    { icon: "nut", x: 450, y: 840, size: 100, rot: -30 },
-    { icon: "flask", x: 780, y: 720, size: 110, rot: 10 },
+    // Grid 3 (y: 600 - 900)
+    { icon: "leaf2", x: 100, y: 700, size: 80, rot: 45 },
+    { icon: "nut", x: 400, y: 780, size: 65, rot: -30 },
+    { icon: "cocoa", x: 700, y: 680, size: 75, rot: 15 },
+    { icon: "sparkle", x: 1000, y: 750, size: 55, rot: -20 },
 
-    { icon: "cocoa", x: 1050, y: 900, size: 115, rot: -45 },
-    { icon: "drop", x: 300, y: 1050, size: 85, rot: 25 },
-    { icon: "sparkle", x: 600, y: 1080, size: 75, rot: 0 },
-    { icon: "leaf", x: 900, y: 1020, size: 110, rot: 60 },
+    // Grid 4 (y: 900 - 1200) - explicitly filling gaps like bottom left
+    { icon: "drop", x: 120, y: 1050, size: 60, rot: 25 },
+    { icon: "leaf", x: 420, y: 1000, size: 75, rot: 60 },
+    { icon: "jar", x: 720, y: 1100, size: 70, rot: 35 },
+    { icon: "plant", x: 1020, y: 1020, size: 85, rot: -10 },
 
-    // Added new sprinkle icons to fill in gaps
-    { icon: "leaf2", x: 210, y: 120, size: 80, rot: -15 },
-    { icon: "sparkle", x: 80, y: 400, size: 60, rot: 45 },
-    { icon: "drop", x: 500, y: 550, size: 70, rot: -5 },
-    { icon: "nut", x: 1080, y: 600, size: 90, rot: 80 },
-    { icon: "leaf", x: 150, y: 1100, size: 85, rot: -70 },
-    { icon: "plant", x: 800, y: 200, size: 95, rot: -20 },
-    { icon: "cocoa", x: 400, y: 300, size: 75, rot: 10 },
-    { icon: "jar", x: 750, y: 950, size: 80, rot: 35 },
+    // Additional sprinkles to fill any remaining holes for a perfectly consistent wallpaper effect
+    { icon: "leaf2", x: 270, y: 220, size: 55, rot: -15 },
+    { icon: "sparkle", x: 840, y: 240, size: 45, rot: 45 },
+    { icon: "nut", x: 1150, y: 90, size: 60, rot: 80 },
+
+    { icon: "drop", x: 60, y: 550, size: 50, rot: -5 },
+    { icon: "cocoa", x: 550, y: 590, size: 60, rot: 10 },
+
+    { icon: "leaf2", x: 260, y: 930, size: 55, rot: -35 },
+    { icon: "flask", x: 550, y: 980, size: 65, rot: -15 },
+
+    { icon: "sparkle", x: 880, y: 920, size: 45, rot: 10 },
+    { icon: "globe", x: 1150, y: 1150, size: 75, rot: -5 },
 ];
 
 export default function SvgBackground({
     color = "#012787",
-    opacity = 0.065, // Reduced by 1 step (from 0.075)
+    opacity = 0.055, // Pulled back slightly further
 }) {
     const iconMap = Object.fromEntries(ICONS.map((ic) => [ic.id, ic]));
 
