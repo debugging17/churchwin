@@ -94,10 +94,7 @@ export default function NarrativeSlide() {
         </p>
       </div>
 
-      <div
-        className="visual-pane"
-        style={{ alignItems: "center", paddingTop: "5vh" }}
-      >
+      <div className="visual-pane">
         {/* B2B Portal UI Mockup */}
         <div
           style={{

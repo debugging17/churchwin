@@ -87,11 +87,10 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
           style={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
+            justifyContent: "flex-start",
             width: "100%",
             maxWidth: "1000px",
             margin: "0 auto",
-            transform: "translate(-1rem, 1rem)",
           }}
         >
           <div

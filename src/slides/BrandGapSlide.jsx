@@ -72,7 +72,7 @@ export default function BrandGapSlide() {
             flexWrap: "nowrap",
             maxWidth: "1100px", /* Keep it within the screen bounds so the right edge isn't cut off */
             padding: "1rem 2rem 1rem 0",
-            alignItems: "stretch" /* Make columns equal height */
+            alignItems: "flex-start"
           }}
         >
           {/* Left: Current (Boring) */}

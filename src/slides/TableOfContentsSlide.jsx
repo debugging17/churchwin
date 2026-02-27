@@ -236,7 +236,6 @@ export default function TableOfContentsSlide() {
             width: "100%",
             padding: "0 1rem",
             display: "flex",
-            alignItems: "center",
             justifyContent: "center",
             height: "100%",
             zIndex: 10,
