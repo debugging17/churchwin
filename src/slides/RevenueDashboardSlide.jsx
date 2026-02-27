@@ -256,6 +256,7 @@ const RevenueDashboardSlide = memo(function RevenueDashboardSlide() {
                                                     <Cell key={`cell-${index}`} fill={entry.fill} />
                                                 ))}
                                             </Pie>
+                                            <Tooltip formatter={(value) => `$${value}`} contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', fontSize: '0.8rem', fontWeight: 600 }} />
                                         </PieChart>
                                     </ResponsiveContainer>
                                     <div className="rdash-pie-center">
@@ -335,7 +336,7 @@ const RevenueDashboardSlide = memo(function RevenueDashboardSlide() {
                                         <BarChart data={PRODUCT_DATA} layout="vertical" margin={{ top: 10, right: 0, bottom: 0, left: 15 }}>
                                             <XAxis type="number" hide />
                                             <YAxis dataKey="name" type="category" axisLine={false} tickLine={false} tick={{ fontSize: 10, fill: '#64748b' }} />
-                                            <Tooltip cursor={{ fill: '#f8f9fb' }} />
+                                            <Tooltip cursor={{ fill: '#f8f9fb' }} contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', fontSize: '0.8rem', fontWeight: 600 }} />
                                             <Bar dataKey="value" barSize={8} radius={[0, 4, 4, 0]} />
                                         </BarChart>
                                     </ResponsiveContainer>
@@ -363,10 +364,10 @@ const RevenueDashboardSlide = memo(function RevenueDashboardSlide() {
                                             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
                                             <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8' }} dy={10} />
                                             <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8' }} />
-                                            <Tooltip />
+                                            <Tooltip formatter={(value) => `$${value}`} contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', fontSize: '0.8rem', fontWeight: 600 }} />
                                             <Legend iconType="circle" wrapperStyle={{ fontSize: '12px' }} />
-                                            <Area type="monotone" dataKey="revenue" stroke="#ff6a00" strokeWidth={3} fillOpacity={1} fill="url(#colorRev)" />
-                                            <Area type="monotone" dataKey="orders" stroke="#012787" strokeWidth={3} fillOpacity={1} fill="url(#colorOrd)" />
+                                            <Area type="monotone" dataKey="revenue" stroke="#ff6a00" strokeWidth={3} fillOpacity={1} fill="url(#colorRev)" activeDot={{ r: 6, fill: "#ff6a00", stroke: "#fff", strokeWidth: 2 }} />
+                                            <Area type="monotone" dataKey="orders" stroke="#012787" strokeWidth={3} fillOpacity={1} fill="url(#colorOrd)" activeDot={{ r: 6, fill: "#012787", stroke: "#fff", strokeWidth: 2 }} />
                                         </AreaChart>
                                     </ResponsiveContainer>
                                 </div>

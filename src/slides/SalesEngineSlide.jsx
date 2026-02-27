@@ -1,6 +1,6 @@
 import { memo, useRef } from "react";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
-import { AreaChart, Area, ResponsiveContainer, BarChart, Bar, Cell, PieChart, Pie } from "recharts";
+import { AreaChart, Area, ResponsiveContainer, BarChart, Bar, Cell, PieChart, Pie, Tooltip } from "recharts";
 import { UserCheck, Mail, Clock, MessageCircle, BarChart2, Link as LinkIcon, User } from "lucide-react";
 
 const APOLLO_DATA = [
@@ -244,7 +244,8 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                           <stop offset="95%" stopColor="#ff6a00" stopOpacity={0} />
                         </linearGradient>
                       </defs>
-                      <Area type="monotone" dataKey="leads" stroke="#ff6a00" strokeWidth={2} fillOpacity={1} fill="url(#colorLeads)" />
+                      <Tooltip contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', fontSize: '0.8rem', fontWeight: 600 }} />
+                      <Area type="monotone" dataKey="leads" stroke="#ff6a00" strokeWidth={2} fillOpacity={1} fill="url(#colorLeads)" activeDot={{ r: 4, strokeWidth: 2, fill: '#ff6a00', stroke: '#fff' }} />
                     </AreaChart>
                   </ResponsiveContainer>
                 </div>
@@ -685,6 +686,7 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                                 <Cell key={`cell-${index}`} fill={entry.fill} />
                               ))}
                             </Pie>
+                            <Tooltip formatter={(value) => `${value}%`} contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', fontSize: '0.8rem', fontWeight: 600 }} />
                           </PieChart>
                         </ResponsiveContainer>
                         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", display: "grid", placeItems: "center", fontSize: "1.1rem", fontWeight: 800, color: "#000" }}>
@@ -721,6 +723,7 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                                 <Cell key={`cell-${index}`} fill={entry.fill} />
                               ))}
                             </Pie>
+                            <Tooltip formatter={(value) => `${value}%`} contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', fontSize: '0.8rem', fontWeight: 600 }} />
                           </PieChart>
                         </ResponsiveContainer>
                         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", display: "grid", placeItems: "center", fontSize: "1.1rem", fontWeight: 800, color: "#000" }}>
