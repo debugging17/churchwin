@@ -7,33 +7,33 @@ export default function BrandGapSlide() {
 
   return (
     <section className="slide slide-light" id="slide-3" ref={slideRef}>
-      <div className="narrative-pane" style={{ paddingTop: "2rem", width: "40%", paddingRight: "3rem" }}>
+      <div className="narrative-pane" style={{ paddingTop: "2rem", width: "45%", paddingRight: "1.5rem" }}>
         <span
           className="label"
           style={{ marginBottom: "0.25rem", display: "inline-block" }}
         >
           The Brand Gap
         </span>
-        <h1 className="headline-xl" style={{ marginTop: 0, marginBottom: "1rem" }}>
+        <h1 className="headline-xl" style={{ marginTop: 0, marginBottom: "1.25rem" }}>
           Great Product, <br />
           <span className="highlight">Outdated Presence</span>
         </h1>
         <div
           className="body-xl"
           style={{
-            fontSize: "clamp(0.85rem, 1vw, 1.05rem)",
+            fontSize: "clamp(0.9rem, 1.1vw, 1.15rem)",
             display: "flex",
             flexDirection: "column",
-            gap: "1rem",
-            lineHeight: "1.4"
+            gap: "1.2rem",
+            lineHeight: "1.45"
           }}
         >
-          <p style={{ margin: 0 }}>
+          <p style={{ margin: 0, fontSize: "1.05em", fontWeight: 500 }}>
             Our digital storefront fails to reflect our premium sourcing.
           </p>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
-            <strong style={{ color: "var(--accent)" }}>1. Product Specificity:</strong>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.35rem" }}>
+            <strong style={{ color: "var(--accent)", fontSize: "1.05em" }}>1. Product Specificity:</strong>
             <p style={{ margin: 0 }}>
               We pitch Baobab and Moringa generically instead of as a
               &quot;bio-retinol alternative&quot; and a &quot;protein-dense
@@ -41,16 +41,16 @@ export default function BrandGapSlide() {
             </p>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
-            <strong style={{ color: "var(--accent)" }}>2. Missing the Target:</strong>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.35rem" }}>
+            <strong style={{ color: "var(--accent)", fontSize: "1.05em" }}>2. Missing the Target:</strong>
             <p style={{ margin: 0 }}>
               We miss Tier-1 &quot;Anchor Clients&quot;—R&D Directors, Procurement
               Managers, and Corporate Spa Directors.
             </p>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
-            <strong style={{ color: "var(--accent)" }}>3. The Expectation Gap:</strong>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.35rem" }}>
+            <strong style={{ color: "var(--accent)", fontSize: "1.05em" }}>3. The Expectation Gap:</strong>
             <p style={{ margin: 0 }}>
               These high-value buyers expect a premium, data-rich digital experience
               that reflects our ethical, on-demand freshness.
@@ -59,7 +59,7 @@ export default function BrandGapSlide() {
         </div>
       </div>
 
-      <div className="visual-pane" style={{ width: "62%" }}>
+      <div className="visual-pane" style={{ width: "55%" }}>
         {/* Split Screen Comparison */}
         <div
           className="split-comparison"
@@ -68,17 +68,17 @@ export default function BrandGapSlide() {
             gap: "2rem",
             width: "100%",
             height: "100%",
-            maxHeight: "750px", /* Constrain vertical height so it doesn't cut off */
+            maxHeight: "800px", /* Constrain vertical height so it doesn't cut off */
             flexWrap: "nowrap",
-            maxWidth: "1100px", /* Keep it within the screen bounds so the right edge isn't cut off */
-            padding: "1rem 2rem 1rem 0",
-            alignItems: "flex-start"
+            maxWidth: "100%", /* Remove hard constraints */
+            padding: "3.2rem 1rem 1rem 0", /* Aligned exactly with 'Great Product' header */
+            alignItems: "stretch"
           }}
         >
           {/* Left: Current (Boring) */}
           <div
             style={{
-              flex: 1.2, /* Larger catalog card */
+              flex: 1.1, /* Balanced catalog card */
               background: "#fff",
               border: "1px solid #e5e7eb",
               borderRadius: "12px",
@@ -87,8 +87,8 @@ export default function BrandGapSlide() {
               overflow: "hidden",
               display: "flex",
               flexDirection: "column",
-              boxShadow: "none",
-              minWidth: "clamp(250px, 35vw, 420px)",
+              boxShadow: "0 10px 40px rgba(0,0,0,0.06)", /* Add presence */
+              minWidth: "280px",
             }}
           >
             {/* MacOS-style header for the screenshot */}
@@ -143,9 +143,8 @@ export default function BrandGapSlide() {
               position: "relative",
               display: "flex",
               flexDirection: "column",
-              gap: "2rem",
-              minWidth: "200px",
-              maxWidth: "400px",
+              gap: "2.5rem",
+              minWidth: "250px",
             }}
           >
             {/* Immersive Sourcing Hero Video (Separated Layer) */}
