@@ -501,21 +501,23 @@ const RoadmapSlide = memo(function RoadmapSlide() {
                 <div
                   style={{
                     display: "flex",
+                    flexDirection: "column",
                     alignItems: "center",
-                    gap: "0.75rem",
+                    textAlign: "center",
+                    gap: "0.5rem",
                   }}
                 >
-                  <div style={{ fontSize: "1.8rem", width: "36px", textAlign: "center", display: "inline-block" }}>{m.icon}</div>
+                  <div style={{ fontSize: "2.5rem", marginBottom: "0.25rem", display: "inline-block" }}>{m.icon}</div>
                   <div>
                     <div
                       style={{
                         display: "block",
                         color: m.color,
-                        fontSize: "0.7rem",
+                        fontSize: "0.75rem",
                         fontWeight: 800,
                         letterSpacing: "1.5px",
                         textTransform: "uppercase",
-                        marginBottom: "0.35rem"
+                        marginBottom: "0.5rem"
                       }}
                     >
                       {m.label}
@@ -523,7 +525,7 @@ const RoadmapSlide = memo(function RoadmapSlide() {
                     <h3
                       style={{
                         color: "#012787",
-                        fontSize: "clamp(1.2rem, 3vw, 1.8rem)",
+                        fontSize: "clamp(1.4rem, 3.5vw, 2.2rem)",
                         fontWeight: 800,
                         margin: 0,
                         letterSpacing: "-0.02em",
@@ -538,11 +540,11 @@ const RoadmapSlide = memo(function RoadmapSlide() {
                 {/* Subtitle / Description like "Examples" */}
                 <div
                   style={{
-                    fontSize: "1rem",
+                    fontSize: "1.1rem",
                     color: "#334155",
                     fontWeight: 500,
                     lineHeight: "1.5",
-                    paddingLeft: "calc(36px + 0.75rem)", // Align with text
+                    textAlign: "center",
                   }}
                 >
                   {m.subtitle} <br />
@@ -552,7 +554,7 @@ const RoadmapSlide = memo(function RoadmapSlide() {
                 </div>
 
                 {/* Action Link resembling BUY NOW */}
-                <div style={{ marginTop: "0.5rem", paddingLeft: "calc(36px + 0.75rem)" }}>
+                <div style={{ marginTop: "1rem", display: "flex", justifyContent: "center" }}>
                   <div
                     style={{
                       position: "relative",
@@ -563,6 +565,7 @@ const RoadmapSlide = memo(function RoadmapSlide() {
                       textTransform: "uppercase",
                       letterSpacing: "0.5px",
                       paddingBottom: "8px",
+                      textAlign: "center"
                     }}
                   >
                     Click to explore ➔
@@ -571,9 +574,9 @@ const RoadmapSlide = memo(function RoadmapSlide() {
                       style={{
                         position: "absolute",
                         bottom: 0,
-                        left: 0,
-                        width: "140%",
-                        maxWidth: "200px",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        width: "120%",
                         height: "1px",
                         background: "#df5a1a",
                       }}

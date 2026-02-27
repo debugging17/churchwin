@@ -99,6 +99,9 @@ export default function NarrativeSlide() {
         <div
           style={{
             width: "clamp(300px, 90%, 800px)",
+            height: "100%",
+            maxHeight: "85%", // Constrains to 85% of pane height for a premium bottom margin
+            minHeight: "500px",
             background: "#fff",
             borderRadius: "20px",
             display: "flex",

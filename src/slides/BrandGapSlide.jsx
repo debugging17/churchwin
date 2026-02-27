@@ -79,7 +79,7 @@ export default function BrandGapSlide() {
           <div
             style={{
               flex: 1.2, /* Larger catalog card */
-              background: "#e0e7ff",
+              background: "#fff",
               border: "1px dashed #999",
               borderRadius: "12px",
               position: "relative",
@@ -107,7 +107,7 @@ export default function BrandGapSlide() {
               <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#27c93f" }} />
               <div style={{ fontSize: "0.6rem", color: "#9ca3af", marginLeft: "auto", fontWeight: 600 }}>churchwintrading.com/products</div>
             </div>
-            <div style={{ position: "relative", flex: 1, minHeight: 0 }}>
+            <div style={{ position: "relative", flex: 1, minHeight: 0, background: "#fff", borderRadius: "0 0 12px 12px" }}>
               <img
                 src="/assets/images/productcatalogue.png"
                 alt="Current Static Catalog Dashboard"
@@ -115,7 +115,7 @@ export default function BrandGapSlide() {
                   width: "100%",
                   height: "100%",
                   display: "block",
-                  objectFit: "cover",
+                  objectFit: "contain",
                   objectPosition: "top center",
                 }}
               />
