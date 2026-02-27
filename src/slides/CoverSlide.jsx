@@ -174,19 +174,7 @@ export default function CoverSlide() {
               letterSpacing: "-0.01em",
               marginBottom: "0.4rem"
             }}>
-              Technical Web Architect
-            </div>
-            <div
-              style={{
-                fontSize: "0.95rem",
-                color: "rgba(255, 255, 255, 0.6)", // Ghostly glass presence
-                textShadow: "0 0 10px rgba(255,255,255,0.3)",
-                marginTop: "0.2rem",
-                letterSpacing: "0.8px",
-                fontWeight: 500
-              }}
-            >
-              Engineering Rigor • Agile Project Management • ROI-Driven Web Dev
+              Presented by Cephas Kudalor
             </div>
           </div>
         </div>
