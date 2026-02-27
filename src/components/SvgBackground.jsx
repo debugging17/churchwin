@@ -90,6 +90,7 @@ const ICONS = [
 ];
 
 const PLACEMENTS_LARGE = [
+    // Base icons from before
     { icon: "leaf", x: 60, y: 90, size: 100, rot: -20 },
     { icon: "drop", x: 420, y: 150, size: 85, rot: 15 },
     { icon: "cocoa", x: 750, y: 60, size: 110, rot: 30 },
@@ -107,11 +108,21 @@ const PLACEMENTS_LARGE = [
     { icon: "drop", x: 300, y: 1050, size: 85, rot: 25 },
     { icon: "sparkle", x: 600, y: 1080, size: 75, rot: 0 },
     { icon: "leaf", x: 900, y: 1020, size: 110, rot: 60 },
+
+    // Added new sprinkle icons to fill in gaps
+    { icon: "leaf2", x: 210, y: 120, size: 80, rot: -15 },
+    { icon: "sparkle", x: 80, y: 400, size: 60, rot: 45 },
+    { icon: "drop", x: 500, y: 550, size: 70, rot: -5 },
+    { icon: "nut", x: 1080, y: 600, size: 90, rot: 80 },
+    { icon: "leaf", x: 150, y: 1100, size: 85, rot: -70 },
+    { icon: "plant", x: 800, y: 200, size: 95, rot: -20 },
+    { icon: "cocoa", x: 400, y: 300, size: 75, rot: 10 },
+    { icon: "jar", x: 750, y: 950, size: 80, rot: 35 },
 ];
 
 export default function SvgBackground({
     color = "#012787",
-    opacity = 0.05,
+    opacity = 0.075, // Increased by 1.5x (from 0.05)
 }) {
     const iconMap = Object.fromEntries(ICONS.map((ic) => [ic.id, ic]));
 
