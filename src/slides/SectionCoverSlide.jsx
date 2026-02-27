@@ -44,6 +44,50 @@ export default function SectionCoverSlide({
       }}
     >
       {isLight && <SvgBackground />}
+
+      {/* Dark Theme: Added plant leaf SVGs in top-left and bottom-left intuitively */}
+      {!isLight && (
+        <>
+          {/* Top-Left Leaf */}
+          <svg
+            viewBox="0 0 24 24"
+            style={{
+              position: "absolute",
+              top: "-5%",
+              left: "-2%",
+              width: "clamp(150px, 20vw, 300px)",
+              height: "clamp(150px, 20vw, 300px)",
+              fill: "#ffffff",
+              opacity: 0.04,
+              transform: "rotate(30deg)",
+              pointerEvents: "none",
+              zIndex: 1,
+            }}
+          >
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 2c1.9 0 3.6.6 5 1.7L5.7 17C4.6 15.6 4 13.9 4 12c0-4.4 3.6-8 8-8zm0 16c-1.9 0-3.6-.6-5-1.7L18.3 7C19.4 8.4 20 10.1 20 12c0 4.4-3.6 8-8 8z" />
+          </svg>
+
+          {/* Bottom-Left Botanical Leaf */}
+          <svg
+            viewBox="0 0 24 24"
+            style={{
+              position: "absolute",
+              bottom: "-10%",
+              left: "-5%",
+              width: "clamp(200px, 30vw, 400px)",
+              height: "clamp(200px, 30vw, 400px)",
+              fill: "#ffffff",
+              opacity: 0.03,
+              transform: "rotate(-15deg)",
+              pointerEvents: "none",
+              zIndex: 1,
+            }}
+          >
+            <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 0-5 8a10.48 10.48 0 0 0 2 4 10 10 0 0 1-8-2c0-2 2-7 10-9 0 0-3 0-2-4z" />
+          </svg>
+        </>
+      )}
+
       {/* Top Right Mini Product Showcase Stamp */}
       <div
         className="section-product-stamp section-cover-product-stamp"

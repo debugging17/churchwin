@@ -74,22 +74,34 @@ export default function ConclusionSlide() {
           <br />
           <button
             style={{
-              background: "var(--accent)",
-              color: "#000",
-              border: "none",
+              background: "rgba(255, 106, 0, 0.15)",
+              color: "#fff",
+              border: "1px solid rgba(255, 106, 0, 0.4)",
+              backdropFilter: "blur(12px)",
+              WebkitBackdropFilter: "blur(12px)",
               padding: "clamp(1rem, 2vw, 1.25rem) clamp(2rem, 4vw, 3rem)",
-              borderRadius: "6px",
+              borderRadius: "12px",
               fontWeight: 800,
               cursor: "pointer",
-              transition: "transform 0.2s",
+              transition: "all 0.3s ease",
               fontSize: "clamp(1rem, 2vw, 1.2rem)",
-              boxShadow: "0 15px 30px rgba(255,106,0,0.3)",
+              boxShadow: "0 8px 32px rgba(255, 106, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.1)",
               marginTop: "clamp(1rem, 2vw, 2rem)",
+              letterSpacing: "1px",
+              textTransform: "uppercase"
             }}
-            onMouseOver={(e) =>
-              (e.currentTarget.style.transform = "scale(1.05)")
-            }
-            onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = "translateY(-3px)";
+              e.currentTarget.style.background = "rgba(255, 106, 0, 0.25)";
+              e.currentTarget.style.boxShadow = "0 12px 40px rgba(255, 106, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.2)";
+              e.currentTarget.style.borderColor = "rgba(255, 106, 0, 0.6)";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.background = "rgba(255, 106, 0, 0.15)";
+              e.currentTarget.style.boxShadow = "0 8px 32px rgba(255, 106, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.1)";
+              e.currentTarget.style.borderColor = "rgba(255, 106, 0, 0.4)";
+            }}
           >
             SCHEDULE WORKING SESSION
           </button>
