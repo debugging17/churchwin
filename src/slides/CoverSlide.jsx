@@ -131,36 +131,47 @@ export default function CoverSlide() {
         <div
           style={{
             marginTop: "3.5rem",
-            background: "rgba(255,255,255,0.15)",
+            background: "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 100%)",
             display: "inline-block",
-            padding: "1.2rem 2.5rem",
-            borderRadius: "12px",
-            border: "1px solid rgba(255,255,255,0.2)",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
-            backdropFilter: "blur(12px)",
+            padding: "1.5rem 3.5rem",
+            borderRadius: "24px",
+            border: "1px solid rgba(255,255,255,0.15)",
+            borderTop: "1px solid rgba(255,255,255,0.25)",
+            boxShadow: "0 20px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
           }}
         >
           <div
             style={{
-              fontSize: "0.85rem",
-              letterSpacing: "2px",
+              fontSize: "0.9rem",
+              letterSpacing: "3px",
               textTransform: "uppercase",
-              color: "var(--accent)",
-              marginBottom: "0.4rem",
+              color: "#ff6a00", // Bright orange matching reference
+              marginBottom: "0.6rem",
               fontWeight: 800,
+              fontFamily: "'Montserrat', sans-serif"
             }}
           >
             B2B Growth &amp; Digital Strategy
           </div>
-          <div style={{ fontSize: "1.2rem", color: "#fff", fontWeight: 700 }}>
+          <div style={{
+            fontSize: "clamp(1.2rem, 3.5vw, 1.8rem)",
+            color: "#ffffff",
+            fontWeight: 800,
+            fontFamily: "'Montserrat', sans-serif",
+            letterSpacing: "-0.01em",
+            marginBottom: "0.4rem"
+          }}>
             Technical Web Architect
           </div>
           <div
             style={{
-              fontSize: "0.85rem",
-              color: "rgba(255,255,255,0.9)",
-              marginTop: "0.4rem",
-              letterSpacing: "0.5px",
+              fontSize: "0.95rem",
+              color: "rgba(255,255,255,0.75)",
+              marginTop: "0.2rem",
+              letterSpacing: "0.8px",
+              fontWeight: 500
             }}
           >
             Engineering Rigor • Agile Project Management • ROI-Driven Web Dev
