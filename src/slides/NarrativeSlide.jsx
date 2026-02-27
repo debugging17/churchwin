@@ -73,55 +73,47 @@ export default function NarrativeSlide() {
 
   return (
     <section className="slide" id="slide-6" ref={slideRef} style={{ position: "relative", overflow: "hidden" }}>
+
       {/* 
-        Force the slide's actual background to transparent using an explicit style tag scoped to this ID.
-        This overrides any global .slide or theme backgrounds that might be hiding the image in production.
+        Unified Background Container 
+        Ensures the image and overlay are safely housed together below the content layer 
+        without battling global CSS resets on the main .slide element.
       */}
-      <style>{`
-        #slide-6 { background-color: transparent !important; background: transparent !important; }
-      `}</style>
-      {/* Background Image Container */}
-      <img
-        src="/assets/images/women.png"
-        alt="Women Background"
-        style={{
-          position: "absolute",
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 0,
+        pointerEvents: 'none',
+        backgroundColor: '#011533' // Base dark navy
+      }}>
+        {/* The target background image */}
+        <img
+          src="/assets/images/women.png"
+          alt="Women"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            opacity: 0.4, // Boosted slightly so it's actually visible against the dark background
+            mixBlendMode: 'luminosity'
+          }}
+        />
+        {/* 
+          Gradient Overlay to text legibility (Heavy left, transparent right) 
+          This sits inside the background container, above the image.
+        */}
+        <div style={{
+          position: 'absolute',
           top: 0,
           left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          opacity: 0.15,
-          mixBlendMode: "luminosity",
-          zIndex: 0,
-          pointerEvents: "none",
-        }}
-      />
-      {/* Dark Navy Base & Overlay for Text Legibility */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          zIndex: -1,
-          pointerEvents: "none",
-          backgroundColor: "#012787",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          zIndex: 1,
-          pointerEvents: "none",
-          background: "linear-gradient(to right, rgba(1,39,135,1) 0%, rgba(1,39,135,0.7) 100%)",
-        }}
-      />
+          right: 0,
+          bottom: 0,
+          background: 'linear-gradient(to right, rgba(1,21,51,0.98) 0%, rgba(1,21,51,0.5) 100%)'
+        }} />
+      </div>
 
       <div className="split-stretch-container" style={{ position: "relative", zIndex: 10, padding: "2rem 1rem", minHeight: "80vh", maxHeight: "1200px" }}>
 
