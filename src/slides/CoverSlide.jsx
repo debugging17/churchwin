@@ -127,54 +127,63 @@ export default function CoverSlide() {
           <br /> into Market-Leading B2B Revenue.
         </p>
 
-        {/* Engineering/Architect Angle Badge */}
+        {/* Engineering/Architect Angle Badge (Full-Width Footer) */}
         <div
           style={{
-            marginTop: "3.5rem",
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            width: "100%",
             background: "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 100%)",
-            display: "inline-block",
-            padding: "1.5rem 3.5rem",
-            borderRadius: "24px",
-            border: "1px solid rgba(255,255,255,0.15)",
+            padding: "2rem 4rem",
+            paddingBottom: "max(2rem, env(safe-area-inset-bottom, 2rem))", // Native iOS safe area blending
+            borderTopLeftRadius: "32px",
+            borderTopRightRadius: "32px",
             borderTop: "1px solid rgba(255,255,255,0.25)",
-            boxShadow: "0 20px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
+            boxShadow: "0 -20px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
             backdropFilter: "blur(20px)",
             WebkitBackdropFilter: "blur(20px)",
+            display: "flex",
+            justifyContent: "flex-end", // Moves text to right, leaving the left for global footer pagination
+            alignItems: "center",
+            zIndex: 10,
           }}
         >
-          <div
-            style={{
-              fontSize: "0.9rem",
-              letterSpacing: "3px",
-              textTransform: "uppercase",
-              color: "#ff6a00", // Bright orange matching reference
-              marginBottom: "0.6rem",
+          <div style={{ textAlign: "right" }}>
+            <div
+              style={{
+                fontSize: "0.9rem",
+                letterSpacing: "3px",
+                textTransform: "uppercase",
+                color: "#ff6a00", // Bright orange matching reference
+                marginBottom: "0.6rem",
+                fontWeight: 800,
+                fontFamily: "'Montserrat', sans-serif"
+              }}
+            >
+              B2B Growth &amp; Digital Strategy
+            </div>
+            <div style={{
+              fontSize: "clamp(1.2rem, 3.5vw, 1.8rem)",
+              color: "#ffffff",
               fontWeight: 800,
-              fontFamily: "'Montserrat', sans-serif"
-            }}
-          >
-            B2B Growth &amp; Digital Strategy
-          </div>
-          <div style={{
-            fontSize: "clamp(1.2rem, 3.5vw, 1.8rem)",
-            color: "#ffffff",
-            fontWeight: 800,
-            fontFamily: "'Montserrat', sans-serif",
-            letterSpacing: "-0.01em",
-            marginBottom: "0.4rem"
-          }}>
-            Technical Web Architect
-          </div>
-          <div
-            style={{
-              fontSize: "0.95rem",
-              color: "rgba(255,255,255,0.75)",
-              marginTop: "0.2rem",
-              letterSpacing: "0.8px",
-              fontWeight: 500
-            }}
-          >
-            Engineering Rigor • Agile Project Management • ROI-Driven Web Dev
+              fontFamily: "'Montserrat', sans-serif",
+              letterSpacing: "-0.01em",
+              marginBottom: "0.4rem"
+            }}>
+              Technical Web Architect
+            </div>
+            <div
+              style={{
+                fontSize: "0.95rem",
+                color: "rgba(255,255,255,0.75)",
+                marginTop: "0.2rem",
+                letterSpacing: "0.8px",
+                fontWeight: 500
+              }}
+            >
+              Engineering Rigor • Agile Project Management • ROI-Driven Web Dev
+            </div>
           </div>
         </div>
       </div>
