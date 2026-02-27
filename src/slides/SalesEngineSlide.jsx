@@ -101,6 +101,7 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
               flexDirection: "column",
               flex: 1, /* Allow to stretch */
               width: "100%",
+              overflow: "visible", /* Added for cards to extend beyond bounds */
             }}
           >
             <div
@@ -110,7 +111,10 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                 gap: "clamp(0.75rem, 1.5vh, 1.25rem)", /* Reduced gap */
                 width: "100%",
                 flex: 1,
-                perspective: "1200px",
+                perspective: "1400px", /* Updated from 1200px */
+                perspectiveOrigin: "50% 50%", /* Added */
+                overflow: "visible", /* Added for cards to extend beyond bounds */
+                paddingBottom: "1.5rem", /* Added for shadow bleed */
               }}
             >
               {/* 1. Apollo.io */}
@@ -118,27 +122,30 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                 style={{
                   position: "relative",
                   zIndex: 1,
-                  overflow: "hidden",
+                  isolation: "isolate",
                   background: "#ffffff",
-                  border: "1px solid rgba(0,0,0,0.15)",
+                  border: "1px solid rgba(0,0,0,0.12)",
                   borderRadius: "16px",
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
                   display: "flex",
                   flexDirection: "column",
-                  transform: "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)",
+                  transform: "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)",
                   transformStyle: "preserve-3d",
-                  transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                  transformOrigin: "bottom right",
+                  transition: "transform 0.35s ease, box-shadow 0.35s ease, z-index 0s",
                   cursor: "pointer",
+                  overflow: "hidden",
+                  willChange: "transform",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.zIndex = "10";
-                  e.currentTarget.style.boxShadow = "-20px 30px 60px rgba(255,106,0,0.2)";
-                  e.currentTarget.style.transform = "perspective(1200px) rotateY(-12deg) rotateX(6deg) scale(1.05) translateZ(20px)";
+                  e.currentTarget.style.zIndex = "20";
+                  e.currentTarget.style.transform = "perspective(1400px) rotateX(8deg) rotateY(-10deg) scale(1.04)";
+                  e.currentTarget.style.boxShadow = "8px 24px 60px rgba(255,106,0,0.25), 0 4px 12px rgba(0,0,0,0.12)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.zIndex = "1";
-                  e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.08)";
-                  e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)";
+                  e.currentTarget.style.transform = "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.08)";
                 }}
               >
                 <div
@@ -338,27 +345,30 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                 style={{
                   position: "relative",
                   zIndex: 1,
-                  overflow: "hidden",
+                  isolation: "isolate",
                   background: "#ffffff",
-                  border: "1px solid rgba(0,0,0,0.35)",
+                  border: "1px solid rgba(0,0,0,0.12)",
                   borderRadius: "16px",
-                  boxShadow: "0 15px 35px rgba(0,0,0,0.25)",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
                   display: "flex",
                   flexDirection: "column",
-                  transform: "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)",
+                  transform: "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)",
                   transformStyle: "preserve-3d",
-                  transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                  transformOrigin: "bottom left",
+                  transition: "transform 0.35s ease, box-shadow 0.35s ease",
                   cursor: "pointer",
+                  overflow: "hidden",
+                  willChange: "transform",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.zIndex = "10";
-                  e.currentTarget.style.boxShadow = "-20px 30px 60px rgba(0,0,0,0.15)";
-                  e.currentTarget.style.transform = "perspective(1200px) rotateY(-12deg) rotateX(6deg) scale(1.05) translateZ(30px)";
+                  e.currentTarget.style.zIndex = "20";
+                  e.currentTarget.style.transform = "perspective(1400px) rotateX(8deg) rotateY(10deg) scale(1.04)";
+                  e.currentTarget.style.boxShadow = "-8px 24px 60px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.1)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.zIndex = "1";
-                  e.currentTarget.style.boxShadow = "0 15px 35px rgba(0,0,0,0.25)";
-                  e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)";
+                  e.currentTarget.style.transform = "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.1)";
                 }}
               >
                 <div
@@ -553,27 +563,30 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                 style={{
                   position: "relative",
                   zIndex: 1,
-                  overflow: "hidden",
+                  isolation: "isolate",
                   background: "#ffe01b",
-                  border: "1px solid rgba(0,0,0,0.2)",
+                  border: "1px solid rgba(0,0,0,0.15)",
                   borderRadius: "16px",
-                  boxShadow: "0 15px 35px rgba(220,180,0,0.4)",
+                  boxShadow: "0 8px 24px rgba(220,180,0,0.35)",
                   display: "flex",
                   flexDirection: "column",
-                  transform: "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)",
+                  transform: "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)",
                   transformStyle: "preserve-3d",
-                  transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                  transformOrigin: "top right",
+                  transition: "transform 0.35s ease, box-shadow 0.35s ease",
                   cursor: "pointer",
+                  overflow: "hidden",
+                  willChange: "transform",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.zIndex = "10";
-                  e.currentTarget.style.boxShadow = "-20px 30px 60px rgba(255,224,27,0.4)";
-                  e.currentTarget.style.transform = "perspective(1200px) rotateY(-12deg) rotateX(6deg) scale(1.05) translateZ(20px)";
+                  e.currentTarget.style.zIndex = "20";
+                  e.currentTarget.style.transform = "perspective(1400px) rotateX(-8deg) rotateY(-10deg) scale(1.04)";
+                  e.currentTarget.style.boxShadow = "8px -20px 60px rgba(220,180,0,0.5), 0 4px 12px rgba(0,0,0,0.1)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.zIndex = "1";
-                  e.currentTarget.style.boxShadow = "0 15px 35px rgba(220,180,0,0.4)";
-                  e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)";
+                  e.currentTarget.style.transform = "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(220,180,0,0.35)";
                 }}
               >
                 <div
@@ -760,27 +773,30 @@ const SalesEngineSlide = memo(function SalesEngineSlide() {
                 style={{
                   position: "relative",
                   zIndex: 1,
-                  overflow: "hidden",
+                  isolation: "isolate",
                   background: "#ffffff",
-                  border: "1px solid rgba(0,0,0,0.35)",
+                  border: "1px solid rgba(0,0,0,0.12)",
                   borderRadius: "16px",
-                  boxShadow: "0 15px 35px rgba(0,0,0,0.25)",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
                   display: "flex",
                   flexDirection: "column",
-                  transform: "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)",
+                  transform: "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)",
                   transformStyle: "preserve-3d",
-                  transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                  transformOrigin: "top left",
+                  transition: "transform 0.35s ease, box-shadow 0.35s ease",
                   cursor: "pointer",
+                  overflow: "hidden",
+                  willChange: "transform",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.zIndex = "10";
-                  e.currentTarget.style.boxShadow = "-20px 30px 60px rgba(10,102,194,0.25)";
-                  e.currentTarget.style.transform = "perspective(1200px) rotateY(-12deg) rotateX(6deg) scale(1.05) translateZ(30px)";
+                  e.currentTarget.style.zIndex = "20";
+                  e.currentTarget.style.transform = "perspective(1400px) rotateX(-8deg) rotateY(10deg) scale(1.04)";
+                  e.currentTarget.style.boxShadow = "-8px -20px 60px rgba(10,102,194,0.25), 0 4px 12px rgba(0,0,0,0.1)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.zIndex = "1";
-                  e.currentTarget.style.boxShadow = "0 15px 35px rgba(0,0,0,0.25)";
-                  e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1) translateZ(0px)";
+                  e.currentTarget.style.transform = "perspective(1400px) rotateX(0deg) rotateY(0deg) scale(1)";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.1)";
                 }}
               >
                 <div
