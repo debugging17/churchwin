@@ -108,13 +108,14 @@ const PLACEMENTS = [
 
 export default function SvgBackground({
     color = "#012787",
-    opacity = 0.04,
+    opacity = 0.06,
 }) {
     const iconMap = Object.fromEntries(ICONS.map((ic) => [ic.id, ic]));
 
     return (
-        <svg
+        <div
             aria-hidden="true"
+            className="svg-background-layer"
             style={{
                 position: "absolute",
                 inset: 0,
@@ -124,38 +125,30 @@ export default function SvgBackground({
                 pointerEvents: "none",
                 overflow: "hidden",
             }}
-            xmlns="http://www.w3.org/2000/svg"
         >
             {PLACEMENTS.map((p, i) => {
                 const ic = iconMap[p.icon];
                 if (!ic) return null;
-                const cx = p.size / 2;
                 return (
                     <svg
                         key={i}
-                        x={`${p.x}%`}
-                        y={`${p.y}%`}
-                        width={0}
-                        height={0}
-                        style={{ overflow: "visible" }}
+                        width={p.size}
+                        height={p.size}
+                        viewBox={ic.vb}
+                        fill={color}
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{
+                            position: "absolute",
+                            left: `${p.x}%`,
+                            top: `${p.y}%`,
+                            opacity: opacity,
+                            transform: `translate(-50%, -50%) rotate(${p.rot}deg)`,
+                        }}
                     >
-                        <g
-                            transform={`translate(-${cx}, -${cx}) rotate(${p.rot}, ${cx}, ${cx})`}
-                            opacity={opacity}
-                        >
-                            <svg
-                                width={p.size}
-                                height={p.size}
-                                viewBox={ic.vb}
-                                fill={color}
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path d={ic.path} />
-                            </svg>
-                        </g>
+                        <path d={ic.path} />
                     </svg>
                 );
             })}
-        </svg>
+        </div>
     );
 }
