@@ -2,6 +2,7 @@ import { memo, useRef } from "react";
 import Masonry from "react-masonry-css";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
 import { useNestedScroll } from "../hooks/useNestedScroll";
+import SvgBackground from "../components/SvgBackground";
 
 const MasonryGallerySlide = memo(function MasonryGallerySlide() {
     const slideRef = useRef(null);
@@ -21,6 +22,7 @@ const MasonryGallerySlide = memo(function MasonryGallerySlide() {
                 padding: "0 0 5.5rem 0"
             }}
         >
+            <SvgBackground opacity={0.05} />
             <div
                 ref={scrollerRef}
                 className="masonry-scroller"

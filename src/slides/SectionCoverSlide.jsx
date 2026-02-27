@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
+import SvgBackground from "../components/SvgBackground";
 
 const HERO_PRODUCTS = [
   {
@@ -42,6 +43,7 @@ export default function SectionCoverSlide({
         overflow: "hidden",
       }}
     >
+      {isLight && <SvgBackground />}
       {/* Top Right Mini Product Showcase Stamp */}
       <div
         className="section-product-stamp section-cover-product-stamp"

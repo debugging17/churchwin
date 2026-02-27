@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
+import SvgBackground from "../components/SvgBackground";
 
 export default function BrandGapSlide() {
   const slideRef = useRef(null);
@@ -7,6 +8,7 @@ export default function BrandGapSlide() {
 
   return (
     <section className="slide slide-light" id="slide-3" ref={slideRef}>
+      <SvgBackground />
       <div className="narrative-pane" style={{ paddingTop: "2rem", width: "40%", paddingRight: "3rem" }}>
         <span
           className="label"
