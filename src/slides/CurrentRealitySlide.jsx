@@ -46,16 +46,45 @@ export default function CurrentRealitySlide() {
   const tiltRef = useTilt();
 
   return (
-    <section className="slide" id="slide-2" ref={slideRef}>
-      <div className="narrative-pane" style={{ paddingRight: "1rem" }}>
-        <span className="label">The Current Reality</span>
+    <section className="slide" id="slide-2" ref={slideRef} style={{ position: "relative" }}>
+      {/* Background Image with Navy Overlay */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: "url('/assets/images/women.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          zIndex: 0,
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundColor: "#012787",
+            opacity: 0.85, // Adjust this opacity so the image is "just visible enough"
+          }}
+        />
+      </div>
+
+      <div
+        className="narrative-pane"
+        style={{
+          paddingRight: "1rem",
+          position: "relative",
+          zIndex: 1,
+          textShadow: "0 2px 4px rgba(0,0,0,0.5)", // Add drop shadow for readability over image
+        }}
+      >
+        <span className="label" style={{ textShadow: "none" }}>The Current Reality</span>
         <h1 className="headline-xl">
           The Hard Truth: <br />
-          <span className="highlight">We Are Invisible</span>
+          <span className="highlight" style={{ textShadow: "none" }}>We Are Invisible</span>
         </h1>
         <p className="body-xl">
           While our retail site (churchwin.com) exists, our high-margin B2B arm
-          (<strong style={{ color: "#ff6a00" }}>Churchwin Trading</strong>) has
+          (<strong style={{ color: "#ff6a00", textShadow: "none" }}>Churchwin Trading</strong>) has
           zero digital pipeline.
           <br />
           <br />
@@ -73,7 +102,7 @@ export default function CurrentRealitySlide() {
         </p>
       </div>
 
-      <div className="visual-pane" ref={tiltRef}>
+      <div className="visual-pane" ref={tiltRef} style={{ position: "relative", zIndex: 1 }}>
         <div className="bento-grid">
           {/* Market Leader: Baraka Shea */}
           <div
@@ -82,6 +111,9 @@ export default function CurrentRealitySlide() {
               cursor: "pointer",
               transition: "transform 0.2s, box-shadow 0.2s",
               border: "1px solid rgba(39, 201, 63, 0.3)",
+              background: "rgba(0, 0, 0, 0.45)", // Added slightly darker frosted bg to stand out from women.png
+              backdropFilter: "blur(12px)",
+              WebkitBackdropFilter: "blur(12px)",
             }}
             onClick={() =>
               window.open(
@@ -175,10 +207,10 @@ export default function CurrentRealitySlide() {
           <div
             className="bento-card bento-span-2"
             style={{
-              background: "rgba(255, 106, 0, 0.12)",
-              border: "2px solid rgba(255, 106, 0, 0.5)",
-              backdropFilter: "blur(16px)",
-              WebkitBackdropFilter: "blur(16px)",
+              background: "rgba(255, 106, 0, 0.22)", // Slightly more opaque
+              border: "2px solid rgba(255, 106, 0, 0.6)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
               position: "relative",
             }}
           >
@@ -257,8 +289,8 @@ export default function CurrentRealitySlide() {
             className="bento-card"
             style={{
               gridColumn: "span 1",
-              background: "rgba(255, 255, 255, 0.18)",
-              border: "1px dashed rgba(255, 255, 255, 0.3)",
+              background: "rgba(255, 255, 255, 0.15)", // slightly less opaque white for better contrast with dark blue
+              border: "1px solid rgba(255, 255, 255, 0.2)",
               backdropFilter: "blur(16px)",
               WebkitBackdropFilter: "blur(16px)",
             }}
@@ -319,7 +351,8 @@ export default function CurrentRealitySlide() {
             className="bento-card"
             style={{
               gridColumn: "span 1",
-              background: "rgba(255, 255, 255, 0.14)",
+              background: "rgba(0, 0, 0, 0.35)", // darkened bg to pop against image
+              border: "1px solid rgba(241, 196, 15, 0.3)", // slight yellow border
               backdropFilter: "blur(12px)",
               WebkitBackdropFilter: "blur(12px)",
             }}
@@ -355,9 +388,10 @@ export default function CurrentRealitySlide() {
           <div
             className="bento-card bento-span-4"
             style={{
-              background:
-                "linear-gradient(135deg, rgba(255,0,0,0.15), rgba(255,68,0,0.08))",
-              border: "1px solid rgba(255,68,68,0.4)",
+              background: "rgba(0, 0, 0, 0.45)", // darker bg to pop over image
+              border: "1px solid rgba(255, 68, 68, 0.5)",
+              backdropFilter: "blur(16px)",
+              WebkitBackdropFilter: "blur(16px)",
               padding: "1.5rem",
               cursor: "pointer",
               transition: "transform 0.2s, box-shadow 0.2s, background 0.3s",
@@ -365,15 +399,13 @@ export default function CurrentRealitySlide() {
             onMouseOver={(e) => {
               e.currentTarget.style.transform = "scale(1.02) translateY(-2px)";
               e.currentTarget.style.boxShadow =
-                "0 15px 40px rgba(255, 68, 68, 0.2)";
-              e.currentTarget.style.background =
-                "linear-gradient(135deg, rgba(255,0,0,0.2), rgba(255,68,0,0.12))";
+                "0 15px 40px rgba(255, 68, 68, 0.3)";
+              e.currentTarget.style.background = "rgba(0, 0, 0, 0.6)";
             }}
             onMouseOut={(e) => {
               e.currentTarget.style.transform = "scale(1) translateY(0)";
               e.currentTarget.style.boxShadow = "none";
-              e.currentTarget.style.background =
-                "linear-gradient(135deg, rgba(255,0,0,0.15), rgba(255,68,0,0.08))";
+              e.currentTarget.style.background = "rgba(0, 0, 0, 0.45)";
             }}
           >
             <div
