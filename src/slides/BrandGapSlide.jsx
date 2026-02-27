@@ -87,7 +87,7 @@ export default function BrandGapSlide() {
               overflow: "hidden",
               display: "flex",
               flexDirection: "column",
-              boxShadow: "0 20px 40px rgba(0,0,0,0.08)",
+              boxShadow: "none",
               minWidth: "clamp(250px, 35vw, 420px)",
             }}
           >
@@ -117,6 +117,8 @@ export default function BrandGapSlide() {
                   display: "block",
                   objectFit: "contain",
                   objectPosition: "top center",
+                  transform: "scale(1.05)",
+                  transformOrigin: "center top", // Zooms image to cleanly crop out the natively baked-in PNG shadow borders
                 }}
               />
               <div
@@ -155,7 +157,7 @@ export default function BrandGapSlide() {
                 borderRadius: "12px",
                 overflow: "hidden",
                 border: "2px solid var(--accent)",
-                boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
+                boxShadow: "none",
                 position: "relative",
               }}
             >
