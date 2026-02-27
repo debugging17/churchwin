@@ -80,14 +80,14 @@ export default function BrandGapSlide() {
             style={{
               flex: 1.2, /* Larger catalog card */
               background: "#fff",
-              border: "1px dashed #999",
+              border: "1px solid #e5e7eb",
               borderRadius: "12px",
               position: "relative",
-              opacity: 0.95,
+              opacity: 0.98,
               overflow: "hidden",
               display: "flex",
               flexDirection: "column",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+              boxShadow: "0 20px 40px rgba(0,0,0,0.08)",
               minWidth: "clamp(250px, 35vw, 420px)",
             }}
           >
