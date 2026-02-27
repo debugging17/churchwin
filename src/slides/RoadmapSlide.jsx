@@ -466,9 +466,10 @@ const RoadmapSlide = memo(function RoadmapSlide() {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: "clamp(0.75rem, 2vh, 1.25rem)",
+            gap: "clamp(0.5rem, 1.5vh, 1rem)",
             width: "100%",
             maxWidth: "500px",
+            paddingBottom: "6rem", // Safe zone for standard scrolling
           }}
         >
           {STRATEGY_DETAILS.map((m, i) => {
@@ -486,15 +487,16 @@ const RoadmapSlide = memo(function RoadmapSlide() {
                 style={{
                   background: bgStr,
                   borderRadius: "16px",
-                  padding: "clamp(1.5rem, 3vh, 2.5rem) clamp(1.5rem, 3vw, 2rem)",
+                  padding: "clamp(1.2rem, 2vh, 2rem) clamp(1rem, 2vw, 1.5rem)",
                   position: "relative",
                   transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
                   cursor: "pointer",
                   boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
                   display: "flex",
                   flexDirection: "column",
-                  gap: "clamp(0.8rem, 1.5vh, 1.2rem)",
-                  border: "1px solid rgba(0,0,0,0.05)"
+                  gap: "clamp(0.6rem, 1vh, 1rem)",
+                  border: "1px solid rgba(0,0,0,0.05)",
+                  flexShrink: 0,
                 }}
                 onMouseOver={(e) => {
                   e.currentTarget.style.transform = "translateY(-4px)";
@@ -533,7 +535,7 @@ const RoadmapSlide = memo(function RoadmapSlide() {
                     <h3
                       style={{
                         color: "#012787",
-                        fontSize: "clamp(1.4rem, 3.5vw, 2.2rem)",
+                        fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)",
                         fontWeight: 800,
                         margin: 0,
                         letterSpacing: "-0.02em",
@@ -548,31 +550,31 @@ const RoadmapSlide = memo(function RoadmapSlide() {
                 {/* Subtitle / Description like "Examples" */}
                 <div
                   style={{
-                    fontSize: "1.1rem",
+                    fontSize: "0.95rem",
                     color: "#334155",
                     fontWeight: 500,
-                    lineHeight: "1.5",
+                    lineHeight: "1.4",
                     textAlign: "center",
                   }}
                 >
                   {m.subtitle} <br />
-                  <span style={{ fontSize: "0.85rem", color: "#64748b", fontWeight: 600 }}>
+                  <span style={{ fontSize: "0.8rem", color: "#64748b", fontWeight: 600 }}>
                     {m.tags.join(" • ")}
                   </span>
                 </div>
 
                 {/* Action Link resembling BUY NOW */}
-                <div style={{ marginTop: "1rem", display: "flex", justifyContent: "center" }}>
+                <div style={{ marginTop: "0.5rem", display: "flex", justifyContent: "center" }}>
                   <div
                     style={{
                       position: "relative",
                       display: "inline-block",
                       color: "#df5a1a",
                       fontWeight: 800,
-                      fontSize: "0.95rem",
+                      fontSize: "0.85rem",
                       textTransform: "uppercase",
                       letterSpacing: "0.5px",
-                      paddingBottom: "8px",
+                      paddingBottom: "6px",
                       textAlign: "center"
                     }}
                   >
