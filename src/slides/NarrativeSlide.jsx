@@ -72,7 +72,14 @@ export default function NarrativeSlide() {
   const v = VERTICALS[activeTab];
 
   return (
-    <section className="slide" id="slide-6" ref={slideRef} style={{ position: "relative", overflow: "hidden", background: "#011533" }}>
+    <section className="slide" id="slide-6" ref={slideRef} style={{ position: "relative", overflow: "hidden" }}>
+      {/* 
+        Force the slide's actual background to transparent using an explicit style tag scoped to this ID.
+        This overrides any global .slide or theme backgrounds that might be hiding the image in production.
+      */}
+      <style>{`
+        #slide-6 { background-color: transparent !important; background: transparent !important; }
+      `}</style>
       {/* Background Image Container */}
       <img
         src="/assets/images/shearbutter.png"
@@ -84,8 +91,8 @@ export default function NarrativeSlide() {
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          opacity: 0.6,
-          zIndex: 1,
+          opacity: 0.85,
+          zIndex: 0,
           pointerEvents: "none",
         }}
       />
@@ -97,7 +104,8 @@ export default function NarrativeSlide() {
           left: 0,
           width: "100%",
           height: "100%",
-          zIndex: 2,
+          zIndex: 1,
+          pointerEvents: "none",
           background: "linear-gradient(to right, rgba(1,21,51,0.98) 0%, rgba(1,21,51,0.5) 100%)",
         }}
       />
