@@ -144,12 +144,13 @@ export default function CoverSlide() {
             backdropFilter: "blur(20px)",
             WebkitBackdropFilter: "blur(20px)",
             display: "flex",
-            justifyContent: "flex-end", // Moves text to right, leaving the left for global footer pagination
+            justifyContent: "center", // Centering the text block as requested
             alignItems: "center",
+            flexDirection: "column",
             zIndex: 10,
           }}
         >
-          <div style={{ textAlign: "right" }}>
+          <div style={{ textAlign: "center" }}>
             <div
               style={{
                 fontSize: "0.9rem",
