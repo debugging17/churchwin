@@ -134,7 +134,7 @@ export default function CoverSlide() {
             bottom: 0,
             left: 0,
             width: "100%",
-            background: "linear-gradient(135deg, rgba(1,39,135,0.85) 0%, rgba(1,39,135,0.65) 100%)", // #012787 glassmorphism
+            background: "linear-gradient(135deg, rgba(1,39,135,0.65) 0%, rgba(1,39,135,0.45) 100%)", // Reduced opacity for enhanced glassmorphism
             padding: "2rem 4rem",
             paddingBottom: "max(2rem, env(safe-area-inset-bottom, 2rem))", // Native iOS safe area blending
             borderTopLeftRadius: "32px",
