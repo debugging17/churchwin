@@ -169,11 +169,14 @@ async function run() {
       const currentSlide = slides[slideIdx];
       const innerSlide = currentSlide && currentSlide.querySelector(".slide");
       const isLight =
-        innerSlide &&
-        (innerSlide.classList.contains("slide-light") ||
-          innerSlide.style.background === "#ffffff" ||
-          innerSlide.style.backgroundColor === "#ffffff" ||
-          innerSlide.style.background === "rgb(255, 255, 255)");
+        // Special case: cover slide (0) has a white footer where the
+        // indicators sit — force navy so they are visible on white
+        slideIdx === 0 ||
+        (innerSlide &&
+          (innerSlide.classList.contains("slide-light") ||
+            innerSlide.style.background === "#ffffff" ||
+            innerSlide.style.backgroundColor === "#ffffff" ||
+            innerSlide.style.background === "rgb(255, 255, 255)"));
 
       const fg = isLight ? "#012787" : "#ffffff";
       const trackBg = isLight
