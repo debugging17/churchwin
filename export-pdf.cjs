@@ -50,14 +50,40 @@ async function run() {
     // Wait for web fonts
     await page.evaluate(() => document.fonts.ready);
 
-    // Hide the UI overlay elements that are not part of slide content
+    // ── PDF-Only Style Overrides ──────────────────────────────────────────────
     await page.addStyleTag({
         content: `
+      /* Hide UI chrome (not slide content) */
       .progress-bar,
       .page-indicator,
       .noise-overlay,
-      canvas           /* Particles canvas */
-      { display: none !important; }
+      canvas { display: none !important; }
+
+      /* ── Cover Slide (Slide 1): PDF readability fix ──────────────────────
+         The video background is static in a screenshot, so the original
+         light overlay makes the orange subtitle unreadable.
+         We dim the video and add a much stronger blue overlay via
+         a pseudo-element, all scoped to #slide-1 only.
+      ─────────────────────────────────────────────────────────────────── */
+
+      /* Dim the video itself */
+      #slide-1 video {
+        opacity: 0.45 !important;
+      }
+
+      /* Strong dark overlay on top of everything except text */
+      #slide-1::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 3;  /* above video (z:1) and gradient overlay (z:2), below text (z:10) */
+        background: linear-gradient(
+          to bottom,
+          rgba(1, 21, 51, 0.55) 0%,
+          rgba(1, 39, 135, 0.78) 100%
+        );
+        pointer-events: none;
+      }
     `,
     });
 
