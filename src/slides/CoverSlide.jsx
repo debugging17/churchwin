@@ -1,9 +1,38 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useSlideAnimation } from "../hooks/useSlideAnimation";
 
 export default function CoverSlide() {
   const slideRef = useRef(null);
+  const videoRef = useRef(null);
   useSlideAnimation(slideRef, 0);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Explicitly set muted via DOM property — some browsers ignore the HTML attribute
+    video.muted = true;
+    video.defaultMuted = true;
+
+    const attemptPlay = () => {
+      video.play().catch(() => {
+        // Autoplay blocked (common on low-power mode / aggressive browsers).
+        // Listen for first user interaction and retry once.
+        const unlock = () => {
+          video.play().catch(() => { });
+          window.removeEventListener("pointerdown", unlock);
+          window.removeEventListener("keydown", unlock);
+        };
+        window.addEventListener("pointerdown", unlock, { once: true });
+        window.addEventListener("keydown", unlock, { once: true });
+      });
+    };
+
+    // Small timeout allows the browser to fully commit the element to the DOM
+    const timer = setTimeout(attemptPlay, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
 
   return (
     <section
@@ -21,11 +50,12 @@ export default function CoverSlide() {
     >
       {/* Background Video (Phase 1: Hook) */}
       <video
-        autoPlay={true}
-        loop={true}
-        muted={true}
-        playsInline={true}
-        preload="metadata"
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
         style={{
           position: "absolute",
           top: 0,
