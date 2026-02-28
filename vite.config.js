@@ -18,8 +18,6 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          // React core — loaded first, cached aggressively
-          'vendor-react': ['react', 'react-dom'],
           // GSAP animation library — large, loaded separately
           'vendor-gsap': ['gsap'],
           // Recharts — only used in RevenueDashboardSlide

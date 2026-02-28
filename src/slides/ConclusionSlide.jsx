@@ -3,7 +3,6 @@ import { useSlideAnimation } from "../hooks/useSlideAnimation";
 
 export default function ConclusionSlide() {
   const slideRef = useRef(null);
-  const elementsRef = useRef([]);
 
   useSlideAnimation(slideRef, 18);
 
@@ -90,6 +89,13 @@ export default function ConclusionSlide() {
               letterSpacing: "1px",
               textTransform: "uppercase"
             }}
+            onClick={() =>
+              window.open(
+                "mailto:info@churchwintrading.com?subject=Working%20Session%20Request&body=Hi%2C%20I%20am%20interested%20in%20scheduling%20a%2030-minute%20working%20session%20to%20discuss%20the%20digital%20strategy%20proposal.",
+                "_blank",
+                "noopener,noreferrer"
+              )
+            }
             onMouseOver={(e) => {
               e.currentTarget.style.transform = "translateY(-3px)";
               e.currentTarget.style.background = "rgba(255, 106, 0, 0.25)";
