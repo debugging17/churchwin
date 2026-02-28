@@ -53,11 +53,22 @@ async function run() {
   // ── PDF-Only Style Overrides ──────────────────────────────────────────────
   await page.addStyleTag({
     content: `
-      /* Hide UI chrome (not slide content) */
-      .progress-bar,
-      .page-indicator,
+      /* Hide UI chrome that should NOT appear in PDF */
       .noise-overlay,
       canvas { display: none !important; }
+
+      /* Progress bar + page number → visible, solid #012787 */
+      .progress-bar {
+        background: rgba(1, 39, 135, 0.2) !important;
+      }
+      .progress-fill {
+        background: #012787 !important;
+      }
+      .page-indicator,
+      .current-page {
+        color: #012787 !important;
+        text-shadow: none !important;
+      }
 
       /* ── Cover Slide (Slide 1): PDF readability fix ──────────────────────
          The video background is static in a screenshot, so the original
@@ -104,18 +115,42 @@ async function run() {
         -webkit-backdrop-filter: blur(24px) !important;
       }
 
-      /* "B2B GROWTH & DIGITAL STRATEGY" label → strong navy, no glow */
-      #slide-1 > div > div:last-child div > div:first-child {
-        color: rgba(1, 39, 135, 0.85) !important;
-        text-shadow: none !important;
+      /* Fix: plus-lighter blend mode renders text invisible on white.
+         Reset to normal so #012787 shows correctly. */
+      #slide-1 > div > div:last-child > div {
+        mix-blend-mode: normal !important;
       }
 
-      /* "Presented by Cephas Kudalor" → solid deep navy, no glow */
+      /* ALL text inside the footer → solid #012787, no glow */
+      #slide-1 > div > div:last-child div,
+      #slide-1 > div > div:last-child div > div:first-child,
       #slide-1 > div > div:last-child div > div:last-child {
         color: #012787 !important;
         text-shadow: none !important;
+        -webkit-text-stroke: 0 !important;
       }
     `,
+  });
+
+  // ── Directly patch cover slide footer inline styles ───────────────────────
+  // CSS !important cannot beat inline styles set via JSX. We must mutate the
+  // element's .style object in JS to guarantee the colour actually applies.
+  await page.evaluate(() => {
+    const footer = document.querySelector("#slide-1 > div > div:last-child");
+    if (!footer) return;
+
+    // Inner wrapper — kill the plus-lighter blend mode
+    const inner = footer.querySelector("div");
+    if (inner) {
+      inner.style.mixBlendMode = "normal";
+      inner.style.color = "#012787";
+    }
+
+    // Every text div inside the footer → solid navy, no shadow
+    footer.querySelectorAll("div").forEach((el) => {
+      el.style.color = "#012787";
+      el.style.textShadow = "none";
+    });
   });
 
   console.log("✅ Presentation loaded. Starting slide capture…\n");
