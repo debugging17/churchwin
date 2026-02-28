@@ -1,17 +1,4 @@
 {
-    "redirects": [
-        {
-            "source": "/(.*)",
-            "has": [
-                {
-                    "type": "host",
-                    "value": "www.churchwin.vercel.app"
-                }
-            ],
-            "destination": "https://churchwin.vercel.app/$1",
-            "permanent": true
-        }
-    ],
     "headers": [
         {
             "source": "/assets/images/(.*)",
