@@ -19,6 +19,7 @@ import NarrativeSlide from "./slides/NarrativeSlide";
 import PricingSlide from "./slides/PricingSlide";
 import RevenueDashboardSlide from "./slides/RevenueDashboardSlide";
 import ConclusionSlide from "./slides/ConclusionSlide";
+import NotFound from "./components/NotFound";
 
 function App() {
   // Initialize the root REM dynamic scaler (Desktop 100% immersive fit logic)

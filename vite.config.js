@@ -6,7 +6,15 @@ export default defineConfig({
   plugins: [react()],
   build: {
     target: 'es2015',
+    sourcemap: false,           // no source maps in production
     cssCodeSplit: true,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,     // strip all console.* calls
+        drop_debugger: true,    // strip debugger statements
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks: {
