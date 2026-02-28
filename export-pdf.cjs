@@ -57,18 +57,8 @@ async function run() {
       .noise-overlay,
       canvas { display: none !important; }
 
-      /* Progress bar + page number → visible, solid #012787 */
-      .progress-bar {
-        background: rgba(1, 39, 135, 0.2) !important;
-      }
-      .progress-fill {
-        background: #012787 !important;
-      }
-      .page-indicator,
-      .current-page {
-        color: #012787 !important;
-        text-shadow: none !important;
-      }
+      /* Progress bar + page indicator remain visible — colour is set
+         per-slide in JS below (white on dark, navy on light). */
 
       /* ── Cover Slide (Slide 1): PDF readability fix ──────────────────────
          The video background is static in a screenshot, so the original
@@ -171,6 +161,35 @@ async function run() {
     // Let the slide and any GSAP/CSS animations settle
     const waitMs = i === 0 ? SLIDE_FIRST_MS : SLIDE_SETTLE_MS;
     await page.waitForTimeout(waitMs);
+
+    // Set progress bar + page indicator colour based on slide background
+    // (mirrors the useDeck.js updateUI logic: light slide → navy, dark → white)
+    await page.evaluate((slideIdx) => {
+      const slides = document.querySelectorAll(".swiper-slide");
+      const currentSlide = slides[slideIdx];
+      const innerSlide = currentSlide && currentSlide.querySelector(".slide");
+      const isLight =
+        innerSlide &&
+        (innerSlide.classList.contains("slide-light") ||
+          innerSlide.style.background === "#ffffff" ||
+          innerSlide.style.backgroundColor === "#ffffff" ||
+          innerSlide.style.background === "rgb(255, 255, 255)");
+
+      const fg = isLight ? "#012787" : "#ffffff";
+      const trackBg = isLight
+        ? "rgba(1, 39, 135, 0.15)"
+        : "rgba(255, 255, 255, 0.2)";
+
+      const bar = document.querySelector(".progress-bar");
+      const fill = document.querySelector(".progress-fill");
+      const ind = document.querySelector(".page-indicator");
+      const num = document.querySelector(".current-page");
+
+      if (bar) { bar.style.background = trackBg; bar.style.setProperty("background", trackBg, "important"); }
+      if (fill) { fill.style.setProperty("background", fg, "important"); }
+      if (ind) { ind.style.setProperty("color", fg, "important"); ind.style.textShadow = "none"; }
+      if (num) { num.style.setProperty("color", fg, "important"); }
+    }, i);
 
     const slideNum = String(i + 1).padStart(2, "0");
     const filePath = path.join(SCREENSHOTS_DIR, `slide-${slideNum}.png`);
