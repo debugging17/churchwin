@@ -44,13 +44,14 @@ h4 {
   letter-spacing: -0.03em;
   line-height: 1.05;
   text-transform: none;
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.25);
+  /* Soft depth on navy — eased from previous heavy dual-layer */
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
 }
 
 .highlight {
   color: var(--accent);
   font-weight: 700;
-  text-shadow: 0 0 30px rgba(255, 106, 0, 0.5), 0 0 60px rgba(255, 106, 0, 0.2);
+  text-shadow: 0 0 20px rgba(255, 106, 0, 0.3);
 }
 
 .outline-text {
@@ -154,7 +155,7 @@ h4 {
   margin-bottom: 1rem;
   display: block;
   font-weight: 700;
-  text-shadow: 0 0 20px rgba(255, 106, 0, 0.5), 0 0 40px rgba(255, 106, 0, 0.2);
+  text-shadow: 0 0 14px rgba(255, 106, 0, 0.3);
   flex-shrink: 0;
 }
 
@@ -171,7 +172,8 @@ h4 {
   color: var(--text-mute);
   max-width: 45rem;
   font-weight: 400;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  /* Very subtle — keeps legibility without haze */
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
 }
 
 /* Decorative Background Elements */
@@ -246,18 +248,29 @@ h4 {
   color: var(--bg-dark);
 }
 
+/* Strip heavy shadows — they bloom badly on white backgrounds */
+.slide-light h1,
+.slide-light h2,
+.slide-light h3,
+.slide-light h4 {
+  text-shadow: none;
+}
+
 .slide-light .label {
   color: var(--bg-dark);
   opacity: 0.8;
   font-weight: 600;
+  text-shadow: none;
 }
 
 .slide-light .highlight {
   color: var(--accent);
+  text-shadow: none;
 }
 
 .slide-light .body-xl {
   color: #444;
+  text-shadow: none;
 }
 
 .slide-light .outline-text {
