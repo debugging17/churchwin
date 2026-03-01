@@ -45,6 +45,23 @@ export default function SectionCoverSlide({
     >
       {isLight && <SvgBackground />}
 
+      {/* Ambient centre glow */}
+      <div
+        style={{
+          position: "absolute",
+          width: "60vw",
+          height: "60vw",
+          background: isLight
+            ? "radial-gradient(circle, rgba(1,39,135,0.06) 0%, transparent 70%)"
+            : "radial-gradient(circle, rgba(255,106,0,0.09) 0%, transparent 70%)",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          pointerEvents: "none",
+          zIndex: 1,
+        }}
+      />
+
       {/* Top Right Mini Product Showcase Stamp */}
       <div
         className="section-product-stamp section-cover-product-stamp"
@@ -54,18 +71,18 @@ export default function SectionCoverSlide({
           right: "clamp(1rem, 3vw, 3rem)",
           width: "clamp(140px, 30vw, 240px)",
           height: "clamp(110px, 20vw, 180px)",
-          background: "#ffffff",
+          background: "rgba(255, 255, 255, 0.96)",
           borderRadius: "16px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           boxShadow: isLight
-            ? "0 10px 40px rgba(0,0,0,0.1)"
-            : "0 10px 30px rgba(0,0,0,0.2)",
+            ? "0 10px 40px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.9)"
+            : "0 12px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.6)",
           zIndex: 20,
           padding: "0.5rem",
           border: "none",
-          outline: isLight ? "6px solid #ff6a00" : "none",
+          outline: isLight ? "4px solid #ff6a00" : "none",
           outlineOffset: "0px",
         }}
       >
@@ -212,12 +229,15 @@ export default function SectionCoverSlide({
           className="section-cover-title"
           style={{
             margin: 0,
-            fontSize: "clamp(2rem, 6vw, 3.2rem)",
+            fontSize: "clamp(2rem, 6vw, 3.5rem)",
             fontWeight: 800,
             color: textColor,
-            letterSpacing: "-0.02em",
+            letterSpacing: "-0.03em",
             whiteSpace: "normal",
             maxWidth: "100%",
+            textShadow: isLight
+              ? "0 2px 12px rgba(0,0,0,0.12)"
+              : "0 4px 24px rgba(0,0,0,0.5)",
           }}
         >
           {title}

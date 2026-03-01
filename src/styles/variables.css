@@ -1,17 +1,38 @@
 :root {
-  /* Churchwin Strategic Proposal Theme */
+  /* ── Core Brand Palette ────────────────────────────────────────────────── */
   --bg-dark: #012787;
   --bg-card: #001a57;
   --text-main: #ffffff;
   --text-mute: #f0f4f8;
   --accent: #ff6a00;
-  --spacing-container: 6vw;
 
-  /* Shared Tokens */
+  /* ── Extended Gradient Tokens ──────────────────────────────────────────── */
+  --gradient-navy: linear-gradient(135deg, #012787 0%, #010f3d 100%);
+  --gradient-accent: linear-gradient(135deg, #ff6a00 0%, #ff8c40 100%);
+  --gradient-hero: linear-gradient(135deg, #012787 0%, #0141b0 60%, #0153d4 100%);
+
+  /* ── Glow Tokens ───────────────────────────────────────────────────────── */
+  --glow-accent: 0 0 40px rgba(255, 106, 0, 0.25);
+  --glow-accent-lg: 0 0 80px rgba(255, 106, 0, 0.18);
+  --glow-white: 0 0 30px rgba(255, 255, 255, 0.12);
+  --glow-navy: 0 8px 40px rgba(1, 39, 135, 0.4);
+
+  /* ── Glassmorphism Tokens ──────────────────────────────────────────────── */
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: blur(20px) saturate(180%);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+  /* ── Layout & Shape ────────────────────────────────────────────────────── */
+  --spacing-container: 6vw;
   --border-radius-card: 14px;
+  --border-radius-lg: 20px;
+
+  /* ── Motion ────────────────────────────────────────────────────────────── */
   --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.12);
   --transition-base: 0.2s ease;
   --transition-smooth: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-spring: 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* ── Accessibility: keyboard focus ring ───────────────────────────────── */

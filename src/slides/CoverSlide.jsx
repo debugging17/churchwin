@@ -82,7 +82,36 @@ export default function CoverSlide() {
           height: "100%",
           zIndex: 2,
           background:
-            "linear-gradient(to bottom, rgba(1,39,135,0.2) 0%, rgba(1,39,135,0.52) 100%)",
+            "linear-gradient(to bottom, rgba(1,39,135,0.15) 0%, rgba(1,21,51,0.65) 100%)",
+        }}
+      />
+
+      {/* Ambient glow — orange top-right */}
+      <div
+        style={{
+          position: "absolute",
+          width: "55vw",
+          height: "55vw",
+          background:
+            "radial-gradient(circle, rgba(255,106,0,0.10) 0%, transparent 70%)",
+          top: "-15vw",
+          right: "-10vw",
+          pointerEvents: "none",
+          zIndex: 3,
+        }}
+      />
+      {/* Ambient glow — navy blue bottom-left */}
+      <div
+        style={{
+          position: "absolute",
+          width: "50vw",
+          height: "50vw",
+          background:
+            "radial-gradient(circle, rgba(1,65,176,0.25) 0%, transparent 70%)",
+          bottom: "-10vw",
+          left: "-8vw",
+          pointerEvents: "none",
+          zIndex: 3,
         }}
       />
 

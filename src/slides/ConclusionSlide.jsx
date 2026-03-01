@@ -21,15 +21,31 @@ export default function ConclusionSlide() {
             position: "relative",
           }}
         >
+          {/* Ambient glow behind logo */}
+          <div
+            style={{
+              position: "absolute",
+              width: "50vw",
+              height: "50vw",
+              background:
+                "radial-gradient(circle, rgba(255,106,0,0.12) 0%, transparent 65%)",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              pointerEvents: "none",
+              zIndex: 1,
+            }}
+          />
           <div
             className="growth-text"
             style={{
-              fontSize: "15rem",
-              color: "rgba(255,255,255,0.05)",
+              fontSize: "clamp(6rem, 14vw, 15rem)",
+              color: "rgba(255,255,255,0.04)",
               fontWeight: 800,
               position: "absolute",
               pointerEvents: "none",
               zIndex: 1,
+              letterSpacing: "-0.04em",
             }}
           >
             GROWTH
@@ -73,21 +89,19 @@ export default function ConclusionSlide() {
           <br />
           <button
             style={{
-              background: "rgba(255, 106, 0, 0.15)",
+              background: "linear-gradient(135deg, #ff6a00 0%, #ff8c40 100%)",
               color: "#fff",
-              border: "1px solid rgba(255, 106, 0, 0.4)",
-              backdropFilter: "blur(12px)",
-              WebkitBackdropFilter: "blur(12px)",
-              padding: "clamp(1rem, 2vw, 1.25rem) clamp(2rem, 4vw, 3rem)",
+              border: "none",
               borderRadius: "12px",
               fontWeight: 800,
               cursor: "pointer",
-              transition: "all 0.3s ease",
-              fontSize: "clamp(1rem, 2vw, 1.2rem)",
-              boxShadow: "0 8px 32px rgba(255, 106, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.1)",
+              fontSize: "clamp(0.9rem, 1.5vw, 1.1rem)",
+              boxShadow: "0 8px 32px rgba(255, 106, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.2)",
               marginTop: "clamp(1rem, 2vw, 2rem)",
-              letterSpacing: "1px",
-              textTransform: "uppercase"
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              padding: "clamp(0.9rem, 2vw, 1.2rem) clamp(2rem, 4vw, 3.5rem)",
+              transition: "transform var(--transition-spring), box-shadow var(--transition-base)",
             }}
             onClick={() =>
               window.open(
@@ -97,16 +111,12 @@ export default function ConclusionSlide() {
               )
             }
             onMouseOver={(e) => {
-              e.currentTarget.style.transform = "translateY(-3px)";
-              e.currentTarget.style.background = "rgba(255, 106, 0, 0.25)";
-              e.currentTarget.style.boxShadow = "0 12px 40px rgba(255, 106, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.2)";
-              e.currentTarget.style.borderColor = "rgba(255, 106, 0, 0.6)";
+              e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
+              e.currentTarget.style.boxShadow = "0 16px 48px rgba(255, 106, 0, 0.55), inset 0 1px 0 rgba(255,255,255,0.25)";
             }}
             onMouseOut={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.background = "rgba(255, 106, 0, 0.15)";
-              e.currentTarget.style.boxShadow = "0 8px 32px rgba(255, 106, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.1)";
-              e.currentTarget.style.borderColor = "rgba(255, 106, 0, 0.4)";
+              e.currentTarget.style.transform = "translateY(0) scale(1)";
+              e.currentTarget.style.boxShadow = "0 8px 32px rgba(255, 106, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.2)";
             }}
           >
             SCHEDULE WORKING SESSION

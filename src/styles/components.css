@@ -151,24 +151,26 @@
 
 /* KPI Card Styling */
 .kpi-modern {
-  background: rgba(13, 17, 23, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(10, 14, 26, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 1.25rem;
   border-radius: 16px;
   display: flex;
   align-items: center;
   gap: 1rem;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.07);
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    transform var(--transition-spring),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
 }
 
 .kpi-modern:hover {
   transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-  border-color: var(--accent);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 30px rgba(255, 106, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 106, 0, 0.4);
 }
 
 .kpi-big {
@@ -199,27 +201,30 @@
 }
 
 .bento-card {
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 14px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
   position: relative;
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transition:
-    transform 0.3s ease,
-    border-color 0.3s ease;
+    transform var(--transition-spring),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
   min-width: 0;
-  /* Performance: limit repaint scope */
   contain: content;
 }
 
 .bento-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 106, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .bento-card h4 {
@@ -236,10 +241,12 @@
 }
 
 .bento-big-num {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
   color: #fff;
   line-height: 1;
+  letter-spacing: -0.03em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
 .bento-sub {
@@ -389,7 +396,7 @@
 
 .premium-gallery-img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
   margin-bottom: 15px;
   display: block;
   object-fit: cover;
@@ -400,11 +407,12 @@
   backface-visibility: hidden;
   position: relative;
   z-index: 1;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .premium-gallery-img:hover {
-  transform: translateY(-4px) scale(1.02) translateZ(0);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25), 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px) scale(1.025) translateZ(0);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(255, 106, 0, 0.5);
   z-index: 20;
 }
 
