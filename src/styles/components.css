@@ -1362,7 +1362,8 @@
 
 /* Product Insight */
 .rdash-card--product {
-  gap: 0.5rem;
+  gap: 1.5rem;
+  justify-content: space-between;
 }
 
 .rdash-card__topwrap {
@@ -1387,7 +1388,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0.9rem;
+  gap: 1.5rem;
+  margin: auto 0;
 }
 
 .rdash-pstat {
@@ -1408,8 +1410,9 @@
 }
 
 .rdash-barchart-wrap {
-  margin-top: 1rem;
+  margin-top: auto;
   margin-left: -5px;
+  width: 100%;
 }
 
 /* Sales Metrics */
