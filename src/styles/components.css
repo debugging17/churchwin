@@ -1386,10 +1386,12 @@
 .rdash-product-stats {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
   gap: 1.5rem;
-  margin: auto 0;
+  flex: 1;
+  /* Eat the empty space but keep items centered together */
 }
 
 .rdash-pstat {
@@ -1410,7 +1412,7 @@
 }
 
 .rdash-barchart-wrap {
-  margin-top: auto;
+  margin-top: 0;
   margin-left: -5px;
   width: 100%;
 }
